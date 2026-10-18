@@ -1,0 +1,166 @@
+{
+  "slug": "command-code",
+  "name": "Command Code",
+  "kind": "harness",
+  "extends": null,
+  "tagline": "Terminal, desktop, and IDE coding agent for open and frontier models that adapts to your code style.",
+  "description": "Command Code is an AI coding agent available as a terminal CLI (cmd), a desktop app for macOS, Linux, and Windows, and a VS Code/Cursor extension. It routes requests through its own subscription plans with included model credits or through BYOK providers, including ChatGPT and Copilot subscriptions and local servers, and keeps a local taste profile learned from accepted and rejected edits. It supports plan mode, MCP servers, subagents, git worktrees, Telegram and Discord remote control, and cloud sessions that open draft pull requests.",
+  "website": "https://commandcode.ai",
+  "repo": "https://github.com/CommandCodeAI/command-code",
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Command Code",
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "bundled",
+    "local"
+  ],
+  "pricing": {
+    "model": "paid",
+    "notes": "Flat monthly plans with included model credits, plus a processing fee; extra credits are billed at model cost with no markup. No free plan. BYOK, ChatGPT/Copilot subscriptions, and local servers also work.",
+    "plans": [
+      {
+        "name": "Go",
+        "price": 1,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$10 of included usage; open models; ~9K requests; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "GOAT",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$80 in credits; 29+ models; ~75K requests; API access; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "Provider",
+        "price": 15,
+        "currency": "USD",
+        "period": "month",
+        "notes": "API plan; OpenAI/Anthropic-compatible endpoints; pay-as-you-go at model cost; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Adds premium models (Claude, GPT, Gemini); ~100K requests; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 40,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Pooled credits, shared billing and admin for a team; ~35K requests; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "Max 10×",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$150 in credits; ~219K requests; higher rate limits; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "Max 20×",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$300 in credits; ~437K requests; highest rate limits; plus processing fee",
+        "url": "https://commandcode.ai/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales; custom credits and seats",
+        "url": "https://commandcode.ai/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 4143,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm i -g command-code@latest",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Desktop app",
+      "type": "url",
+      "value": "https://commandcode.ai/desktop",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "VS Code",
+      "type": "url",
+      "value": "https://marketplace.visualstudio.com/items?itemName=CommandCode.commandcode-vscode",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://commandcode.ai/",
+    "https://commandcode.ai/pricing",
+    "https://commandcode.ai/docs",
+    "https://commandcode.ai/docs/quickstart",
+    "https://commandcode.ai/docs/worktrees",
+    "https://commandcode.ai/docs/agents",
+    "https://commandcode.ai/docs/cloud",
+    "https://commandcode.ai/docs/remote-control",
+    "https://commandcode.ai/docs/plan-mode",
+    "https://commandcode.ai/docs/mcp",
+    "https://commandcode.ai/docs/desktop",
+    "https://commandcode.ai/docs/ide",
+    "https://commandcode.ai/docs/windows",
+    "https://commandcode.ai/docs/byok",
+    "https://github.com/CommandCodeAI/command-code"
+  ],
+  "lastVerified": "2026-10-19"
+}
