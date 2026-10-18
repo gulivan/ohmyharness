@@ -46,6 +46,12 @@ One JSON file per tool: `data/tools/<slug>.json`. Validated at build time with z
   },
   "github": { "stars": 12345, "checkedAt": "2026-10-18" }, // or null if no public repo
   "status": "active",                 // "active" | "beta" | "deprecated"
+  "install": [                        // optional; omitted or [] = not verified yet. Order = display order, first is the default.
+    { "label": "npm", "type": "command", "value": "npm install -g @openai/codex", "platforms": ["macos", "linux", "windows"] },
+    { "label": "Homebrew", "type": "command", "value": "brew install --cask codex", "platforms": ["macos"] },
+    { "label": "Download", "type": "url", "value": "https://…/download", "platforms": ["macos", "windows"] }
+  ],                                   // type: "command" (copyable shell line) | "url" (download page / store / extension marketplace / sign-up for web apps)
+                                       // platforms: subset of the top-level platforms enum; label ≤ 24 chars; every entry must be backed by an official install doc in "sources"
   "sources": ["https://…"],           // ≥ 1 URL backing the facts above
   "lastVerified": "2026-10-18"
 }
