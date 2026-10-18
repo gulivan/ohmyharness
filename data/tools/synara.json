@@ -1,0 +1,43 @@
+{
+  "slug": "synara",
+  "name": "Synara",
+  "kind": "orchestrator",
+  "tagline": "Desktop app for running several coding agents in parallel with plan mode and diff review.",
+  "description": "Synara organises agent work into sessions across multiple coding CLIs, with parallel agents working in separate branches. It includes slash commands such as /plan, provider-native subagents, connector-based MCP integrations and an Agent Gateway for wiring agents together.",
+  "website": "https://www.trysynara.com",
+  "repo": "https://github.com/Emanuele-web04/synara",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Emanuele Di Pietro",
+  "interfaces": ["desktop"],
+  "platforms": ["macos", "windows", "linux"],
+  "drives": ["claude-code", "codex-cli", "opencode", "cursor-cli", "antigravity", "grok-build", "devin", "pi", "oh-my-pi", "factory-droid"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free"
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 2120,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://www.trysynara.com/",
+    "https://www.trysynara.com/docs",
+    "https://www.trysynara.com/llms.txt",
+    "https://www.trysynara.com/docs/reference/slash-commands.md",
+    "https://www.trysynara.com/docs/features/parallel-agents",
+    "https://www.trysynara.com/docs/workflows/agent-gateway"
+  ],
+  "lastVerified": "2026-10-18"
+}

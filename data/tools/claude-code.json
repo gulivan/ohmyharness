@@ -1,0 +1,43 @@
+{
+  "slug": "claude-code",
+  "name": "Claude Code",
+  "kind": "harness",
+  "tagline": "Anthropic's coding agent, available in the terminal, IDEs, a desktop app, the web, and mobile.",
+  "description": "Claude Code reads a codebase, edits files, runs commands, and works through multi-step tasks. It supports subagents, plan mode, MCP servers, git worktrees, cloud sessions, and remote control from other devices.",
+  "website": "https://claude.com/product/claude-code",
+  "repo": "https://github.com/anthropics/claude-code",
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Anthropic",
+  "interfaces": ["cli", "ide-extension", "desktop", "web", "mobile"],
+  "platforms": ["macos", "linux", "windows", "web", "ios", "android"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "paid",
+    "notes": "Included with Claude Pro and Max plans; also available through Anthropic Console/API billing."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": { "stars": 152242, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://code.claude.com/docs/en/overview",
+    "https://code.claude.com/docs/en/worktrees",
+    "https://code.claude.com/docs/en/common-workflows",
+    "https://code.claude.com/docs/en/claude-code-on-the-web",
+    "https://code.claude.com/docs/en/remote-control",
+    "https://code.claude.com/docs/en/mcp",
+    "https://claude.com/pricing",
+    "https://github.com/anthropics/claude-code"
+  ],
+  "lastVerified": "2026-10-18"
+}

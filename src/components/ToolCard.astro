@@ -1,0 +1,94 @@
+---
+import type { Tool } from "../data/schema";
+import {
+  FEATURES,
+  INTERFACE_LABELS,
+  KIND_LABELS,
+  PLATFORM_LABELS,
+  PRICING_LABELS,
+  confirmedFeatures,
+  sourceLabel,
+  sourceState,
+} from "../lib/features";
+import { formatStars } from "../lib/tools";
+import Glyph from "./Glyph.astro";
+import Monogram from "./Monogram.astro";
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+
+const searchText = [
+  tool.name,
+  tool.tagline,
+  tool.description,
+  tool.maker ?? "",
+  KIND_LABELS[tool.kind],
+  ...tool.platforms,
+  ...tool.interfaces,
+  ...tool.modelAccess,
+  tool.license ?? "",
+]
+  .join(" ")
+  .toLowerCase();
+
+const platforms =
+  tool.platforms.length > 0
+    ? tool.platforms.map((value) => PLATFORM_LABELS[value] ?? value).join(" / ")
+    : "Platforms ?";
+
+const interfaces =
+  tool.interfaces.length > 0
+    ? tool.interfaces.map((value) => INTERFACE_LABELS[value] ?? value).join(" / ")
+    : "Interfaces ?";
+
+const pricing = tool.pricing.model
+  ? PRICING_LABELS[tool.pricing.model] ?? tool.pricing.model
+  : "Pricing ?";
+
+const source = sourceLabel(tool);
+---
+
+<article
+  class="tool-card"
+  data-tool
+  data-slug={tool.slug}
+  data-kind={tool.kind}
+  data-name={tool.name}
+  data-search={searchText}
+  data-platforms={tool.platforms.join(" ")}
+  data-interfaces={tool.interfaces.join(" ")}
+  data-source={sourceState(tool)}
+  data-features={confirmedFeatures(tool).join(" ")}
+  data-pricing={tool.pricing.model ?? ""}
+>
+  <div class="tool-card__top">
+    <Monogram slug={tool.slug} name={tool.name} />
+    <span class="tool-card__kind">
+      {KIND_LABELS[tool.kind]}{tool.status !== "active" ? ` · ${tool.status}` : ""}
+    </span>
+  </div>
+
+  <h3 class="tool-card__name">
+    <a href={`/tools/${tool.slug}`}>{tool.name}</a>
+  </h3>
+
+  <p class="tool-card__tagline">{tool.tagline}</p>
+
+  <div class="tool-card__features" aria-label="Features">
+    {FEATURES.map((feature) => (
+      <Glyph value={tool.features[feature.key]} label={feature.label} />
+    ))}
+  </div>
+
+  <div class="tool-card__meta">
+    <span>{platforms}</span>
+    <span class="dot">{pricing}</span>
+    <span class="dot">{source}</span>
+    {tool.github && <span class="dot">★ {formatStars(tool.github.stars)}</span>}
+  </div>
+
+  <span class="visually-hidden">{interfaces}</span>
+</article>

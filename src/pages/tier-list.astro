@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  countByKind,
+  getAllTools,
+  iconFor,
+  REPO_URL,
+} from "../lib/tools";
+
+const tools = getAllTools();
+const counts = countByKind();
+const clientTools = tools.map((tool) => ({ ...tool, icon: iconFor(tool.slug) }));
+const description =
+  "Make your own tier list of AI coding harnesses and orchestrators. Drag tools between tiers, rename them, download a PNG or share the link.";
+
+const scopes = [
+  { value: "all", label: "All tools", count: tools.length },
+  { value: "harness", label: "Harnesses", count: counts.harness },
+  { value: "orchestrator", label: "Orchestrators", count: counts.orchestrator },
+  { value: "cloud-agent", label: "Cloud agents", count: counts["cloud-agent"] },
+  { value: "add-on", label: "Add-ons", count: counts["add-on"] },
+];
+---
+
+<BaseLayout title="Tier list" description={description} path="/tier-list">
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">Tier list maker</p>
+      <h1 class="page-title">Rank the tools.</h1>
+      <p class="lede">
+        Drag tools into tiers, rename the tiers, then download the board or
+        share a link. The layout travels with the link, so anyone can open the
+        same list.
+      </p>
+    </header>
+  </div>
+
+  <section class="section section--flush">
+    <div class="container">
+      {tools.length === 0 && (
+        <div class="empty-state" style="margin-bottom:20px">
+          <h3>No tools to rank yet.</h3>
+          <p class="muted">Add the first tool to the directory and it will appear here.</p>
+          <a class="btn btn--primary" href={`${REPO_URL}/issues/new?template=add-tool.yml`}>Suggest a tool ↗</a>
+        </div>
+      )}
+
+      <div class="tier-toolbar">
+        <div class="tier-controls" role="group" aria-label="Choose which tools to rank">
+          <span class="tier-controls__label">Start with</span>
+          {scopes.map((scope) => (
+            <button
+              class="chip"
+              type="button"
+              data-scope={scope.value}
+              aria-pressed={scope.value === "all" ? "true" : "false"}
+            >
+              {scope.label} <span aria-hidden="true">{scope.count}</span>
+            </button>
+          ))}
+        </div>
+        <div class="tier-controls">
+          <button class="btn btn--small" type="button" id="add-tier">+ Add tier</button>
+          <button class="btn btn--small" type="button" id="download-png">Download PNG</button>
+          <button class="btn btn--small btn--ghost" type="button" id="copy-link">Copy link</button>
+          <a
+            class="btn btn--small btn--primary"
+            id="share-x"
+            href="https://x.com/intent/post"
+            target="_blank"
+            rel="noopener"
+          >Share on X ↗</a>
+        </div>
+      </div>
+
+      <div class="board-capture" id="capture">
+        <div class="board-capture__title">AI coding tool tier list</div>
+        <div class="board-capture__sub" id="tier-capture-sub">ohmyharness.com · {tools.length} tools</div>
+        <div class="board" id="tier-board" aria-label="Tier list board"></div>
+      </div>
+
+      <div class="move-bar" id="move-bar" hidden>
+        <span class="move-bar__label">Selected: <strong id="move-label"></strong> →</span>
+        <div class="row" id="move-targets"></div>
+      </div>
+
+      <div class="tier-status" id="tier-status" role="status" aria-live="polite"></div>
+
+      <p class="tier-hint" style="margin-top:10px">
+        Drag a tile to a tier, or drag the ⠿ handle on a touch screen. With a
+        keyboard: focus a tile and press <kbd>Space</kbd> to select it, then
+        <kbd>↑</kbd>/<kbd>↓</kbd> to change tier or use the move buttons.
+        <kbd>←</kbd>/<kbd>→</kbd> reorders within a tier and <kbd>Esc</kbd>
+        deselects.
+      </p>
+
+      <noscript>
+        <p class="notice" style="margin-top:16px">
+          The board needs JavaScript to drag and save tiers. Every tool is listed
+          on the <a href="/">directory page</a>.
+        </p>
+      </noscript>
+    </div>
+  </section>
+
+  <script
+    type="application/json"
+    id="tier-data"
+    set:html={JSON.stringify(clientTools).replace(/</g, "\\u003c")}
+  ></script>
+</BaseLayout>
+
+<script>
+  import "../scripts/tierlist";
+</script>

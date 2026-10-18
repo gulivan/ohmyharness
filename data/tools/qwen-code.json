@@ -1,0 +1,44 @@
+{
+  "slug": "qwen-code",
+  "name": "Qwen Code",
+  "kind": "harness",
+  "tagline": "Alibaba's open-source terminal coding agent with subagents and editor integrations.",
+  "description": "Qwen Code is an open-source coding agent from Alibaba's Qwen team. It runs in the terminal or headless, with desktop, web, editor, and chat integrations, and supports subagents, agent teams, MCP, and multiple model providers.",
+  "website": "https://qwenlm.github.io/qwen-code-docs/en/users/overview/",
+  "repo": "https://github.com/QwenLM/qwen-code",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Alibaba",
+  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension", "api"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["byok", "subscription", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open-source software; model access is billed by the chosen provider, such as an Alibaba ModelStudio Coding Plan, an API key, or a local server."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": false,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 28564,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://qwenlm.github.io/qwen-code-docs/en/users/overview/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/approval-mode/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/sub-agents/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/sandbox/",
+    "https://github.com/QwenLM/qwen-code"
+  ],
+  "lastVerified": "2026-10-18"
+}

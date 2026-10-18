@@ -1,0 +1,23 @@
+# build output
+dist/
+.astro/
+public/og/
+
+# dependencies
+node_modules/
+
+# local environment
+.env
+.env.*
+!.env.example
+
+# editor and OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# logs and test artifacts
+*.log
+test-results/
+playwright-report/

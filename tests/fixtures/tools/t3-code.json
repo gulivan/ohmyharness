@@ -1,0 +1,40 @@
+{
+  "slug": "t3-code",
+  "name": "T3 Code",
+  "kind": "orchestrator",
+  "tagline": "A desktop app that runs coding agents side by side in parallel worktrees.",
+  "description": "T3 Code manages several agent sessions from one window, each in its own git worktree. It can drive Claude Code and Codex CLI and shows a reviewable diff for each session.",
+  "website": "https://t3.chat",
+  "repo": "https://github.com/pingdotgg/t3code",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "T3 Tools",
+  "interfaces": ["desktop", "web"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code", "codex-cli"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source; model costs depend on your own plan or key."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": false,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 6200,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/pingdotgg/t3code",
+    "https://t3.chat"
+  ],
+  "lastVerified": "2026-10-18"
+}

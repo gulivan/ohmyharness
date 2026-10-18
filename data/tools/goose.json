@@ -1,0 +1,40 @@
+{
+  "slug": "goose",
+  "name": "goose",
+  "kind": "harness",
+  "tagline": "Block's open-source local agent with a desktop app, CLI, API, and MCP-based extensions.",
+  "description": "goose runs locally and connects to tools through MCP extensions, with a desktop app, CLI, and API. It supports subagents, recipes, multiple model providers, and sign-in with existing subscriptions.",
+  "website": "https://goose-docs.ai/",
+  "repo": "https://github.com/aaif-goose/goose",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Block",
+  "interfaces": ["cli", "desktop", "api"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source; model usage is billed by your provider or covered by your subscription."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 55415, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://goose-docs.ai/",
+    "https://goose-docs.ai/docs/guides/context-engineering/subagents",
+    "https://goose-docs.ai/llms.txt",
+    "https://github.com/aaif-goose/goose/releases/tag/v1.35.0",
+    "https://github.com/aaif-goose/goose"
+  ],
+  "lastVerified": "2026-10-18"
+}

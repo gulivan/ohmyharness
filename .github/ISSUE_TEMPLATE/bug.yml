@@ -1,0 +1,66 @@
+name: Bug report
+description: Report a broken page, layout problem, or behaviour that does not work.
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please include the page address and what you
+        expected to happen.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: A short description of the problem.
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The URL, or the path if you know it.
+      placeholder: https://ohmyharness.com/tools/example
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: The tier list should keep its state after a reload.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and device
+      description: For example "Firefox 142 on Linux" or "Safari on iPhone 13".
+      placeholder: Firefox 142 on Linux
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: If the problem only happens after some interaction.
+      placeholder: |
+        1. Open /tier-list
+        2. Drag a tile to A
+        3. Reload
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag images here if the problem is visual.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that this is not a data correction (those go in "Fix data").
+          required: true

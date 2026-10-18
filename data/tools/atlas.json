@@ -1,0 +1,40 @@
+{
+  "slug": "atlas",
+  "name": "Atlas",
+  "kind": "orchestrator",
+  "tagline": "Desktop workspace running several coding agents over one project with shared memory.",
+  "description": "Atlas runs Claude Code, Codex, its own agent or any agent from the ACP registry side by side against the same codebase, sharing plans, decisions and session context between them. It records each agent session as checkpoints tied to the commits it produced, and paid plans add remote runs.",
+  "website": "https://tryatlas.cc",
+  "repo": "https://github.com/pacifio/atlas",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Pacifio",
+  "interfaces": ["desktop"],
+  "platforms": ["macos", "windows"],
+  "drives": ["claude-code", "codex-cli", "opencode", "cursor-cli", "kilo-code"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free tier with your own keys; Pro at $20/month and higher tiers add synced projects, storage and included AI credit."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 9618,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "beta",
+  "sources": [
+    "https://github.com/pacifio/atlas",
+    "https://tryatlas.cc/"
+  ],
+  "lastVerified": "2026-10-18"
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "pi",
+  "name": "Pi",
+  "kind": "harness",
+  "tagline": "Minimal, extensible terminal agent from Earendil Works, designed to be customized.",
+  "description": "Pi is a small terminal agent harness with extensions, skills, prompt templates, and shareable packages. It supports MCP servers, multiple providers, local models, print/JSON modes, RPC, and an SDK, while intentionally omitting subagents and plan mode.",
+  "website": "https://pi.dev/",
+  "repo": "https://github.com/earendil-works/pi",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Earendil Works",
+  "interfaces": ["cli", "tui", "api"],
+  "platforms": ["macos", "linux", "windows", "android"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source; model usage is billed by your provider or covered by your subscription."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": false,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": false
+  },
+  "github": { "stars": 116125, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://github.com/earendil-works/pi",
+    "https://pi.dev/docs/latest",
+    "https://pi.dev/docs/latest/models",
+    "https://pi.dev/docs/latest/mcp",
+    "https://pi.dev/docs/latest/termux"
+  ],
+  "lastVerified": "2026-10-18"
+}

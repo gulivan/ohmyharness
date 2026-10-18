@@ -1,0 +1,40 @@
+{
+  "slug": "maestro",
+  "name": "Maestro",
+  "kind": "orchestrator",
+  "tagline": "Desktop command center for running a fleet of coding agents across projects.",
+  "description": "A cross-platform desktop app that runs Claude Code, Codex, OpenCode, Factory Droid, Copilot CLI, Qwen Code and Oh My Pi agents in parallel, with git worktrees, a diff viewer, playbooks, group chat between agents and browser or phone remote access. A CLI exposes the same agents for headless and scheduled runs.",
+  "website": "https://RunMaestro.ai",
+  "repo": "https://github.com/RunMaestro/Maestro",
+  "openSource": true,
+  "license": "AGPL-3.0",
+  "maker": "RunMaestro",
+  "interfaces": ["desktop", "cli", "web", "mobile"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code", "codex-cli", "opencode", "factory-droid", "github-copilot-cli", "qwen-code", "ohmypi"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under AGPL-3.0; agents use your existing subscriptions or API keys."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 3473,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/RunMaestro/Maestro",
+    "https://RunMaestro.ai/"
+  ],
+  "lastVerified": "2026-10-18"
+}

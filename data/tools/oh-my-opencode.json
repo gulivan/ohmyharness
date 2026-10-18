@@ -1,0 +1,42 @@
+{
+  "slug": "oh-my-opencode",
+  "name": "Oh My OpenCode (OmO)",
+  "kind": "harness",
+  "tagline": "Multi-agent distribution for OpenCode, Codex and its own standalone runtime.",
+  "description": "Extends OpenCode with a multi-agent stack: an orchestrator delegates to specialist agents for exploration, planning, implementation and review, with per-task model routing and background tasks. The project also ships a Codex plugin (LazyCodex) and OmO Native, a standalone build on the senpi fork of pi.",
+  "website": "https://omo.dev",
+  "repo": "https://github.com/code-yeongyu/oh-my-openagent",
+  "openSource": false,
+  "license": "Sustainable Use License",
+  "maker": "YeonGyu Kim (code-yeongyu)",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["opencode", "codex-cli"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "The distribution is free to install and use your own model access; it is source-available under the Sustainable Use License."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 70162,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/code-yeongyu/oh-my-openagent",
+    "https://omo.dev/",
+    "https://github.com/code-yeongyu/oh-my-openagent/blob/main/LICENSE.md",
+    "https://www.npmjs.com/package/oh-my-opencode"
+  ],
+  "lastVerified": "2026-10-18"
+}

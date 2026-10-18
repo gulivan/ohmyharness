@@ -1,0 +1,43 @@
+{
+  "slug": "t3-code",
+  "name": "T3 Code",
+  "kind": "orchestrator",
+  "tagline": "Desktop and web client that runs coding agents in threads, with worktrees, plan mode and remote access.",
+  "description": "T3 Code wraps agent CLIs in a thread-based interface, where each thread can run in its own worktree and delegate work to child agents. It is available as a desktop app, a browser client and a CLI, includes inline diff review and permission modes, and supports remote access through T3 Connect.",
+  "website": "https://t3.codes",
+  "repo": "https://github.com/pingdotgg/t3code",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Ping.gg (T3)",
+  "interfaces": ["desktop", "web", "mobile", "cli"],
+  "platforms": ["macos", "windows", "linux", "ios", "android", "web"],
+  "drives": ["claude-code", "codex-cli", "cursor-cli", "grok-build", "opencode", "antigravity", "pi", "muse-code"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free; the site's pricing answer lists no paid tier."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 28315,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://t3.codes/",
+    "https://github.com/pingdotgg/t3code",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/thread-sidebar.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

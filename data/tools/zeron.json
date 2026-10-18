@@ -1,0 +1,41 @@
+{
+  "slug": "zeron",
+  "name": "Zeron",
+  "kind": "orchestrator",
+  "tagline": "Desktop app for running coding agents in parallel chats, with worktrees, MCP and multi-device sync.",
+  "description": "Zeron runs agent conversations in parallel chats that can branch into worktrees, and displays edits in a changes viewer. It includes MCP support, lets chats spawn child chats, and syncs sessions across devices.",
+  "website": "https://zeron.sh",
+  "repo": "https://github.com/zeronsh/zeron",
+  "openSource": true,
+  "license": "MIT",
+  "maker": null,
+  "interfaces": ["desktop", "cli"],
+  "platforms": ["macos", "windows", "linux"],
+  "drives": ["claude-code", "codex-cli", "cursor-cli", "devin", "grok-build", "pi", "antigravity", "opencode"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free"
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 3295,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://zeron.sh/",
+    "https://github.com/zeronsh/zeron",
+    "https://github.com/zeronsh/zeron/blob/main/docs/mcp.md",
+    "https://github.com/zeronsh/zeron/blob/main/docs/PARITY.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "cloudroom",
+  "name": "Cloudroom",
+  "kind": "orchestrator",
+  "tagline": "Runs coding agents in cloud threads that you can follow from a desktop app, CLI or phone.",
+  "description": "Cloudroom launches agent sessions, called cloud threads, in isolated environments and lets several run at once per project. It supports local terminal agents alongside hosted ones, includes subagents, and provides a web app for checking on sessions from a phone.",
+  "website": "https://www.cloudroom.dev",
+  "repo": "https://github.com/davidondrej/cloudroom-core",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "David Ondrej",
+  "interfaces": ["desktop", "cli", "web", "mobile"],
+  "platforms": ["macos", "linux", "web"],
+  "drives": ["claude-code", "codex-cli", "pi", "opencode", "cursor-cli", "grok-build"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free $0 (100 cloud agents per 30 days, 25h compute); Pro $50/mo; Ultra $500/mo; Business on request."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 867,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "beta",
+  "sources": [
+    "https://www.cloudroom.dev/",
+    "https://www.cloudroom.dev/pricing",
+    "https://www.cloudroom.dev/docs/index.md",
+    "https://www.cloudroom.dev/docs/subagents",
+    "https://www.cloudroom.dev/docs/cloud-threads",
+    "https://www.cloudroom.dev/docs/harnesses",
+    "https://www.cloudroom.dev/docs/faq.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

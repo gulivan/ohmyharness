@@ -1,0 +1,40 @@
+{
+  "slug": "jules",
+  "name": "Jules",
+  "kind": "cloud-agent",
+  "tagline": "Google's asynchronous coding agent that works in cloud VMs and opens pull requests.",
+  "description": "Jules is Google's asynchronous coding agent. It clones repositories into cloud virtual machines, proposes a plan for approval, makes changes, and opens pull requests. It is used through a web app, a REST API, and a command-line tool.",
+  "website": "https://jules.google",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Google",
+  "interfaces": ["web", "cli", "api"],
+  "platforms": ["web"],
+  "drives": [],
+  "modelAccess": ["subscription"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free tier with 15 tasks/day; higher limits through Google AI Pro and Ultra plans."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://jules.google/",
+    "https://jules.google/docs/",
+    "https://jules.google/docs/usage-limits/",
+    "https://jules.google/docs/llms.txt",
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
+  ],
+  "lastVerified": "2026-10-18"
+}

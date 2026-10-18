@@ -1,0 +1,45 @@
+{
+  "slug": "diri",
+  "name": "Diri",
+  "kind": "orchestrator",
+  "tagline": "Mac and Linux app for running terminal coding agents in parallel, with a phone companion.",
+  "description": "Diri runs terminal-based coding agents side by side, each in its own git worktree, and adds an MCP server that lets an agent spawn further agents. It can connect to remote machines over SSH and includes a beta iPhone companion app for following sessions away from the desk.",
+  "website": "https://diri.sh",
+  "repo": "https://github.com/cristicretu/diri",
+  "openSource": true,
+  "license": "AGPL-3.0",
+  "maker": "Cristian Crețu",
+  "interfaces": ["desktop", "cli", "mobile"],
+  "platforms": ["macos", "linux", "ios"],
+  "drives": ["claude-code", "codex-cli", "cursor-cli", "gemini-cli", "aider", "amp", "antigravity", "cline", "github-copilot-cli", "devin", "factory-droid", "grok-build", "kilo-code", "kimi-cli", "opencode", "pi"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source (AGPL-3.0)."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 450,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://diri.sh/",
+    "https://diri.sh/llms.txt",
+    "https://diri.sh/docs/index.md",
+    "https://diri.sh/docs/mcp/",
+    "https://diri.sh/docs/agents/",
+    "https://diri.sh/docs/install.md",
+    "https://github.com/cristicretu/diri"
+  ],
+  "lastVerified": "2026-10-18"
+}

@@ -1,0 +1,32 @@
+---
+import { REPO_URL } from "../lib/tools";
+
+const pathname = Astro.url.pathname;
+const directoryActive =
+  pathname === "/" || pathname.startsWith("/tools") || pathname.startsWith("/vs");
+const items = [
+  { href: "/", label: "Directory", active: directoryActive },
+  { href: "/compare", label: "Compare", active: pathname.startsWith("/compare") },
+  { href: "/tier-list", label: "Tier list", active: pathname.startsWith("/tier-list") },
+  { href: "/about", label: "About", active: pathname.startsWith("/about") },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="ohmyharness home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span>ohmyharness</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {items.map((item) => (
+        <a href={item.href} aria-current={item.active ? "page" : undefined}>
+          {item.label}
+        </a>
+      ))}
+      <a class="site-nav__repo" href={REPO_URL} rel="noopener">
+        GitHub ↗
+      </a>
+    </nav>
+  </div>
+</header>

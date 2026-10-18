@@ -1,0 +1,38 @@
+{
+  "slug": "emdash",
+  "name": "Emdash",
+  "kind": "orchestrator",
+  "tagline": "Open-source desktop app for running coding agents in parallel, each in its own Git worktree.",
+  "description": "Emdash is an agentic development environment for macOS, Windows, and Linux. It launches locally installed coding-agent CLIs in isolated worktrees, with diff review, pull requests, scheduled runs, and a built-in browser preview.",
+  "website": "https://emdash.com",
+  "repo": "https://github.com/generalaction/emdash",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Emdash",
+  "interfaces": ["desktop"],
+  "platforms": ["macos", "windows", "linux"],
+  "drives": ["claude-code", "codex-cli", "cursor-cli", "github-copilot-cli", "amp", "opencode", "qwen-code", "factory-droid", "gemini-cli"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free open-source download. Emdash 2.0 is in early access."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 6026, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://emdash.com/",
+    "https://github.com/generalaction/emdash",
+    "https://www.ycombinator.com/launches/PRP-emdash-open-source-agentic-development-environment-ade"
+  ],
+  "lastVerified": "2026-10-18"
+}

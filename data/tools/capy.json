@@ -1,0 +1,40 @@
+{
+  "slug": "capy",
+  "name": "Capy AI",
+  "kind": "orchestrator",
+  "tagline": "Runs fleets of cloud or local coding-agent threads and reviews the pull requests they open.",
+  "description": "Capy is a hosted platform for orchestrating many coding-agent threads from its web and desktop apps, Slack, Linear, or an API. Threads run on the user's machine or in Capy's cloud, and a Captain agent can manage a crew of threads.",
+  "website": "https://capy.ai",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Capy",
+  "interfaces": ["web", "desktop", "api"],
+  "platforms": ["macos", "windows", "linux", "web"],
+  "drives": [],
+  "modelAccess": ["bundled", "byok", "subscription"],
+  "pricing": {
+    "model": "paid",
+    "notes": "Lite $20/mo, Pro $100/mo, Max $200-$1,000/mo, Enterprise custom. Credits pay for model tokens, cloud machine time, and images."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://capy.ai/",
+    "https://docs.capy.ai/welcome",
+    "https://docs.capy.ai/captains",
+    "https://capy.ai/pricing",
+    "https://docs.capy.ai/models-and-pricing"
+  ],
+  "lastVerified": "2026-10-18"
+}

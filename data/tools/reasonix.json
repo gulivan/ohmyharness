@@ -1,0 +1,41 @@
+{
+  "slug": "reasonix",
+  "name": "Reasonix",
+  "kind": "harness",
+  "tagline": "Open-source coding agent for the terminal, desktop app, browser and VS Code.",
+  "description": "A local coding agent that reads a project, edits files and runs commands, with configurable permission levels and a plan mode that waits for approval before starting. It ships as a CLI/TUI, the Reasonix Studio desktop app, a local web interface and a VS Code extension, and supports MCP servers and plugins.",
+  "website": "https://reasonix.io",
+  "repo": "https://github.com/esengine/DeepSeek-Reasonix",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "esengine",
+  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under MIT; you pay the model provider directly."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true
+  },
+  "github": {
+    "stars": 35845,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/esengine/DeepSeek-Reasonix",
+    "https://reasonix.io/",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/README.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

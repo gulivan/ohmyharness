@@ -1,0 +1,367 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Monogram from "../../components/Monogram.astro";
+import Glyph from "../../components/Glyph.astro";
+import type { Tool } from "../../data/schema";
+import {
+  FEATURES,
+  INTERFACE_LABELS,
+  KIND_LABELS,
+  KIND_PLURALS,
+  MODEL_ACCESS_LABELS,
+  PLATFORM_LABELS,
+  PRICING_LABELS,
+  STATUS_LABELS,
+  glyphWord,
+  sourceLabel,
+} from "../../lib/features";
+import {
+  formatDate,
+  formatStars,
+  getAllTools,
+  getAddOnsFor,
+  getDrivenBy,
+  getTool,
+  REPO_URL,
+} from "../../lib/tools";
+
+export function getStaticPaths() {
+  return getAllTools().map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const allTools = getAllTools();
+const drivenBy = getDrivenBy(tool.slug);
+const drives = tool.drives.map((slug) => getTool(slug) ?? { slug });
+const extended = tool.extends ? getTool(tool.extends) : undefined;
+const addOns = getAddOnsFor(tool.slug);
+const pricingLabel = tool.pricing.model
+  ? (PRICING_LABELS[tool.pricing.model] ?? tool.pricing.model)
+  : "Unknown";
+
+const websiteLabel = tool.website.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const repoLabel = tool.repo
+  ? tool.repo.replace(/^https?:\/\//, "").replace(/\/$/, "")
+  : null;
+const editUrl = `${REPO_URL}/edit/main/data/tools/${tool.slug}.json`;
+const issueUrl = `${REPO_URL}/issues/new?template=fix-data.yml&title=${encodeURIComponent(
+  `Fix data: ${tool.name} (${tool.slug})`,
+)}`;
+
+const description = `${tool.tagline} Features, pricing, platforms and sources for ${tool.name}.`;
+
+const jsonLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: tool.name,
+  description: tool.description,
+  url: tool.website,
+  applicationCategory: "DeveloperApplication",
+  operatingSystem:
+    tool.platforms.length > 0
+      ? tool.platforms.map((value) => PLATFORM_LABELS[value] ?? value).join(", ")
+      : undefined,
+  sameAs: tool.repo ? [tool.repo] : undefined,
+  offers:
+    tool.pricing.model === "free"
+      ? { "@type": "Offer", price: "0", priceCurrency: "USD" }
+      : undefined,
+};
+
+const related = allTools
+  .filter((item) => item.kind === tool.kind && item.slug !== tool.slug)
+  .slice(0, 4);
+---
+
+<BaseLayout
+  title={tool.name}
+  description={description}
+  path={`/tools/${tool.slug}`}
+  image={`/og/${tool.slug}.png`}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <nav class="small" aria-label="Breadcrumb" style="padding-top:20px">
+      <a href="/">Directory</a> / <a href={`/compare?kind=${tool.kind}`}>{KIND_PLURALS[tool.kind]}</a> /
+      <span>{tool.name}</span>
+    </nav>
+
+    <header class="tool-head">
+      <div class="tool-head__main">
+        <Monogram slug={tool.slug} name={tool.name} size="lg" />
+        <div>
+          <div class="tool-head__kind">
+            <span>{KIND_LABELS[tool.kind]}</span>
+            <span
+              class:list={[
+                "status",
+                tool.status !== "active" && `status--${tool.status}`,
+              ]}
+            >{STATUS_LABELS[tool.status]}</span>
+            {sourceLabel(tool) !== "?" && <span>{sourceLabel(tool)}</span>}
+            {sourceLabel(tool) === "?" && <span>Source ?</span>}
+          </div>
+          <h1 class="tool-head__title">{tool.name}</h1>
+          <p class="tool-head__tagline">{tool.tagline}</p>
+          {tool.extends && (
+            <p class="tool-head__extends">
+              Extends{" "}
+              {extended ? (
+                <a href={`/tools/${extended.slug}`}>{extended.name}</a>
+              ) : (
+                <span class="drive-link--missing">
+                  {tool.extends} <span class="small">not listed yet</span>
+                </span>
+              )}
+            </p>
+          )}
+        </div>
+      </div>
+      <div class="tool-head__actions">
+        <a class="btn btn--primary" href={tool.website} rel="noopener">Visit website ↗</a>
+        {tool.repo && <a class="btn" href={tool.repo} rel="noopener">Repository ↗</a>}
+        <a class="btn" href={`/compare?tools=${tool.slug}`}>Compare</a>
+        <a class="btn btn--ghost" href="/tier-list#v1|S~A~B~C~D|">Add to a tier list</a>
+      </div>
+    </header>
+
+    <div class="tool-layout">
+      <div class="stack">
+        <section class="panel">
+          <div class="panel__head"><span>About</span><span>{tool.maker ?? "Maker unknown"}</span></div>
+          <div class="panel__body">
+            <div class="prose-block">
+              <p>{tool.description}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="features">
+          <div class="panel__head">
+            <span>Features</span>
+            <span class="legend">
+              <span><Glyph value={true} label="Example" /> yes</span>
+              <span><Glyph value={false} label="Example" /> no</span>
+              <span><Glyph value={null} label="Example" /> not verified</span>
+            </span>
+          </div>
+          <div class="panel__body">
+            <div class="feature-list">
+              {FEATURES.map((feature) => (
+                <div class="feature-row">
+                  <Glyph value={tool.features[feature.key]} label={feature.label} large />
+                  <div>
+                    <div class="feature-row__label">{feature.label}</div>
+                    <div class="feature-row__q">{feature.question}</div>
+                  </div>
+                  <div class="feature-row__value">{glyphWord(tool.features[feature.key])}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {(tool.kind === "orchestrator" || tool.kind === "add-on") && (
+          <section class="panel">
+            <div class="panel__head"><span>Drives these harnesses</span><span>{tool.drives.length}</span></div>
+            <div class="panel__body">
+              {tool.drives.length > 0 ? (
+                <div class="drive-list">
+                  {drives.map((drive) => (
+                    "name" in drive ? (
+                      <a class="drive-link" href={`/tools/${drive.slug}`}>
+                        <Monogram slug={drive.slug} name={drive.name} size="sm" />
+                        <span>{drive.name}</span>
+                      </a>
+                    ) : (
+                      <span class="drive-link drive-link--missing">
+                        <span>{drive.slug}</span>
+                        <span class="small">not listed yet</span>
+                      </span>
+                    )
+                  ))}
+                </div>
+              ) : (
+                <p class="muted small">No harnesses listed yet.</p>
+              )}
+            </div>
+          </section>
+        )}
+
+        {drivenBy.length > 0 && (
+          <section class="panel">
+            <div class="panel__head"><span>Runs inside</span><span>{drivenBy.length}</span></div>
+            <div class="panel__body">
+              <div class="drive-list">
+                {drivenBy.map((app) => (
+                  <a class="drive-link" href={`/tools/${app.slug}`}>
+                    <Monogram slug={app.slug} name={app.name} size="sm" />
+                    <span>{app.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {addOns.length > 0 && (
+          <section class="panel" id="add-ons">
+            <div class="panel__head"><span>Add-ons</span><span>{addOns.length}</span></div>
+            <div class="panel__body">
+              <div class="drive-list">
+                {addOns.map((addOn) => (
+                  <a class="drive-link" href={`/tools/${addOn.slug}`}>
+                    <Monogram slug={addOn.slug} name={addOn.name} size="sm" />
+                    <span>{addOn.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {related.length > 0 && (
+          <section class="panel">
+            <div class="panel__head"><span>Other {KIND_PLURALS[tool.kind].toLowerCase()}</span><a class="small" href="/">See all</a></div>
+            <div class="panel__body">
+              <div class="drive-list">
+                {related.map((item) => (
+                  <a class="drive-link" href={`/tools/${item.slug}`}>
+                    <Monogram slug={item.slug} name={item.name} size="sm" />
+                    <span>{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </div>
+
+      <aside class="stack">
+        <section class="panel">
+          <div class="panel__head"><span>Facts</span><span>{formatDate(tool.lastVerified)}</span></div>
+          <div class="panel__body">
+            <dl class="facts">
+              <div class="fact">
+                <dt>Website</dt>
+                <dd><a href={tool.website} rel="noopener" style="text-decoration:underline;text-underline-offset:3px">{websiteLabel} ↗</a></dd>
+              </div>
+              <div class="fact">
+                <dt>Repository</dt>
+                <dd>
+                  {tool.repo ? (
+                    <a href={tool.repo} rel="noopener" style="text-decoration:underline;text-underline-offset:3px">{repoLabel} ↗</a>
+                  ) : (
+                    "No public repository"
+                  )}
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>License</dt>
+                <dd>{tool.license ?? "Unknown"}</dd>
+              </div>
+              <div class="fact">
+                <dt>Maker</dt>
+                <dd>{tool.maker ?? "Unknown"}</dd>
+              </div>
+              <div class="fact">
+                <dt>Interfaces</dt>
+                <dd>
+                  <div class="tag-list">
+                    {tool.interfaces.length > 0
+                      ? tool.interfaces.map((value) => (
+                          <span class="tag">{INTERFACE_LABELS[value] ?? value}</span>
+                        ))
+                      : <span class="muted">Unknown</span>}
+                  </div>
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>Platforms</dt>
+                <dd>
+                  <div class="tag-list">
+                    {tool.platforms.length > 0
+                      ? tool.platforms.map((value) => (
+                          <span class="tag">{PLATFORM_LABELS[value] ?? value}</span>
+                        ))
+                      : <span class="muted">Unknown</span>}
+                  </div>
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>Model access</dt>
+                <dd>
+                  <div class="tag-list">
+                    {tool.modelAccess.length > 0
+                      ? tool.modelAccess.map((value) => (
+                          <span class="tag">{MODEL_ACCESS_LABELS[value] ?? value}</span>
+                        ))
+                      : <span class="muted">Unknown</span>}
+                  </div>
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>Pricing</dt>
+                <dd>
+                  {pricingLabel}
+                  {tool.pricing.notes && <span class="muted"> — {tool.pricing.notes}</span>}
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>GitHub</dt>
+                <dd>
+                  {tool.github
+                    ? `★ ${formatStars(tool.github.stars)} · checked ${formatDate(tool.github.checkedAt)}`
+                    : tool.repo
+                      ? "Stars not checked"
+                      : "No public repository"}
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>Last verified</dt>
+                <dd>{formatDate(tool.lastVerified)}</dd>
+              </div>
+              <div class="fact">
+                <dt>Status</dt>
+                <dd>{STATUS_LABELS[tool.status]}</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__head"><span>Sources</span><span>{tool.sources.length}</span></div>
+          <div class="panel__body">
+            <ul class="sources">
+              {tool.sources.map((source) => (
+                <li><a href={source} rel="noopener">{source}</a></li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__head"><span>Keep it honest</span></div>
+          <div class="panel__body stack">
+            <p class="inline-note">
+              Something out of date or wrong? Every fact links to a source.
+              Corrections are welcome.
+            </p>
+            <div class="edit-links">
+              <a class="btn btn--small" href={editUrl} rel="noopener">Edit this page on GitHub ↗</a>
+              <a class="btn btn--small btn--ghost" href={issueUrl} rel="noopener">Report a problem ↗</a>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

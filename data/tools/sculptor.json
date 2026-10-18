@@ -1,0 +1,38 @@
+{
+  "slug": "sculptor",
+  "name": "Sculptor",
+  "kind": "orchestrator",
+  "tagline": "Desktop app from Imbue for running coding agents in parallel, each in an isolated workspace.",
+  "description": "Sculptor runs each agent in its own workspace with a branch, terminal, and diff view, and can move an agent's changes into your local repo for testing. It is MIT-licensed, ships for macOS and Linux, and is described by Imbue as an experimental research preview.",
+  "website": "https://imbue.com/product/sculptor/",
+  "repo": "https://github.com/imbue-ai/sculptor",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Imbue",
+  "interfaces": ["desktop"],
+  "platforms": ["macos", "linux"],
+  "drives": ["claude-code", "pi"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under MIT; model usage is billed by your own provider."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": false,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 240, "checkedAt": "2026-10-18" },
+  "status": "beta",
+  "sources": [
+    "https://imbue.com/product/sculptor/",
+    "https://github.com/imbue-ai/sculptor",
+    "https://imbue.com/blog/containers"
+  ],
+  "lastVerified": "2026-10-18"
+}

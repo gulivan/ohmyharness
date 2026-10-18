@@ -1,0 +1,43 @@
+{
+  "slug": "paseo",
+  "name": "Paseo",
+  "kind": "orchestrator",
+  "tagline": "Open-source app for running multiple coding agents in parallel from desktop, browser or phone.",
+  "description": "Paseo provides a unified interface over many agent CLIs, with sessions organised by project and support for parallel development in separate worktrees. It also exposes a CLI, a TypeScript SDK and MCP tools for scripting agent runs.",
+  "website": "https://paseo.sh",
+  "repo": "https://github.com/getpaseo/paseo",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Mohamed Boudra",
+  "interfaces": ["desktop", "mobile", "web", "cli", "api"],
+  "platforms": ["macos", "windows", "linux", "ios", "android", "web"],
+  "drives": ["claude-code", "codex-cli", "opencode", "pi", "antigravity", "cursor-cli", "gemini-cli", "github-copilot-cli", "qwen-code", "kimi-cli", "amp", "cline", "factory-droid", "goose", "crush", "grok-build", "kilo-code"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Paseo is free and open source."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 21303,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://paseo.sh/",
+    "https://paseo.sh/llms.txt",
+    "https://paseo.sh/docs/orchestration",
+    "https://paseo.sh/docs/parallel-development",
+    "https://github.com/getpaseo/paseo"
+  ],
+  "lastVerified": "2026-10-18"
+}

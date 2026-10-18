@@ -1,0 +1,41 @@
+{
+  "slug": "opencode",
+  "name": "OpenCode",
+  "kind": "harness",
+  "tagline": "Open-source coding agent with terminal, desktop, IDE, and browser interfaces.",
+  "description": "OpenCode runs an agent in the terminal, a desktop app, an IDE extension, or a local web UI. It supports plan mode, subagents, MCP servers, hosted subscriptions, API keys, OpenCode Zen, and local models.",
+  "website": "https://opencode.ai/",
+  "repo": "https://github.com/anomalyco/opencode",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Anomaly",
+  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "bundled", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "The tool is free and open source; OpenCode Zen and provider usage are paid separately."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": { "stars": 216418, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://opencode.ai/",
+    "https://opencode.ai/docs/",
+    "https://opencode.ai/docs/agents/",
+    "https://opencode.ai/docs/mcp-servers/",
+    "https://opencode.ai/docs/web/",
+    "https://github.com/anomalyco/opencode"
+  ],
+  "lastVerified": "2026-10-18"
+}

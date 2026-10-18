@@ -1,0 +1,39 @@
+{
+  "slug": "factory-droid",
+  "name": "Factory Droid",
+  "kind": "harness",
+  "tagline": "Factory's coding agent for terminal, desktop, web, and cloud, with multi-agent Missions.",
+  "description": "Droid is Factory's coding agent, available through a terminal TUI, a desktop app, web and mobile surfaces, IDE extensions, and headless execution. It supports multi-agent Missions, custom Droids, skills, MCP, hooks, and bring-your-own-key models.",
+  "website": "https://factory.com",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Factory",
+  "interfaces": ["cli", "tui", "desktop", "web", "mobile", "ide-extension", "api"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "paid",
+    "notes": "Pro $20/mo, Plus $100/mo, Max $200/mo; Teams, Business, and Enterprise tiers. No free tier listed."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://docs.factory.com/droid-cli/overview",
+    "https://factory.com/pricing",
+    "https://docs.factory.com/model-independence/byok",
+    "https://github.com/Factory-AI/factory"
+  ],
+  "lastVerified": "2026-10-18"
+}

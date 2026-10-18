@@ -1,0 +1,40 @@
+{
+  "slug": "cmux",
+  "name": "cmux",
+  "kind": "orchestrator",
+  "tagline": "Ghostty-based macOS terminal with tabs, notifications and a browser for agent sessions.",
+  "description": "A native macOS terminal built on libghostty that adds vertical tabs, notification rings when an agent needs input, a scriptable in-app browser, and a CLI for controlling workspaces and splits. It runs existing coding-agent CLIs such as Claude Code, Codex and OpenCode rather than providing its own agent.",
+  "website": "https://cmux.com",
+  "repo": "https://github.com/manaflow-ai/cmux",
+  "openSource": true,
+  "license": "GPL-3.0",
+  "maker": "Manaflow, Inc.",
+  "interfaces": ["desktop", "cli"],
+  "platforms": ["macos"],
+  "drives": ["claude-code", "codex-cli", "opencode"],
+  "modelAccess": [],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under GPL-3.0."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 28244,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/manaflow-ai/cmux",
+    "https://cmux.com"
+  ],
+  "lastVerified": "2026-10-18"
+}

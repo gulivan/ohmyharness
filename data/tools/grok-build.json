@@ -1,0 +1,42 @@
+{
+  "slug": "grok-build",
+  "name": "Grok Build",
+  "kind": "harness",
+  "tagline": "xAI's terminal coding agent, with plan mode, parallel subagents, and MCP.",
+  "description": "Grok Build is xAI's terminal-based coding agent. It runs as a full-screen TUI, headlessly in scripts and CI, or over the Agent Client Protocol, and supports skills, plugins, hooks, MCP servers, and parallel subagents.",
+  "website": "https://x.ai/build",
+  "repo": "https://github.com/xAI-org/grok-build",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "xAI",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Included in Grok plans from the free tier upward; an xAI API key can also be used."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": false,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 27446,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://x.ai/build",
+    "https://docs.x.ai/build/overview",
+    "https://x.ai/pricing",
+    "https://github.com/xAI-org/grok-build"
+  ],
+  "lastVerified": "2026-10-18"
+}

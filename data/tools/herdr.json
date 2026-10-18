@@ -1,0 +1,39 @@
+{
+  "slug": "herdr",
+  "name": "Herdr",
+  "kind": "orchestrator",
+  "tagline": "Terminal runtime and multiplexer for keeping many coding agents running in panes.",
+  "description": "Herdr is a Rust terminal multiplexer that keeps agent CLIs alive in a background server across disconnects and machines. It tracks each pane's idle, working, or blocked state and exposes a CLI and socket API so agents can start and message each other.",
+  "website": "https://herdr.dev",
+  "repo": "https://github.com/herdrdev/herdr",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Herdr",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code", "codex-cli", "github-copilot-cli", "cursor-cli", "opencode", "pi", "factory-droid", "kimi-cli", "kilo-code", "qwen-code", "grok-build", "antigravity", "amp", "gemini-cli", "cline"],
+  "modelAccess": [],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under Apache 2.0. A separate Herdr Cloud service is listed as coming soon."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": { "stars": 44634, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://herdr.dev/",
+    "https://github.com/herdrdev/herdr",
+    "https://herdr.dev/docs/agents/",
+    "https://herdr.dev/docs/agent-automation/"
+  ],
+  "lastVerified": "2026-10-18"
+}

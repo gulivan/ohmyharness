@@ -1,0 +1,46 @@
+{
+  "slug": "traycer",
+  "name": "Traycer",
+  "kind": "orchestrator",
+  "tagline": "Plan-first workspace that runs many coding agents in parallel across local and remote hosts.",
+  "description": "Traycer turns a task into a reviewed plan, then runs agents against it in parallel worktrees, with agent-to-agent delegation and support for around twenty coding CLIs. It offers desktop, IDE, CLI and mobile clients, plus cloud sandboxes and an optional bundled inference credit plan.",
+  "website": "https://traycer.ai",
+  "repo": "https://github.com/traycerai/traycer",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Traycer AI",
+  "interfaces": ["desktop", "mobile", "cli", "ide-extension"],
+  "platforms": ["macos", "windows", "linux", "ios", "android"],
+  "drives": ["claude-code", "codex-cli", "opencode", "cursor-cli", "grok-build", "qwen-code", "kiro-cli", "factory-droid", "kimi-cli", "github-copilot-cli", "kilo-code", "amp", "devin", "pi", "antigravity"],
+  "modelAccess": ["subscription", "byok", "bundled"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free forever tier; Sync $16 per user/month billed yearly; Enterprise on request; optional pay-as-you-go inference credits and cloud sandboxes."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 1623,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://docs.traycer.ai/",
+    "https://docs.traycer.ai/llms.txt",
+    "https://docs.traycer.ai/concepts/agent-to-agent.md",
+    "https://traycer.ai/pricing",
+    "https://docs.traycer.ai/install.md",
+    "https://docs.traycer.ai/account/mobile-app.md",
+    "https://docs.traycer.ai/agents-and-models/coding-agents.md",
+    "https://github.com/traycerai/traycer"
+  ],
+  "lastVerified": "2026-10-18"
+}

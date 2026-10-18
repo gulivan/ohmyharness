@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Monogram from "../components/Monogram.astro";
+import Glyph from "../components/Glyph.astro";
+import {
+  FEATURES,
+  KIND_LABELS,
+  PRICING_LABELS,
+  sourceLabel,
+} from "../lib/features";
+import { getAllTools, iconFor, REPO_URL } from "../lib/tools";
+
+const tools = getAllTools();
+const clientTools = tools.map((tool) => ({ ...tool, icon: iconFor(tool.slug) }));
+const description =
+  "Compare AI coding harnesses, orchestrators, cloud agents and add-ons side by side: worktrees, parallel agents, subagents, MCP, remote access, diff review, plan mode and pricing.";
+
+const pricingLabel = (value: string | null): string =>
+  value ? (PRICING_LABELS[value] ?? value) : "?";
+---
+
+<BaseLayout title="Compare" description={description} path="/compare">
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">Feature matrix</p>
+      <h1 class="page-title">Compare tools</h1>
+      <p class="lede">
+        Put up to four tools side by side, or scan every tool in the matrix
+        below. Confirmed facts show ✓ and ✗; anything still unchecked shows ?.
+      </p>
+    </header>
+  </div>
+
+  <section class="section section--flush">
+    <div class="container">
+      {tools.length > 0 ? (
+        <>
+          <div class="compare-picker" id="compare-picker">
+            <div class="spread">
+              <span class="small">Pick up to four tools</span>
+              <span class="small">{tools.length} available</span>
+            </div>
+            <div class="picker-list">
+              {tools.map((tool) => (
+                <button class="pick" type="button" data-slug={tool.slug} aria-pressed="false">
+                  <Monogram slug={tool.slug} name={tool.name} size="sm" />
+                  <span>{tool.name}</span>
+                  <span class="pick__meta">{sourceLabel(tool)}</span>
+                </button>
+              ))}
+            </div>
+            <div class="row">
+              <button class="btn btn--small btn--ghost" type="button" id="compare-copy">Copy link</button>
+              <span class="compare-status" id="compare-status" role="status" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="compare-region">
+            <div class="empty-state" id="compare-empty">
+              <h3>Nothing selected yet.</h3>
+              <p class="muted">Pick two or more tools above to see them side by side.</p>
+            </div>
+            <div id="compare-panel"></div>
+          </div>
+
+          <div class="matrix-toolbar">
+            <div class="chip-row" role="group" aria-label="Filter the matrix by kind">
+              <button class="chip" type="button" data-matrix-kind="all" aria-pressed="true">All</button>
+              <button class="chip" type="button" data-matrix-kind="harness" aria-pressed="false">Harnesses</button>
+              <button class="chip" type="button" data-matrix-kind="orchestrator" aria-pressed="false">Orchestrators</button>
+              <button class="chip" type="button" data-matrix-kind="cloud-agent" aria-pressed="false">Cloud agents</button>
+              <button class="chip" type="button" data-matrix-kind="add-on" aria-pressed="false">Add-ons</button>
+            </div>
+            <span class="matrix-toolbar__count" id="matrix-count">{tools.length} {tools.length === 1 ? "tool" : "tools"}</span>
+          </div>
+
+          <div class="matrix-wrap">
+            <table class="matrix" id="matrix">
+              <thead>
+                <tr>
+                  <th scope="col">Tool</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Pricing</th>
+                  <th scope="col">Source</th>
+                  {FEATURES.map((feature) => (
+                    <th scope="col" title={feature.question}>{feature.label}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tools.map((tool) => (
+                  <tr data-row-kind={tool.kind}>
+                    <th scope="row">
+                      <span class="m-name">
+                        <Monogram slug={tool.slug} name={tool.name} size="sm" />
+                        <a href={`/tools/${tool.slug}`}>{tool.name}</a>
+                      </span>
+                    </th>
+                    <td>{KIND_LABELS[tool.kind]}</td>
+                    <td>{pricingLabel(tool.pricing.model)}</td>
+                    <td>{sourceLabel(tool)}</td>
+                    {FEATURES.map((feature) => (
+                      <td><Glyph value={tool.features[feature.key]} label={feature.label} /></td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="legend-row">
+            <div class="legend" aria-label="Feature legend">
+              <span><Glyph value={true} label="Example" /> yes</span>
+              <span><Glyph value={false} label="Example" /> no</span>
+              <span><Glyph value={null} label="Example" /> not verified yet</span>
+            </div>
+            <a class="small" href="/about#legend">How we check facts</a>
+          </div>
+        </>
+      ) : (
+        <div class="empty-state">
+          <h3>No tools to compare yet.</h3>
+          <p class="lede">Add the first entry and the matrix will build itself.</p>
+          <a class="btn btn--primary" href={`${REPO_URL}/issues/new?template=add-tool.yml`}>Suggest a tool ↗</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <script
+    type="application/json"
+    id="compare-data"
+    set:html={JSON.stringify(clientTools).replace(/</g, "\\u003c")}
+  ></script>
+</BaseLayout>
+
+<script>
+  import "../scripts/compare";
+</script>

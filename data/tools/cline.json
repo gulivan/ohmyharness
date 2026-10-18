@@ -1,0 +1,42 @@
+{
+  "slug": "cline",
+  "name": "Cline",
+  "kind": "harness",
+  "tagline": "Open-source coding agent for IDE, CLI, desktop, and cloud, with plan and act modes.",
+  "description": "Cline is an open-source coding agent distributed as VS Code and JetBrains extensions, a CLI, a desktop app, an SDK, and a cloud service. It supports plan/act workflows, MCP, coordinator agents that delegate to specialists, and parallel sessions.",
+  "website": "https://cline.bot",
+  "repo": "https://github.com/cline/cline",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Cline",
+  "interfaces": ["ide-extension", "cli", "desktop", "web", "api"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["byok", "bundled", "local"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free open-source extension and CLI; optional Cline provider credits and ClinePass subscription."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 70508,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://cline.bot",
+    "https://cline.bot/pricing",
+    "https://cline.bot/cloud",
+    "https://docs.cline.bot/"
+  ],
+  "lastVerified": "2026-10-18"
+}

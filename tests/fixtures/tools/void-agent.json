@@ -1,0 +1,33 @@
+{
+  "slug": "void-agent",
+  "name": "Void Agent",
+  "kind": "harness",
+  "tagline": "An early-stage coding agent with little public information.",
+  "description": "Void Agent is an experimental agent runtime distributed as a web app. Its pricing, licensing and feature set have not been verified yet.",
+  "website": "https://example.com/void-agent",
+  "repo": null,
+  "openSource": null,
+  "license": null,
+  "maker": null,
+  "interfaces": ["web"],
+  "platforms": ["web"],
+  "drives": [],
+  "modelAccess": [],
+  "pricing": {
+    "model": null
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": null,
+  "status": "beta",
+  "sources": ["https://example.com/void-agent/docs"],
+  "lastVerified": "2026-10-18"
+}

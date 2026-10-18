@@ -1,0 +1,40 @@
+{
+  "slug": "vibe-kanban",
+  "name": "Vibe Kanban",
+  "kind": "orchestrator",
+  "tagline": "Kanban board and workspace runner for parallel coding agents, with diff review and previews.",
+  "description": "Vibe Kanban is a locally run web app started with npx that gives each agent task a branch, terminal, and dev server, with inline diff comments and a built-in browser preview. bloop, the company behind it, shut down in April 2026; the project is open source and its hosted cloud features are being retired.",
+  "website": "https://www.vibekanban.com",
+  "repo": "https://github.com/BloopAI/vibe-kanban",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "bloop",
+  "interfaces": ["web", "cli"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code", "codex-cli", "gemini-cli", "github-copilot-cli", "amp", "cursor-cli", "opencode", "factory-droid", "qwen-code"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under Apache 2.0; paid cloud plans were discontinued with bloop."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 28385, "checkedAt": "2026-10-18" },
+  "status": "deprecated",
+  "sources": [
+    "https://www.vibekanban.com/",
+    "https://github.com/BloopAI/vibe-kanban",
+    "https://www.vibekanban.com/blog/shutdown",
+    "https://vibekanban.com/docs/getting-started",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/remote-access.mdx"
+  ],
+  "lastVerified": "2026-10-18"
+}

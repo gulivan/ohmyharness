@@ -1,0 +1,38 @@
+{
+  "slug": "monocode",
+  "name": "MonoCode",
+  "kind": "orchestrator",
+  "tagline": "Desktop GUI that runs coding-agent CLIs in tabbed sessions with worktrees and split panes.",
+  "description": "MonoCode is a Tauri desktop app for macOS, Linux, and Windows that wraps coding-agent CLIs already installed and signed in on the machine. Sessions are tabs, projects can use separate Git worktrees, and a /operator command lets an agent manage sessions and worktrees.",
+  "website": "https://www.usemono.dev/",
+  "repo": "https://github.com/hardbeat920/monocode",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "hardbeat920",
+  "interfaces": ["desktop"],
+  "platforms": ["macos", "windows", "linux"],
+  "drives": ["claude-code", "codex-cli", "cursor-cli", "grok-build", "opencode", "antigravity", "pi", "omp", "fx", "hermes", "devin"],
+  "modelAccess": ["subscription"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under MIT; it does not sell tokens."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 3123, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://www.usemono.dev/",
+    "https://github.com/hardbeat920/monocode",
+    "https://www.everydev.ai/tools/monocode"
+  ],
+  "lastVerified": "2026-10-18"
+}

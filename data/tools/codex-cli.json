@@ -1,0 +1,41 @@
+{
+  "slug": "codex-cli",
+  "name": "Codex CLI",
+  "kind": "harness",
+  "tagline": "OpenAI's open-source coding agent for the terminal, with cloud and app-server counterparts.",
+  "description": "Codex CLI inspects and edits a local repository and runs commands from the terminal. It supports plan mode, subagents, MCP servers, managed git worktrees, and handoff between local and cloud sessions.",
+  "website": "https://developers.openai.com/codex/cli",
+  "repo": "https://github.com/openai/codex",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "OpenAI",
+  "interfaces": ["cli"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "paid",
+    "notes": "Included with ChatGPT Plus, Pro, Business, Edu, and Enterprise plans; API key usage is billed separately."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": { "stars": 129749, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://developers.openai.com/codex/cli",
+    "https://learn.chatgpt.com/docs/developer-commands",
+    "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+    "https://learn.chatgpt.com/docs/environments/git-worktrees",
+    "https://developers.openai.com/codex/codex-manual.md",
+    "https://github.com/openai/codex"
+  ],
+  "lastVerified": "2026-10-18"
+}

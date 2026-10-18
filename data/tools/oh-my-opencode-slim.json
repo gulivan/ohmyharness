@@ -1,0 +1,40 @@
+{
+  "slug": "oh-my-opencode-slim",
+  "name": "Oh My Opencode Slim",
+  "kind": "harness",
+  "tagline": "Lightweight OpenCode plugin that delegates work to specialist sub-agents.",
+  "description": "An OpenCode plugin that turns the assistant into an orchestrator, routing work to specialist agents such as explorer, librarian, designer, oracle, fixer and council, and running searches in the background. It is a slimmed-down fork of oh-my-opencode focused on core agent orchestration.",
+  "website": "https://ohmyopencodeslim.com",
+  "repo": "https://github.com/alvinunreal/oh-my-opencode-slim",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "alvinunreal",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["opencode"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under MIT; model access comes from your own providers."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 9615,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/alvinunreal/oh-my-opencode-slim",
+    "https://ohmyopencodeslim.com/"
+  ],
+  "lastVerified": "2026-10-18"
+}

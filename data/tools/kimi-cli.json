@@ -1,0 +1,41 @@
+{
+  "slug": "kimi-cli",
+  "name": "Kimi Code CLI",
+  "kind": "harness",
+  "tagline": "Moonshot AI's terminal coding agent with plan mode, subagents, and MCP.",
+  "description": "Kimi Code CLI is a terminal coding agent from Moonshot AI that reads and edits code, runs shell commands, and plans multi-step work. It supports plan mode, parallel subagents, MCP, hooks, and ACP for editor integration. The earlier Python-based Kimi CLI is archived and superseded by this project.",
+  "website": "https://www.kimi.com/code",
+  "repo": "https://github.com/MoonshotAI/kimi-code",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Moonshot AI",
+  "interfaces": ["cli", "tui", "web", "ide-extension"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "paid",
+    "notes": "Included with Kimi membership plans; a Moonshot AI API key can also be used."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": false,
+    "diffReview": null,
+    "planMode": true
+  },
+  "github": {
+    "stars": 7925,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/MoonshotAI/kimi-code",
+    "https://moonshotai.github.io/kimi-code/en/guides/interaction",
+    "https://www.kimi.com/code"
+  ],
+  "lastVerified": "2026-10-18"
+}

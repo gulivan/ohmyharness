@@ -1,0 +1,41 @@
+{
+  "slug": "github-copilot-cli",
+  "name": "GitHub Copilot CLI",
+  "kind": "harness",
+  "tagline": "GitHub's terminal coding agent, with plan mode, subagents, and MCP.",
+  "description": "GitHub Copilot CLI is a terminal-based coding agent that reads and edits code, runs commands, and works with GitHub issues and pull requests. It supports plan mode, parallel subagents through /fleet, MCP servers, and custom model providers.",
+  "website": "https://github.com/features/copilot/cli",
+  "repo": "https://github.com/github/copilot-cli",
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "GitHub",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Included with Copilot Free, Pro, Pro+, Max, Business, and Enterprise plans; usage draws on the plan's AI Credits."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": false,
+    "diffReview": null,
+    "planMode": true
+  },
+  "github": {
+    "stars": 11271,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli",
+    "https://github.com/features/copilot/cli",
+    "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features"
+  ],
+  "lastVerified": "2026-10-18"
+}

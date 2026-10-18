@@ -1,0 +1,41 @@
+{
+  "slug": "jcode",
+  "name": "jcode",
+  "kind": "harness",
+  "tagline": "Rust coding agent built for running many parallel sessions in one repository.",
+  "description": "A Rust terminal coding agent with a swarm mode in which agents spawn teammates, message each other, and warn one another when files they read have changed. It ships as a CLI for macOS, Linux and Windows plus a beta desktop app, and offers optional hosted inference and cloud-session plans.",
+  "website": "https://jcode.sh",
+  "repo": "https://github.com/1jehuang/jcode",
+  "openSource": true,
+  "license": "MIT",
+  "maker": null,
+  "interfaces": ["cli", "tui", "desktop"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "bundled"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "The agent is free; optional monthly plans from $10 add inference credit and cloud sessions."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 21009,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/1jehuang/jcode",
+    "https://jcode.sh/",
+    "https://jcode.sh/pricing"
+  ],
+  "lastVerified": "2026-10-18"
+}

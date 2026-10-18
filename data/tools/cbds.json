@@ -1,0 +1,41 @@
+{
+  "slug": "cbds",
+  "name": "cbds",
+  "kind": "add-on",
+  "extends": "herdr",
+  "tagline": "Herdr plugin and CLI that dispatches tasks to agent panes and waits for durable completion reports.",
+  "description": "cbds is a Herdr plugin and command-line tool that dispatches tasks to agent panes and blocks on a structured completion report. Reports are written atomically to disk and accepted only when task and dispatch IDs match, so results survive orchestrator crashes and Herdr restarts. It also provides a task board, blocking worker questions, pane placement, and optional worktree isolation.",
+  "website": "https://github.com/zqkra/cbds",
+  "repo": "https://github.com/zqkra/cbds",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "zqkra",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code", "codex-cli", "github-copilot-cli", "cursor-cli", "opencode", "pi", "factory-droid", "kimi-cli", "kilo-code", "qwen-code", "grok-build", "antigravity", "amp", "gemini-cli", "cline"],
+  "modelAccess": [],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under MIT; zero runtime dependencies. Requires Herdr 0.8.0 or newer and Node 18.17 or newer."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": { "stars": 2, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://github.com/zqkra/cbds",
+    "https://github.com/zqkra/cbds/blob/main/README.md",
+    "https://github.com/zqkra/cbds/blob/main/herdr-plugin.toml",
+    "https://github.com/zqkra/cbds/blob/main/package.json",
+    "https://herdr.dev/docs/agents/"
+  ],
+  "lastVerified": "2026-10-18"
+}

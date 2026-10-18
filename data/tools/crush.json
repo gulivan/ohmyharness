@@ -1,0 +1,38 @@
+{
+  "slug": "crush",
+  "name": "Crush",
+  "kind": "harness",
+  "tagline": "Charm's terminal coding agent with a TUI, LSP context, MCP support, and model switching.",
+  "description": "Crush is a terminal agent from Charmbracelet that edits code with LSP context and lets you switch models mid-session. It includes plan mode, subagents, MCP servers, and a built-in diff viewer.",
+  "website": "https://github.com/charmbracelet/crush",
+  "repo": "https://github.com/charmbracelet/crush",
+  "openSource": false,
+  "license": "FSL-1.1-MIT",
+  "maker": "Charmbracelet",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Source-available under the Functional Source License; model usage is billed by your provider."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": { "stars": 28692, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://github.com/charmbracelet/crush",
+    "https://github.com/charmbracelet/crush/blob/main/LICENSE.md",
+    "https://github.com/charmbracelet/crush/releases/latest"
+  ],
+  "lastVerified": "2026-10-18"
+}

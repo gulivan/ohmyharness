@@ -1,0 +1,40 @@
+{
+  "slug": "superset",
+  "name": "Superset",
+  "kind": "orchestrator",
+  "tagline": "Agentic IDE that runs coding agents in parallel, each in an isolated Git worktree.",
+  "description": "Superset is a desktop app with an iPhone/iPad companion, a CLI, and an MCP server for orchestrating CLI coding agents. It adds scheduled automations, terminals, diff review, and PR workflows on top of the agents you already use.",
+  "website": "https://superset.sh",
+  "repo": "https://github.com/superset-sh/superset",
+  "openSource": false,
+  "license": "Elastic-2.0",
+  "maker": "Superset",
+  "interfaces": ["desktop", "mobile", "cli", "api"],
+  "platforms": ["macos", "linux", "ios"],
+  "drives": ["claude-code", "codex-cli", "amp", "gemini-cli", "opencode", "pi", "github-copilot-cli", "kimi-cli", "grok-build", "cursor-cli", "factory-droid", "antigravity"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free $0; Pro $20 per user/month ($15 billed yearly); Enterprise custom. Source-available under the Elastic License 2.0."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 15342, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://superset.sh/",
+    "https://docs.superset.sh/overview",
+    "https://docs.superset.sh/agent-integration",
+    "https://superset.sh/pricing",
+    "https://github.com/superset-sh/superset"
+  ],
+  "lastVerified": "2026-10-18"
+}

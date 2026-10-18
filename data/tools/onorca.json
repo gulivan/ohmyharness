@@ -1,0 +1,41 @@
+{
+  "slug": "onorca",
+  "name": "Orca",
+  "kind": "orchestrator",
+  "tagline": "Desktop IDE that runs coding agents side by side, each in its own Git worktree.",
+  "description": "Orca gives every task a worktree, an agent terminal, and a browser tab, with diff review and a bundled CLI for scripting. Agents can run locally, over SSH, on a self-hosted Orca server, or on cloud VMs, and iOS and Android companions are available.",
+  "website": "https://www.onorca.dev",
+  "repo": "https://github.com/stablyai/orca",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Stably, Inc.",
+  "interfaces": ["desktop", "cli", "mobile"],
+  "platforms": ["macos", "windows", "linux", "ios", "android"],
+  "drives": ["claude-code", "codex-cli", "cursor-cli", "opencode", "gemini-cli", "grok-build", "github-copilot-cli", "crush", "kimi-cli"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under MIT; an enterprise offering is listed."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 96443, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://www.onorca.dev/",
+    "https://www.onorca.dev/docs",
+    "https://www.onorca.dev/docs/agents/supported",
+    "https://www.onorca.dev/docs/cli/orchestration",
+    "https://www.onorca.dev/docs/remote-servers",
+    "https://github.com/stablyai/orca"
+  ],
+  "lastVerified": "2026-10-18"
+}

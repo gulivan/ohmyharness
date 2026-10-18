@@ -1,0 +1,41 @@
+{
+  "slug": "hermes-agent",
+  "name": "Hermes Agent",
+  "kind": "harness",
+  "tagline": "Self-improving terminal agent that runs locally or on container and serverless backends.",
+  "description": "An open-source coding and general-purpose agent from Nous Research with persistent memory and a skills system that it extends as it works. It runs in a TUI or desktop app, supports subagents, worktree-isolated sessions, MCP servers, and seven terminal backends including Docker, SSH, Modal, Daytona and Vercel Sandbox, and can be reached through Telegram, Discord, Slack, WhatsApp or Signal.",
+  "website": "https://hermes-agent.nousresearch.com/",
+  "repo": "https://github.com/NousResearch/hermes-agent",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Nous Research",
+  "interfaces": ["cli", "tui", "desktop"],
+  "platforms": ["macos", "linux", "windows", "android"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under MIT; provider access is your own, optionally through a Nous Portal subscription."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 254917,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/NousResearch/hermes-agent",
+    "https://hermes-agent.nousresearch.com/",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
+  ],
+  "lastVerified": "2026-10-18"
+}

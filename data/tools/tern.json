@@ -1,0 +1,38 @@
+{
+  "slug": "tern",
+  "name": "Tern",
+  "kind": "orchestrator",
+  "tagline": "macOS app and cross-platform CLI that run a fleet of coding agents in isolated worktrees.",
+  "description": "Tern launches agent tasks in git worktrees and collects their output in a review queue. It bundles a local relay for pairing with a phone, supports remote access over LAN or Tailscale, and ships a separate CLI and terminal UI for macOS, Linux and FreeBSD. The project is closed source and free to use.",
+  "website": "https://tern.build",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Shubham Agarwal",
+  "interfaces": ["desktop", "cli", "tui"],
+  "platforms": ["macos", "linux"],
+  "drives": ["claude-code", "codex-cli", "gemini-cli", "cursor-cli", "github-copilot-cli", "opencode", "aider", "goose", "amp", "crush", "factory-droid", "grok-build", "kimi-cli", "qwen-code", "auggie-cli", "kiro-cli"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free"
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://tern.build/",
+    "https://tern.build/docs",
+    "https://tern.build/docs/cli",
+    "https://tern.build/download"
+  ],
+  "lastVerified": "2026-10-18"
+}

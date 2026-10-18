@@ -1,0 +1,49 @@
+---
+import { REPO_URL, formatDate, latestVerified } from "../lib/tools";
+
+const verified = latestVerified();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span>ohmyharness</span>
+      </a>
+      <p>
+        An open, sourced directory of the runtimes that run coding agents and the
+        apps that orchestrate them. Unknown facts stay unknown.
+      </p>
+    </div>
+
+    <div>
+      <h3>Directory</h3>
+      <ul>
+        <li><a href="/">All tools</a></li>
+        <li><a href="/compare">Compare features</a></li>
+        <li><a href="/tier-list">Make a tier list</a></li>
+        <li><a href="/api/tools.json">Open data (JSON)</a></li>
+        <li><a href="/llms.txt">Index for agents</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contribute</h3>
+      <ul>
+        <li><a href={`${REPO_URL}/blob/main/CONTRIBUTING.md`}>How to add a tool</a></li>
+        <li><a href={`${REPO_URL}/issues/new?template=add-tool.yml`}>Submit a tool</a></li>
+        <li><a href={`${REPO_URL}/issues/new?template=fix-data.yml`}>Fix data</a></li>
+        <li><a href={`${REPO_URL}/blob/main/CODE_OF_CONDUCT.md`}>Code of conduct</a></li>
+        <li><a href={REPO_URL}>GitHub repository ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <span>MIT · 2026 Ivan Guliaev and contributors</span>
+    <span>
+      {verified ? `Data checked ${formatDate(verified)}` : "Community maintained"}
+    </span>
+    <span>No paid rankings. No sponsored placement.</span>
+  </div>
+</footer>

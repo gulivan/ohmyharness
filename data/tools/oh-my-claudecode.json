@@ -1,0 +1,40 @@
+{
+  "slug": "oh-my-claudecode",
+  "name": "oh-my-claudecode",
+  "kind": "harness",
+  "tagline": "Claude Code plugin adding multi-agent teams, skills and workflow pipelines.",
+  "description": "Extends Claude Code with a set of specialised agents, skills and workflow commands, including a Team runtime that spawns workers in tmux panes and an autonomous loop mode. It installs as an npm CLI or a Claude Code plugin and can involve other installed CLIs such as Codex and Gemini in its workflows.",
+  "website": "https://oh-my-claudecode.dev",
+  "repo": "https://github.com/Yeachan-Heo/oh-my-claudecode",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Yeachan Heo",
+  "interfaces": ["cli", "tui"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under MIT; Claude access comes from your own subscription or API key."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 40043,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/Yeachan-Heo/oh-my-claudecode",
+    "https://oh-my-claudecode.dev/"
+  ],
+  "lastVerified": "2026-10-18"
+}

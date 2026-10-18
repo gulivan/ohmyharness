@@ -1,0 +1,22 @@
+---
+import { monogram, monogramStyle } from "../lib/monogram";
+import { iconFor } from "../lib/tools";
+
+interface Props {
+  slug: string;
+  name: string;
+  size?: "sm" | "md" | "lg";
+  icon?: string | null;
+}
+
+const { slug, name, size = "md", icon = iconFor(slug) } = Astro.props;
+const style = monogramStyle(slug);
+---
+
+<span
+  class:list={["monogram", `monogram--${size}`]}
+  style={`background:${style.background};color:${style.color}`}
+  aria-hidden="true"
+>
+  {icon ? <img src={icon} alt="" width="64" height="64" loading="lazy" /> : monogram(name)}
+</span>

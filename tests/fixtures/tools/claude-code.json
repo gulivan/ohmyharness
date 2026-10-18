@@ -1,0 +1,40 @@
+{
+  "slug": "claude-code",
+  "name": "Claude Code",
+  "kind": "harness",
+  "tagline": "Anthropic's terminal agent that reads code, edits files and runs commands.",
+  "description": "Claude Code runs in the terminal and as an IDE extension. It works with Anthropic models through a Claude plan or an API key, and supports MCP servers, subagents and an explicit plan step.",
+  "website": "https://www.anthropic.com/claude-code",
+  "repo": "https://github.com/anthropics/claude-code",
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Anthropic",
+  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Included with Claude plans; API usage is billed separately."
+  },
+  "features": {
+    "worktrees": false,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 35200,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://docs.anthropic.com/en/docs/claude-code/overview",
+    "https://www.anthropic.com/pricing"
+  ],
+  "lastVerified": "2026-10-18"
+}

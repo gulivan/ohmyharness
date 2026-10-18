@@ -1,0 +1,40 @@
+{
+  "slug": "agent-orchestrator",
+  "name": "Orchestrator.inc",
+  "kind": "orchestrator",
+  "tagline": "Desktop workspace that plans work and runs parallel agents in isolated worktrees.",
+  "description": "A local desktop app that runs a project-level orchestrator agent, which breaks outcomes into tasks and delegates them to worker sessions, each with its own branch and worktree. A local daemon tracks terminals, changed files, CI and review state, and a companion mobile app connects over LAN or Tailscale while execution stays on your machine.",
+  "website": "https://orchestrator.inc",
+  "repo": "https://github.com/OrchestratorInc/agent-orchestrator",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Orchestrator.inc",
+  "interfaces": ["desktop", "cli", "mobile"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": ["claude-code", "codex-cli", "opencode", "gemini-cli", "cursor-cli", "amp", "aider", "goose", "crush", "pi", "factory-droid", "kilo-code", "cline", "github-copilot-cli", "qwen-code", "kimi-cli", "grok-build", "ohmypi"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under Apache-2.0; a cloud offering is listed as a waitlist."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 13327,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://github.com/OrchestratorInc/agent-orchestrator",
+    "https://orchestrator.inc/"
+  ],
+  "lastVerified": "2026-10-18"
+}

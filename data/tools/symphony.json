@@ -1,0 +1,41 @@
+{
+  "slug": "symphony",
+  "name": "Symphony",
+  "kind": "orchestrator",
+  "tagline": "OpenAI's spec and reference implementation for running Codex agents from an issue tracker.",
+  "description": "Symphony polls a work tracker such as Linear, GitHub Issues or Jira, creates a workspace for each issue and runs Codex in App Server mode against it until the work is done, publishing CI and review results back. OpenAI publishes the specification together with an Elixir reference implementation that has an optional Phoenix dashboard and JSON API.",
+  "website": "https://openai.com/index/open-source-codex-orchestration-symphony/",
+  "repo": "https://github.com/openai/symphony",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "OpenAI",
+  "interfaces": ["cli", "web", "api"],
+  "platforms": ["macos", "linux"],
+  "drives": ["codex-cli"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source under Apache-2.0; it uses your existing Codex access and tracker credentials."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": {
+    "stars": 27734,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "beta",
+  "sources": [
+    "https://github.com/openai/symphony",
+    "https://github.com/openai/symphony/blob/main/elixir/README.md",
+    "https://openai.com/index/open-source-codex-orchestration-symphony/"
+  ],
+  "lastVerified": "2026-10-18"
+}

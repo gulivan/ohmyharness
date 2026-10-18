@@ -1,0 +1,41 @@
+{
+  "slug": "aider",
+  "name": "Aider",
+  "kind": "harness",
+  "tagline": "Open-source AI pair programming in the terminal, with git-aware edits and multi-model support.",
+  "description": "Aider edits code in a local git repository through a conversational terminal interface. It supports multiple chat modes, automatic commits, many LLM providers, and an experimental browser UI.",
+  "website": "https://aider.chat/",
+  "repo": "https://github.com/Aider-AI/aider",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Aider-AI",
+  "interfaces": ["cli", "web"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Open source; you pay the model provider or use an existing subscription."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 49617, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://aider.chat/docs/",
+    "https://aider.chat/docs/usage/modes.html",
+    "https://aider.chat/docs/usage/browser.html",
+    "https://aider.chat/docs/usage/commands.html",
+    "https://aider.chat/docs/llms/github.html",
+    "https://github.com/Aider-AI/aider"
+  ],
+  "lastVerified": "2026-10-18"
+}

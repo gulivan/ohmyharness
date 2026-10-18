@@ -1,0 +1,41 @@
+{
+  "slug": "kilo-code",
+  "name": "Kilo Code",
+  "kind": "harness",
+  "tagline": "Open-source coding agent for IDEs, CLI, desktop, and cloud, with parallel worktrees.",
+  "description": "Kilo Code is an open-source coding agent distributed as VS Code and JetBrains extensions, a CLI, a desktop app, and cloud agents. It offers access to models at provider rates, with bring-your-own-key, local models, and optional Kilo credits.",
+  "website": "https://kilo.ai",
+  "repo": "https://github.com/Kilo-Org/kilocode",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Kilo",
+  "interfaces": ["ide-extension", "cli", "tui", "desktop", "web"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["byok", "bundled", "local"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free plan with inference billed separately; Kilo Pass credits from $19/mo and Teams from $15/user/mo."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 27650,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://kilo.ai/",
+    "https://kilo.ai/docs/code-with-ai/platforms/cli",
+    "https://kilo.ai/pricing"
+  ],
+  "lastVerified": "2026-10-18"
+}

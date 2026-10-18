@@ -1,0 +1,40 @@
+{
+  "slug": "roo-code",
+  "name": "Roo Code",
+  "kind": "harness",
+  "tagline": "Discontinued VS Code coding agent with Code, Architect, and Orchestrator modes.",
+  "description": "Roo Code was an open-source VS Code extension that packaged a coding agent with Code, Architect, Ask, Debug, and Orchestrator modes. The extension was shut down on 15 May 2026 and its repository is archived.",
+  "website": "https://roocode.com",
+  "repo": "https://github.com/RooCodeInc/Roo-Code",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Roo Code, Inc.",
+  "interfaces": ["ide-extension"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": {
+    "stars": 24272,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "deprecated",
+  "sources": [
+    "https://github.com/RooCodeInc/Roo-Code",
+    "https://roocodeinc.github.io/Roo-Code/basic-usage/using-modes"
+  ],
+  "lastVerified": "2026-10-18"
+}

@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Monogram from "../../components/Monogram.astro";
+import Glyph from "../../components/Glyph.astro";
+import type { Tool } from "../../data/schema";
+import {
+  FEATURES,
+  INTERFACE_LABELS,
+  KIND_LABELS,
+  KIND_PLURALS,
+  MODEL_ACCESS_LABELS,
+  PLATFORM_LABELS,
+  PRICING_LABELS,
+  STATUS_LABELS,
+  sourceLabel,
+} from "../../lib/features";
+import { formatStars, getSameKindPairs } from "../../lib/tools";
+
+export function getStaticPaths() {
+  return getSameKindPairs().map(({ a, b }) => ({
+    params: { pair: `${a.slug}-vs-${b.slug}` },
+    props: { a, b },
+  }));
+}
+
+interface Props {
+  a: Tool;
+  b: Tool;
+}
+
+const { a, b } = Astro.props;
+const kindLabel = KIND_LABELS[a.kind];
+
+const description = `${a.name} vs ${b.name}: a feature-by-feature comparison of these ${kindLabel.toLowerCase()} tools — worktrees, parallel agents, MCP, pricing, platforms and more.`;
+
+const pricingText = (tool: Tool): string =>
+  tool.pricing.model
+    ? (PRICING_LABELS[tool.pricing.model] ?? tool.pricing.model)
+    : "Unknown";
+
+const sourceText = (tool: Tool): string => sourceLabel(tool);
+
+const platformText = (tool: Tool): string =>
+  tool.platforms.length > 0
+    ? tool.platforms.map((value) => PLATFORM_LABELS[value] ?? value).join(", ")
+    : "Unknown";
+
+const interfaceText = (tool: Tool): string =>
+  tool.interfaces.length > 0
+    ? tool.interfaces.map((value) => INTERFACE_LABELS[value] ?? value).join(", ")
+    : "Unknown";
+
+const accessText = (tool: Tool): string =>
+  tool.modelAccess.length > 0
+    ? tool.modelAccess
+        .map((value) => MODEL_ACCESS_LABELS[value] ?? value)
+        .join(", ")
+    : "Unknown";
+
+const githubText = (tool: Tool): string =>
+  tool.github
+    ? `★ ${formatStars(tool.github.stars)} · checked ${tool.github.checkedAt}`
+    : tool.repo
+      ? "Not checked"
+      : "No public repository";
+
+const related = getSameKindPairs()
+  .filter(
+    ({ a: first, b: second }) =>
+      first.kind === a.kind &&
+      !(first.slug === a.slug && second.slug === b.slug),
+  )
+  .slice(0, 8);
+
+const rows: { label: string; value: (tool: Tool) => string }[] = [
+  { label: "Kind", value: (tool) => KIND_LABELS[tool.kind] },
+  { label: "Status", value: (tool) => STATUS_LABELS[tool.status] },
+  { label: "Source", value: sourceText },
+  { label: "License", value: (tool) => tool.license ?? "Unknown" },
+  { label: "Pricing", value: pricingText },
+  { label: "Model access", value: accessText },
+  { label: "Platforms", value: platformText },
+  { label: "Interfaces", value: interfaceText },
+  { label: "GitHub", value: githubText },
+  { label: "Last verified", value: (tool) => tool.lastVerified },
+];
+---
+
+<BaseLayout
+  title={`${a.name} vs ${b.name}`}
+  description={description}
+  path={`/vs/${a.slug}-vs-${b.slug}`}
+  image={`/og/${a.slug}.png`}
+>
+  <div class="container">
+    <nav class="small" aria-label="Breadcrumb" style="padding-top:20px">
+      <a href="/">Directory</a> / <a href={`/compare?kind=${a.kind}`}>{KIND_PLURALS[a.kind]}</a> /
+      <span>{a.name} vs {b.name}</span>
+    </nav>
+
+    <header class="vs-head">
+      <p class="eyebrow">Head to head / {kindLabel}</p>
+      <h1 class="vs-title">
+        <a href={`/tools/${a.slug}`}>{a.name}</a>
+        <span class="vs">vs</span>
+        <a href={`/tools/${b.slug}`}>{b.name}</a>
+      </h1>
+      <p class="lede">
+        {a.name}: {a.tagline} {b.name}: {b.tagline}
+      </p>
+      <div class="vs-meta">
+        <span>{kindLabel}</span>
+        <span>Verified {a.lastVerified}</span>
+        <span>Verified {b.lastVerified}</span>
+      </div>
+      <div class="vs-actions">
+        <a class="btn" href={`/tools/${a.slug}`}>Read {a.name}</a>
+        <a class="btn" href={`/tools/${b.slug}`}>Read {b.name}</a>
+        <a class="btn btn--primary" href={`/compare?tools=${a.slug},${b.slug}`}>Open in compare</a>
+      </div>
+    </header>
+
+    <table class="compare-table" style="margin-bottom:32px">
+      <thead>
+        <tr>
+          <th scope="col">Fact</th>
+          <th scope="col">
+            <div class="compare-head">
+              <div class="row" style="gap:8px">
+                <Monogram slug={a.slug} name={a.name} size="sm" />
+                <a class="compare-head__name" href={`/tools/${a.slug}`}>{a.name}</a>
+              </div>
+              <span class="compare-head__kind">{kindLabel}</span>
+            </div>
+          </th>
+          <th scope="col">
+            <div class="compare-head">
+              <div class="row" style="gap:8px">
+                <Monogram slug={b.slug} name={b.name} size="sm" />
+                <a class="compare-head__name" href={`/tools/${b.slug}`}>{b.name}</a>
+              </div>
+              <span class="compare-head__kind">{kindLabel}</span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            <th scope="row">{row.label}</th>
+            <td>{row.value(a)}</td>
+            <td>{row.value(b)}</td>
+          </tr>
+        ))}
+        {FEATURES.map((feature) => (
+          <tr>
+            <th scope="row" title={feature.question}>{feature.label}</th>
+            <td><Glyph value={a.features[feature.key]} label={feature.label} /></td>
+            <td><Glyph value={b.features[feature.key]} label={feature.label} /></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <div class="legend-row" style="margin-bottom:24px">
+      <div class="legend" aria-label="Feature legend">
+        <span><Glyph value={true} label="Example" /> yes</span>
+        <span><Glyph value={false} label="Example" /> no</span>
+        <span><Glyph value={null} label="Example" /> not verified yet</span>
+      </div>
+      <a class="small" href="/about#legend">How we check facts</a>
+    </div>
+
+    {related.length > 0 && (
+      <section class="section">
+        <p class="eyebrow">More head to heads</p>
+        <div class="drive-list">
+          {related.map(({ a: first, b: second }) => (
+            <a class="drive-link" href={`/vs/${first.slug}-vs-${second.slug}`}>
+              {first.name} <span class="muted">vs</span> {second.name}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div style="height:48px"></div>
+  </div>
+</BaseLayout>

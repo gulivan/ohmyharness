@@ -1,0 +1,41 @@
+{
+  "slug": "devin",
+  "name": "Devin",
+  "kind": "cloud-agent",
+  "tagline": "Cognition's autonomous software engineering agent for cloud and desktop.",
+  "description": "Devin is Cognition's AI software engineer. Cloud sessions run asynchronously in hosted environments and return pull requests, while Devin Desktop and the Devin CLI provide local agent surfaces with subagents, plan mode, and git worktrees.",
+  "website": "https://devin.ai",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Cognition",
+  "interfaces": ["web", "desktop", "cli", "api"],
+  "platforms": ["macos", "linux", "windows", "web"],
+  "drives": [],
+  "modelAccess": ["subscription", "bundled"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free plan; Pro $20/mo, Max $200/mo, Teams, and Enterprise. A ChatGPT plan can be linked for GPT model usage."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://devin.ai/pricing",
+    "https://docs.devin.ai/get-started/devin-intro.md",
+    "https://docs.devin.ai/desktop/devin-local",
+    "https://docs.devin.ai/cli/essential-commands",
+    "https://docs.devin.ai/work-with-devin/mcp.md",
+    "https://docs.devin.ai/admin/billing/chatgpt.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

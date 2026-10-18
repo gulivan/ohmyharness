@@ -1,0 +1,41 @@
+{
+  "name": "ohmyharness",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An open directory of AI coding harnesses and orchestrators.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "prebuild": "npm run og",
+    "og": "tsx scripts/og.ts",
+    "preview": "astro preview",
+    "check": "astro check",
+    "typecheck": "tsc --noEmit",
+    "validate": "tsx scripts/validate.ts",
+    "verify": "npm run validate && npm run typecheck && npm run check && npm run build"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource-variable/newsreader": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/newsreader": "5.3.0",
+    "@resvg/resvg-js": "2.6.2",
+    "astro": "7.4.0",
+    "html-to-image": "1.11.13",
+    "satori": "0.62.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@types/node": "24.19.2",
+    "playwright": "1.64.1",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3"
+  }
+}

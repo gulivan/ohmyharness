@@ -1,0 +1,42 @@
+{
+  "slug": "amp",
+  "name": "Amp",
+  "kind": "harness",
+  "tagline": "Coding agent for terminal, web, macOS, and iOS that can run threads in hosted orbs.",
+  "description": "Amp runs a coding agent in the terminal, browser, or native apps, either locally or in per-thread cloud machines called orbs. It includes specialist subagents, MCP support, and cross-client thread continuation.",
+  "website": "https://ampcode.com/",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Amp, Inc.",
+  "interfaces": ["cli", "desktop", "web", "mobile"],
+  "platforms": ["macos", "linux", "windows", "web", "ios"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "bundled"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Hobby tier is free with pay-as-you-go orbs and BYOK; Individual is $20/month with included usage."
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://ampcode.com/docs",
+    "https://ampcode.com/docs/cli",
+    "https://ampcode.com/docs/pricing",
+    "https://ampcode.com/docs/models-and-subagents",
+    "https://ampcode.com/docs/markdown/orbs",
+    "https://ampcode.com/docs/markdown/cli/remote-control",
+    "https://ampcode.com/about"
+  ],
+  "lastVerified": "2026-10-18"
+}

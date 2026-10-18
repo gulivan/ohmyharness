@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Glyph from "../components/Glyph.astro";
+import { getAllTools, REPO_URL } from "../lib/tools";
+
+const tools = getAllTools();
+const description =
+  "What ohmyharness is, how facts are checked, the neutrality policy, and how to add or correct a tool.";
+
+const legend = [
+  { value: true, label: "Confirmed" },
+  { value: false, label: "Confirmed absent" },
+  { value: null, label: "Not verified yet" },
+];
+---
+
+<BaseLayout title="About" description={description} path="/about">
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">About</p>
+      <h1 class="page-title">A directory you can check.</h1>
+      <p class="lede">
+        ohmyharness lists the runtimes that run coding agents and the apps that
+        orchestrate them. It is open source, community maintained, and built so
+        that every claim can be traced to a source.
+      </p>
+    </header>
+
+    <div class="split">
+      <div class="prose">
+        <h2>What this is</h2>
+        <p>
+          There are dozens of AI coding tools now, and the categories are easy
+          to mix up. A <strong>harness</strong> is the runtime that talks to a
+          model and runs tools. An <strong>orchestrator</strong> is an app that
+          runs one or more harnesses. A <strong>cloud agent</strong> works in a
+          hosted sandbox and hands back a pull request. An
+          <strong>add-on</strong> is a plugin or distribution that extends one
+          harness or orchestrator.
+        </p>
+        <p>
+          Each tool has one page with the facts that matter when you choose:
+          who makes it, what it runs on, how you pay for it, and which features
+          are confirmed. The same facts power the comparison matrix and the
+          tier-list maker.
+        </p>
+
+        <h2 id="legend">How to read a tool page</h2>
+        <p>
+          Features have three states, and the third one is the important one:
+        </p>
+        <div class="legend-row" style="justify-content:flex-start;gap:18px;margin-block:4px">
+          {legend.map((item) => (
+            <span class="legend"><Glyph value={item.value} label={item.label} /> {item.label}</span>
+          ))}
+        </div>
+        <p>
+          <strong>?</strong> means nobody has checked yet. It is not a polite
+          way of saying no. We write <strong>✗</strong> only when a source
+          confirms a feature is missing, and every page lists the sources used
+          for that entry.
+        </p>
+        <p>
+          Pricing and platform facts change often. Each entry carries a
+          <strong>last verified</strong> date, and GitHub star counts carry
+          their own check date.
+        </p>
+
+        <h2>Neutrality</h2>
+        <p>
+          There are no paid rankings, sponsored placements or affiliate links.
+          Order in the directory is alphabetical, tier lists belong to the
+          people who make them, and no tool can buy a better position.
+        </p>
+        <p>
+          Taglines describe what a tool does, not how good it is. Comparisons
+          show the same rows for every tool so the format cannot favour one
+          entry.
+        </p>
+        <p>
+          If the project ever accepts sponsorship, it will be labelled clearly
+          and kept away from rankings and comparisons.
+        </p>
+
+        <h2>Who makes this</h2>
+        <p>
+          ohmyharness is maintained by{" "}
+          <a href={REPO_URL} rel="noopener">Ivan Guliaev and contributors</a>.
+          The code and the data are MIT licensed. Corrections from tool makers
+          and users are equally welcome.
+        </p>
+
+        <h2>Data and reuse</h2>
+        <p>
+          The full dataset is published as JSON at{" "}
+          <a href="/api/tools.json">/api/tools.json</a>. Agents and scripts can
+          start from <a href="/llms.txt">/llms.txt</a>. Reuse it under the MIT
+          licence; a link back is appreciated.
+        </p>
+      </div>
+
+      <div class="stack">
+        <section class="panel">
+          <div class="panel__head"><span>Add a tool</span><span>3 steps</span></div>
+          <div class="panel__body">
+            <div class="step-list">
+              <div class="step">
+                <span class="step__num">01</span>
+                <div>
+                  <h3>Check the facts</h3>
+                  <p>
+                    Find a source for each field: the tool's site, docs or
+                    repository. If you cannot confirm something, leave it
+                    <code>null</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step__num">02</span>
+                <div>
+                  <h3>Add one file</h3>
+                  <p>
+                    Copy an existing entry in <code>data/tools/</code> to
+                    <code>&lt;slug&gt;.json</code> and fill it in. The slug must
+                    match the filename.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step__num">03</span>
+                <div>
+                  <h3>Open a pull request</h3>
+                  <p>
+                    Checks validate every field. A maintainer reviews the
+                    sources, then the tool appears on the site.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__head"><span>Take part</span></div>
+          <div class="panel__body stack">
+            <div class="edit-links">
+              <a class="btn btn--small btn--primary" href={`${REPO_URL}/issues/new?template=add-tool.yml`} rel="noopener">Suggest a tool ↗</a>
+              <a class="btn btn--small" href={`${REPO_URL}/issues/new?template=fix-data.yml`} rel="noopener">Fix a fact ↗</a>
+              <a class="btn btn--small btn--ghost" href={`${REPO_URL}/blob/main/CONTRIBUTING.md`} rel="noopener">Contribution guide ↗</a>
+            </div>
+            <p class="inline-note">
+              {tools.length} tools are listed today. The repo also has the
+              schema, the site code and the test fixtures.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__head"><span>Open data</span></div>
+          <div class="panel__body stack">
+            <ul class="sources">
+              <li><a href="/api/tools.json">/api/tools.json — every tool</a></li>
+              <li><a href="/llms.txt">/llms.txt — index for agents</a></li>
+              <li><a href={`${REPO_URL}/blob/main/LICENSE`} rel="noopener">MIT licence</a></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,69 @@
+name: Fix data
+description: Correct a fact on a tool page — pricing, platform, feature, licence or link.
+title: "Fix data: "
+labels: ["data fix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the correction. A source is required: we change a fact only
+        when we can point at the page that shows it.
+
+  - type: input
+    id: tool
+    attributes:
+      label: Tool
+      description: The tool name or its page URL.
+      placeholder: https://ohmyharness.com/tools/example
+    validations:
+      required: true
+
+  - type: input
+    id: field
+    attributes:
+      label: What is wrong?
+      description: The field or sentence, for example "Pricing" or "features.worktrees".
+      placeholder: Pricing
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What the site says now
+      placeholder: "$20 per month, no free tier."
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What it should say
+      placeholder: "There is a free tier with a monthly usage limit."
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: The page that confirms the correction. Prefer the maker's own docs or pricing page.
+      placeholder: https://example.com/pricing
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Anything else
+      description: Screenshots, dates, or details about what changed.
+
+  - type: checkboxes
+    id: policies
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the source myself.
+          required: true
+        - label: I am not asking for a ranking or wording change that would promote the tool.
+          required: true

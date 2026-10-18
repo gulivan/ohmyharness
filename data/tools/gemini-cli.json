@@ -1,0 +1,41 @@
+{
+  "slug": "gemini-cli",
+  "name": "Gemini CLI",
+  "kind": "harness",
+  "tagline": "Google's open-source terminal coding agent, with IDE integration and a free usage tier.",
+  "description": "Gemini CLI brings Gemini models into the terminal for code understanding, editing, and automation. It supports plan mode, subagents, MCP servers, experimental git worktrees, and headless use in scripts.",
+  "website": "https://geminicli.com/",
+  "repo": "https://github.com/google-gemini/gemini-cli",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Google",
+  "interfaces": ["cli", "ide-extension"],
+  "platforms": ["macos", "linux", "windows"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "bundled"],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free with a Google account (1,000 requests/day); higher limits on Google AI Pro/Ultra or paid API billing."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true
+  },
+  "github": { "stars": 107439, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://geminicli.com/docs/",
+    "https://geminicli.com/docs/cli/git-worktrees/",
+    "https://geminicli.com/docs/cli/plan-mode/",
+    "https://geminicli.com/docs/core/subagents/",
+    "https://geminicli.com/docs/resources/quota-and-pricing/",
+    "https://github.com/google-gemini/gemini-cli"
+  ],
+  "lastVerified": "2026-10-18"
+}

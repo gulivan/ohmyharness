@@ -1,0 +1,37 @@
+{
+  "slug": "claude-squad",
+  "name": "Claude Squad",
+  "kind": "orchestrator",
+  "tagline": "Terminal app for managing multiple coding-agent sessions in isolated Git workspaces.",
+  "description": "Claude Squad (cs) runs Claude Code, Codex, Gemini, Aider, and other terminal agents in separate tmux sessions and Git worktrees from one terminal interface. It supports auto-accept mode and reviewing changes before applying them.",
+  "website": "https://smtg-ai.github.io/claude-squad/",
+  "repo": "https://github.com/smtg-ai/claude-squad",
+  "openSource": true,
+  "license": "AGPL-3.0",
+  "maker": "SMTG AI",
+  "interfaces": ["tui", "cli"],
+  "platforms": ["macos", "linux"],
+  "drives": ["claude-code", "codex-cli", "gemini-cli", "aider", "opencode", "amp"],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source under AGPL-3.0."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": { "stars": 8621, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://github.com/smtg-ai/claude-squad",
+    "https://github.com/smtg-ai/claude-squad/blob/main/README.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

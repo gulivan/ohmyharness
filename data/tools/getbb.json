@@ -1,0 +1,44 @@
+{
+  "slug": "getbb",
+  "name": "bb",
+  "kind": "orchestrator",
+  "tagline": "Desktop, web and mobile app that runs coding-agent threads side by side in isolated worktrees.",
+  "description": "bb manages multiple agent sessions, called threads, that can run in their own git worktrees. It ships as a macOS desktop app with web, CLI and mobile clients, includes a bundled MCP server plugin, and can run agents on remote dev servers or in Modal sandboxes.",
+  "website": "https://getbb.app",
+  "repo": "https://github.com/get-bb/bb",
+  "openSource": true,
+  "license": "MIT",
+  "maker": null,
+  "interfaces": ["desktop", "web", "cli", "mobile", "api"],
+  "platforms": ["macos", "linux", "windows", "ios", "android", "web"],
+  "drives": ["claude-code", "codex-cli", "pi", "cursor-cli", "opencode", "grok-build", "ohmypi", "hermes-agent"],
+  "modelAccess": ["subscription", "byok"],
+  "pricing": {
+    "model": "free",
+    "notes": "bb is free and open source under the MIT license."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": null
+  },
+  "github": {
+    "stars": 4436,
+    "checkedAt": "2026-10-18"
+  },
+  "status": "active",
+  "sources": [
+    "https://getbb.app/",
+    "https://getbb.app/guides/orchestrate-coding-agents",
+    "https://getbb.app/guides/remote-dev-servers",
+    "https://github.com/get-bb/bb",
+    "https://github.com/get-bb/bb/blob/main/docs/worktrees.md",
+    "https://github.com/get-bb/bb/blob/main/docs/configuration.md"
+  ],
+  "lastVerified": "2026-10-18"
+}

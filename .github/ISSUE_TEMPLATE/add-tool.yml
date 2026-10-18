@@ -1,0 +1,76 @@
+name: Add a tool
+description: Suggest a harness, orchestrator or cloud agent for the directory.
+title: "Add tool: "
+labels: ["add tool"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a tool. A maintainer or contributor will check the
+        facts and add one JSON file under `data/tools/`. Unknown facts stay
+        `null`; nothing is guessed.
+
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: Claude Code
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: The canonical page for the tool.
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of tool is it?
+      description: A harness runs agents, an orchestrator runs harnesses, a cloud agent works in a hosted sandbox.
+      options:
+        - Harness (runs a model and its tools)
+        - Orchestrator (runs one or more harnesses)
+        - Cloud agent (hosted sandbox, returns a pull request)
+    validations:
+      required: true
+
+  - type: input
+    id: repo
+    attributes:
+      label: Source repository
+      description: Leave empty if the tool is not open source or you are not sure.
+      placeholder: https://github.com/org/repo
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: One URL per line. Use pages you checked yourself — official docs, pricing, repository, changelog.
+      placeholder: |
+        https://example.com/docs
+        https://example.com/pricing
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Features you confirmed, pricing details, or facts that need a closer look.
+
+  - type: checkboxes
+    id: policies
+    attributes:
+      label: Before submitting
+      options:
+        - label: I am not being paid or asked to promote this tool.
+          required: true
+        - label: I checked the sources myself and will leave unknown fields out.
+          required: true
+        - label: I have read the contribution guide.
+          required: true

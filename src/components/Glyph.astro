@@ -1,0 +1,20 @@
+---
+import { featureState, glyph, glyphWord } from "../lib/features";
+
+interface Props {
+  value: boolean | null;
+  label: string;
+  large?: boolean;
+}
+
+const { value, label, large = false } = Astro.props;
+const state = featureState(value);
+const word = glyphWord(value);
+---
+
+<span
+  class:list={["glyph", `glyph--${state}`, { "glyph--lg": large }]}
+  role="img"
+  aria-label={`${label}: ${word}`}
+  title={`${label}: ${word}`}
+>{glyph(value)}</span>
