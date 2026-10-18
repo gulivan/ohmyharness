@@ -1,0 +1,123 @@
+{
+  "slug": "zcode",
+  "name": "ZCode",
+  "kind": "harness",
+  "extends": null,
+  "tagline": "Z.ai's agentic development environment, tuned for GLM models.",
+  "description": "ZCode is Z.ai's Agentic Development Environment built around its first-party ZCode Agent and tuned for the GLM-5.3 model family. It ships as a desktop app with a built-in browser panel, subagents, a plan mode, scheduled automations, hooks, skills and MCP, and can be controlled from a phone through Remote Control. The client is open source under Apache-2.0.",
+  "website": "https://zcode.z.ai/",
+  "repo": "https://github.com/zai-org/ZCode",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Z.ai (Zhipu AI)",
+  "interfaces": [
+    "cli",
+    "desktop",
+    "web"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "The app is free to download and first-time users get a 5-day trial with 5M tokens a day. Continued use requires a GLM Coding Plan or your own API key; idle-time tasks run without consuming plan quota.",
+    "plans": [
+      {
+        "name": "Lite",
+        "price": 18,
+        "currency": "USD",
+        "period": "month",
+        "notes": "10,000 credits/week; $12.6/mo billed yearly",
+        "url": "https://z.ai/subscribe"
+      },
+      {
+        "name": "Pro",
+        "price": 80,
+        "currency": "USD",
+        "period": "month",
+        "notes": "6x Lite usage; $56/mo billed yearly",
+        "url": "https://z.ai/subscribe"
+      },
+      {
+        "name": "Max",
+        "price": 168,
+        "currency": "USD",
+        "period": "month",
+        "notes": "14x Lite usage; $117.6/mo billed yearly",
+        "url": "https://z.ai/subscribe"
+      },
+      {
+        "name": "Z.ai API",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Pay per token through the Z.ai open platform",
+        "url": "https://docs.z.ai/guides/overview/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": null,
+    "acp": null,
+    "automations": true,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": true,
+    "checkpoints": null,
+    "hooks": true,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": {
+    "stars": 7932,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://zcode.z.ai/en#all-downloads",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://zcode.z.ai/en/docs/welcome",
+    "https://zcode.z.ai/en/docs/install",
+    "https://zcode.z.ai/en/docs/configuration",
+    "https://zcode.z.ai/en/docs/subagents",
+    "https://zcode.z.ai/en/docs/mcp-services",
+    "https://zcode.z.ai/en/docs/remote-control",
+    "https://zcode.z.ai/en/docs/automations",
+    "https://zcode.z.ai/en/docs/hooks",
+    "https://zcode.z.ai/en/docs/skill",
+    "https://zcode.z.ai/en/docs/safety-confirm",
+    "https://zcode.z.ai/en/docs/browser-use",
+    "https://z.ai/subscribe",
+    "https://docs.z.ai/guides/overview/pricing",
+    "https://github.com/zai-org/ZCode"
+  ],
+  "lastVerified": "2026-10-19"
+}

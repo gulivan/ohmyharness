@@ -1,0 +1,125 @@
+{
+  "slug": "freebuff",
+  "name": "Freebuff",
+  "kind": "harness",
+  "extends": null,
+  "tagline": "Ad-funded free coding agent with terminal, desktop, web and mobile apps.",
+  "description": "Freebuff is a free coding agent from the Codebuff team, paid for by text ads rather than a subscription. It ships as a terminal CLI, a desktop app for macOS, Windows and Linux, a browser app and an Android app, with a curated multi-vendor model catalog, specialized subagents and hosted sandboxes in its Web and Cloud products. Paid plans add daily usage hours.",
+  "website": "https://freebuff.com/",
+  "repo": "https://github.com/CodebuffAI/freebuff",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Codebuff",
+  "interfaces": [
+    "cli",
+    "desktop",
+    "web",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web",
+    "android"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "The free tier is funded by text ads and refills 30 hours of model usage daily. Paid plans add daily and monthly hours; yearly billing saves 22%.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "30 hours refilled daily; ad-supported",
+        "url": "https://freebuff.com/plans"
+      },
+      {
+        "name": "Starter",
+        "price": 8,
+        "currency": "USD",
+        "period": "month",
+        "notes": "50 hours daily plus 60 monthly bonus hours; all models",
+        "url": "https://freebuff.com/plans"
+      },
+      {
+        "name": "Plus",
+        "price": 25,
+        "currency": "USD",
+        "period": "month",
+        "notes": "80 hours daily plus 100 monthly bonus hours; all models",
+        "url": "https://freebuff.com/plans"
+      },
+      {
+        "name": "Pro",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "130 hours daily plus 160 monthly bonus hours; all models",
+        "url": "https://freebuff.com/plans"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": null,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": true,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": null,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": {
+    "stars": 13613,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g freebuff",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Desktop download",
+      "type": "url",
+      "value": "https://freebuff.com/desktop",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://freebuff.com/",
+    "https://freebuff.com/cli",
+    "https://freebuff.com/plans",
+    "https://freebuff.com/llms.txt",
+    "https://github.com/CodebuffAI/freebuff"
+  ],
+  "lastVerified": "2026-10-19"
+}

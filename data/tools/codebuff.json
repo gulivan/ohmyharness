@@ -1,0 +1,113 @@
+{
+  "slug": "codebuff",
+  "name": "Codebuff",
+  "kind": "harness",
+  "extends": null,
+  "tagline": "Open-source terminal coding agent with modes, custom agents and an SDK.",
+  "description": "Codebuff is an open-source coding agent for the terminal built on a multi-agent framework. Its Default, Max, Plan and Lite modes select different models and agent compositions, users can define custom agents, and the same framework is available as an SDK and powers the Freebuff products.",
+  "website": "https://www.codebuff.com/",
+  "repo": "https://github.com/CodebuffAI/codebuff",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Codebuff",
+  "interfaces": [
+    "cli",
+    "tui",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled"
+  ],
+  "pricing": {
+    "model": "paid",
+    "notes": "Strong subscriptions are sold in usage multiples; pay-as-you-go credits cost $0.01 each with no subscription.",
+    "plans": [
+      {
+        "name": "Strong 1x",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "All modes with 1x usage",
+        "url": "https://www.codebuff.com/pricing"
+      },
+      {
+        "name": "Strong 2.5x",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "All modes with 2.5x usage",
+        "url": "https://www.codebuff.com/pricing"
+      },
+      {
+        "name": "Strong 7x",
+        "price": 500,
+        "currency": "USD",
+        "period": "month",
+        "notes": "All modes with 7x usage",
+        "url": "https://www.codebuff.com/pricing"
+      },
+      {
+        "name": "Pay as you go",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "$0.01 per credit; credits consumed by task complexity",
+        "url": "https://www.codebuff.com/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": null,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": null,
+    "headlessApi": true
+  },
+  "github": {
+    "stars": 13613,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g codebuff",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.codebuff.com/",
+    "https://www.codebuff.com/docs",
+    "https://www.codebuff.com/docs/tips/modes",
+    "https://www.codebuff.com/docs/tips/mcp-servers",
+    "https://www.codebuff.com/pricing",
+    "https://github.com/CodebuffAI/codebuff"
+  ],
+  "lastVerified": "2026-10-19"
+}

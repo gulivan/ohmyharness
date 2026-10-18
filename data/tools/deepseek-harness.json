@@ -1,0 +1,124 @@
+{
+  "slug": "deepseek-harness",
+  "name": "DeepSeek Harness",
+  "kind": "harness",
+  "extends": null,
+  "tagline": "DeepSeek's open-source, plugin-based agent harness, in developer preview.",
+  "description": "DeepSeek Harness (dsh) is an open-source agent harness from DeepSeek AI built on the Cordis plugin system, where models, tools, skills, sessions, sandboxes and the UI are plugin rows. It runs as a desktop app, a local web UI, a CLI, an SDK or an ACP server, and uses DeepSeek or third-party OpenAI- and Anthropic-compatible providers.",
+  "website": "https://www.deepseek.com/en/harness/",
+  "repo": "https://github.com/deepseek-ai/deepseek-harness",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "DeepSeek AI",
+  "interfaces": [
+    "cli",
+    "desktop",
+    "web",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "byok"
+  ],
+  "pricing": {
+    "model": "free",
+    "notes": "The harness is open source and free; model use is billed separately through the DeepSeek API or another configured provider.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open-source (MIT) harness; bring your own provider key",
+        "url": "https://github.com/deepseek-ai/deepseek-harness"
+      },
+      {
+        "name": "DeepSeek API",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Per-token billing; deepseek-flash from $0.15/1M input and $0.60/1M output off-peak",
+        "url": "https://api-docs.deepseek.com/quick_start/pricing/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "automations": true,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": true,
+    "headlessApi": true
+  },
+  "github": {
+    "stars": 253046,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "beta",
+  "install": [
+    {
+      "label": "npx",
+      "type": "command",
+      "value": "npx @deepseek-ai/dsh web",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Desktop download",
+      "type": "url",
+      "value": "https://www.deepseek.com/en/harness/",
+      "platforms": [
+        "macos",
+        "windows"
+      ]
+    },
+    {
+      "label": "Python SDK",
+      "type": "command",
+      "value": "pip install deepseek-harness-sdk",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://github.com/deepseek-ai/deepseek-harness",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/index.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/mcp-memory.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/schedule.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/github-review.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/python-sdk.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/tool-catalog.md",
+    "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md",
+    "https://www.deepseek.com/en/harness/",
+    "https://api-docs.deepseek.com/quick_start/pricing/"
+  ],
+  "lastVerified": "2026-10-19"
+}
