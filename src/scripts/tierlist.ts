@@ -1,4 +1,5 @@
 import type { Tool, ToolKind } from "../data/schema";
+import { KIND_LABELS, KIND_PLURALS } from "../lib/features";
 import { createElement, makeMonogram, setStatus } from "./ui";
 
 interface ClientTool extends Tool {
@@ -18,6 +19,12 @@ interface DragState {
   startX: number;
   startY: number;
   pointerId: number;
+  pointerType: string;
+  /** A touch drag is armed immediately on the handle, or after a long press. */
+  armed: boolean;
+  /** Set once the 250ms long press has fired on the tile body. */
+  longPress: boolean;
+  timer: number | null;
   active: boolean;
   ghost: HTMLElement | null;
   over: number | null;
@@ -57,9 +64,15 @@ function initTierList(): void {
     document.querySelector<HTMLButtonElement>("#download-png");
   const shareLink = document.querySelector<HTMLAnchorElement>("#share-x");
   const copyButton = document.querySelector<HTMLButtonElement>("#copy-link");
+  const copyImageButton =
+    document.querySelector<HTMLButtonElement>("#copy-image");
+  const shareImageButton =
+    document.querySelector<HTMLButtonElement>("#share-image");
   const capture = document.getElementById("capture");
   const captureSub = document.getElementById("tier-capture-sub");
+  const captureFoot = document.getElementById("tier-capture-foot");
 
+  const addIntent = consumeAddIntent();
   let state = parseHash() ?? defaultState();
   let selected: string | null = null;
   let drag: DragState | null = null;
@@ -117,7 +130,6 @@ function initTierList(): void {
       if (!Number.isInteger(index) || index < 0 || index >= names.length) {
         continue;
       }
-      if (scope !== "all" && tool.kind !== scope) continue;
       seen.add(slug);
       ranked[index].push(slug);
     }
@@ -153,10 +165,78 @@ function initTierList(): void {
     updateShare();
   }
 
+  function boardShareText(): string {
+    const tiers: string[] = [];
+    state.names.forEach((name, index) => {
+      const names = state.ranked[index]
+        .map((slug) => bySlug.get(slug))
+        .filter((tool): tool is ClientTool => Boolean(tool))
+        .map((tool) => tool.name);
+      if (names.length === 0) return;
+      const shown = names.slice(0, 4).join(", ");
+      const more = names.length > 4 ? ` +${names.length - 4}` : "";
+      tiers.push(`${name || `Tier ${index + 1}`}: ${shown}${more}`);
+    });
+    if (tiers.length === 0) return "My AI coding tier list";
+
+    let text = `My AI coding tier list — ${tiers.join(" · ")}`;
+    // X counts any link as 23 characters; leave room for it and a space.
+    const max = 280 - 24;
+    if (text.length > max) {
+      text = `${text.slice(0, max - 1).trimEnd()}…`;
+    }
+    return text;
+  }
+
   function updateShare(): void {
     if (!shareLink) return;
-    const text = "My AI coding harness tier list";
+    const text = boardShareText();
     shareLink.href = `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+  }
+
+  function consumeAddIntent(): string | null {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("add");
+    if (!slug || !bySlug.has(slug)) return null;
+    params.delete("add");
+    const query = params.toString();
+    try {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`,
+      );
+    } catch {
+      // Ignore history restrictions; the intent still applies.
+    }
+    return slug;
+  }
+
+  function applyAddIntent(slug: string | null): void {
+    if (!slug) return;
+    const tool = bySlug.get(slug);
+    if (!tool) return;
+
+    if (state.scope !== "all" && tool.kind !== state.scope) {
+      state.scope = "all";
+      applyScopeButtons();
+      writeUrl();
+      render();
+    }
+
+    selected = slug;
+    syncSelection();
+    const tile = board?.querySelector<HTMLElement>(
+      `.tile[data-slug="${CSS.escape(slug)}"]`,
+    );
+    if (!tile) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    tile.scrollIntoView({
+      block: "center",
+      behavior: reduced ? "auto" : "smooth",
+    });
+    tile.focus({ preventScroll: true });
+    announce(`${tool.name} selected. Choose a tier.`);
   }
 
   /* ---------- helpers ---------- */
@@ -489,16 +569,27 @@ function initTierList(): void {
       const value = (button.dataset.scope ?? "all") as Scope;
       if (!SCOPES.includes(value)) return;
       state.scope = value;
-      state.ranked = state.names.map(() => []);
       selected = null;
       applyScopeButtons();
       writeUrl();
       render();
       syncSelection();
-      announce(
+      const scoped = scopeTools();
+      const noun =
         value === "all"
-          ? "Showing all tools, unranked."
-          : `Showing ${button.textContent?.trim().toLowerCase() ?? value}, unranked.`,
+          ? scoped.length === 1
+            ? "tool"
+            : "tools"
+          : scoped.length === 1
+            ? KIND_LABELS[value].toLowerCase()
+            : KIND_PLURALS[value].toLowerCase();
+      const unranked = scoped.filter(
+        (tool) => tierOf(tool.slug) === state.names.length,
+      ).length;
+      announce(
+        unranked === 0
+          ? `Showing ${scoped.length} ${noun}, all ranked.`
+          : `Showing ${scoped.length} ${noun}, ${unranked} unranked.`,
       );
     });
   }
@@ -519,21 +610,42 @@ function initTierList(): void {
     const target = event.target as HTMLElement;
     const tile = target.closest<HTMLElement>(".tile");
     if (!tile) return;
-    if (event.pointerType === "touch" && !target.closest(".tile__handle")) {
-      return;
-    }
     const slug = tile.dataset.slug;
     if (!slug) return;
 
-    drag = {
+    const onHandle = Boolean(target.closest(".tile__handle"));
+    const touchBody = event.pointerType === "touch" && !onHandle;
+    const next: DragState = {
       slug,
       startX: event.clientX,
       startY: event.clientY,
       pointerId: event.pointerId,
+      pointerType: event.pointerType,
+      armed: !touchBody,
+      longPress: false,
+      timer: null,
       active: false,
       ghost: null,
       over: null,
     };
+    drag = next;
+
+    if (touchBody) {
+      next.timer = window.setTimeout(() => {
+        if (drag !== next) return;
+        next.armed = true;
+        next.longPress = true;
+        selected = slug;
+        syncSelection();
+        try {
+          tile.setPointerCapture(event.pointerId);
+        } catch {
+          // Capture is best-effort; window listeners still receive moves.
+        }
+        announce(`Hold and drag ${bySlug.get(slug)?.name ?? slug} to a tier.`);
+      }, 250);
+    }
+
     tile.focus({ preventScroll: true });
   });
 
@@ -547,6 +659,14 @@ function initTierList(): void {
           event.clientX - drag.startX,
           event.clientY - drag.startY,
         );
+        if (!drag.armed) {
+          if (distance >= 7) {
+            // A normal touch swipe: let the page scroll.
+            if (drag.timer !== null) window.clearTimeout(drag.timer);
+            drag = null;
+          }
+          return;
+        }
         if (distance < 7) return;
 
         const tile = board?.querySelector<HTMLElement>(
@@ -594,7 +714,8 @@ function initTierList(): void {
 
   function endDrag(commit: boolean): void {
     if (!drag) return;
-    const { slug, active, over, ghost } = drag;
+    const { slug, active, over, ghost, timer, longPress } = drag;
+    if (timer !== null) window.clearTimeout(timer);
 
     board
       ?.querySelector<HTMLElement>(`.tile[data-slug="${CSS.escape(slug)}"]`)
@@ -611,10 +732,28 @@ function initTierList(): void {
       } else {
         announce("Move cancelled.");
       }
+    } else if (longPress) {
+      // A long press that never moved should not toggle selection on release.
+      suppressClickUntil = Date.now() + 300;
     }
 
     drag = null;
   }
+
+  /*
+   * A touch drag starts with `touch-action: pan-y` so a normal swipe still
+   * scrolls the page. Once the long-press has armed the drag, cancel the
+   * browser's pan before it takes over the gesture and fires pointercancel.
+   */
+  window.addEventListener(
+    "touchmove",
+    (event) => {
+      if (drag?.armed && drag.pointerType === "touch") {
+        event.preventDefault();
+      }
+    },
+    { passive: false },
+  );
 
   window.addEventListener("pointerup", (event) => {
     if (drag && event.pointerId === drag.pointerId) endDrag(true);
@@ -626,56 +765,223 @@ function initTierList(): void {
 
   /* ---------- export & sharing ---------- */
 
+  function scopedRankedSet(): Set<string> {
+    const set = new Set<string>();
+    for (const list of state.ranked) {
+      for (const slug of list) {
+        const tool = bySlug.get(slug);
+        if (tool && (state.scope === "all" || tool.kind === state.scope)) {
+          set.add(slug);
+        }
+      }
+    }
+    return set;
+  }
+
+  function unrankedInScope(): number {
+    return Math.max(0, scopeTools().length - scopedRankedSet().size);
+  }
+
+  /**
+   * The export shows only tiers with tiles. The unranked pool is replaced by a
+   * one-line count, which keeps the image near landscape instead of several
+   * thousand pixels tall.
+   */
+  function prepareExport(): void {
+    if (!capture) return;
+    const ranked = scopedRankedSet();
+    for (const row of capture.querySelectorAll<HTMLElement>(".tier-row")) {
+      const hasTile = Array.from(
+        row.querySelectorAll<HTMLElement>(".tile"),
+      ).some((tile) => ranked.has(tile.dataset.slug ?? ""));
+      row.classList.toggle(
+        "is-export-hidden",
+        row.classList.contains("tier-row--unranked") || !hasTile,
+      );
+    }
+    if (captureFoot) {
+      const remaining = unrankedInScope();
+      captureFoot.replaceChildren(
+        createElement(
+          "span",
+          "",
+          remaining > 0
+            ? `${remaining} more ${remaining === 1 ? "tool" : "tools"} unranked`
+            : "All tools ranked",
+        ),
+        createElement("span", "", "ohmyharness.com"),
+      );
+    }
+  }
+
+  async function renderCapture(): Promise<Blob> {
+    if (!capture) throw new Error("No board to capture");
+
+    await document.fonts.ready;
+
+    // html-to-image inlines every image. Decode the logos first, otherwise the
+    // export can contain empty tiles.
+    const images = Array.from(capture.querySelectorAll("img"));
+    for (const image of images) image.loading = "eager";
+    await Promise.all(
+      images.map(async (image) => {
+        if (!image.complete) {
+          await new Promise<void>((resolve) => {
+            image.addEventListener("load", () => resolve(), { once: true });
+            image.addEventListener("error", () => resolve(), { once: true });
+          });
+        }
+        try {
+          await image.decode();
+        } catch {
+          // A broken logo should not block the rest of the board.
+        }
+      }),
+    );
+
+    prepareExport();
+    capture.classList.add("is-exporting");
+    try {
+      // Let the fixed export width settle before measuring.
+      await new Promise<void>((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      });
+      const { toBlob } = await import("html-to-image");
+      const blob = await toBlob(capture, {
+        pixelRatio: 2,
+        backgroundColor: "#0a0a0b",
+      });
+      if (!blob) throw new Error("The image renderer returned nothing");
+      return blob;
+    } finally {
+      capture.classList.remove("is-exporting");
+      for (const row of capture.querySelectorAll(".is-export-hidden")) {
+        row.classList.remove("is-export-hidden");
+      }
+    }
+  }
+
+  function setBusy(
+    button: HTMLButtonElement,
+    busy: boolean,
+    label: string | null,
+  ): void {
+    button.disabled = busy;
+    if (label !== null) button.textContent = label;
+  }
+
   downloadButton?.addEventListener("click", async () => {
     if (!capture) return;
+    if (scopedRankedSet().size === 0) {
+      announce("Rank at least one tool before downloading.");
+      return;
+    }
     const label = downloadButton.textContent;
-    downloadButton.disabled = true;
-    downloadButton.textContent = "Rendering…";
+    setBusy(downloadButton, true, "Rendering…");
     selected = null;
     syncSelection();
     announce("Preparing image…");
 
     try {
-      await document.fonts.ready;
-
-      // html-to-image inlines every image. Make sure the logos are decoded
-      // first, otherwise the export can contain empty tiles.
-      const images = Array.from(capture.querySelectorAll("img"));
-      for (const image of images) image.loading = "eager";
-      await Promise.all(
-        images.map(async (image) => {
-          if (!image.complete) {
-            await new Promise<void>((resolve) => {
-              image.addEventListener("load", () => resolve(), { once: true });
-              image.addEventListener("error", () => resolve(), { once: true });
-            });
-          }
-          try {
-            await image.decode();
-          } catch {
-            // A broken logo should not block the rest of the board.
-          }
-        }),
-      );
-
-      capture.classList.add("is-exporting");
-      const { toPng } = await import("html-to-image");
-      const dataUrl = await toPng(capture, {
-        pixelRatio: 2,
-        backgroundColor: "#0a0a0b",
-      });
+      const blob = await renderCapture();
+      const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
-      link.href = dataUrl;
+      link.href = url;
       link.download = "ohmyharness-tier-list.png";
       link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 2000);
       announce("Image downloaded.");
     } catch (error) {
       console.error(error);
       announce("Could not render the image. Try a screenshot instead.");
     } finally {
-      capture.classList.remove("is-exporting");
-      downloadButton.disabled = false;
-      downloadButton.textContent = label;
+      setBusy(downloadButton, false, label);
+    }
+  });
+
+  copyImageButton?.addEventListener("click", async () => {
+    if (!capture) return;
+    if (scopedRankedSet().size === 0) {
+      announce("Rank at least one tool before copying an image.");
+      return;
+    }
+    if (
+      typeof ClipboardItem === "undefined" ||
+      !navigator.clipboard?.write
+    ) {
+      announce("Copying images is not supported here. Use Download PNG.");
+      return;
+    }
+    const label = copyImageButton.textContent;
+    setBusy(copyImageButton, true, "Rendering…");
+    selected = null;
+    syncSelection();
+    announce("Preparing image…");
+
+    try {
+      const blob = await renderCapture();
+      await navigator.clipboard.write([
+        new ClipboardItem({ "image/png": blob }),
+      ]);
+      announce("Image copied.");
+    } catch (error) {
+      console.error(error);
+      announce("Could not copy the image. Use Download PNG.");
+    } finally {
+      setBusy(copyImageButton, false, label);
+    }
+  });
+
+  const canShareImage = (() => {
+    if (
+      typeof navigator.share !== "function" ||
+      typeof navigator.canShare !== "function"
+    ) {
+      return false;
+    }
+    try {
+      return navigator.canShare({
+        files: [new File([new Blob()], "tier-list.png", { type: "image/png" })],
+      });
+    } catch {
+      return false;
+    }
+  })();
+
+  if (shareImageButton) shareImageButton.hidden = !canShareImage;
+
+  shareImageButton?.addEventListener("click", async () => {
+    if (!capture) return;
+    if (scopedRankedSet().size === 0) {
+      announce("Rank at least one tool before sharing an image.");
+      return;
+    }
+    const label = shareImageButton.textContent;
+    setBusy(shareImageButton, true, "Rendering…");
+    selected = null;
+    syncSelection();
+    announce("Preparing image…");
+
+    try {
+      const blob = await renderCapture();
+      const file = new File([blob], "ohmyharness-tier-list.png", {
+        type: "image/png",
+      });
+      await navigator.share({
+        files: [file],
+        text: boardShareText(),
+        url: window.location.href,
+      });
+      announce("Shared.");
+    } catch (error) {
+      if ((error as DOMException)?.name === "AbortError") {
+        announce("");
+      } else {
+        console.error(error);
+        announce("Could not share the image. Use Download PNG.");
+      }
+    } finally {
+      setBusy(shareImageButton, false, label);
     }
   });
 
@@ -702,5 +1008,6 @@ function initTierList(): void {
   applyScopeButtons();
   render();
   syncSelection();
+  applyAddIntent(addIntent);
   updateShare();
 }

@@ -9,6 +9,7 @@ import {
   confirmedFeatures,
   sourceLabel,
   sourceState,
+  verifiedFeatureCount,
 } from "../lib/features";
 import { formatStars } from "../lib/tools";
 import Glyph from "./Glyph.astro";
@@ -50,6 +51,8 @@ const pricing = tool.pricing.model
 
 const source = sourceLabel(tool);
 const install = tool.install[0] ?? null;
+const coverage = verifiedFeatureCount(tool);
+const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
 ---
 
 <article
@@ -82,6 +85,10 @@ const install = tool.install[0] ?? null;
     {FEATURES.map((feature) => (
       <Glyph value={tool.features[feature.key]} label={feature.label} />
     ))}
+    <span
+      class="verified-chip"
+      title={`${coverage.verified} of ${coverage.total} features checked`}
+    >Verified {coverage.verified}/{coverage.total}</span>
   </div>
 
   <div class="tool-card__meta">
@@ -89,6 +96,7 @@ const install = tool.install[0] ?? null;
     <span class="dot">{pricing}</span>
     <span class="dot">{source}</span>
     {tool.github && <span class="dot">★ {formatStars(tool.github.stars)}</span>}
+    <a class="tool-card__tier" href={tierHref}>Add to tier list</a>
   </div>
 
   {install && (

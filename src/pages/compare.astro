@@ -5,6 +5,7 @@ import Glyph from "../components/Glyph.astro";
 import {
   FEATURES,
   KIND_LABELS,
+  KIND_PLURALS,
   PRICING_LABELS,
   sourceLabel,
 } from "../lib/features";
@@ -17,6 +18,13 @@ const description =
 
 const pricingLabel = (value: string | null): string =>
   value ? (PRICING_LABELS[value] ?? value) : "?";
+
+const KIND_ORDER = ["harness", "orchestrator", "cloud-agent", "add-on"] as const;
+const groups = KIND_ORDER.map((kind) => ({
+  kind,
+  label: KIND_PLURALS[kind],
+  tools: tools.filter((tool) => tool.kind === kind),
+})).filter((group) => group.tools.length > 0);
 ---
 
 <BaseLayout title="Compare" description={description} path="/compare">
@@ -40,14 +48,51 @@ const pricingLabel = (value: string | null): string =>
               <span class="small">Pick up to four tools</span>
               <span class="small">{tools.length} available</span>
             </div>
-            <div class="picker-list">
-              {tools.map((tool) => (
-                <button class="pick" type="button" data-slug={tool.slug} aria-pressed="false">
-                  <Monogram slug={tool.slug} name={tool.name} size="sm" />
-                  <span>{tool.name}</span>
-                  <span class="pick__meta">{sourceLabel(tool)}</span>
-                </button>
+            <label class="field picker-search">
+              <span class="field__prefix" aria-hidden="true">/</span>
+              <span class="visually-hidden">Filter tools by name or maker</span>
+              <input
+                id="picker-search"
+                type="search"
+                placeholder="Filter by name or maker…"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </label>
+            <div class="picker-tray" id="picker-tray" hidden>
+              <span class="picker-tray__count" id="picker-count">0 selected</span>
+              <span class="picker-tray__names" id="picker-names"></span>
+              <button class="btn btn--small btn--ghost" type="button" id="picker-clear">Clear</button>
+            </div>
+            <div class="picker-list" id="picker-list">
+              {groups.map((group) => (
+                <section
+                  class="picker-group"
+                  data-picker-group={group.kind}
+                  aria-labelledby={`picker-group-${group.kind}`}
+                >
+                  <h2 class="picker-group__title" id={`picker-group-${group.kind}`}>
+                    {group.label} <span aria-hidden="true" data-group-count>{group.tools.length}</span>
+                  </h2>
+                  <div class="picker-group__items">
+                    {group.tools.map((tool) => (
+                      <button
+                        class="pick"
+                        type="button"
+                        data-slug={tool.slug}
+                        data-name={tool.name.toLowerCase()}
+                        data-maker={(tool.maker ?? "").toLowerCase()}
+                        aria-pressed="false"
+                      >
+                        <Monogram slug={tool.slug} name={tool.name} size="sm" />
+                        <span class="pick__name">{tool.name}</span>
+                        <span class="pick__meta">{sourceLabel(tool)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
               ))}
+              <p class="picker-empty" id="picker-empty" hidden>No tools match that search.</p>
             </div>
             <div class="row">
               <button class="btn btn--small btn--ghost" type="button" id="compare-copy">Copy link</button>
@@ -57,7 +102,7 @@ const pricingLabel = (value: string | null): string =>
 
           <div class="compare-region">
             <div class="empty-state" id="compare-empty">
-              <h3>Nothing selected yet.</h3>
+              <h2>Nothing selected yet.</h2>
               <p class="muted">Pick two or more tools above to see them side by side.</p>
             </div>
             <div id="compare-panel"></div>
@@ -74,9 +119,13 @@ const pricingLabel = (value: string | null): string =>
             <span class="matrix-toolbar__count" id="matrix-count">{tools.length} {tools.length === 1 ? "tool" : "tools"}</span>
           </div>
 
-          <div class="matrix-wrap">
-            <table class="matrix" id="matrix">
-              <thead>
+          <div class="matrix-scroll" data-matrix-scroll>
+            <div class="matrix-wrap">
+              <table class="matrix" id="matrix">
+                <caption class="visually-hidden">
+                  Feature comparison of all {tools.length} tools
+                </caption>
+                <thead>
                 <tr>
                   <th scope="col">Tool</th>
                   <th scope="col">Type</th>
@@ -105,8 +154,11 @@ const pricingLabel = (value: string | null): string =>
                   </tr>
                 ))}
               </tbody>
-            </table>
+              </table>
+            </div>
+            <div class="matrix-fade" aria-hidden="true"></div>
           </div>
+          <p class="matrix-cue" id="matrix-cue" hidden>Swipe for more columns →</p>
 
           <div class="legend-row">
             <div class="legend" aria-label="Feature legend">
@@ -119,7 +171,7 @@ const pricingLabel = (value: string | null): string =>
         </>
       ) : (
         <div class="empty-state">
-          <h3>No tools to compare yet.</h3>
+          <h2>No tools to compare yet.</h2>
           <p class="lede">Add the first entry and the matrix will build itself.</p>
           <a class="btn btn--primary" href={`${REPO_URL}/issues/new?template=add-tool.yml`}>Suggest a tool ↗</a>
         </div>

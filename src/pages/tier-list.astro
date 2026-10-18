@@ -39,7 +39,7 @@ const scopes = [
     <div class="container">
       {tools.length === 0 && (
         <div class="empty-state" style="margin-bottom:20px">
-          <h3>No tools to rank yet.</h3>
+          <h2>No tools to rank yet.</h2>
           <p class="muted">Add the first tool to the directory and it will appear here.</p>
           <a class="btn btn--primary" href={`${REPO_URL}/issues/new?template=add-tool.yml`}>Suggest a tool ↗</a>
         </div>
@@ -62,6 +62,8 @@ const scopes = [
         <div class="tier-controls">
           <button class="btn btn--small" type="button" id="add-tier">+ Add tier</button>
           <button class="btn btn--small" type="button" id="download-png">Download PNG</button>
+          <button class="btn btn--small" type="button" id="copy-image">Copy image</button>
+          <button class="btn btn--small btn--ghost" type="button" id="share-image" hidden>Share image</button>
           <button class="btn btn--small btn--ghost" type="button" id="copy-link">Copy link</button>
           <a
             class="btn btn--small btn--primary"
@@ -77,6 +79,7 @@ const scopes = [
         <div class="board-capture__title">AI coding tool tier list</div>
         <div class="board-capture__sub" id="tier-capture-sub">ohmyharness.com · {tools.length} tools</div>
         <div class="board" id="tier-board" aria-label="Tier list board"></div>
+        <div class="board-capture__foot" id="tier-capture-foot" aria-hidden="true"></div>
       </div>
 
       <div class="move-bar" id="move-bar" hidden>
@@ -87,8 +90,8 @@ const scopes = [
       <div class="tier-status" id="tier-status" role="status" aria-live="polite"></div>
 
       <p class="tier-hint" style="margin-top:10px">
-        Drag a tile to a tier, or drag the ⠿ handle on a touch screen. With a
-        keyboard: focus a tile and press <kbd>Space</kbd> to select it, then
+        Drag a tile to a tier, or long-press one (or drag the ⠿ handle) on a
+        touch screen. With a keyboard: focus a tile and press <kbd>Space</kbd> to select it, then
         <kbd>↑</kbd>/<kbd>↓</kbd> to change tier or use the move buttons.
         <kbd>←</kbd>/<kbd>→</kbd> reorders within a tier and <kbd>Esc</kbd>
         deselects.

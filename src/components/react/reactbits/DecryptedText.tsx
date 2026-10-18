@@ -1,15 +1,11 @@
 'use client';
 
-import {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-  type HTMLAttributes,
-  type MouseEvent as ReactMouseEvent
-} from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
+import type {
+  CSSProperties,
+  HTMLAttributes,
+  TargetedMouseEvent
+} from 'preact';
 
 const styles: Record<'wrapper' | 'srOnly' | 'word' | 'cell' | 'ghost' | 'glyph', CSSProperties> = {
   wrapper: {
@@ -541,14 +537,14 @@ export default function DecryptedText({
     });
   }, [frame, effect, chars, step]);
 
-  const trackPointer = (event: ReactMouseEvent<HTMLSpanElement>) => {
+  const trackPointer = (event: TargetedMouseEvent<HTMLSpanElement>) => {
     if (prefersReducedMotion()) return;
     if (!pointerRef.current) measure();
     pointerRef.current = { x: event.clientX, y: event.clientY };
     ensureTicker();
   };
 
-  const handleMouseEnter = (event: ReactMouseEvent<HTMLSpanElement>) => {
+  const handleMouseEnter = (event: TargetedMouseEvent<HTMLSpanElement>) => {
     if (local) {
       trackPointer(event);
       return;
@@ -557,7 +553,7 @@ export default function DecryptedText({
     startRun(true, { from: chars.map(char => isSpace(char)) });
   };
 
-  const handleMouseMove = (event: ReactMouseEvent<HTMLSpanElement>) => {
+  const handleMouseMove = (event: TargetedMouseEvent<HTMLSpanElement>) => {
     if (local) trackPointer(event);
   };
 

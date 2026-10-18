@@ -1,6 +1,7 @@
 'use client';
 
-import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type RefObject } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
+import type { CSSProperties, RefObject } from 'preact';
 
 // React Bits — CountUp (TS + CSS), copied from reactbits.dev.
 // Local change: `motion` is not used. The count runs on requestAnimationFrame

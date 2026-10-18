@@ -28,6 +28,17 @@ const status = document.getElementById("compare-status");
 const matrix = document.getElementById("matrix");
 const matrixCount = document.getElementById("matrix-count");
 const copyButton = document.getElementById("compare-copy");
+const pickerSearch = document.getElementById("picker-search") as
+  | HTMLInputElement
+  | null;
+const pickerEmpty = document.getElementById("picker-empty");
+const pickerTray = document.getElementById("picker-tray");
+const pickerCount = document.getElementById("picker-count");
+const pickerNames = document.getElementById("picker-names");
+const pickerClear = document.getElementById("picker-clear");
+const matrixWrap = document.querySelector<HTMLElement>(".matrix-wrap");
+const matrixScroll = document.querySelector<HTMLElement>("[data-matrix-scroll]");
+const matrixCue = document.getElementById("matrix-cue");
 
 if (dataNode && panel) {
   initCompare();
@@ -45,6 +56,9 @@ function initCompare(): void {
   const rows = Array.from(
     matrix?.querySelectorAll<HTMLTableRowElement>("tbody tr[data-row-kind]") ??
       [],
+  );
+  const groups = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-picker-group]"),
   );
 
   let selected = new Set<string>();
@@ -86,6 +100,55 @@ function initCompare(): void {
         String(selected.has(chip.dataset.slug ?? "")),
       );
     }
+    syncTray();
+  }
+
+  function syncTray(): void {
+    const chosen = chosenTools();
+    if (pickerTray) pickerTray.hidden = chosen.length === 0;
+    if (pickerCount) {
+      pickerCount.textContent = `${chosen.length} selected`;
+    }
+    if (pickerNames) {
+      pickerNames.textContent = chosen.map((tool) => tool.name).join(", ");
+    }
+  }
+
+  function filterPicker(raw: string): void {
+    const query = raw.trim().toLowerCase();
+    let total = 0;
+    for (const group of groups) {
+      let visible = 0;
+      for (const chip of group.querySelectorAll<HTMLButtonElement>(".pick")) {
+        const haystack = `${chip.dataset.name ?? ""} ${chip.dataset.maker ?? ""}`;
+        const show = query.length === 0 || haystack.includes(query);
+        chip.hidden = !show;
+        if (show) visible += 1;
+      }
+      group.hidden = visible === 0;
+      const count = group.querySelector<HTMLElement>("[data-group-count]");
+      if (count) count.textContent = String(visible);
+      total += visible;
+    }
+    if (pickerEmpty) pickerEmpty.hidden = total > 0;
+  }
+
+  function scrollToMatrix(): void {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    matrixWrap?.scrollIntoView({
+      behavior: reduced ? "auto" : "smooth",
+      block: "start",
+    });
+  }
+
+  function syncOverflow(): void {
+    if (!matrixWrap || !matrixScroll) return;
+    const overflowing = matrixWrap.scrollWidth > matrixWrap.clientWidth + 2;
+    const atEnd =
+      matrixWrap.scrollLeft + matrixWrap.clientWidth >=
+      matrixWrap.scrollWidth - 2;
+    matrixScroll.dataset.overflow = String(overflowing && !atEnd);
+    if (matrixCue) matrixCue.hidden = !overflowing || atEnd;
   }
 
   function featureCell(value: boolean | null, label: string): HTMLTableCellElement {
@@ -257,8 +320,8 @@ function initCompare(): void {
     panel.append(table);
   }
 
-  function syncMatrix(): void {
-    if (!matrix) return;
+  function syncMatrix(): number {
+    if (!matrix) return 0;
     let visible = 0;
     for (const row of rows) {
       const show =
@@ -273,6 +336,7 @@ function initCompare(): void {
       );
     }
     if (matrixCount) matrixCount.textContent = plural(visible, "tool");
+    return visible;
   }
 
   function update(write = true): void {
@@ -280,6 +344,7 @@ function initCompare(): void {
     renderCompare();
     syncMatrix();
     if (write) writeUrl();
+    requestAnimationFrame(syncOverflow);
   }
 
   for (const chip of chips) {
@@ -287,16 +352,48 @@ function initCompare(): void {
       const slug = chip.dataset.slug ?? "";
       if (selected.has(slug)) {
         selected.delete(slug);
-      } else if (selected.size >= MAX_COMPARE) {
+        update();
+        setStatus(status, "");
+        return;
+      }
+      if (selected.size >= MAX_COMPARE) {
         setStatus(status, `Compare up to ${MAX_COMPARE} tools at once.`);
         return;
-      } else {
-        selected.add(slug);
-        setStatus(status, "");
       }
+
+      selected.add(slug);
       update();
+      const chosen = chosenTools();
+      if (chosen.length === 2) {
+        setStatus(
+          status,
+          `${chosen[0]?.name} and ${chosen[1]?.name} selected. Comparison and matrix below.`,
+        );
+        requestAnimationFrame(() => {
+          syncOverflow();
+          scrollToMatrix();
+        });
+      } else if (chosen.length > 2) {
+        setStatus(status, `${chosen.length} tools selected.`);
+      } else {
+        setStatus(
+          status,
+          `${chosen[0]?.name ?? bySlug.get(slug)?.name} selected. Pick one more to compare.`,
+        );
+      }
     });
   }
+
+  pickerClear?.addEventListener("click", () => {
+    selected.clear();
+    update();
+    setStatus(status, "Selection cleared.");
+    pickerSearch?.focus();
+  });
+
+  pickerSearch?.addEventListener("input", () => {
+    filterPicker(pickerSearch.value);
+  });
 
   panel?.addEventListener("click", (event) => {
     const target = (event.target as HTMLElement).closest<HTMLElement>(
@@ -312,8 +409,13 @@ function initCompare(): void {
     button.addEventListener("click", () => {
       matrixKind = button.dataset.matrixKind ?? "all";
       update();
+      const visible = rows.filter((row) => !row.hidden).length;
+      setStatus(status, `Showing ${plural(visible, "tool")}.`);
     });
   }
+
+  matrixWrap?.addEventListener("scroll", syncOverflow, { passive: true });
+  window.addEventListener("resize", syncOverflow);
 
   copyButton?.addEventListener("click", async () => {
     const url = window.location.href;
@@ -332,4 +434,9 @@ function initCompare(): void {
 
   readState();
   update(false);
+  filterPicker(pickerSearch?.value ?? "");
+  if (typeof ResizeObserver === "function" && matrixWrap) {
+    new ResizeObserver(syncOverflow).observe(matrixWrap);
+  }
+  requestAnimationFrame(syncOverflow);
 }

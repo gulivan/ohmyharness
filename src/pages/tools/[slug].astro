@@ -15,6 +15,7 @@ import {
   STATUS_LABELS,
   glyphWord,
   sourceLabel,
+  verifiedFeatureCount,
 } from "../../lib/features";
 import {
   formatDate,
@@ -57,6 +58,21 @@ const issueUrl = `${REPO_URL}/issues/new?template=fix-data.yml&title=${encodeURI
 )}`;
 
 const description = `${tool.tagline} Features, pricing, platforms and sources for ${tool.name}.`;
+const coverage = verifiedFeatureCount(tool);
+const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
+
+/** Show `host/path` instead of a full URL; the full URL stays in the link. */
+function shortSource(url: string): string {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./, "");
+    const path = parsed.pathname === "/" ? "" : parsed.pathname;
+    const value = `${host}${path}${parsed.search}`;
+    return value.length > 64 ? `${value.slice(0, 63)}…` : value;
+  } catch {
+    return url;
+  }
+}
 
 const jsonLd: Record<string, unknown> = {
   "@context": "https://schema.org",
@@ -130,7 +146,7 @@ const related = allTools
         <a class="btn btn--primary" href={tool.website} rel="noopener">Visit website ↗</a>
         {tool.repo && <a class="btn" href={tool.repo} rel="noopener">Repository ↗</a>}
         <a class="btn" href={`/compare?tools=${tool.slug}`}>Compare</a>
-        <a class="btn btn--ghost" href="/tier-list#v1|S~A~B~C~D|">Add to a tier list</a>
+        <a class="btn btn--ghost" href={tierHref}>Add to a tier list</a>
       </div>
     </header>
 
@@ -149,7 +165,7 @@ const related = allTools
 
         <section class="panel" id="features">
           <div class="panel__head">
-            <span>Features</span>
+            <span>Features <span class="coverage">Verified <strong>{coverage.verified}/{coverage.total}</strong></span></span>
             <span class="legend">
               <span><Glyph value={true} label="Example" /> yes</span>
               <span><Glyph value={false} label="Example" /> no</span>
@@ -345,7 +361,11 @@ const related = allTools
           <div class="panel__body">
             <ul class="sources">
               {tool.sources.map((source) => (
-                <li><a href={source} rel="noopener">{source}</a></li>
+                <li>
+                  <a href={source} rel="noopener" title={source}>
+                    {shortSource(source)}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>

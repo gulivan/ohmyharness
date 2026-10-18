@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, type CSSProperties, type HTMLAttributes } from 'react';
+import { useEffect, useRef } from 'preact/hooks';
+import type { CSSProperties, HTMLAttributes } from 'preact';
 import './LetterGlitch.css';
 
 export type ClickEffect = 'tear' | 'burst' | 'none';
@@ -890,7 +891,7 @@ const LetterGlitch = ({
       const s = settingsRef.current;
       view.width = Math.max(1, container.clientWidth);
       view.height = Math.max(1, container.clientHeight);
-      view.ratio = Math.min(s.dpr || window.devicePixelRatio || 1, 2);
+      view.ratio = Math.min(s.dpr || window.devicePixelRatio || 1, 1.5);
       canvas.width = Math.max(1, Math.round(view.width * view.ratio));
       canvas.height = Math.max(1, Math.round(view.height * view.ratio));
       syncType();

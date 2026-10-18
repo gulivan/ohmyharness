@@ -169,3 +169,18 @@ export function confirmedFeatures(tool: Tool): FeatureKey[] {
     (feature) => feature.key,
   );
 }
+
+/**
+ * How much of the feature table has been checked for this tool. A feature
+ * counts once it is confirmed either way; `null` means nobody checked yet.
+ */
+export function verifiedFeatureCount(
+  tool: Pick<Tool, "features">,
+): { verified: number; total: number } {
+  return {
+    verified: FEATURES.filter(
+      (feature) => tool.features[feature.key] !== null,
+    ).length,
+    total: FEATURES.length,
+  };
+}

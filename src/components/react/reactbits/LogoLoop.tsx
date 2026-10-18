@@ -1,11 +1,12 @@
 'use client';
 
-import React, { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
+import type { Key, ReactNode, MutableRefObject, CSSProperties } from 'preact/compat';
 import './LogoLoop.css';
 
 export type LogoItem =
   | {
-      node: React.ReactNode;
+      node: ReactNode;
       href?: string;
       title?: string;
       ariaLabel?: string;
@@ -48,10 +49,10 @@ export interface LogoLoopProps {
   draggable?: boolean;
   scrollBoost?: number;
   intro?: boolean;
-  renderItem?: (item: LogoItem, key: React.Key) => React.ReactNode;
+  renderItem?: (item: LogoItem, key: Key) => ReactNode;
   ariaLabel?: string;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 interface LoopConfig {
@@ -254,7 +255,7 @@ const project = (m: number[], depth: number, px: number, py: number): [number, n
 const createEngine = (
   root: HTMLDivElement,
   track: HTMLDivElement,
-  config: React.MutableRefObject<LoopConfig>,
+  config: MutableRefObject<LoopConfig>,
   setLayout: (layout: LoopLayout) => void
 ) => {
   const query = typeof window.matchMedia === 'function' ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
@@ -1068,8 +1069,8 @@ const createEngine = (
   return { refresh, wake, destroy, state: st };
 };
 
-export const LogoLoop = memo<LogoLoopProps>(
-  ({
+export const LogoLoop = ({
+
     logos,
     speed = 120,
     direction = 'left',
@@ -1097,7 +1098,7 @@ export const LogoLoop = memo<LogoLoopProps>(
     ariaLabel = 'Partner logos',
     className,
     style
-  }) => {
+  }: LogoLoopProps) => {
     const rootRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const engineRef = useRef<ReturnType<typeof createEngine> | null>(null);
@@ -1168,7 +1169,13 @@ export const LogoLoop = memo<LogoLoopProps>(
         Array.from({ length: copies }, (_, copyIndex) => {
           const isPrimary = copyIndex === primary;
           return (
-            <ul className="logoloop__list" key={copyIndex} role="list" aria-hidden={isPrimary ? undefined : true}>
+            <ul
+              className="logoloop__list"
+              key={copyIndex}
+              role="list"
+              aria-hidden={isPrimary ? undefined : true}
+              inert={isPrimary ? undefined : true}
+            >
               {logos.map((item, itemIndex) => {
                 const key = `${copyIndex}-${itemIndex}`;
                 const isNode = 'node' in item;
@@ -1212,7 +1219,7 @@ export const LogoLoop = memo<LogoLoopProps>(
                     data-color={item.hoverColor ? '' : undefined}
                     style={
                       item.hoverColor
-                        ? ({ '--logoloop-item-color': item.hoverColor } as React.CSSProperties)
+                        ? ({ '--logoloop-item-color': item.hoverColor } as CSSProperties)
                         : undefined
                     }
                   >
@@ -1263,7 +1270,7 @@ export const LogoLoop = memo<LogoLoopProps>(
       }),
       ...(mask && { WebkitMaskImage: mask, maskImage: mask }),
       ...style
-    } as React.CSSProperties;
+    } as CSSProperties;
 
     const rootClassName = [
       'logoloop',
@@ -1291,8 +1298,7 @@ export const LogoLoop = memo<LogoLoopProps>(
         </div>
       </div>
     );
-  }
-);
+};
 
 LogoLoop.displayName = 'LogoLoop';
 
