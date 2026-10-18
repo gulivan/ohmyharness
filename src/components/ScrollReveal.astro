@@ -1,0 +1,29 @@
+---
+/**
+ * ScrollReveal — a small wrapper adapted from React Bits.
+ *
+ * The content is rendered on the server as the element you ask for (an h2, a
+ * paragraph, a div), so semantics and layout are unchanged. A shared observer
+ * in src/scripts/fun.ts adds `.is-revealed` when it enters the viewport; with
+ * no JavaScript the element is simply visible.
+ */
+interface Props {
+  tag?: "div" | "h2" | "h3" | "p";
+  id?: string;
+  /** Delay in milliseconds before this element settles. */
+  delay?: number;
+  class?: string;
+}
+
+const { tag = "div", id, delay = 0, class: className } = Astro.props;
+const Tag = tag;
+---
+
+<Tag
+  id={id}
+  class:list={["reveal", className]}
+  data-reveal
+  style={delay ? `--reveal-delay:${delay}ms` : undefined}
+>
+  <slot />
+</Tag>

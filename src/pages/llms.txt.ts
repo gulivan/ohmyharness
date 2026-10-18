@@ -26,7 +26,7 @@ export const GET: APIRoute = () => {
     "- [Directory](https://ohmyharness.com/): every harness, orchestrator, cloud agent and add-on",
     "- [Compare](https://ohmyharness.com/compare): feature matrix and side-by-side comparison",
     "- [Tier list](https://ohmyharness.com/tier-list): make and share a tier list",
-    "- [About](https://ohmyharness.com/about): method, neutrality policy and how to contribute",
+    "- [About](https://ohmyharness.com/about): how facts are checked and how to contribute",
     "- [Full data (JSON)](https://ohmyharness.com/api/tools.json)",
     "",
     "## Tools",

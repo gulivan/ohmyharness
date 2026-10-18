@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Glyph from "../components/Glyph.astro";
+import ScrollReveal from "../components/ScrollReveal.astro";
 import { getAllTools, REPO_URL } from "../lib/tools";
 
 const tools = getAllTools();
 const description =
-  "What ohmyharness is, how facts are checked, the neutrality policy, and how to add or correct a tool.";
+  "What ohmyharness is, how facts are checked, how entries stay sourced, and how to add or correct a tool.";
 
 const legend = [
   { value: true, label: "Confirmed" },
@@ -28,7 +29,7 @@ const legend = [
 
     <div class="split">
       <div class="prose">
-        <h2>What this is</h2>
+        <ScrollReveal tag="h2">What this is</ScrollReveal>
         <p>
           There are dozens of AI coding tools now, and the categories are easy
           to mix up. A <strong>harness</strong> is the runtime that talks to a
@@ -45,7 +46,7 @@ const legend = [
           tier-list maker.
         </p>
 
-        <h2 id="legend">How to read a tool page</h2>
+        <ScrollReveal tag="h2" id="legend">How to read a tool page</ScrollReveal>
         <p>
           Features have three states, and the third one is the important one:
         </p>
@@ -66,23 +67,19 @@ const legend = [
           their own check date.
         </p>
 
-        <h2>Neutrality</h2>
+        <ScrollReveal tag="h2">Neutrality</ScrollReveal>
         <p>
-          There are no paid rankings, sponsored placements or affiliate links.
-          Order in the directory is alphabetical, tier lists belong to the
-          people who make them, and no tool can buy a better position.
+          Taglines describe what a tool does, not how good it is. Directory
+          order is alphabetical, tier lists belong to the people who make them,
+          and comparisons show the same rows for every tool so the format
+          cannot favour one entry.
         </p>
         <p>
-          Taglines describe what a tool does, not how good it is. Comparisons
-          show the same rows for every tool so the format cannot favour one
-          entry.
-        </p>
-        <p>
-          If the project ever accepts sponsorship, it will be labelled clearly
-          and kept away from rankings and comparisons.
+          Facts carry sources. If a claim cannot be checked yet it stays
+          unknown, and every page lists the sources used for that entry.
         </p>
 
-        <h2>Who makes this</h2>
+        <ScrollReveal tag="h2">Who makes this</ScrollReveal>
         <p>
           ohmyharness is maintained by{" "}
           <a href={REPO_URL} rel="noopener">gulivan and contributors</a>.
@@ -90,7 +87,7 @@ const legend = [
           and users are equally welcome.
         </p>
 
-        <h2>Data and reuse</h2>
+        <ScrollReveal tag="h2">Data and reuse</ScrollReveal>
         <p>
           The full dataset is published as JSON at{" "}
           <a href="/api/tools.json">/api/tools.json</a>. Agents and scripts can
@@ -102,9 +99,10 @@ const legend = [
           used to identify the products.
         </p>
 
-        <h2>Credits</h2>
+        <ScrollReveal tag="h2">Credits</ScrollReveal>
         <p>
-          The hero animation and logo marquee use components from{" "}
+          The hero animation, logo marquee, 404 glitch, heading reveals, button
+          sparks and tier-list confetti use components from{" "}
           <a href="https://reactbits.dev" rel="noopener">React Bits</a> by David
           Haz, MIT licensed with a Commons Clause (the components are not
           resold), copied into this repository. Their licence notice is kept

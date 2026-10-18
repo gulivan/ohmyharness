@@ -1,6 +1,7 @@
 import type { Tool, ToolKind } from "../data/schema";
 import { KIND_LABELS, KIND_PLURALS } from "../lib/features";
 import { createElement, makeMonogram, setStatus } from "./ui";
+import { burstConfetti } from "./confetti";
 
 interface ClientTool extends Tool {
   icon: string | null;
@@ -274,6 +275,7 @@ function initTierList(): void {
     insertAt?: number,
     message?: string,
   ): void {
+    const from = tierOf(slug);
     removeFromRanked(slug);
     if (target < state.names.length) {
       const list = state.ranked[target];
@@ -287,6 +289,18 @@ function initTierList(): void {
       message ??
         `${bySlug.get(slug)?.name ?? slug} moved to ${tierLabel(target)}.`,
     );
+
+    // A small burst for the top tier; the tile's final position is the origin.
+    if (target === 0 && target < state.names.length && from !== 0) {
+      requestAnimationFrame(() => {
+        const tile = board?.querySelector<HTMLElement>(
+          `.tile[data-slug="${CSS.escape(slug)}"]`,
+        );
+        if (!tile) return;
+        const rect = tile.getBoundingClientRect();
+        burstConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      });
+    }
   }
 
   /* ---------- rendering ---------- */

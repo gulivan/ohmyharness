@@ -27,9 +27,8 @@ By taking part you agree to the [code of conduct](CODE_OF_CONDUCT.md).
 4. **Taglines are neutral.** Describe what the tool does in at most 110
    characters. No "best", "fastest", "revolutionary", no rankings, no calls to
    action.
-5. **No paid placement.** Rankings, comparisons and directory order must not be
-   influenced by money. There are no affiliate links. The directory is
-   alphabetical.
+5. **Order follows the data.** Directory order is alphabetical and comparisons
+   show the same rows for every tool, so the format cannot favour one entry.
 6. **Write for the reader, not the marketing team.** Facts, units and dates.
    Say when something changed if that matters.
 

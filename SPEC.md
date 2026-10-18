@@ -72,7 +72,7 @@ One JSON file per tool: `data/tools/<slug>.json`. Validated at build time with z
 - `/compare` — feature matrix of all tools, filter by kind, pick tools to compare side by side (state in URL query).
 - `/vs/<a>-vs-<b>` — static head-to-head pages for every pair within the same kind (SEO).
 - `/tier-list` — tier-list maker: drag tools between S/A/B/C/D/unranked rows (tiers renameable), pointer + touch + keyboard accessible, state in URL hash so it's shareable, "Download PNG" export, "Share on X" intent link. Pre-fill option: orchestrators only / harnesses only / cloud agents only / add-ons only / all.
-- `/about` — what this is, how to contribute, neutrality policy (no paid rankings; sponsors clearly labeled).
+- `/about` — what this is, how facts are checked, how entries stay sourced, and how to contribute.
 - `/og/<slug>.png` — generated social card for each tool (also used by its head-to-head pages).
 - `/api/tools.json` — all data as JSON, plus a derived `source` display value (`Open source`, `Source available`, `Closed source`, `?`); `/llms.txt` — index for LLMs.
 

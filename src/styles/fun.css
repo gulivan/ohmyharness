@@ -1,0 +1,432 @@
+/*
+ * Playful details. Everything here is additive: without JavaScript (or with
+ * prefers-reduced-motion) the pages look and read exactly as before.
+ *
+ * Effects adapted from React Bits (reactbits.dev, David Haz, MIT + Commons
+ * Clause). See src/components/react/reactbits/LICENSE.md.
+ */
+
+/* ------------------------------------------------------------------ *
+ * GlitchText — 404
+ * ------------------------------------------------------------------ */
+
+.glitch {
+  --glitch-mask-a: linear-gradient(
+    #000 var(--glitch-a-top, 0%),
+    transparent var(--glitch-a-top, 0%),
+    transparent calc(100% - var(--glitch-a-bottom, 100%)),
+    #000 calc(100% - var(--glitch-a-bottom, 100%))
+  );
+  --glitch-mask-b: linear-gradient(
+    #000 var(--glitch-b-top, 0%),
+    transparent var(--glitch-b-top, 0%),
+    transparent calc(100% - var(--glitch-b-bottom, 100%)),
+    #000 calc(100% - var(--glitch-b-bottom, 100%))
+  );
+  position: relative;
+  margin: 0 auto;
+  font-size: clamp(2rem, 10vw, 8rem);
+  font-weight: 900;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+
+.glitch__text {
+  display: block;
+  opacity: var(--glitch-alpha, 1);
+  transform: skewX(var(--glitch-skew, 0deg));
+  transform-origin: 0 50%;
+  -webkit-mask-image: var(--glitch-mask-a), var(--glitch-mask-b);
+  mask-image: var(--glitch-mask-a), var(--glitch-mask-b);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.glitch__slice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: var(--glitch-alpha, 1);
+  transform-origin: 0 50%;
+}
+
+.glitch__slice--a {
+  text-shadow: var(--glitch-a-shadow, none);
+  clip-path: inset(var(--glitch-a-top, 0%) 0 var(--glitch-a-bottom, 100%) 0);
+  transform: translate3d(var(--glitch-a-x, 0px), var(--glitch-a-y, 0px), 0)
+    skewX(var(--glitch-skew, 0deg));
+}
+
+.glitch__slice--b {
+  text-shadow: var(--glitch-b-shadow, none);
+  clip-path: inset(var(--glitch-b-top, 0%) 0 var(--glitch-b-bottom, 100%) 0);
+  transform: translate3d(var(--glitch-b-x, 0px), var(--glitch-b-y, 0px), 0)
+    skewX(var(--glitch-skew, 0deg));
+  -webkit-mask-image: var(--glitch-mask-a);
+  mask-image: var(--glitch-mask-a);
+}
+
+.glitch--rgb .glitch__text {
+  position: relative;
+  z-index: 1;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.glitch--rgb .glitch__slice {
+  clip-path: none;
+  text-shadow: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: calc(var(--glitch-alpha, 1) * var(--glitch-split, 0));
+}
+
+.glitch--rgb .glitch__slice--a {
+  color: var(--glitch-color-a, currentColor);
+}
+
+.glitch--rgb .glitch__slice--b {
+  color: var(--glitch-color-b, currentColor);
+}
+
+.glitch--noise .glitch__slice {
+  display: none;
+}
+
+.glitch__char {
+  position: relative;
+}
+
+.glitch__char[data-glyph] {
+  visibility: hidden;
+}
+
+.glitch__char::after {
+  content: attr(data-glyph);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  visibility: visible;
+  text-align: center;
+  color: var(--glitch-glyph, currentColor);
+}
+
+.glitch__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.notfound__code .glitch {
+  margin: 0;
+  cursor: default;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: clamp(5rem, 22vw, 16rem);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+}
+
+/* The playful line drops in one letter at a time. */
+.notfound__note span {
+  display: inline-block;
+  animation: notfound-drop 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 18ms + 120ms);
+}
+
+@keyframes notfound-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) rotate(-8deg);
+  }
+}
+
+.notfound__note {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.notfound {
+  position: relative;
+}
+
+.notfound > :not(.notfound__crosshair) {
+  position: relative;
+  z-index: 1;
+}
+
+.notfound__crosshair {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.notfound__crosshair.is-on {
+  opacity: 1;
+}
+
+.notfound__crosshair::before,
+.notfound__crosshair::after {
+  content: "";
+  position: absolute;
+  background: var(--accent);
+  opacity: 0.16;
+}
+
+.notfound__crosshair::before {
+  left: 0;
+  right: 0;
+  top: var(--y, 50%);
+  height: 1px;
+}
+
+.notfound__crosshair::after {
+  top: 0;
+  bottom: 0;
+  left: var(--x, 50%);
+  width: 1px;
+}
+
+/* ------------------------------------------------------------------ *
+ * ScrollReveal — section headings
+ * ------------------------------------------------------------------ */
+
+html.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(3px);
+}
+
+html.reveal-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 520ms ease,
+    transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 520ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* ------------------------------------------------------------------ *
+ * ClickSpark — primary buttons
+ * ------------------------------------------------------------------ */
+
+.click-spark {
+  position: fixed;
+  z-index: 9997;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.click-spark__line {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 9px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  transform-origin: 0 50%;
+  animation: click-spark-fly 420ms cubic-bezier(0.15, 0.6, 0.3, 1) forwards;
+}
+
+.click-spark__line:nth-child(3n) {
+  background: var(--ink);
+}
+
+@keyframes click-spark-fly {
+  from {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateX(4px) scaleX(0.5);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(var(--dist)) scaleX(1);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Tier list — tile wobble, confetti canvas, shiny share button
+ * ------------------------------------------------------------------ */
+
+.tile {
+  transition:
+    transform 140ms ease,
+    border-color 120ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tile:hover:not(.is-dragging) {
+    transform: translateY(-1px) rotate(-0.7deg);
+  }
+
+  .tile:nth-child(even):hover:not(.is-dragging) {
+    transform: translateY(-1px) rotate(0.7deg);
+  }
+}
+
+.tier-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#share-x {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#share-x::after {
+  content: "";
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  left: -55%;
+  width: 38%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.72) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  animation: share-shine 3.6s ease-in-out infinite;
+}
+
+@keyframes share-shine {
+  0%,
+  55% {
+    left: -55%;
+  }
+  80%,
+  100% {
+    left: 125%;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Header logo
+ * ------------------------------------------------------------------ */
+
+.brand:hover .brand__mark {
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+/* ------------------------------------------------------------------ *
+ * Footer — drifting grid + dock-like links
+ * ------------------------------------------------------------------ */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: -48px -10% 0;
+  background-image:
+    linear-gradient(to right, rgba(215, 255, 63, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(215, 255, 63, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 115%,
+    #000 0%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(ellipse at 50% 115%, #000 0%, transparent 72%);
+  animation: footer-grid-drift 22s linear infinite;
+  pointer-events: none;
+}
+
+.site-footer__inner,
+.site-footer__bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer ul li {
+  transition: transform 150ms ease;
+}
+
+.site-footer ul li:hover {
+  transform: translateX(3px);
+}
+
+@keyframes footer-grid-drift {
+  to {
+    transform: translateY(48px);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Easter egg — typing "harness" paints ribbons for three seconds
+ * ------------------------------------------------------------------ */
+
+.fun-ribbons {
+  position: fixed;
+  inset: 0;
+  z-index: 9996;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * Reduced motion: keep every fallback static
+ * ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .brand:hover .brand__mark,
+  .site-footer::before,
+  #share-x::after {
+    animation: none !important;
+  }
+
+  #share-x::after {
+    display: none;
+  }
+
+  .notfound__note span {
+    animation: none !important;
+  }
+
+  .notfound__crosshair,
+  .click-spark,
+  .tier-confetti,
+  .fun-ribbons {
+    display: none !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tile:hover:not(.is-dragging),
+    .tile:nth-child(even):hover:not(.is-dragging) {
+      transform: none;
+    }
+  }
+}

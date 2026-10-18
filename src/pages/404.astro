@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import GlitchText from "../components/react/reactbits/GlitchText";
+
+const note = "This harness wandered off.";
 ---
 
 <BaseLayout
@@ -8,9 +11,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   path="/404"
   noindex
 >
-  <div class="container notfound">
+  <div class="container notfound" data-crosshair>
     <p class="eyebrow">404 / not found</p>
-    <div class="notfound__code" aria-hidden="true">404</div>
+    <div class="notfound__code" aria-hidden="true">
+      <GlitchText
+        client:load
+        mode="slices"
+        trigger="always"
+        intensity={0.4}
+        speed={0.6}
+        offset={7}
+        shadowColors={["#d7ff3f", "#a5a29a"]}
+      >
+        404
+      </GlitchText>
+    </div>
+    <p class="notfound__note" aria-label={note}>
+      {note.split("").map((char, index) => (
+        <span aria-hidden="true" style={`--i:${index}`}>
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </p>
     <h1 class="page-title">That page is not here.</h1>
     <p class="lede">
       The link may be old, or the tool may have been removed. Start from the

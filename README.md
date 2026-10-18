@@ -92,13 +92,14 @@ gzip are in [`nginx.conf`](nginx.conf).
 
 Corrections are as welcome as new entries. Read
 [CONTRIBUTING.md](CONTRIBUTING.md), then use the issue templates or open a pull
-request. There are no paid rankings, sponsored placements or affiliate links,
-and taglines describe what a tool does rather than how good it is.
+request. Taglines describe what a tool does rather than how good it is, and
+every fact carries a source.
 
 ## Credits
 
-The animated hero headline, the letter field behind it, the directory counts
-and the logo marquee are adapted from [React Bits](https://reactbits.dev) by
+The animated hero headline, the letter field behind it, the directory counts,
+the logo marquee, the 404 glitch, heading reveals, button sparks and tier-list
+confetti are adapted from [React Bits](https://reactbits.dev) by
 David Haz, used under the MIT + Commons Clause licence. The upstream licence
 notice is kept at
 [`src/components/react/reactbits/LICENSE.md`](src/components/react/reactbits/LICENSE.md).
