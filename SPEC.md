@@ -33,7 +33,15 @@ One JSON file per tool: `data/tools/<slug>.json`. Validated at build time with z
   "platforms": ["macos", "linux", "windows"], // subset of: "macos","linux","windows","web","ios","android"
   "drives": ["claude-code", "codex-cli"],      // orchestrators and add-ons: slugs of harnesses it runs (may reference slugs not yet in data); harnesses: []
   "modelAccess": ["subscription", "byok"],     // subset of: "subscription" (uses your Claude/ChatGPT plan), "byok" (your API key), "bundled" (vendor-provided credits/plan), "local" (local models e.g. Ollama)
-  "pricing": { "model": "free", "notes": "…" }, // model: "free" | "freemium" | "paid" | null; notes optional string
+  "pricing": {                         // model: "free" | "freemium" | "paid" | null; notes optional string
+    "model": "freemium", "notes": "…",
+    "plans": [                         // optional, ≤ 8; omitted or [] = not verified yet. Ways to pay to use the tool,
+                                       // INCLUDING the vendor subscription it runs on (Codex CLI → ChatGPT Plus/Pro; Claude Code → Claude Pro/Max).
+      { "name": "Pro", "price": 20, "currency": "USD", "period": "month", "notes": "$17/mo billed yearly", "url": "https://…/pricing" },
+      { "name": "Enterprise", "price": null, "currency": "USD", "period": "month", "notes": "Contact sales" },
+      { "name": "API", "price": null, "currency": "USD", "period": "usage", "notes": "Pay per token" }
+    ]                                  // price: number in currency units, null = contact sales / varies; period: "month" | "year" | "once" | "usage"
+  },                                   // list the free tier too as price 0 when one exists; use the monthly (not annual-discounted) price, note the annual one
   "features": {                        // each: true | false | null
     "worktrees": null,                 // isolates parallel work in git worktrees
     "parallelAgents": null,            // run several agent sessions at once

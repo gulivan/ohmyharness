@@ -141,6 +141,19 @@ export const installEntrySchema = z
     }
   });
 
+// A way to pay for the tool, including the vendor subscription it runs on
+// (e.g. Codex CLI is free software but is used through ChatGPT plans).
+export const PLAN_PERIODS = ["month", "year", "once", "usage"] as const;
+export const planSchema = z.strictObject({
+  name: z.string().min(1).max(40),
+  price: z.number().nonnegative().nullable(), // null = "contact sales"
+  currency: z.string().regex(/^[A-Z]{3}$/, "currency must be an ISO 4217 code like USD"),
+  period: z.enum(PLAN_PERIODS),
+  notes: z.string().max(160).optional(),
+  url: z.url({ protocol: /^https$/ }).optional(),
+});
+export type Plan = z.infer<typeof planSchema>;
+
 export const featuresSchema = z.strictObject({
   worktrees: flag,
   parallelAgents: flag,
@@ -176,6 +189,7 @@ const toolObject = z.strictObject({
   pricing: z.strictObject({
     model: z.enum(PRICING_MODELS).nullable(),
     notes: z.string().max(300).optional(),
+    plans: z.array(planSchema).max(8).default([]),
   }),
   features: featuresSchema,
   github: z
