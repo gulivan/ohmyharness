@@ -17,7 +17,7 @@
     "refresh:stars": "tsx scripts/refresh-stars.ts",
     "preview": "astro preview",
     "check": "astro check",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "astro sync && tsc --noEmit",
     "validate": "tsx scripts/validate.ts",
     "verify": "npm run validate && npm run typecheck && npm run check && npm run build"
   },
