@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { KIND_LABELS } from "../lib/features";
 import { installLine } from "../lib/install";
+import { startingPrice } from "../lib/pricing";
 import { countByKind, getAllTools, latestVerified } from "../lib/tools";
 
 export const GET: APIRoute = () => {
@@ -42,8 +43,9 @@ export const GET: APIRoute = () => {
       const install = entry
         ? ` Install: ${installLine(entry)}`
         : " Install: not verified yet";
+      const price = startingPrice(tool)?.label ?? "not verified yet";
       lines.push(
-        `- [${tool.name}](https://ohmyharness.com/tools/${tool.slug}): ${KIND_LABELS[tool.kind]} — ${tool.tagline}${install}`,
+        `- [${tool.name}](https://ohmyharness.com/tools/${tool.slug}): ${KIND_LABELS[tool.kind]} — ${tool.tagline}${install}. Price: ${price}.`,
       );
     }
   }

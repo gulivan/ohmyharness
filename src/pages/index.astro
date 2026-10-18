@@ -242,6 +242,15 @@ const jsonLd = {
           <summary>More filters</summary>
           <div class="filters__grid">
             <div class="filter-group">
+              <span class="filter-group__label">Price</span>
+              <div class="chip-row" role="group" aria-label="Filter by price">
+                <button class="chip" type="button" data-filter-price="any" aria-pressed="true">Any</button>
+                <button class="chip" type="button" data-filter-price="free" aria-pressed="false">Free plan</button>
+                <button class="chip" type="button" data-filter-price="under20" aria-pressed="false">Under $20/mo</button>
+                <button class="chip" type="button" data-filter-price="under50" aria-pressed="false">Under $50/mo</button>
+              </div>
+            </div>
+            <div class="filter-group">
               <span class="filter-group__label">Platform</span>
               <label class="field">
                 <span class="visually-hidden">Platform</span>
@@ -281,7 +290,17 @@ const jsonLd = {
 
         <div class="results-line">
           <span id="results-count" role="status" aria-live="polite">{total} {total === 1 ? "tool" : "tools"}</span>
-          <button class="btn btn--small btn--ghost" type="button" id="filter-reset">Reset filters</button>
+          <div class="results-line__actions">
+            <label class="sort-control">
+              <span>Sort</span>
+              <select id="filter-sort">
+                <option value="name">Name</option>
+                <option value="stars">Stars</option>
+                <option value="price">Lowest price</option>
+              </select>
+            </label>
+            <button class="btn btn--small btn--ghost" type="button" id="filter-reset">Reset filters</button>
+          </div>
         </div>
       </div>
 

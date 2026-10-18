@@ -5,12 +5,16 @@ import {
   INTERFACE_LABELS,
   KIND_LABELS,
   PLATFORM_LABELS,
-  PRICING_LABELS,
   confirmedFeatures,
   sourceLabel,
   sourceState,
   verifiedFeatureCount,
 } from "../lib/features";
+import {
+  cheapestMonthly,
+  hasFreePlan,
+  priceLabel,
+} from "../lib/pricing";
 import { formatStars } from "../lib/tools";
 import Glyph from "./Glyph.astro";
 import Monogram from "./Monogram.astro";
@@ -45,9 +49,8 @@ const interfaces =
     ? tool.interfaces.map((value) => INTERFACE_LABELS[value] ?? value).join(" / ")
     : "Interfaces ?";
 
-const pricing = tool.pricing.model
-  ? PRICING_LABELS[tool.pricing.model] ?? tool.pricing.model
-  : "Pricing ?";
+const pricing = priceLabel(tool);
+const monthly = cheapestMonthly(tool);
 
 const source = sourceLabel(tool);
 const install = tool.install[0] ?? null;
@@ -67,6 +70,9 @@ const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
   data-source={sourceState(tool)}
   data-features={confirmedFeatures(tool).join(" ")}
   data-pricing={tool.pricing.model ?? ""}
+  data-price-free={hasFreePlan(tool) ? "true" : "false"}
+  data-price-monthly={monthly ?? ""}
+  data-stars={tool.github ? String(tool.github.stars) : ""}
 >
   <div class="tool-card__top">
     <Monogram slug={tool.slug} name={tool.name} />
@@ -93,7 +99,7 @@ const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
 
   <div class="tool-card__meta">
     <span>{platforms}</span>
-    <span class="dot">{pricing}</span>
+    <span class="dot tool-card__price">{pricing}</span>
     <span class="dot">{source}</span>
     {tool.github && <span class="dot">★ {formatStars(tool.github.stars)}</span>}
     <a class="tool-card__tier" href={tierHref}>Add to tier list</a>

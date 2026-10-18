@@ -13,6 +13,7 @@ import {
   sourceLabel,
 } from "../lib/features";
 import { createElement, makeMonogram, plural, setStatus } from "./ui";
+import { startingPrice } from "../lib/pricing";
 
 interface ClientTool extends Tool {
   icon: string | null;
@@ -275,6 +276,11 @@ function initCompare(): void {
         : "Unknown";
       return tool.pricing.notes ? `${label} — ${tool.pricing.notes}` : label;
     });
+    addRow(
+      body,
+      "Starting price",
+      (tool) => startingPrice(tool)?.label ?? "Not verified yet",
+    );
     addRow(body, "Model access", (tool) =>
       tagList(
         tool.modelAccess.map((value) => MODEL_ACCESS_LABELS[value] ?? value),

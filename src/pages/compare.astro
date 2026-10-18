@@ -10,6 +10,7 @@ import {
   sourceLabel,
 } from "../lib/features";
 import { getAllTools, iconFor, REPO_URL } from "../lib/tools";
+import { startingPrice } from "../lib/pricing";
 
 const tools = getAllTools();
 const clientTools = tools.map((tool) => ({ ...tool, icon: iconFor(tool.slug) }));
@@ -130,6 +131,7 @@ const groups = KIND_ORDER.map((kind) => ({
                   <th scope="col">Tool</th>
                   <th scope="col">Type</th>
                   <th scope="col">Pricing</th>
+                  <th scope="col" title="Cheapest listed price">From</th>
                   <th scope="col">Source</th>
                   {FEATURES.map((feature) => (
                     <th scope="col" title={feature.question}>{feature.label}</th>
@@ -147,6 +149,7 @@ const groups = KIND_ORDER.map((kind) => ({
                     </th>
                     <td>{KIND_LABELS[tool.kind]}</td>
                     <td>{pricingLabel(tool.pricing.model)}</td>
+                    <td>{startingPrice(tool)?.label ?? "?"}</td>
                     <td>{sourceLabel(tool)}</td>
                     {FEATURES.map((feature) => (
                       <td><Glyph value={tool.features[feature.key]} label={feature.label} /></td>

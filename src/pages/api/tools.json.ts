@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { sourceLabel } from "../../lib/features";
+import { startingPrice } from "../../lib/pricing";
 import { getAllTools } from "../../lib/tools";
 
 export const GET: APIRoute = () => {
@@ -7,6 +8,8 @@ export const GET: APIRoute = () => {
     ...tool,
     /** Derived display value: Open source, Source available, Closed source or ? */
     source: sourceLabel(tool),
+    /** Derived: cheapest plan, or a free plan when one exists. */
+    startingPrice: startingPrice(tool),
   }));
   const body = {
     name: "ohmyharness",

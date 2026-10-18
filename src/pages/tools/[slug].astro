@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Monogram from "../../components/Monogram.astro";
 import Glyph from "../../components/Glyph.astro";
 import InstallPanel from "../../components/InstallPanel.astro";
+import PricingPanel from "../../components/PricingPanel.astro";
 import type { Tool } from "../../data/schema";
 import {
   FEATURES,
@@ -151,6 +152,7 @@ const related = allTools
     </header>
 
     <InstallPanel tool={tool} editUrl={editUrl} />
+    <PricingPanel tool={tool} editUrl={editUrl} />
 
     <div class="tool-layout">
       <div class="stack">

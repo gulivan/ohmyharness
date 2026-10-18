@@ -16,6 +16,7 @@ import {
 } from "../../lib/features";
 import { formatStars, getSameKindPairs } from "../../lib/tools";
 import { installLine } from "../../lib/install";
+import { planSummary, sortPlans } from "../../lib/pricing";
 
 export function getStaticPaths() {
   return getSameKindPairs().map(({ a, b }) => ({
@@ -34,10 +35,15 @@ const kindLabel = KIND_LABELS[a.kind];
 
 const description = `${a.name} vs ${b.name}: a feature-by-feature comparison of these ${kindLabel.toLowerCase()} tools — worktrees, parallel agents, MCP, pricing, platforms and more.`;
 
-const pricingText = (tool: Tool): string =>
-  tool.pricing.model
+const pricingText = (tool: Tool): string => {
+  const model = tool.pricing.model
     ? (PRICING_LABELS[tool.pricing.model] ?? tool.pricing.model)
-    : "Unknown";
+    : null;
+  if (tool.pricing.plans.length === 0) return model ?? "Not verified yet";
+
+  const plans = sortPlans(tool.pricing.plans).map(planSummary).join(" · ");
+  return model ? `${model} · ${plans}` : plans;
+};
 
 const sourceText = (tool: Tool): string => sourceLabel(tool);
 
@@ -122,8 +128,9 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
       </div>
     </header>
 
-    <table class="compare-table" style="margin-bottom:32px">
-      <thead>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead>
         <tr>
           <th scope="col">Fact</th>
           <th scope="col">
@@ -163,6 +170,7 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
         ))}
       </tbody>
     </table>
+    </div>
 
     <div class="legend-row" style="margin-bottom:24px">
       <div class="legend" aria-label="Feature legend">

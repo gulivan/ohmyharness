@@ -1,0 +1,91 @@
+---
+import type { Plan, Tool } from "../data/schema";
+import { PRICING_LABELS } from "../lib/features";
+import { formatPrice, sortPlans, vendorPlan } from "../lib/pricing";
+import { formatDate } from "../lib/tools";
+
+interface Props {
+  tool: Tool;
+  /** GitHub edit URL for this tool's data file. */
+  editUrl: string;
+}
+
+const { tool, editUrl } = Astro.props;
+const plans = sortPlans(tool.pricing.plans);
+const vendor = plans.length > 0 ? vendorPlan(tool) : null;
+const primaryUrl = plans.find((plan) => plan.url)?.url ?? tool.sources[0];
+const modelLabel = tool.pricing.model
+  ? (PRICING_LABELS[tool.pricing.model] ?? tool.pricing.model)
+  : "Pricing ?";
+
+/** Skip notes that only repeat the price ("Contact sales"). */
+function noteFor(plan: Plan): string | null {
+  if (!plan.notes) return null;
+  return plan.notes.trim().toLowerCase() === formatPrice(plan).toLowerCase()
+    ? null
+    : plan.notes;
+}
+---
+
+<section class="panel pricing" aria-labelledby="pricing-title">
+  <div class="panel__head">
+    <span id="pricing-title">Pricing</span>
+    <span class="pricing__head-meta">
+      <span>{modelLabel}</span>
+      {plans.length > 0 && primaryUrl && (
+        <a
+          class="pricing__link"
+          href={primaryUrl}
+          target="_blank"
+          rel="noopener"
+        >
+          See pricing ↗
+        </a>
+      )}
+    </span>
+  </div>
+  <div class="panel__body">
+    {plans.length === 0 ? (
+      <p class="pricing-empty">
+        Pricing not verified yet —{" "}
+        <a href={editUrl} rel="noopener">add it ↗</a>
+      </p>
+    ) : (
+      <>
+        {vendor && <p class="pricing__vendor">Uses your {vendor} plan.</p>}
+        {tool.pricing.notes && (
+          <p class="pricing__notes">{tool.pricing.notes}</p>
+        )}
+        <ul class="plan-list">
+          {plans.map((plan) => (
+            <li
+              class:list={[
+                "plan-row",
+                plan.price === 0 && "plan-row--free",
+              ]}
+            >
+              <span class="plan-row__name">{plan.name}</span>
+              <span class="plan-row__price">{formatPrice(plan)}</span>
+              {noteFor(plan) && (
+                <span class="plan-row__notes">{noteFor(plan)}</span>
+              )}
+              {plan.url && plan.url !== primaryUrl && (
+                <a
+                  class="plan-row__link"
+                  href={plan.url}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  See plan ↗
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+        <p class="pricing__foot">
+          Prices as listed on {formatDate(tool.lastVerified)}.
+        </p>
+      </>
+    )}
+  </div>
+</section>
