@@ -9,10 +9,26 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Anomaly",
-  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop",
+    "web",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "bundled", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "bundled",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "The tool is free and open source; OpenCode Zen and provider usage are paid separately."
@@ -27,8 +43,49 @@
     "diffReview": true,
     "planMode": true
   },
-  "github": { "stars": 216418, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 216418,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://opencode.ai/install | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g opencode-ai",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install anomalyco/tap/opencode",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Scoop",
+      "type": "command",
+      "value": "scoop install opencode",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://opencode.ai/",
     "https://opencode.ai/docs/",

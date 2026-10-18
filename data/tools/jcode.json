@@ -9,10 +9,22 @@
   "openSource": true,
   "license": "MIT",
   "maker": null,
-  "interfaces": ["cli", "tui", "desktop"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "bundled"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "bundled"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "The agent is free; optional monthly plans from $10 add inference credit and cloud sessions."
@@ -32,10 +44,38 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://jcode.sh/install | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://jcode.sh/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew tap 1jehuang/jcode && brew install jcode",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/1jehuang/jcode",
     "https://jcode.sh/",
-    "https://jcode.sh/pricing"
+    "https://jcode.sh/pricing",
+    "https://jcode.sh/docs"
   ],
   "lastVerified": "2026-10-18"
 }

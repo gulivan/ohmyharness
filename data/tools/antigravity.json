@@ -9,10 +9,21 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Google",
-  "interfaces": ["desktop", "cli", "ide-extension", "api"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "ide-extension",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription"],
+  "modelAccess": [
+    "subscription"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free plan; higher limits with Google AI Plus, Pro, and Ultra, and enterprise plans via Google Cloud."
@@ -29,6 +40,35 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://antigravity.google/cli/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://antigravity.google/cli/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://antigravity.google/download",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://antigravity.google/docs/overview/",
     "https://antigravity.google/docs/ide/overview/",

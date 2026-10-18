@@ -9,10 +9,21 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Google",
-  "interfaces": ["cli", "ide-extension"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "bundled"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "bundled"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free with a Google account (1,000 requests/day); higher limits on Google AI Pro/Ultra or paid API billing."
@@ -27,8 +38,40 @@
     "diffReview": null,
     "planMode": true
   },
-  "github": { "stars": 107439, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 107439,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @google/gemini-cli",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install gemini-cli",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "MacPorts",
+      "type": "command",
+      "value": "sudo port install gemini-cli",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://geminicli.com/docs/",
     "https://geminicli.com/docs/cli/git-worktrees/",

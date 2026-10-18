@@ -9,10 +9,35 @@
   "openSource": true,
   "license": "MIT",
   "maker": null,
-  "interfaces": ["desktop", "web", "cli", "mobile", "api"],
-  "platforms": ["macos", "linux", "windows", "ios", "android", "web"],
-  "drives": ["claude-code", "codex-cli", "pi", "cursor-cli", "opencode", "grok-build", "ohmypi", "hermes-agent"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "web",
+    "cli",
+    "mobile",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "ios",
+    "android",
+    "web"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "pi",
+    "cursor-cli",
+    "opencode",
+    "grok-build",
+    "ohmypi",
+    "hermes-agent"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "bb is free and open source under the MIT license."
@@ -32,6 +57,28 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/get-bb/bb/releases/tag/desktop-latest",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "npx",
+      "type": "command",
+      "value": "npx bb-app@latest",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://getbb.app/",
     "https://getbb.app/guides/orchestrate-coding-agents",

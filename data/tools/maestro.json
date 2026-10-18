@@ -9,10 +9,30 @@
   "openSource": true,
   "license": "AGPL-3.0",
   "maker": "RunMaestro",
-  "interfaces": ["desktop", "cli", "web", "mobile"],
-  "platforms": ["macos", "linux", "windows"],
-  "drives": ["claude-code", "codex-cli", "opencode", "factory-droid", "github-copilot-cli", "qwen-code", "ohmypi"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "web",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "factory-droid",
+    "github-copilot-cli",
+    "qwen-code",
+    "ohmypi"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source under AGPL-3.0; agents use your existing subscriptions or API keys."
@@ -32,9 +52,22 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/RunMaestro/Maestro/releases",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/RunMaestro/Maestro",
-    "https://RunMaestro.ai/"
+    "https://RunMaestro.ai/",
+    "https://docs.runmaestro.ai/installation"
   ],
   "lastVerified": "2026-10-18"
 }

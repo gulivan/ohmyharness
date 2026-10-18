@@ -9,10 +9,25 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Kilo",
-  "interfaces": ["ide-extension", "cli", "tui", "desktop", "web"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "ide-extension",
+    "cli",
+    "tui",
+    "desktop",
+    "web"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["byok", "bundled", "local"],
+  "modelAccess": [
+    "byok",
+    "bundled",
+    "local"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free plan with inference billed separately; Kilo Pass credits from $19/mo and Teams from $15/user/mo."
@@ -32,10 +47,52 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "VS Code Marketplace",
+      "type": "url",
+      "value": "https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @kilocode/cli",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install Kilo-Org/tap/kilo",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "JetBrains Marketplace",
+      "type": "url",
+      "value": "https://plugins.jetbrains.com/plugin/28350-kilo-code",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://kilo.ai/",
     "https://kilo.ai/docs/code-with-ai/platforms/cli",
-    "https://kilo.ai/pricing"
+    "https://kilo.ai/pricing",
+    "https://github.com/Kilo-Org/kilocode"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -44,6 +44,44 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Bun",
+      "type": "command",
+      "value": "bun install -g @oh-my-pi/pi-coding-agent",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://omp.sh/install | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install can1357/tap/omp",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://omp.sh/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/can1357/oh-my-pi",
     "https://omp.sh/",

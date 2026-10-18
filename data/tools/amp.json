@@ -9,10 +9,25 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Amp, Inc.",
-  "interfaces": ["cli", "desktop", "web", "mobile"],
-  "platforms": ["macos", "linux", "windows", "web", "ios"],
+  "interfaces": [
+    "cli",
+    "desktop",
+    "web",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web",
+    "ios"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "bundled"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "bundled"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Hobby tier is free with pay-as-you-go orbs and BYOK; Individual is $20/month with included usage."
@@ -29,6 +44,34 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://ampcode.com/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "macOS app",
+      "type": "url",
+      "value": "https://static.ampcode.com/mac/latest.dmg",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "TestFlight",
+      "type": "url",
+      "value": "https://testflight.apple.com/join/Skjdm6qe",
+      "platforms": [
+        "ios"
+      ]
+    }
+  ],
   "sources": [
     "https://ampcode.com/docs",
     "https://ampcode.com/docs/cli",
@@ -36,7 +79,8 @@
     "https://ampcode.com/docs/models-and-subagents",
     "https://ampcode.com/docs/markdown/orbs",
     "https://ampcode.com/docs/markdown/cli/remote-control",
-    "https://ampcode.com/about"
+    "https://ampcode.com/about",
+    "https://ampcode.com/docs/macos-and-ios"
   ],
   "lastVerified": "2026-10-18"
 }

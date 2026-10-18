@@ -9,10 +9,27 @@
   "openSource": true,
   "license": "AGPL-3.0",
   "maker": "SMTG AI",
-  "interfaces": ["tui", "cli"],
-  "platforms": ["macos", "linux"],
-  "drives": ["claude-code", "codex-cli", "gemini-cli", "aider", "opencode", "amp"],
-  "modelAccess": ["subscription", "byok", "local"],
+  "interfaces": [
+    "tui",
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "gemini-cli",
+    "aider",
+    "opencode",
+    "amp"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source under AGPL-3.0."
@@ -27,8 +44,31 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 8621, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 8621,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install claude-squad",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://raw.githubusercontent.com/smtg-ai/claude-squad/main/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/smtg-ai/claude-squad",
     "https://github.com/smtg-ai/claude-squad/blob/main/README.md"

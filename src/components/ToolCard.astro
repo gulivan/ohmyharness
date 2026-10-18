@@ -49,6 +49,7 @@ const pricing = tool.pricing.model
   : "Pricing ?";
 
 const source = sourceLabel(tool);
+const install = tool.install[0] ?? null;
 ---
 
 <article
@@ -89,6 +90,36 @@ const source = sourceLabel(tool);
     <span class="dot">{source}</span>
     {tool.github && <span class="dot">★ {formatStars(tool.github.stars)}</span>}
   </div>
+
+  {install && (
+    <div class="tool-card__install">
+      {install.type === "command" ? (
+        <>
+          <span class="tool-card__install-prompt" aria-hidden="true">$</span>
+          <code class="tool-card__install-text">{install.value}</code>
+          <button
+            class="tool-card__copy"
+            type="button"
+            data-copy-text={install.value}
+            data-copied-label="✓"
+            data-copy-message={`${tool.name} install command copied`}
+            aria-label={`Copy the install command for ${tool.name}`}
+          >
+            <span aria-hidden="true" data-copy-feedback>⧉</span>
+          </button>
+        </>
+      ) : (
+        <a
+          class="tool-card__get"
+          href={install.value}
+          target="_blank"
+          rel="noopener"
+        >
+          Get {tool.name} ↗
+        </a>
+      )}
+    </div>
+  )}
 
   <span class="visually-hidden">{interfaces}</span>
 </article>

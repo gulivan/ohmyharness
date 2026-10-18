@@ -9,10 +9,19 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Anysphere",
-  "interfaces": ["cli"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "bundled"],
+  "modelAccess": [
+    "subscription",
+    "bundled"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free plan includes limited agent requests; paid Cursor plans add usage."
@@ -29,13 +38,34 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl https://cursor.com/install -fsS | bash",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm 'https://cursor.com/install?win32=true' | iex",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://cursor.com/docs/cli/overview",
     "https://cursor.com/docs/cli/using",
     "https://cursor.com/docs/cli/reference/parameters",
     "https://cursor.com/docs/cli/mcp",
     "https://cursor.com/docs/subagents",
-    "https://cursor.com/pricing"
+    "https://cursor.com/pricing",
+    "https://cursor.com/docs/cli/installation"
   ],
   "lastVerified": "2026-10-18"
 }

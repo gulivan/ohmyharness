@@ -9,10 +9,23 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Capy",
-  "interfaces": ["web", "desktop", "api"],
-  "platforms": ["macos", "windows", "linux", "web"],
+  "interfaces": [
+    "web",
+    "desktop",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["bundled", "byok", "subscription"],
+  "modelAccess": [
+    "bundled",
+    "byok",
+    "subscription"
+  ],
   "pricing": {
     "model": "paid",
     "notes": "Lite $20/mo, Pro $100/mo, Max $200-$1,000/mo, Enterprise custom. Credits pay for model tokens, cloud machine time, and images."
@@ -29,12 +42,33 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Open in browser",
+      "type": "url",
+      "value": "https://capy.ai",
+      "platforms": [
+        "web"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://capy.ai/download",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://capy.ai/",
     "https://docs.capy.ai/welcome",
     "https://docs.capy.ai/captains",
     "https://capy.ai/pricing",
-    "https://docs.capy.ai/models-and-pricing"
+    "https://docs.capy.ai/models-and-pricing",
+    "https://docs.capy.ai/desktop"
   ],
   "lastVerified": "2026-10-18"
 }

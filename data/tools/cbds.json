@@ -10,9 +10,32 @@
   "openSource": true,
   "license": "MIT",
   "maker": "zqkra",
-  "interfaces": ["cli", "tui"],
-  "platforms": ["macos", "linux", "windows"],
-  "drives": ["claude-code", "codex-cli", "github-copilot-cli", "cursor-cli", "opencode", "pi", "factory-droid", "kimi-cli", "kilo-code", "qwen-code", "grok-build", "antigravity", "amp", "gemini-cli", "cline"],
+  "interfaces": [
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "github-copilot-cli",
+    "cursor-cli",
+    "opencode",
+    "pi",
+    "factory-droid",
+    "kimi-cli",
+    "kilo-code",
+    "qwen-code",
+    "grok-build",
+    "antigravity",
+    "amp",
+    "gemini-cli",
+    "cline"
+  ],
   "modelAccess": [],
   "pricing": {
     "model": "free",
@@ -28,8 +51,23 @@
     "diffReview": null,
     "planMode": null
   },
-  "github": { "stars": 2, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 2,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Herdr plugin",
+      "type": "command",
+      "value": "herdr plugin install zqkra/cbds",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/zqkra/cbds",
     "https://github.com/zqkra/cbds/blob/main/README.md",

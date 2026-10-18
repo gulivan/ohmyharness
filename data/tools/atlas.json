@@ -9,10 +9,24 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Pacifio",
-  "interfaces": ["desktop"],
-  "platforms": ["macos", "windows"],
-  "drives": ["claude-code", "codex-cli", "opencode", "cursor-cli", "kilo-code"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "cursor-cli",
+    "kilo-code"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free tier with your own keys; Pro at $20/month and higher tiers add synced projects, storage and included AI credit."
@@ -32,6 +46,17 @@
     "checkedAt": "2026-10-18"
   },
   "status": "beta",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.tryatlas.cc/",
+      "platforms": [
+        "macos",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/pacifio/atlas",
     "https://tryatlas.cc/"

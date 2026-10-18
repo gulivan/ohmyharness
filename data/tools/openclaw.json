@@ -10,10 +10,27 @@
   "openSource": true,
   "license": "MIT",
   "maker": "OpenClaw Foundation",
-  "interfaces": ["cli", "tui", "desktop", "web", "mobile"],
-  "platforms": ["macos", "linux", "windows", "web", "ios", "android"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop",
+    "web",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web",
+    "ios",
+    "android"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source; there is no paid tier or hosted service, and model usage is billed by your provider."
@@ -28,8 +45,48 @@
     "diffReview": null,
     "planMode": null
   },
-  "github": { "stars": 392390, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 392390,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://openclaw.ai/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g openclaw@latest --allow-scripts=openclaw",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Download (macOS)",
+      "type": "url",
+      "value": "https://github.com/openclaw/openclaw/releases",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download (Windows)",
+      "type": "url",
+      "value": "https://github.com/openclaw/openclaw-windows-node/releases/latest",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/openclaw/openclaw",
     "https://openclaw.ai/",
@@ -39,7 +96,8 @@
     "https://docs.openclaw.ai/concepts/session-tool",
     "https://docs.openclaw.ai/concepts/session-attachment",
     "https://docs.openclaw.ai/concepts/architecture",
-    "https://docs.openclaw.ai/gateway/cloud-workers"
+    "https://docs.openclaw.ai/gateway/cloud-workers",
+    "https://docs.openclaw.ai/install"
   ],
   "lastVerified": "2026-10-18"
 }

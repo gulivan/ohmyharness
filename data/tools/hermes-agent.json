@@ -9,10 +9,23 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Nous Research",
-  "interfaces": ["cli", "tui", "desktop"],
-  "platforms": ["macos", "linux", "windows", "android"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "android"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source under MIT; provider access is your own, optionally through a Nous Portal subscription."
@@ -32,6 +45,26 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "iex (irm https://hermes-agent.nousresearch.com/install.ps1)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/NousResearch/hermes-agent",
     "https://hermes-agent.nousresearch.com/",

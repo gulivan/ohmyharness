@@ -15,6 +15,7 @@ import {
   sourceLabel,
 } from "../../lib/features";
 import { formatStars, getSameKindPairs } from "../../lib/tools";
+import { installLine } from "../../lib/install";
 
 export function getStaticPaths() {
   return getSameKindPairs().map(({ a, b }) => ({
@@ -81,6 +82,7 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
   { label: "Model access", value: accessText },
   { label: "Platforms", value: platformText },
   { label: "Interfaces", value: interfaceText },
+  { label: "Install", value: (tool) => installLine(tool.install[0] ?? null) },
   { label: "GitHub", value: githubText },
   { label: "Last verified", value: (tool) => tool.lastVerified },
 ];

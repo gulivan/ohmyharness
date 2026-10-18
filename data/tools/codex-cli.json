@@ -9,10 +9,19 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "OpenAI",
-  "interfaces": ["cli"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok"],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "paid",
     "notes": "Included with ChatGPT Plus, Pro, Business, Edu, and Enterprise plans; API key usage is billed separately."
@@ -27,8 +36,48 @@
     "diffReview": true,
     "planMode": true
   },
-  "github": { "stars": 129749, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 129749,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://chatgpt.com/codex/install.sh | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "powershell -ExecutionPolicy ByPass -c \"irm https://chatgpt.com/codex/install.ps1 | iex\"",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @openai/codex",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask codex",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://developers.openai.com/codex/cli",
     "https://learn.chatgpt.com/docs/developer-commands",

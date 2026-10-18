@@ -85,6 +85,62 @@ function uniqueArray<T extends z.ZodType>(schema: T, values: string) {
 
 const flag = z.boolean().nullable().default(null);
 
+/**
+ * One way to get a tool. Kept deliberately small: a label for the method
+ * ("npm", "Homebrew", "Download"), a copyable shell line or an https link,
+ * and the platforms it applies to.
+ */
+export const installEntrySchema = z
+  .strictObject({
+    label: z
+      .string()
+      .min(1, "must not be empty")
+      .max(24, "must be at most 24 characters"),
+    type: z.enum(["command", "url"], {
+      message: 'must be "command" or "url"',
+    }),
+    value: z.string().min(1, "must not be empty"),
+    platforms: uniqueArray(z.enum(PLATFORMS), "platforms").min(
+      1,
+      "at least one platform is required",
+    ),
+  })
+  .superRefine((entry, context) => {
+    if (entry.type === "url") {
+      let valid = /^https:\/\/\S+$/i.test(entry.value);
+      if (valid) {
+        try {
+          new URL(entry.value);
+        } catch {
+          valid = false;
+        }
+      }
+      if (!valid) {
+        context.addIssue({
+          code: "custom",
+          path: ["value"],
+          message: "must be an absolute https:// URL when type is \"url\"",
+        });
+      }
+      return;
+    }
+
+    if (entry.value.trim().length === 0) {
+      context.addIssue({
+        code: "custom",
+        path: ["value"],
+        message: "must not be blank when type is \"command\"",
+      });
+    }
+    if (/[\r\n]/.test(entry.value)) {
+      context.addIssue({
+        code: "custom",
+        path: ["value"],
+        message: "must be a single line without newlines",
+      });
+    }
+  });
+
 export const featuresSchema = z.strictObject({
   worktrees: flag,
   parallelAgents: flag,
@@ -129,6 +185,11 @@ const toolObject = z.strictObject({
     })
     .nullable(),
   status: z.enum(STATUSES),
+  /**
+   * How to get the tool, in display order. The first entry is the default.
+   * Omitted or empty means the install steps have not been verified yet.
+   */
+  install: z.array(installEntrySchema).default([]),
   sources: uniqueArray(httpUrl, "sources").min(1, "at least one source is required"),
   lastVerified: dateString,
 });
@@ -152,6 +213,7 @@ export const toolSchema = toolObject.superRefine((tool, context) => {
 
 export type Tool = z.infer<typeof toolSchema>;
 export type ToolKind = (typeof KINDS)[number];
+export type InstallEntry = z.infer<typeof installEntrySchema>;
 export type FeatureKey = keyof Tool["features"];
 export type FeatureValue = boolean | null;
 

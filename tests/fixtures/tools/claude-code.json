@@ -32,6 +32,20 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @anthropic-ai/claude-code",
+      "platforms": ["macos", "linux", "windows"]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask claude-code",
+      "platforms": ["macos"]
+    }
+  ],
   "sources": [
     "https://docs.anthropic.com/en/docs/claude-code/overview",
     "https://www.anthropic.com/pricing"

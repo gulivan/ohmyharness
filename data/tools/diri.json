@@ -9,10 +9,38 @@
   "openSource": true,
   "license": "AGPL-3.0",
   "maker": "Cristian Crețu",
-  "interfaces": ["desktop", "cli", "mobile"],
-  "platforms": ["macos", "linux", "ios"],
-  "drives": ["claude-code", "codex-cli", "cursor-cli", "gemini-cli", "aider", "amp", "antigravity", "cline", "github-copilot-cli", "devin", "factory-droid", "grok-build", "kilo-code", "kimi-cli", "opencode", "pi"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "ios"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "cursor-cli",
+    "gemini-cli",
+    "aider",
+    "amp",
+    "antigravity",
+    "cline",
+    "github-copilot-cli",
+    "devin",
+    "factory-droid",
+    "grok-build",
+    "kilo-code",
+    "kimi-cli",
+    "opencode",
+    "pi"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source (AGPL-3.0)."
@@ -32,6 +60,25 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask cristicretu/diri/diri",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/cristicretu/diri/releases/latest",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://diri.sh/",
     "https://diri.sh/llms.txt",

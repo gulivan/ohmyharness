@@ -9,10 +9,33 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Stably, Inc.",
-  "interfaces": ["desktop", "cli", "mobile"],
-  "platforms": ["macos", "windows", "linux", "ios", "android"],
-  "drives": ["claude-code", "codex-cli", "cursor-cli", "opencode", "gemini-cli", "grok-build", "github-copilot-cli", "crush", "kimi-cli"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "cursor-cli",
+    "opencode",
+    "gemini-cli",
+    "grok-build",
+    "github-copilot-cli",
+    "crush",
+    "kimi-cli"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source under MIT; an enterprise offering is listed."
@@ -27,15 +50,47 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 96443, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 96443,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.onorca.dev/download",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask stablyai/orca/orca",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "App Store",
+      "type": "url",
+      "value": "https://apps.apple.com/us/app/orca-ide/id6766130217",
+      "platforms": [
+        "ios"
+      ]
+    }
+  ],
   "sources": [
     "https://www.onorca.dev/",
     "https://www.onorca.dev/docs",
     "https://www.onorca.dev/docs/agents/supported",
     "https://www.onorca.dev/docs/cli/orchestration",
     "https://www.onorca.dev/docs/remote-servers",
-    "https://github.com/stablyai/orca"
+    "https://github.com/stablyai/orca",
+    "https://www.onorca.dev/download"
   ],
   "lastVerified": "2026-10-18"
 }

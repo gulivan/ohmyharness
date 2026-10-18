@@ -9,10 +9,20 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Warp",
-  "interfaces": ["desktop", "cli"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "desktop",
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok"],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free tier; Build $20/mo, Max $200/mo, Business $50/user/mo, and Enterprise."
@@ -29,10 +39,39 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask warp",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "WinGet",
+      "type": "command",
+      "value": "winget install Warp.Warp",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.warp.dev/download",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://docs.warp.dev/agents/",
     "https://docs.warp.dev/agents/capabilities/planning/",
-    "https://www.warp.dev/pricing"
+    "https://www.warp.dev/pricing",
+    "https://docs.warp.dev/getting-started/quickstart/installation-and-setup/"
   ],
   "lastVerified": "2026-10-18"
 }

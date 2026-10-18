@@ -9,10 +9,37 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Shubham Agarwal",
-  "interfaces": ["desktop", "cli", "tui"],
-  "platforms": ["macos", "linux"],
-  "drives": ["claude-code", "codex-cli", "gemini-cli", "cursor-cli", "github-copilot-cli", "opencode", "aider", "goose", "amp", "crush", "factory-droid", "grok-build", "kimi-cli", "qwen-code", "auggie-cli", "kiro-cli"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "gemini-cli",
+    "cursor-cli",
+    "github-copilot-cli",
+    "opencode",
+    "aider",
+    "goose",
+    "amp",
+    "crush",
+    "factory-droid",
+    "grok-build",
+    "kimi-cli",
+    "qwen-code",
+    "auggie-cli",
+    "kiro-cli"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free"
   },
@@ -28,6 +55,42 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew (app)",
+      "type": "command",
+      "value": "brew install --cask shubham-1994/tern/tern-desktop",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://tern.build/download",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://tern.build/install.sh | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Homebrew (CLI)",
+      "type": "command",
+      "value": "brew install shubham-1994/tern/tern",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://tern.build/",
     "https://tern.build/docs",

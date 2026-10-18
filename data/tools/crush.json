@@ -9,10 +9,21 @@
   "openSource": false,
   "license": "FSL-1.1-MIT",
   "maker": "Charmbracelet",
-  "interfaces": ["cli", "tui"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Source-available under the Functional Source License; model usage is billed by your provider."
@@ -27,8 +38,40 @@
     "diffReview": true,
     "planMode": true
   },
-  "github": { "stars": 28692, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 28692,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install charmbracelet/tap/crush",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @charmland/crush",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "WinGet",
+      "type": "command",
+      "value": "winget install charmbracelet.crush",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/charmbracelet/crush",
     "https://github.com/charmbracelet/crush/blob/main/LICENSE.md",

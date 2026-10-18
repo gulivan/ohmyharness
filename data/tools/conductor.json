@@ -9,10 +9,22 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Conductor",
-  "interfaces": ["desktop"],
-  "platforms": ["macos"],
-  "drives": ["claude-code", "codex-cli", "cursor-cli", "opencode"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "cursor-cli",
+    "opencode"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free $0; Pro $50/mo; Teams $60 per user/month; Enterprise custom."
@@ -29,6 +41,16 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.conductor.build/docs/installation",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://www.conductor.build/",
     "https://www.conductor.build/docs",

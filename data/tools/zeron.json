@@ -9,10 +9,29 @@
   "openSource": true,
   "license": "MIT",
   "maker": null,
-  "interfaces": ["desktop", "cli"],
-  "platforms": ["macos", "windows", "linux"],
-  "drives": ["claude-code", "codex-cli", "cursor-cli", "devin", "grok-build", "pi", "antigravity", "opencode"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "cursor-cli",
+    "devin",
+    "grok-build",
+    "pi",
+    "antigravity",
+    "opencode"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free"
   },
@@ -31,11 +50,32 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/zeronsh/zeron/releases/latest",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://zeron.sh/install.sh | sh",
+      "platforms": [
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://zeron.sh/",
     "https://github.com/zeronsh/zeron",
     "https://github.com/zeronsh/zeron/blob/main/docs/mcp.md",
-    "https://github.com/zeronsh/zeron/blob/main/docs/PARITY.md"
+    "https://github.com/zeronsh/zeron/blob/main/docs/PARITY.md",
+    "https://github.com/zeronsh/zeron/blob/main/README.md"
   ],
   "lastVerified": "2026-10-18"
 }

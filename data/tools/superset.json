@@ -9,10 +9,35 @@
   "openSource": false,
   "license": "Elastic-2.0",
   "maker": "Superset",
-  "interfaces": ["desktop", "mobile", "cli", "api"],
-  "platforms": ["macos", "linux", "ios"],
-  "drives": ["claude-code", "codex-cli", "amp", "gemini-cli", "opencode", "pi", "github-copilot-cli", "kimi-cli", "grok-build", "cursor-cli", "factory-droid", "antigravity"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "mobile",
+    "cli",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "ios"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "amp",
+    "gemini-cli",
+    "opencode",
+    "pi",
+    "github-copilot-cli",
+    "kimi-cli",
+    "grok-build",
+    "cursor-cli",
+    "factory-droid",
+    "antigravity"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free $0; Pro $20 per user/month ($15 billed yearly); Enterprise custom. Source-available under the Elastic License 2.0."
@@ -27,14 +52,44 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 15342, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 15342,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew CLI",
+      "type": "command",
+      "value": "brew install superset-sh/tap/superset",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://superset.sh/download",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "App Store",
+      "type": "url",
+      "value": "https://apps.apple.com/app/id6788926383",
+      "platforms": [
+        "ios"
+      ]
+    }
+  ],
   "sources": [
     "https://superset.sh/",
     "https://docs.superset.sh/overview",
     "https://docs.superset.sh/agent-integration",
     "https://superset.sh/pricing",
-    "https://github.com/superset-sh/superset"
+    "https://github.com/superset-sh/superset",
+    "https://superset.sh/download"
   ],
   "lastVerified": "2026-10-18"
 }

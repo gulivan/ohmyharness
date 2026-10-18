@@ -9,9 +9,18 @@
   "openSource": true,
   "license": "GPL-3.0",
   "maker": "Manaflow, Inc.",
-  "interfaces": ["desktop", "cli"],
-  "platforms": ["macos"],
-  "drives": ["claude-code", "codex-cli", "opencode"],
+  "interfaces": [
+    "desktop",
+    "cli"
+  ],
+  "platforms": [
+    "macos"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode"
+  ],
   "modelAccess": [],
   "pricing": {
     "model": "free",
@@ -32,9 +41,28 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://cmux.com/download/confirmation?dl=1",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew tap manaflow-ai/cmux && brew install --cask cmux",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/manaflow-ai/cmux",
-    "https://cmux.com"
+    "https://cmux.com",
+    "https://cmux.com/docs/getting-started"
   ],
   "lastVerified": "2026-10-18"
 }

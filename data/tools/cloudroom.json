@@ -9,10 +9,29 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "David Ondrej",
-  "interfaces": ["desktop", "cli", "web", "mobile"],
-  "platforms": ["macos", "linux", "web"],
-  "drives": ["claude-code", "codex-cli", "pi", "opencode", "cursor-cli", "grok-build"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "web",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "web"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "pi",
+    "opencode",
+    "cursor-cli",
+    "grok-build"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free $0 (100 cloud agents per 30 days, 25h compute); Pro $50/mo; Ultra $500/mo; Business on request."
@@ -32,6 +51,25 @@
     "checkedAt": "2026-10-18"
   },
   "status": "beta",
+  "install": [
+    {
+      "label": "Open in browser",
+      "type": "url",
+      "value": "https://www.cloudroom.dev/login",
+      "platforms": [
+        "web"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.cloudroom.dev/download",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://www.cloudroom.dev/",
     "https://www.cloudroom.dev/pricing",
@@ -39,7 +77,8 @@
     "https://www.cloudroom.dev/docs/subagents",
     "https://www.cloudroom.dev/docs/cloud-threads",
     "https://www.cloudroom.dev/docs/harnesses",
-    "https://www.cloudroom.dev/docs/faq.md"
+    "https://www.cloudroom.dev/docs/faq.md",
+    "https://www.cloudroom.dev/docs/get-started.md"
   ],
   "lastVerified": "2026-10-18"
 }

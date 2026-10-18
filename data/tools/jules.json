@@ -9,10 +9,18 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Google",
-  "interfaces": ["web", "cli", "api"],
-  "platforms": ["web"],
+  "interfaces": [
+    "web",
+    "cli",
+    "api"
+  ],
+  "platforms": [
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["subscription"],
+  "modelAccess": [
+    "subscription"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free tier with 15 tasks/day; higher limits through Google AI Pro and Ultra plans."
@@ -29,12 +37,33 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @google/jules",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Open in browser",
+      "type": "url",
+      "value": "https://jules.google/",
+      "platforms": [
+        "web"
+      ]
+    }
+  ],
   "sources": [
     "https://jules.google/",
     "https://jules.google/docs/",
     "https://jules.google/docs/usage-limits/",
     "https://jules.google/docs/llms.txt",
-    "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
+    "https://jules.google/docs/cli/reference"
   ],
   "lastVerified": "2026-10-18"
 }

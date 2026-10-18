@@ -46,11 +46,51 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://get.omo.dev/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://get.omo.dev/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Bun",
+      "type": "command",
+      "value": "bun add -g omo-ai",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm i -g omo-ai",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/code-yeongyu/oh-my-openagent",
     "https://omo.dev/",
     "https://github.com/code-yeongyu/oh-my-openagent/blob/main/LICENSE.md",
-    "https://www.npmjs.com/package/oh-my-opencode"
+    "https://www.npmjs.com/package/oh-my-opencode",
+    "https://omo.dev/docs/install"
   ],
   "lastVerified": "2026-10-18"
 }

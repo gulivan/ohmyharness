@@ -9,10 +9,26 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Alibaba",
-  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension", "api"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop",
+    "web",
+    "ide-extension",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["byok", "subscription", "local"],
+  "modelAccess": [
+    "byok",
+    "subscription",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open-source software; model access is billed by the chosen provider, such as an Alibaba ModelStudio Coding Plan, an API key, or a local server."
@@ -32,13 +48,52 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @qwen-code/qwen-code@latest",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install qwen-code",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://qwenlm.github.io/qwen-code-docs/en/users/overview/",
     "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/",
     "https://qwenlm.github.io/qwen-code-docs/en/users/features/approval-mode/",
     "https://qwenlm.github.io/qwen-code-docs/en/users/features/sub-agents/",
     "https://qwenlm.github.io/qwen-code-docs/en/users/features/sandbox/",
-    "https://github.com/QwenLM/qwen-code"
+    "https://github.com/QwenLM/qwen-code",
+    "https://github.com/QwenLM/qwen-code/blob/main/README.md"
   ],
   "lastVerified": "2026-10-18"
 }

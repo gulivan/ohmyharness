@@ -9,10 +9,23 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Cognition",
-  "interfaces": ["web", "desktop", "cli", "api"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "web",
+    "desktop",
+    "cli",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "bundled"],
+  "modelAccess": [
+    "subscription",
+    "bundled"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free plan; Pro $20/mo, Max $200/mo, Teams, and Enterprise. A ChatGPT plan can be linked for GPT model usage."
@@ -29,13 +42,53 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Open in browser",
+      "type": "url",
+      "value": "https://app.devin.ai",
+      "platforms": [
+        "web"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://devin.ai/download",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://cli.devin.ai/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask devin-cli",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://devin.ai/pricing",
     "https://docs.devin.ai/get-started/devin-intro.md",
     "https://docs.devin.ai/desktop/devin-local",
     "https://docs.devin.ai/cli/essential-commands",
     "https://docs.devin.ai/work-with-devin/mcp.md",
-    "https://docs.devin.ai/admin/billing/chatgpt.md"
+    "https://docs.devin.ai/admin/billing/chatgpt.md",
+    "https://docs.devin.ai/work-with-devin/devin-cli.md",
+    "https://devin.ai/download"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -9,10 +9,22 @@
   "openSource": true,
   "license": "MIT",
   "maker": "esengine",
-  "interfaces": ["cli", "tui", "desktop", "web", "ide-extension"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop",
+    "web",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["byok"],
+  "modelAccess": [
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source under MIT; you pay the model provider directly."
@@ -32,6 +44,28 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g reasonix",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/esengine/DeepSeek-Reasonix/releases",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/esengine/DeepSeek-Reasonix",
     "https://reasonix.io/",

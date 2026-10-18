@@ -9,10 +9,22 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Block",
-  "interfaces": ["cli", "desktop", "api"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "desktop",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source; model usage is billed by your provider or covered by your subscription."
@@ -27,14 +39,56 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 55415, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 55415,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask block-goose",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Homebrew CLI",
+      "type": "command",
+      "value": "brew install block-goose-cli",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://goose-docs.ai/docs/getting-started/installation",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://goose-docs.ai/",
     "https://goose-docs.ai/docs/guides/context-engineering/subagents",
     "https://goose-docs.ai/llms.txt",
     "https://github.com/aaif-goose/goose/releases/tag/v1.35.0",
-    "https://github.com/aaif-goose/goose"
+    "https://github.com/aaif-goose/goose",
+    "https://goose-docs.ai/docs/getting-started/installation"
   ],
   "lastVerified": "2026-10-18"
 }

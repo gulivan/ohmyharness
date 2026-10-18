@@ -9,10 +9,22 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "OpenAI",
-  "interfaces": ["cli", "web", "api"],
-  "platforms": ["macos", "linux"],
-  "drives": ["codex-cli"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "cli",
+    "web",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux"
+  ],
+  "drives": [
+    "codex-cli"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source under Apache-2.0; it uses your existing Codex access and tracker credentials."
@@ -32,6 +44,17 @@
     "checkedAt": "2026-10-18"
   },
   "status": "beta",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/openai/symphony/releases",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/openai/symphony",
     "https://github.com/openai/symphony/blob/main/elixir/README.md",

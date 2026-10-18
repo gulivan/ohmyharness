@@ -9,10 +9,30 @@
   "openSource": true,
   "license": "MIT",
   "maker": "hardbeat920",
-  "interfaces": ["desktop"],
-  "platforms": ["macos", "windows", "linux"],
-  "drives": ["claude-code", "codex-cli", "cursor-cli", "grok-build", "opencode", "antigravity", "pi", "omp", "fx", "hermes", "devin"],
-  "modelAccess": ["subscription"],
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "cursor-cli",
+    "grok-build",
+    "opencode",
+    "antigravity",
+    "pi",
+    "omp",
+    "fx",
+    "hermes",
+    "devin"
+  ],
+  "modelAccess": [
+    "subscription"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source under MIT; it does not sell tokens."
@@ -27,12 +47,28 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 3123, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 3123,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/hardbeat920/monocode/releases/latest",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://www.usemono.dev/",
     "https://github.com/hardbeat920/monocode",
-    "https://www.everydev.ai/tools/monocode"
+    "https://www.everydev.ai/tools/monocode",
+    "https://github.com/hardbeat920/monocode/blob/main/docs/install.md"
   ],
   "lastVerified": "2026-10-18"
 }

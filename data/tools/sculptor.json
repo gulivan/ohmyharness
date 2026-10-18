@@ -9,10 +9,21 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Imbue",
-  "interfaces": ["desktop"],
-  "platforms": ["macos", "linux"],
-  "drives": ["claude-code", "pi"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "pi"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source under MIT; model usage is billed by your own provider."
@@ -27,12 +38,34 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 240, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 240,
+    "checkedAt": "2026-10-18"
+  },
   "status": "beta",
+  "install": [
+    {
+      "label": "Download for Mac",
+      "type": "url",
+      "value": "https://tryimbue.link/sculptor-for-apple-silicon",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download for Linux",
+      "type": "url",
+      "value": "https://tryimbue.link/sculptor-for-linux",
+      "platforms": [
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://imbue.com/product/sculptor/",
     "https://github.com/imbue-ai/sculptor",
-    "https://imbue.com/blog/containers"
+    "https://imbue.com/blog/containers",
+    "https://github.com/imbue-ai/sculptor/blob/main/README.md"
   ],
   "lastVerified": "2026-10-18"
 }

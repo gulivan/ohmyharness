@@ -9,10 +9,23 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Moonshot AI",
-  "interfaces": ["cli", "tui", "web", "ide-extension"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "web",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok"],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "paid",
     "notes": "Included with Kimi membership plans; a Moonshot AI API key can also be used."
@@ -32,10 +45,40 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://code.kimi.com/kimi-code/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @moonshot-ai/kimi-code",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/MoonshotAI/kimi-code",
     "https://moonshotai.github.io/kimi-code/en/guides/interaction",
-    "https://www.kimi.com/code"
+    "https://www.kimi.com/code",
+    "https://moonshotai.github.io/kimi-code/en/guides/getting-started"
   ],
   "lastVerified": "2026-10-18"
 }

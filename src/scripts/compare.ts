@@ -137,6 +137,29 @@ function initCompare(): void {
     return wrapper;
   }
 
+  function installCell(tool: ClientTool): Node {
+    const entry = tool.install[0];
+    if (!entry) return document.createTextNode("Not verified yet");
+
+    const wrapper = createElement("div", "compare-install");
+    if (entry.type === "command") {
+      const line = createElement("code", "compare-install__command");
+      line.append(
+        createElement("span", "compare-install__prompt", "$ "),
+        document.createTextNode(entry.value),
+      );
+      wrapper.append(line);
+    } else {
+      const link = createElement("a", "compare-install__link", `${entry.label} ↗`);
+      link.href = entry.value;
+      link.target = "_blank";
+      link.rel = "noopener";
+      wrapper.append(link);
+    }
+    wrapper.append(createElement("span", "compare-install__meta", entry.label));
+    return wrapper;
+  }
+
   function renderCompare(): void {
     const chosen = chosenTools();
     if (empty) empty.hidden = chosen.length > 0;
@@ -207,6 +230,7 @@ function initCompare(): void {
         "Unknown",
       ),
     );
+    addRow(body, "Install", installCell);
     addRow(body, "GitHub stars", (tool) =>
       tool.github
         ? `${tool.github.stars.toLocaleString("en-GB")} · checked ${tool.github.checkedAt}`

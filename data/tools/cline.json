@@ -9,10 +9,25 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Cline",
-  "interfaces": ["ide-extension", "cli", "desktop", "web", "api"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "ide-extension",
+    "cli",
+    "desktop",
+    "web",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["byok", "bundled", "local"],
+  "modelAccess": [
+    "byok",
+    "bundled",
+    "local"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free open-source extension and CLI; optional Cline provider credits and ClinePass subscription."
@@ -32,11 +47,55 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "VS Code",
+      "type": "url",
+      "value": "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g cline",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://cline.bot/desktop",
+      "platforms": [
+        "macos",
+        "windows"
+      ]
+    },
+    {
+      "label": "JetBrains",
+      "type": "url",
+      "value": "https://plugins.jetbrains.com/plugin/28247-cline",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://cline.bot",
     "https://cline.bot/pricing",
     "https://cline.bot/cloud",
-    "https://docs.cline.bot/"
+    "https://docs.cline.bot/",
+    "https://docs.cline.bot/getting-started/installing-cline",
+    "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
+    "https://plugins.jetbrains.com/plugin/28247-cline"
   ],
   "lastVerified": "2026-10-18"
 }

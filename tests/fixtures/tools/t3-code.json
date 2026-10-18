@@ -32,6 +32,20 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://t3.chat/download",
+      "platforms": ["macos", "windows"]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @t3tools/cli",
+      "platforms": ["macos", "linux", "windows"]
+    }
+  ],
   "sources": [
     "https://github.com/pingdotgg/t3code",
     "https://t3.chat"

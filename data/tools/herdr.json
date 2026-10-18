@@ -9,9 +9,32 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Herdr",
-  "interfaces": ["cli", "tui"],
-  "platforms": ["macos", "linux", "windows"],
-  "drives": ["claude-code", "codex-cli", "github-copilot-cli", "cursor-cli", "opencode", "pi", "factory-droid", "kimi-cli", "kilo-code", "qwen-code", "grok-build", "antigravity", "amp", "gemini-cli", "cline"],
+  "interfaces": [
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "github-copilot-cli",
+    "cursor-cli",
+    "opencode",
+    "pi",
+    "factory-droid",
+    "kimi-cli",
+    "kilo-code",
+    "qwen-code",
+    "grok-build",
+    "antigravity",
+    "amp",
+    "gemini-cli",
+    "cline"
+  ],
   "modelAccess": [],
   "pricing": {
     "model": "free",
@@ -27,13 +50,45 @@
     "diffReview": null,
     "planMode": null
   },
-  "github": { "stars": 44634, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 44634,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://herdr.dev/install.sh | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "powershell -ExecutionPolicy Bypass -c \"irm https://herdr.dev/install.ps1 | iex\"",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install herdr",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://herdr.dev/",
     "https://github.com/herdrdev/herdr",
     "https://herdr.dev/docs/agents/",
-    "https://herdr.dev/docs/agent-automation/"
+    "https://herdr.dev/docs/agent-automation/",
+    "https://herdr.dev/docs/install/"
   ],
   "lastVerified": "2026-10-18"
 }

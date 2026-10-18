@@ -45,9 +45,32 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Bun",
+      "type": "command",
+      "value": "bunx oh-my-opencode-slim@latest install",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "npx",
+      "type": "command",
+      "value": "npx oh-my-opencode-slim@latest install",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/alvinunreal/oh-my-opencode-slim",
-    "https://ohmyopencodeslim.com/"
+    "https://ohmyopencodeslim.com/",
+    "https://github.com/alvinunreal/oh-my-opencode-slim/blob/main/README.md"
   ],
   "lastVerified": "2026-10-18"
 }

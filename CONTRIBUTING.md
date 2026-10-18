@@ -55,6 +55,39 @@ instead of failing; add the base entry when you can source it.
 Do not edit or delete someone else's entry to "improve" it without evidence.
 Send a fix with the source instead.
 
+### Install steps
+
+`install` is optional. Add it when you have checked how to get the tool; leave
+it out (or use `[]`) when you have not. An empty list shows "Install steps not
+verified yet" with a link to add them, so a partial entry is still useful.
+
+Every method must come from the tool's **official install documentation**, and
+that page must be listed in `sources`. Prefer the official package manager or
+installer for each platform (`npm`, Homebrew, `winget`, the vendor's signed
+installer). Never invent a command or translate one from memory.
+
+```jsonc
+"install": [
+  { "label": "npm", "type": "command", "value": "npm install -g @openai/codex", "platforms": ["macos", "linux", "windows"] },
+  { "label": "Download", "type": "url", "value": "https://…/download", "platforms": ["macos", "windows"] }
+]
+```
+
+- Order matters: the first entry is the default on the tool page, on cards and
+  in `llms.txt`.
+- `label` — the method's name, at most 24 characters (`npm`, `Homebrew`,
+  `winget`, `Download`).
+- `type` — `command` for a copyable shell line, `url` for a download page,
+  store listing, extension marketplace or sign-up page.
+- `value` — a command is one line with no newlines and no leading prompt (`$`
+  is drawn by the site). A `url` is an absolute `https://` URL.
+- `platforms` — one or more of `macos`, `linux`, `windows`, `web`, `ios`,
+  `android`. List every platform the method targets.
+
+Do not rewrite official instructions. If the official docs make a
+`curl … | sh` installer the primary method, show it exactly as published. Keep
+each entry to one step; link the official page for the rest.
+
 ### Field reference
 
 The machine-readable truth is [`src/data/schema.ts`](src/data/schema.ts); the
@@ -84,6 +117,8 @@ Quick notes:
 - `features` — eight keys, each `true`, `false` or `null`.
 - `github` — `{ "stars": number, "checkedAt": "YYYY-MM-DD" }` or `null`.
   Never use a star count you did not read on that date.
+- `install` — optional list of ways to get the tool, in display order. See
+  [Install steps](#install-steps). Omit it when the steps are not verified.
 - `status` — `active`, `beta`, `archived` or `unknown`.
 - `sources` — at least one URL.
 - `lastVerified` — `YYYY-MM-DD`, the day the entry was checked.

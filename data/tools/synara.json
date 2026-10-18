@@ -9,10 +9,30 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Emanuele Di Pietro",
-  "interfaces": ["desktop"],
-  "platforms": ["macos", "windows", "linux"],
-  "drives": ["claude-code", "codex-cli", "opencode", "cursor-cli", "antigravity", "grok-build", "devin", "pi", "oh-my-pi", "factory-droid"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "cursor-cli",
+    "antigravity",
+    "grok-build",
+    "devin",
+    "pi",
+    "oh-my-pi",
+    "factory-droid"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free"
   },
@@ -31,13 +51,26 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.trysynara.com/install",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://www.trysynara.com/",
     "https://www.trysynara.com/docs",
     "https://www.trysynara.com/llms.txt",
     "https://www.trysynara.com/docs/reference/slash-commands.md",
     "https://www.trysynara.com/docs/features/parallel-agents",
-    "https://www.trysynara.com/docs/workflows/agent-gateway"
+    "https://www.trysynara.com/docs/workflows/agent-gateway",
+    "https://www.trysynara.com/install"
   ],
   "lastVerified": "2026-10-18"
 }

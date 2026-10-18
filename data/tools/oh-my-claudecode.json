@@ -45,9 +45,42 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Add marketplace",
+      "type": "command",
+      "value": "/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Install plugin",
+      "type": "command",
+      "value": "/plugin install oh-my-claudecode",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm i -g oh-my-claude-sisyphus@latest",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/Yeachan-Heo/oh-my-claudecode",
-    "https://oh-my-claudecode.dev/"
+    "https://oh-my-claudecode.dev/",
+    "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/README.md"
   ],
   "lastVerified": "2026-10-18"
 }

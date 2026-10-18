@@ -9,10 +9,26 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Anthropic",
-  "interfaces": ["cli", "ide-extension", "desktop", "web", "mobile"],
-  "platforms": ["macos", "linux", "windows", "web", "ios", "android"],
+  "interfaces": [
+    "cli",
+    "ide-extension",
+    "desktop",
+    "web",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web",
+    "ios",
+    "android"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok"],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "paid",
     "notes": "Included with Claude Pro and Max plans; also available through Anthropic Console/API billing."
@@ -27,8 +43,46 @@
     "diffReview": true,
     "planMode": true
   },
-  "github": { "stars": 152242, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 152242,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://claude.ai/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://claude.ai/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask claude-code",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "WinGet",
+      "type": "command",
+      "value": "winget install Anthropic.ClaudeCode",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://code.claude.com/docs/en/overview",
     "https://code.claude.com/docs/en/worktrees",
@@ -37,7 +91,8 @@
     "https://code.claude.com/docs/en/remote-control",
     "https://code.claude.com/docs/en/mcp",
     "https://claude.com/pricing",
-    "https://github.com/anthropics/claude-code"
+    "https://github.com/anthropics/claude-code",
+    "https://code.claude.com/docs/en/setup"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -9,10 +9,40 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Orchestrator.inc",
-  "interfaces": ["desktop", "cli", "mobile"],
-  "platforms": ["macos", "linux", "windows"],
-  "drives": ["claude-code", "codex-cli", "opencode", "gemini-cli", "cursor-cli", "amp", "aider", "goose", "crush", "pi", "factory-droid", "kilo-code", "cline", "github-copilot-cli", "qwen-code", "kimi-cli", "grok-build", "ohmypi"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "gemini-cli",
+    "cursor-cli",
+    "amp",
+    "aider",
+    "goose",
+    "crush",
+    "pi",
+    "factory-droid",
+    "kilo-code",
+    "cline",
+    "github-copilot-cli",
+    "qwen-code",
+    "kimi-cli",
+    "grok-build",
+    "ohmypi"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source under Apache-2.0; a cloud offering is listed as a waitlist."
@@ -32,6 +62,26 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask agentwrapper/tap/agent-orchestrator",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/OrchestratorInc/agent-orchestrator/releases/latest",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/OrchestratorInc/agent-orchestrator",
     "https://orchestrator.inc/"

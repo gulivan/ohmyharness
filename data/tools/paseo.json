@@ -9,10 +9,44 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Mohamed Boudra",
-  "interfaces": ["desktop", "mobile", "web", "cli", "api"],
-  "platforms": ["macos", "windows", "linux", "ios", "android", "web"],
-  "drives": ["claude-code", "codex-cli", "opencode", "pi", "antigravity", "cursor-cli", "gemini-cli", "github-copilot-cli", "qwen-code", "kimi-cli", "amp", "cline", "factory-droid", "goose", "crush", "grok-build", "kilo-code"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "mobile",
+    "web",
+    "cli",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux",
+    "ios",
+    "android",
+    "web"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "pi",
+    "antigravity",
+    "cursor-cli",
+    "gemini-cli",
+    "github-copilot-cli",
+    "qwen-code",
+    "kimi-cli",
+    "amp",
+    "cline",
+    "factory-droid",
+    "goose",
+    "crush",
+    "grok-build",
+    "kilo-code"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Paseo is free and open source."
@@ -32,12 +66,35 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://paseo.sh/download",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @getpaseo/cli",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://paseo.sh/",
     "https://paseo.sh/llms.txt",
     "https://paseo.sh/docs/orchestration",
     "https://paseo.sh/docs/parallel-development",
-    "https://github.com/getpaseo/paseo"
+    "https://github.com/getpaseo/paseo",
+    "https://paseo.sh/docs"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -870,6 +870,66 @@ astro-island {
   font-size: 13px;
 }
 
+.tool-card__install {
+  position: relative;
+  z-index: 2; /* keep the copy button above the card-wide link overlay */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.tool-card__install-prompt {
+  flex: none;
+  color: var(--accent);
+  user-select: none;
+}
+
+.tool-card__install-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.tool-card__copy {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1;
+  transition:
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.tool-card__copy:hover,
+.tool-card__copy.is-copied {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tool-card__get {
+  align-self: flex-start;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+}
+
 /* ---------- monogram ---------- */
 
 .monogram {
@@ -1168,6 +1228,135 @@ astro-island {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* ---------- get / install ---------- */
+
+.install {
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.install-empty {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.install-empty a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.install-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.install-tab {
+  padding: 9px 14px;
+  border-right: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition:
+    background 120ms ease,
+    color 120ms ease;
+}
+
+.install-tab:last-child {
+  border-right: 0;
+}
+
+.install-tab:hover {
+  color: var(--ink);
+}
+
+.install-tab[aria-selected="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.install-command {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+}
+
+.install-command__prompt {
+  flex: none;
+  color: var(--accent);
+  font-weight: 700;
+  user-select: none;
+}
+
+.install-command__text {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink);
+  scrollbar-width: thin;
+}
+
+.install-copy {
+  flex: none;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition:
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.install-copy:hover,
+.install-copy.is-copied {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.install-url {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.install-url__hint {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.install-entry__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+}
+
+.tag--accent {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  color: var(--accent);
 }
 
 .tool-layout {
@@ -1498,6 +1687,38 @@ astro-island {
 
 .compare-head__remove:hover {
   color: var(--danger);
+}
+
+.compare-install {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.compare-install__command {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.compare-install__prompt {
+  color: var(--accent);
+}
+
+.compare-install__link {
+  justify-self: start;
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+}
+
+.compare-install__meta {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
 .matrix-wrap {

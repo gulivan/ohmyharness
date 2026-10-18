@@ -9,10 +9,31 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Super Dot Engineering LLC",
-  "interfaces": ["desktop", "cli"],
-  "platforms": ["macos"],
-  "drives": ["claude-code", "codex-cli", "cursor-cli", "opencode", "pi", "grok-build", "kimi-cli", "github-copilot-cli", "factory-droid", "qwen-code", "antigravity", "gemini-cli"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "desktop",
+    "cli"
+  ],
+  "platforms": [
+    "macos"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "cursor-cli",
+    "opencode",
+    "pi",
+    "grok-build",
+    "kimi-cli",
+    "github-copilot-cli",
+    "factory-droid",
+    "qwen-code",
+    "antigravity",
+    "gemini-cli"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "The vendor's terms state the software is free; voluntary sponsorship is the only charge. Teams and enterprise rollout is scoped separately."
@@ -29,6 +50,16 @@
   },
   "github": null,
   "status": "beta",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://super.engineering/api/download/",
+      "platforms": [
+        "macos"
+      ]
+    }
+  ],
   "sources": [
     "https://super.engineering/",
     "https://super.engineering/docs/",

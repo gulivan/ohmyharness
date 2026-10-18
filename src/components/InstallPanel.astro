@@ -1,0 +1,107 @@
+---
+import type { Tool } from "../data/schema";
+import { PLATFORM_LABELS } from "../lib/features";
+
+interface Props {
+  tool: Tool;
+  /** GitHub edit URL for this tool's data file. */
+  editUrl: string;
+}
+
+const { tool, editUrl } = Astro.props;
+const entries = tool.install;
+const hasTabs = entries.length > 1;
+const idBase = `install-${tool.slug}`;
+---
+
+<section class="panel install" data-install aria-labelledby={`${idBase}-title`}>
+  <div class="panel__head">
+    <span id={`${idBase}-title`}>Get {tool.name}</span>
+    <span>
+      {entries.length === 0
+        ? "Not verified"
+        : hasTabs
+          ? `${entries.length} methods`
+          : "Install"}
+    </span>
+  </div>
+  <div class="panel__body">
+    {entries.length === 0 ? (
+      <p class="install-empty">
+        Install steps not verified yet — <a href={editUrl} rel="noopener">add them ↗</a>
+      </p>
+    ) : (
+      <>
+        {hasTabs && (
+          <div
+            class="install-tabs"
+            role="tablist"
+            aria-label={`Installation methods for ${tool.name}`}
+          >
+            {entries.map((entry, index) => (
+              <button
+                class="install-tab"
+                type="button"
+                role="tab"
+                id={`${idBase}-tab-${index}`}
+                aria-controls={`${idBase}-panel-${index}`}
+                aria-selected={index === 0 ? "true" : "false"}
+                tabindex={index === 0 ? 0 : -1}
+                data-install-tab={index}
+              >
+                {entry.label}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {entries.map((entry, index) => (
+          <div
+            class="install-entry"
+            id={`${idBase}-panel-${index}`}
+            role={hasTabs ? "tabpanel" : undefined}
+            aria-labelledby={hasTabs ? `${idBase}-tab-${index}` : undefined}
+            hidden={index !== 0}
+            data-install-entry={index}
+            data-platforms={entry.platforms.join(" ")}
+          >
+            {entry.type === "command" ? (
+              <div class="install-command">
+                <span class="install-command__prompt" aria-hidden="true">$</span>
+                <code class="install-command__text">{entry.value}</code>
+                <button
+                  class="install-copy"
+                  type="button"
+                  data-copy-text={entry.value}
+                  data-copy-message={`${entry.label} command copied`}
+                  aria-label={`Copy the ${entry.label} command for ${tool.name}`}
+                >
+                  <span data-copy-feedback>Copy</span>
+                </button>
+              </div>
+            ) : (
+              <div class="install-url">
+                <a
+                  class="btn btn--primary"
+                  href={entry.value}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {entry.label} ↗
+                </a>
+                <span class="install-url__hint">opens in a new tab</span>
+              </div>
+            )}
+
+            <div class="install-entry__meta" role="group" aria-label="Available on">
+              <span class="tag tag--accent">{entry.label}</span>
+              {entry.platforms.map((platform) => (
+                <span class="tag">{PLATFORM_LABELS[platform] ?? platform}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </>
+    )}
+  </div>
+</section>

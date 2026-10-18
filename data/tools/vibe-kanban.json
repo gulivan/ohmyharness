@@ -9,10 +9,30 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "bloop",
-  "interfaces": ["web", "cli"],
-  "platforms": ["macos", "linux", "windows"],
-  "drives": ["claude-code", "codex-cli", "gemini-cli", "github-copilot-cli", "amp", "cursor-cli", "opencode", "factory-droid", "qwen-code"],
-  "modelAccess": ["subscription", "byok"],
+  "interfaces": [
+    "web",
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "gemini-cli",
+    "github-copilot-cli",
+    "amp",
+    "cursor-cli",
+    "opencode",
+    "factory-droid",
+    "qwen-code"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Free and open source under Apache 2.0; paid cloud plans were discontinued with bloop."
@@ -27,8 +47,23 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 28385, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 28385,
+    "checkedAt": "2026-10-18"
+  },
   "status": "deprecated",
+  "install": [
+    {
+      "label": "npx",
+      "type": "command",
+      "value": "npx vibe-kanban",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://www.vibekanban.com/",
     "https://github.com/BloopAI/vibe-kanban",

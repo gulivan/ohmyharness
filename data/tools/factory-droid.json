@@ -9,10 +9,27 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "Factory",
-  "interfaces": ["cli", "tui", "desktop", "web", "mobile", "ide-extension", "api"],
-  "platforms": ["macos", "linux", "windows", "web"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "desktop",
+    "web",
+    "mobile",
+    "ide-extension",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "paid",
     "notes": "Pro $20/mo, Plus $100/mo, Max $200/mo; Teams, Business, and Enterprise tiers. No free tier listed."
@@ -29,11 +46,49 @@
   },
   "github": null,
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://app.factory.ai/cli | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask droid",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://app.factory.ai/cli/windows | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g droid",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://docs.factory.com/droid-cli/overview",
     "https://factory.com/pricing",
     "https://docs.factory.com/model-independence/byok",
-    "https://github.com/Factory-AI/factory"
+    "https://github.com/Factory-AI/factory",
+    "https://docs.factory.com/droid-cli/quickstart"
   ],
   "lastVerified": "2026-10-18"
 }

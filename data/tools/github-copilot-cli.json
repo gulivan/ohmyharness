@@ -9,10 +9,21 @@
   "openSource": false,
   "license": "proprietary",
   "maker": "GitHub",
-  "interfaces": ["cli", "tui"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Included with Copilot Free, Pro, Pro+, Max, Business, and Enterprise plans; usage draws on the plan's AI Credits."
@@ -32,10 +43,49 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @github/copilot",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask copilot-cli",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "WinGet",
+      "type": "command",
+      "value": "winget install GitHub.Copilot",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://gh.io/copilot-install | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli",
     "https://github.com/features/copilot/cli",
-    "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features"
+    "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features",
+    "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -9,10 +9,23 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Earendil Works",
-  "interfaces": ["cli", "tui", "api"],
-  "platforms": ["macos", "linux", "windows", "android"],
+  "interfaces": [
+    "cli",
+    "tui",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "android"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source; model usage is billed by your provider or covered by your subscription."
@@ -27,14 +40,39 @@
     "diffReview": null,
     "planMode": false
   },
-  "github": { "stars": 116125, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 116125,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g --ignore-scripts @earendil-works/pi-coding-agent",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://pi.dev/install.sh | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
   "sources": [
     "https://github.com/earendil-works/pi",
     "https://pi.dev/docs/latest",
     "https://pi.dev/docs/latest/models",
     "https://pi.dev/docs/latest/mcp",
-    "https://pi.dev/docs/latest/termux"
+    "https://pi.dev/docs/latest/termux",
+    "https://pi.dev/docs/latest/quickstart"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -9,10 +9,41 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Traycer AI",
-  "interfaces": ["desktop", "mobile", "cli", "ide-extension"],
-  "platforms": ["macos", "windows", "linux", "ios", "android"],
-  "drives": ["claude-code", "codex-cli", "opencode", "cursor-cli", "grok-build", "qwen-code", "kiro-cli", "factory-droid", "kimi-cli", "github-copilot-cli", "kilo-code", "amp", "devin", "pi", "antigravity"],
-  "modelAccess": ["subscription", "byok", "bundled"],
+  "interfaces": [
+    "desktop",
+    "mobile",
+    "cli",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "cursor-cli",
+    "grok-build",
+    "qwen-code",
+    "kiro-cli",
+    "factory-droid",
+    "kimi-cli",
+    "github-copilot-cli",
+    "kilo-code",
+    "amp",
+    "devin",
+    "pi",
+    "antigravity"
+  ],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "bundled"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Free forever tier; Sync $16 per user/month billed yearly; Enterprise on request; optional pay-as-you-go inference credits and cloud sandboxes."
@@ -32,6 +63,36 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://docs.traycer.ai/install",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask traycerai/traycer/traycer-desktop",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @traycerai/cli",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://docs.traycer.ai/",
     "https://docs.traycer.ai/llms.txt",

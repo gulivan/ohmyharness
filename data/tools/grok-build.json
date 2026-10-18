@@ -9,10 +9,20 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "xAI",
-  "interfaces": ["cli", "tui"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok"],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
   "pricing": {
     "model": "freemium",
     "notes": "Included in Grok plans from the free tier upward; an xAI API key can also be used."
@@ -32,6 +42,26 @@
     "checkedAt": "2026-10-18"
   },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://x.ai/cli/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm https://x.ai/cli/install.ps1 | iex",
+      "platforms": [
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://x.ai/build",
     "https://docs.x.ai/build/overview",

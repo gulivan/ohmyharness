@@ -9,10 +9,21 @@
   "openSource": true,
   "license": "Apache-2.0",
   "maker": "Aider-AI",
-  "interfaces": ["cli", "web"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "web"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source; you pay the model provider or use an existing subscription."
@@ -27,15 +38,58 @@
     "diffReview": true,
     "planMode": null
   },
-  "github": { "stars": 49617, "checkedAt": "2026-10-18" },
+  "github": {
+    "stars": 49617,
+    "checkedAt": "2026-10-18"
+  },
   "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -LsSf https://aider.chat/install.sh | sh",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "powershell -ExecutionPolicy ByPass -c \"irm https://aider.chat/install.ps1 | iex\"",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "uv",
+      "type": "command",
+      "value": "uv tool install --force --python python3.12 --with pip aider-chat@latest",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "pipx",
+      "type": "command",
+      "value": "pipx install aider-chat",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
   "sources": [
     "https://aider.chat/docs/",
     "https://aider.chat/docs/usage/modes.html",
     "https://aider.chat/docs/usage/browser.html",
     "https://aider.chat/docs/usage/commands.html",
     "https://aider.chat/docs/llms/github.html",
-    "https://github.com/Aider-AI/aider"
+    "https://github.com/Aider-AI/aider",
+    "https://aider.chat/docs/install.html"
   ],
   "lastVerified": "2026-10-18"
 }
