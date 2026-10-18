@@ -1,0 +1,45 @@
+{
+  "slug": "openclaw",
+  "name": "OpenClaw",
+  "kind": "harness",
+  "extends": null,
+  "tagline": "Self-hosted agent gateway that connects your chat apps to AI coding agents.",
+  "description": "OpenClaw is an open-source, self-hosted agent gateway that connects messaging platforms such as Discord, Slack, Telegram, WhatsApp, iMessage and Teams to AI agent runtimes. One Gateway process manages sessions, tools, memory and plugins, with native apps for macOS, Windows, Linux, iOS and Android. It can run Claude, Codex, local models and other runtimes, with managed git worktrees, subagents, MCP servers and optional cloud workers.",
+  "website": "https://openclaw.ai",
+  "repo": "https://github.com/openclaw/openclaw",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "OpenClaw Foundation",
+  "interfaces": ["cli", "tui", "desktop", "web", "mobile"],
+  "platforms": ["macos", "linux", "windows", "web", "ios", "android"],
+  "drives": [],
+  "modelAccess": ["subscription", "byok", "local"],
+  "pricing": {
+    "model": "free",
+    "notes": "Free and open source; there is no paid tier or hosted service, and model usage is billed by your provider."
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": null
+  },
+  "github": { "stars": 392390, "checkedAt": "2026-10-18" },
+  "status": "active",
+  "sources": [
+    "https://github.com/openclaw/openclaw",
+    "https://openclaw.ai/",
+    "https://openclaw.ai/blog/introducing-openclaw",
+    "https://docs.openclaw.ai/concepts/agent-runtimes",
+    "https://docs.openclaw.ai/concepts/managed-worktrees",
+    "https://docs.openclaw.ai/concepts/session-tool",
+    "https://docs.openclaw.ai/concepts/session-attachment",
+    "https://docs.openclaw.ai/concepts/architecture",
+    "https://docs.openclaw.ai/gateway/cloud-workers"
+  ],
+  "lastVerified": "2026-10-18"
+}
