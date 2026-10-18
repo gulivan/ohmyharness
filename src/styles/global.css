@@ -830,7 +830,7 @@ astro-island {
 .tool-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   padding: 20px;
   background: var(--bg-soft);
   position: relative;
@@ -858,6 +858,13 @@ astro-island {
   text-transform: uppercase;
   color: var(--muted);
   padding-top: 4px;
+  text-align: right;
+}
+
+.tool-card__status::before {
+  content: "·";
+  margin-inline: 6px;
+  color: var(--faint-decorative);
 }
 
 .tool-card__name {
@@ -880,42 +887,178 @@ astro-island {
   margin: 0;
 }
 
-.tool-card__meta {
+.tool-card__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
   margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
+}
+
+/* Confirmed features, named. A bare glyph says nothing without a legend. */
+.tool-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 12px;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-card__tag {
+  padding: 2px 6px;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tool-card__tag--more {
+  position: relative;
+  z-index: 2; /* its title tooltip needs the pointer above the link overlay */
+  border-style: dashed;
+  border-color: var(--line);
+  background: transparent;
+  color: var(--faint);
+  cursor: help;
+}
+
+.tool-card__verify {
+  position: relative;
+  z-index: 2; /* its title tooltip needs the pointer above the link overlay */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: help;
+}
+
+.tool-card__meter {
+  display: inline-flex;
+  flex: none;
+  gap: 2px;
+  height: 7px;
+}
+
+.tool-card__meter-seg {
+  width: 8px;
+  height: 100%;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+}
+
+.tool-card__meter-seg--yes {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.tool-card__meter-seg--no {
+  border-color: var(--faint);
+  background: var(--faint);
+}
+
+.tool-card__verify-text {
+  white-space: nowrap;
+}
+
+.tool-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.tool-card__price {
+  margin: 0;
   font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.tool-card__detail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 7px;
+  min-width: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.tool-card__meta .dot::before {
+/* Separators belong to the item that follows, so a line never ends in "·". */
+.tool-card__detail > * + *::before {
   content: "·";
-  margin-right: 12px;
+  margin-right: 7px;
   color: var(--faint-decorative);
 }
 
-/* Prices read better in sentence case than the rest of the card meta. */
-.tool-card__price {
+.tool-card__platforms {
   text-transform: none;
   letter-spacing: 0.02em;
 }
 
-.tool-card__features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+.tool-card__platforms abbr {
+  text-decoration: none; /* the expansion is a title, not visible text */
 }
 
-.tool-card__features .glyph {
-  border: 0;
-  min-width: 1.1em;
-  height: auto;
-  font-size: 13px;
+/* Keep "49.6k" lowercase; the rest of the line is uppercase meta. */
+.tool-card__stars {
+  text-transform: none;
+}
+
+.tool-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+
+.tool-card__actions {
+  position: relative;
+  z-index: 2; /* keep actions above the card-wide link overlay */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.tool-card__action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 2px 8px;
+  border: 1px solid var(--line-strong);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition:
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.tool-card__action:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .tool-card__install {
@@ -925,8 +1068,6 @@ astro-island {
   align-items: center;
   gap: 8px;
   min-width: 0;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
   font-size: 13px;
   color: var(--muted);
 }
@@ -976,39 +1117,6 @@ astro-island {
   text-transform: uppercase;
   color: var(--accent);
   border-bottom: 1px solid currentColor;
-}
-
-.verified-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid var(--line);
-  padding: 2px 7px;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.tool-card__features .verified-chip {
-  margin-left: auto;
-  align-self: center;
-}
-
-.tool-card__tier {
-  position: relative;
-  z-index: 2;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
-  border-bottom: 1px solid var(--line-strong);
-}
-
-.tool-card__tier:hover {
-  color: var(--accent);
-  border-color: currentColor;
 }
 
 /* ---------- monogram ---------- */

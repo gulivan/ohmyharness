@@ -122,6 +122,16 @@ export const PLATFORM_LABELS: Record<string, string> = {
   android: "Android",
 };
 
+/** Compact platform abbreviations for card meta lines. */
+export const PLATFORM_SHORT_LABELS: Record<string, string> = {
+  macos: "mac",
+  linux: "linux",
+  windows: "win",
+  web: "web",
+  ios: "ios",
+  android: "android",
+};
+
 export const MODEL_ACCESS_LABELS: Record<string, string> = {
   subscription: "Your subscription",
   byok: "Your API key",

@@ -5,7 +5,9 @@ import {
   INTERFACE_LABELS,
   KIND_LABELS,
   PLATFORM_LABELS,
+  PLATFORM_SHORT_LABELS,
   confirmedFeatures,
+  featureState,
   sourceLabel,
   sourceState,
   verifiedFeatureCount,
@@ -16,7 +18,6 @@ import {
   priceLabel,
 } from "../lib/pricing";
 import { formatStars } from "../lib/tools";
-import Glyph from "./Glyph.astro";
 import Monogram from "./Monogram.astro";
 
 interface Props {
@@ -39,11 +40,6 @@ const searchText = [
   .join(" ")
   .toLowerCase();
 
-const platforms =
-  tool.platforms.length > 0
-    ? tool.platforms.map((value) => PLATFORM_LABELS[value] ?? value).join(" / ")
-    : "Platforms ?";
-
 const interfaces =
   tool.interfaces.length > 0
     ? tool.interfaces.map((value) => INTERFACE_LABELS[value] ?? value).join(" / ")
@@ -56,6 +52,24 @@ const source = sourceLabel(tool);
 const install = tool.install[0] ?? null;
 const coverage = verifiedFeatureCount(tool);
 const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
+const compareHref = `/compare?tools=${tool.slug}`;
+
+const confirmed = FEATURES.filter((feature) => tool.features[feature.key] === true);
+const visibleTags = confirmed.slice(0, 4);
+const hiddenTags = confirmed.slice(4);
+const unknown = FEATURES.filter((feature) => tool.features[feature.key] === null);
+
+const verifyLabel = [
+  `Feature coverage: ${coverage.verified} of ${coverage.total} verified.`,
+  unknown.length > 0
+    ? `Not verified: ${unknown.map((feature) => feature.label).join(", ")}.`
+    : "Every feature is verified.",
+].join(" ");
+
+const platforms = tool.platforms.map((value) => ({
+  short: PLATFORM_SHORT_LABELS[value] ?? value,
+  label: PLATFORM_LABELS[value] ?? value,
+}));
 ---
 
 <article
@@ -77,7 +91,9 @@ const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
   <div class="tool-card__top">
     <Monogram slug={tool.slug} name={tool.name} />
     <span class="tool-card__kind">
-      {KIND_LABELS[tool.kind]}{tool.status !== "active" ? ` · ${tool.status}` : ""}
+      {KIND_LABELS[tool.kind]}{tool.status !== "active" && (
+        <span class="tool-card__status">{tool.status}</span>
+      )}
     </span>
   </div>
 
@@ -87,53 +103,98 @@ const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
 
   <p class="tool-card__tagline">{tool.tagline}</p>
 
-  <div class="tool-card__features" aria-label="Features">
-    {FEATURES.map((feature) => (
-      <Glyph value={tool.features[feature.key]} label={feature.label} />
-    ))}
-    <span
-      class="verified-chip"
-      title={`${coverage.verified} of ${coverage.total} features checked`}
-    >Verified {coverage.verified}/{coverage.total}</span>
-  </div>
-
-  <div class="tool-card__meta">
-    <span>{platforms}</span>
-    <span class="dot tool-card__price">{pricing}</span>
-    <span class="dot">{source}</span>
-    {tool.github && <span class="dot">★ {formatStars(tool.github.stars)}</span>}
-    <a class="tool-card__tier" href={tierHref}>Add to tier list</a>
-  </div>
-
-  {install && (
-    <div class="tool-card__install">
-      {install.type === "command" ? (
-        <>
-          <span class="tool-card__install-prompt" aria-hidden="true">$</span>
-          <code class="tool-card__install-text">{install.value}</code>
-          <button
-            class="tool-card__copy"
-            type="button"
-            data-copy-text={install.value}
-            data-copied-label="✓"
-            data-copy-message={`${tool.name} install command copied`}
-            aria-label={`Copy the install command for ${tool.name}`}
+  <div class="tool-card__bottom">
+    {visibleTags.length > 0 && (
+      <ul class="tool-card__tags" aria-label="Confirmed features">
+        {visibleTags.map((feature) => (
+          <li class="tool-card__tag">{feature.label}</li>
+        ))}
+        {hiddenTags.length > 0 && (
+          <li
+            class="tool-card__tag tool-card__tag--more"
+            title={hiddenTags.map((feature) => feature.label).join(", ")}
           >
-            <span aria-hidden="true" data-copy-feedback>⧉</span>
-          </button>
-        </>
-      ) : (
-        <a
-          class="tool-card__get"
-          href={install.value}
-          target="_blank"
-          rel="noopener"
-        >
-          Get {tool.name} ↗
-        </a>
+            +{hiddenTags.length}
+          </li>
+        )}
+      </ul>
+    )}
+
+    <div
+      class="tool-card__verify"
+      role="img"
+      aria-label={verifyLabel}
+      title={verifyLabel}
+    >
+      <span class="tool-card__meter" aria-hidden="true">
+        {FEATURES.map((feature) => (
+          <span
+            class:list={[
+              "tool-card__meter-seg",
+              `tool-card__meter-seg--${featureState(tool.features[feature.key])}`,
+            ]}
+          />
+        ))}
+      </span>
+      <span class="tool-card__verify-text">
+        {coverage.verified}/{coverage.total} verified
+      </span>
+    </div>
+
+    <div class="tool-card__meta">
+      <p class="tool-card__price">{pricing}</p>
+      <p class="tool-card__detail">
+        <span>{source}</span>
+        {tool.github && (
+          <span class="tool-card__stars">★ {formatStars(tool.github.stars)}</span>
+        )}
+      </p>
+      {platforms.length > 0 && (
+        <p class="tool-card__detail tool-card__platforms">
+          {platforms.map((platform) => (
+            <abbr title={platform.label}>{platform.short}</abbr>
+          ))}
+        </p>
       )}
     </div>
-  )}
+
+    <div class="tool-card__footer">
+      {install && (
+        <div class="tool-card__install">
+          {install.type === "command" ? (
+            <>
+              <span class="tool-card__install-prompt" aria-hidden="true">$</span>
+              <code class="tool-card__install-text">{install.value}</code>
+              <button
+                class="tool-card__copy"
+                type="button"
+                data-copy-text={install.value}
+                data-copied-label="✓"
+                data-copy-message={`${tool.name} install command copied`}
+                aria-label={`Copy the install command for ${tool.name}`}
+              >
+                <span aria-hidden="true" data-copy-feedback>⧉</span>
+              </button>
+            </>
+          ) : (
+            <a
+              class="tool-card__get"
+              href={install.value}
+              target="_blank"
+              rel="noopener"
+            >
+              Get {tool.name} ↗
+            </a>
+          )}
+        </div>
+      )}
+
+      <div class="tool-card__actions">
+        <a class="tool-card__action" href={tierHref}>Add to tier list</a>
+        <a class="tool-card__action" href={compareHref}>Compare</a>
+      </div>
+    </div>
+  </div>
 
   <span class="visually-hidden">{interfaces}</span>
 </article>
