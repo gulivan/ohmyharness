@@ -802,7 +802,23 @@ p {
 .monogram img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+/*
+ * Logos rarely ship a version for a dark background. A light tile keeps dark
+ * marks readable and gives every product icon the same visual footing.
+ */
+.monogram--icon {
+  background: #f4f1e8;
+  overflow: hidden;
+}
+
+.monogram--icon img {
+  padding: 3px;
+  /* SVG favicons often ship a light-mode and a dark-mode mark. The tile is
+     light, so ask the image for the light variant. */
+  color-scheme: light;
 }
 
 .monogram--sm {

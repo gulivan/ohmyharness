@@ -16,6 +16,8 @@ import { Resvg } from "@resvg/resvg-js";
 import satori from "satori";
 import { loadTools } from "../src/data/load";
 import { KIND_LABELS, sourceLabel } from "../src/lib/features";
+import { monogram, monogramStyle } from "../src/lib/monogram";
+import { iconFile } from "../src/lib/tools";
 import type { Tool } from "../src/data/schema";
 
 const WIDTH = 1200;
@@ -53,7 +55,13 @@ type Style = Record<string, string | number>;
 /** Plain-object element; satori reads `type` and `props`. */
 interface Element {
   type: string;
-  props: { style: Style; children: Element | Element[] | string };
+  props: {
+    style: Style;
+    children: Element | Element[] | string;
+    src?: string;
+    width?: number;
+    height?: number;
+  };
 }
 
 /** Small object helper so this script does not need JSX or React. */
@@ -63,7 +71,80 @@ const node = (
   children: Element | Element[] | string,
 ): Element => ({ type, props: { style, children } });
 
-function card(tool: Tool): Element {
+/**
+ * Embed `public/icons/<slug>.*` as a data URI. Rasters go in as-is; SVGs are
+ * rasterised first because satori's SVG image support is unreliable. Anything
+ * satori cannot read returns null and the card keeps the monogram.
+ */
+function iconDataUri(tool: Tool): string | null {
+  const icon = iconFile(tool.slug);
+  if (!icon) return null;
+
+  try {
+    if (icon.extension === "png") {
+      return `data:image/png;base64,${readFileSync(icon.file).toString("base64")}`;
+    }
+    if (icon.extension === "svg") {
+      const svg = readFileSync(icon.file, "utf8");
+      const png = new Resvg(svg, { fitTo: { mode: "width", value: 256 } })
+        .render()
+        .asPng();
+      return `data:image/png;base64,${Buffer.from(png).toString("base64")}`;
+    }
+  } catch {
+    // Fall through to the monogram.
+  }
+  return null;
+}
+
+function identity(tool: Tool, icon: string | null): Element {
+  const size = 96;
+  if (icon) {
+    return node(
+      "div",
+      {
+        width: size,
+        height: size,
+        flex: "none",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#f4f1e8",
+      },
+      {
+        type: "img",
+        props: {
+          src: icon,
+          width: size - 12,
+          height: size - 12,
+          style: { objectFit: "contain" },
+          children: "",
+        },
+      },
+    );
+  }
+
+  const style = monogramStyle(tool.slug);
+  return node(
+    "div",
+    {
+      width: size,
+      height: size,
+      flex: "none",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: style.background,
+      color: style.color,
+      fontSize: 28,
+      fontWeight: 700,
+      letterSpacing: -1,
+    },
+    monogram(tool.name),
+  );
+}
+
+function card(tool: Tool, icon: string | null): Element {
   const source = sourceLabel(tool);
   const license = tool.license ? ` · ${tool.license}` : "";
 
@@ -111,30 +192,37 @@ function card(tool: Tool): Element {
       ),
       node(
         "div",
-        { display: "flex", flexDirection: "column", gap: 22 },
+        { display: "flex", flexDirection: "row", alignItems: "center", gap: 28 },
         [
+          identity(tool, icon),
           node(
             "div",
-            {
-              display: "flex",
-              fontSize: 84,
-              fontWeight: 700,
-              letterSpacing: -3,
-              lineHeight: 1,
-            },
-            tool.name,
-          ),
-          node(
-            "div",
-            {
-              display: "flex",
-              fontFamily: "Newsreader",
-              fontSize: 34,
-              color: COLORS.muted,
-              lineHeight: 1.3,
-              maxWidth: 950,
-            },
-            tool.tagline,
+            { display: "flex", flexDirection: "column", gap: 18 },
+            [
+              node(
+                "div",
+                {
+                  display: "flex",
+                  fontSize: 76,
+                  fontWeight: 700,
+                  letterSpacing: -3,
+                  lineHeight: 1,
+                },
+                tool.name,
+              ),
+              node(
+                "div",
+                {
+                  display: "flex",
+                  fontFamily: "Newsreader",
+                  fontSize: 32,
+                  color: COLORS.muted,
+                  lineHeight: 1.3,
+                  maxWidth: 900,
+                },
+                tool.tagline,
+              ),
+            ],
           ),
         ],
       ),
@@ -156,11 +244,29 @@ function card(tool: Tool): Element {
   );
 }
 
-async function render(tool: Tool): Promise<Buffer> {
-  const svg = await satori(card(tool), { width: WIDTH, height: HEIGHT, fonts });
+async function renderCard(tool: Tool, icon: string | null): Promise<Buffer> {
+  const svg = await satori(card(tool, icon), {
+    width: WIDTH,
+    height: HEIGHT,
+    fonts,
+  });
   return new Resvg(svg, { fitTo: { mode: "width", value: WIDTH } })
     .render()
     .asPng();
+}
+
+async function render(tool: Tool): Promise<Buffer> {
+  const icon = iconDataUri(tool);
+  if (!icon) return renderCard(tool, null);
+
+  try {
+    return await renderCard(tool, icon);
+  } catch (error) {
+    console.warn(
+      `⚠ ${tool.slug}: could not render its logo, using the monogram (${error instanceof Error ? error.message : String(error)}).`,
+    );
+    return renderCard(tool, null);
+  }
 }
 
 async function main(): Promise<void> {

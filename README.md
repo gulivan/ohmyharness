@@ -99,3 +99,6 @@ and taglines describe what a tool does rather than how good it is.
 
 MIT — see [LICENSE](LICENSE). The data in `data/tools/` is released under the
 same licence. A link back is appreciated.
+
+Logos and product names belong to their respective owners and are used to
+identify the products.

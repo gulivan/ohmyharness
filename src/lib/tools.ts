@@ -78,11 +78,54 @@ export function getSameKindPairs(): ToolPair[] {
   return [...pairs.values()];
 }
 
-/** Optional icon convention: drop `public/icons/<slug>.svg` in and it is used. */
+/**
+ * Optional logo convention: drop `public/icons/<slug>.<ext>` in and the build
+ * picks it up. No data file changes are needed. PNG wins over WebP only if no
+ * earlier extension is present; SVG is preferred because it scales cleanly.
+ */
+export const ICON_EXTENSIONS = ["svg", "png", "webp"] as const;
+
+export type IconExtension = (typeof ICON_EXTENSIONS)[number];
+
+export interface IconFile {
+  /** Absolute path on disk. */
+  file: string;
+  /** Public URL used in markup. */
+  url: string;
+  extension: IconExtension;
+}
+
+const iconCache = new Map<string, IconFile | null>();
+
+/** Locate the optional icon for a slug, or null when there is none. */
+export function iconFile(slug: string): IconFile | null {
+  if (iconCache.has(slug)) return iconCache.get(slug) ?? null;
+
+  for (const extension of ICON_EXTENSIONS) {
+    const file = path.resolve(
+      process.cwd(),
+      "public",
+      "icons",
+      `${slug}.${extension}`,
+    );
+    if (existsSync(file)) {
+      const found: IconFile = {
+        file,
+        url: `/icons/${slug}.${extension}`,
+        extension,
+      };
+      iconCache.set(slug, found);
+      return found;
+    }
+  }
+
+  iconCache.set(slug, null);
+  return null;
+}
+
+/** Public URL for a tool's optional icon, or null (the monogram is used). */
 export function iconFor(slug: string): string | null {
-  const relative = `/icons/${slug}.svg`;
-  const absolute = path.resolve(process.cwd(), "public", "icons", `${slug}.svg`);
-  return existsSync(absolute) ? relative : null;
+  return iconFile(slug)?.url ?? null;
 }
 
 export function featureCount(tool: Tool): { confirmed: number; known: number } {

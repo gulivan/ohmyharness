@@ -10,13 +10,17 @@ interface Props {
 }
 
 const { slug, name, size = "md", icon = iconFor(slug) } = Astro.props;
-const style = monogramStyle(slug);
+const style = icon ? null : monogramStyle(slug);
 ---
 
 <span
-  class:list={["monogram", `monogram--${size}`]}
-  style={`background:${style.background};color:${style.color}`}
+  class:list={["monogram", `monogram--${size}`, icon && "monogram--icon"]}
+  style={style ? `background:${style.background};color:${style.color}` : undefined}
   aria-hidden="true"
 >
-  {icon ? <img src={icon} alt="" width="64" height="64" loading="lazy" /> : monogram(name)}
+  {icon ? (
+    <img src={icon} alt="" width="64" height="64" loading="lazy" decoding="async" />
+  ) : (
+    monogram(name)
+  )}
 </span>

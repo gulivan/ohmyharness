@@ -637,12 +637,32 @@ function initTierList(): void {
 
     try {
       await document.fonts.ready;
+
+      // html-to-image inlines every image. Make sure the logos are decoded
+      // first, otherwise the export can contain empty tiles.
+      const images = Array.from(capture.querySelectorAll("img"));
+      for (const image of images) image.loading = "eager";
+      await Promise.all(
+        images.map(async (image) => {
+          if (!image.complete) {
+            await new Promise<void>((resolve) => {
+              image.addEventListener("load", () => resolve(), { once: true });
+              image.addEventListener("error", () => resolve(), { once: true });
+            });
+          }
+          try {
+            await image.decode();
+          } catch {
+            // A broken logo should not block the rest of the board.
+          }
+        }),
+      );
+
       capture.classList.add("is-exporting");
       const { toPng } = await import("html-to-image");
       const dataUrl = await toPng(capture, {
         pixelRatio: 2,
         backgroundColor: "#0a0a0b",
-        cacheBust: true,
       });
       const link = document.createElement("a");
       link.href = dataUrl;

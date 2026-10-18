@@ -18,20 +18,22 @@ export function makeMonogram(
   icon: string | null = null,
 ): HTMLSpanElement {
   const node = createElement("span", `monogram monogram--${size}`);
-  const style = monogramStyle(slug);
-  node.style.background = style.background;
-  node.style.color = style.color;
   node.setAttribute("aria-hidden", "true");
 
   if (icon) {
+    node.classList.add("monogram--icon");
     const image = document.createElement("img");
     image.src = icon;
     image.alt = "";
     image.width = 64;
     image.height = 64;
     image.loading = "lazy";
+    image.decoding = "async";
     node.append(image);
   } else {
+    const style = monogramStyle(slug);
+    node.style.background = style.background;
+    node.style.color = style.color;
     node.textContent = monogram(name);
   }
   return node;
