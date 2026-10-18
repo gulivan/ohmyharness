@@ -163,6 +163,19 @@ export const featuresSchema = z.strictObject({
   cloudSandbox: flag,
   diffReview: flag,
   planMode: flag,
+  // Added 2026-10 (see SPEC "Feature definitions"). Missing = not verified yet.
+  multiProvider: flag.default(null),
+  acp: flag.default(null),
+  automations: flag.default(null),
+  prIntegration: flag.default(null),
+  issueTracker: flag.default(null),
+  browserPreview: flag.default(null),
+  checkpoints: flag.default(null),
+  hooks: flag.default(null),
+  skills: flag.default(null),
+  customAgents: flag.default(null),
+  sandboxing: flag.default(null),
+  headlessApi: flag.default(null),
 });
 
 const toolObject = z.strictObject({

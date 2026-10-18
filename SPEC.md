@@ -50,7 +50,10 @@ One JSON file per tool: `data/tools/<slug>.json`. Validated at build time with z
     "remoteAccess": null,              // control sessions from another device / browser
     "cloudSandbox": null,              // runs agents in hosted sandboxes
     "diffReview": null,                // built-in diff / code review UI
-    "planMode": null                   // explicit plan/approve-before-edit mode
+    "planMode": null,                  // explicit plan/approve-before-edit mode
+    "...": null                        // + 12 more keys (multiProvider, acp, automations, prIntegration, issueTracker, browserPreview,
+                                       //   checkpoints, hooks, skills, customAgents, sandboxing, headlessApi) — definitions and the
+                                       //   attribution rule (orchestrators earn a flag only for what they provide themselves) in docs/features.md
   },
   "github": { "stars": 12345, "checkedAt": "2026-10-18" }, // or null if no public repo
   "status": "active",                 // "active" | "beta" | "deprecated"
