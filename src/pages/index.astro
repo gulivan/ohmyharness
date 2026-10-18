@@ -2,6 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ToolCard from "../components/ToolCard.astro";
 import Glyph from "../components/Glyph.astro";
+import HeroTitle from "../components/react/HeroTitle";
+import HeroGlitch from "../components/react/HeroGlitch";
+import HeroStats from "../components/react/HeroStats";
+import LogoMarquee from "../components/react/LogoMarquee";
 import {
   INTERFACE_LABELS,
   KIND_LABELS,
@@ -14,6 +18,7 @@ import {
   formatDate,
   getAllTools,
   getRecentlyVerified,
+  iconFile,
   latestVerified,
   REPO_URL,
 } from "../lib/tools";
@@ -24,6 +29,15 @@ const verified = latestVerified();
 const recent = getRecentlyVerified(4);
 const total = tools.length;
 const year = new Date().getFullYear();
+
+const logos = tools
+  .flatMap((tool) => {
+    const icon = iconFile(tool.slug);
+    return icon
+      ? [{ name: tool.name, src: icon.url, href: `/tools/${tool.slug}` }]
+      : [];
+  })
+  .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
 const description =
   "An open, sourced directory of AI coding harnesses, orchestrators, cloud agents and add-ons. Compare features, check the facts behind each tool, and make your own tier list.";
@@ -44,6 +58,7 @@ const jsonLd = {
 
 <BaseLayout title="ohmyharness" description={description} jsonLd={jsonLd}>
   <section class="hero">
+    <HeroGlitch client:visible />
     <div class="container hero__inner">
       <div>
         <div class="hero__kicker">
@@ -52,8 +67,8 @@ const jsonLd = {
           <span>Community maintained</span>
         </div>
         <h1 class="display">
-          Pick your<br />
-          <span class="display__accent">harness</span><span class="display__cursor" aria-hidden="true"></span>
+          <HeroTitle client:visible first="Pick your" second="harness" />
+          <span class="display__cursor" aria-hidden="true"></span>
         </h1>
         <p class="lede hero__lede">
           The runtimes that run coding agents, and the apps that orchestrate
@@ -72,24 +87,13 @@ const jsonLd = {
           <span>Index</span>
           <span>{total} {total === 1 ? "entry" : "entries"}</span>
         </div>
-        <dl class="hero__stats">
-          <div class="hero__stat">
-            <dt>Harnesses</dt>
-            <dd>{counts.harness}</dd>
-          </div>
-          <div class="hero__stat">
-            <dt>Orchestrators</dt>
-            <dd>{counts.orchestrator}</dd>
-          </div>
-          <div class="hero__stat">
-            <dt>Cloud agents</dt>
-            <dd>{counts["cloud-agent"]}</dd>
-          </div>
-          <div class="hero__stat">
-            <dt>Add-ons</dt>
-            <dd>{counts["add-on"]}</dd>
-          </div>
-        </dl>
+        <HeroStats
+          client:visible
+          harnesses={counts.harness}
+          orchestrators={counts.orchestrator}
+          cloudAgents={counts["cloud-agent"]}
+          addOns={counts["add-on"]}
+        />
         {recent.length > 0 && (
           <div class="hero__recent">
             <div class="hero__recent-title">Recently verified</div>
@@ -112,6 +116,17 @@ const jsonLd = {
       </aside>
     </div>
   </section>
+
+  {logos.length > 3 && (
+    <section class="logos-band" aria-label="Tools in the directory">
+      <div class="container logos-band__inner">
+        <p class="logos-band__label">In the directory</p>
+        <div class="logos-band__loop">
+          <LogoMarquee client:visible logos={logos} />
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section">
     <div class="container">

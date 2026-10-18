@@ -419,16 +419,44 @@ p {
 
 /* ---------- hero ---------- */
 
+/* Astro island wrappers should not introduce a layout box. */
+astro-island {
+  display: contents;
+}
+
 .hero {
   position: relative;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
 }
 
+/* Decorative letter field, kept behind the grid and away from the copy. */
+.hero__glitch {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 30%,
+    #000 62%
+  );
+}
+
+@media (max-width: 700px) {
+  .hero__glitch {
+    opacity: 0.32;
+    mask-image: linear-gradient(to bottom, #000, transparent 92%);
+  }
+}
+
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image: repeating-linear-gradient(
     90deg,
     transparent 0 79px,
@@ -440,6 +468,7 @@ p {
 
 .hero__inner {
   position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(28px, 5vw, 56px);
@@ -628,6 +657,65 @@ p {
   text-transform: uppercase;
   color: var(--faint);
   white-space: nowrap;
+}
+
+/* ---------- logo band ---------- */
+
+.logos-band {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding-block: 14px;
+}
+
+.logos-band__inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.logos-band__label {
+  flex: none;
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.logos-band__loop {
+  flex: 1;
+  min-width: 0;
+}
+
+/*
+ * The site's monogram tiles put logos on a light square because most marks
+ * ship for a light background. The marquee follows the same rule.
+ */
+.logos-band .logoloop__content {
+  padding: 7px;
+  background: #f4f1e8;
+  border-radius: 2px;
+}
+
+.logos-band .logoloop__item img {
+  width: var(--logoloop-logoHeight);
+  height: var(--logoloop-logoHeight);
+  padding: 0;
+  object-fit: contain;
+  color-scheme: light;
+  opacity: 0.9;
+  transition: opacity 200ms ease;
+}
+
+.logos-band .logoloop__content:hover img {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .logos-band__label {
+    display: none;
+  }
 }
 
 /* ---------- legend ---------- */

@@ -95,6 +95,16 @@ Corrections are as welcome as new entries. Read
 request. There are no paid rankings, sponsored placements or affiliate links,
 and taglines describe what a tool does rather than how good it is.
 
+## Credits
+
+The animated hero headline, the letter field behind it, the directory counts
+and the logo marquee are adapted from [React Bits](https://reactbits.dev) by
+David Haz, used under the MIT + Commons Clause licence. The upstream licence
+notice is kept at
+[`src/components/react/reactbits/LICENSE.md`](src/components/react/reactbits/LICENSE.md).
+Local adaptations remove the `motion` dependency and keep the final text in
+the server-rendered HTML.
+
 ## Licence
 
 MIT — see [LICENSE](LICENSE). The data in `data/tools/` is released under the

@@ -14,6 +14,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import satori from "satori";
+import type { ReactNode } from "react";
 import { loadTools } from "../src/data/load";
 import { KIND_LABELS, sourceLabel } from "../src/lib/features";
 import { monogram, monogramStyle } from "../src/lib/monogram";
@@ -245,7 +246,9 @@ function card(tool: Tool, icon: string | null): Element {
 }
 
 async function renderCard(tool: Tool, icon: string | null): Promise<Buffer> {
-  const svg = await satori(card(tool, icon), {
+  // satori accepts React elements, but the card tree is plain data so this
+  // script does not need JSX. The cast is the price of that shortcut.
+  const svg = await satori(card(tool, icon) as unknown as ReactNode, {
     width: WIDTH,
     height: HEIGHT,
     fonts,
