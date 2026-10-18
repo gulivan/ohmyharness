@@ -1,7 +1,8 @@
 {
   "slug": "ohmypi",
   "name": "Oh My Pi (omp)",
-  "kind": "harness",
+  "kind": "add-on",
+  "extends": "pi",
   "tagline": "Terminal coding agent forked from Pi, with subagents, worktree isolation and code review.",
   "description": "A fork of Pi by Stencil Labs that adds first-class subagents, parallel worktree-isolated task fan-out, a plan mode, LSP/DAP tooling, and a review command that ranks findings by priority. It runs as a single binary on macOS, Linux and Windows with 60+ model providers.",
   "website": "https://omp.sh",
@@ -9,10 +10,21 @@
   "openSource": true,
   "license": "MIT",
   "maker": "Stencil Labs",
-  "interfaces": ["cli", "tui"],
-  "platforms": ["macos", "linux", "windows"],
+  "interfaces": [
+    "cli",
+    "tui"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
   "drives": [],
-  "modelAccess": ["subscription", "byok", "local"],
+  "modelAccess": [
+    "subscription",
+    "byok",
+    "local"
+  ],
   "pricing": {
     "model": "free",
     "notes": "Open source under MIT; you supply provider access through subscriptions, API keys or local models."
