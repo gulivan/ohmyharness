@@ -23,7 +23,33 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free tier with 15 tasks/day; higher limits through Google AI Pro and Ultra plans."
+    "notes": "Free tier with 15 tasks/day; paid tiers come via Google AI plans: Pro allows 100 tasks/day, Ultra 300 tasks/day.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "15 tasks per day, 3 concurrent tasks",
+        "url": "https://jules.google/docs/usage-limits/"
+      },
+      {
+        "name": "Google AI Pro",
+        "price": 19.99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Jules in Pro: 100 tasks/day, 15 concurrent tasks",
+        "url": "https://one.google.com/about/google-ai-plans/"
+      },
+      {
+        "name": "Google AI Ultra",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Jules in Ultra: 300 tasks/day, 60 concurrent tasks; a $100 Ultra tier also exists",
+        "url": "https://one.google.com/about/google-ai-plans/"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -63,7 +89,9 @@
     "https://jules.google/docs/usage-limits/",
     "https://jules.google/docs/llms.txt",
     "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
-    "https://jules.google/docs/cli/reference"
+    "https://jules.google/docs/cli/reference",
+    "https://one.google.com/about/google-ai-plans/",
+    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/"
   ],
   "lastVerified": "2026-10-18"
 }

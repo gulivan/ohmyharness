@@ -29,7 +29,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "The distribution is free to install and use your own model access; it is source-available under the Sustainable Use License."
+    "notes": "No paid tier; the distribution is source-available under the Sustainable Use License and uses your own model access.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "No paid tier; source-available, bring your own provider accounts",
+        "url": "https://omo.dev/"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

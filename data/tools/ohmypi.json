@@ -27,7 +27,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under MIT; you supply provider access through subscriptions, API keys or local models."
+    "notes": "Open source under MIT; you supply provider access through subscriptions, API keys or local models.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source under MIT; bring your own model provider",
+        "url": "https://omp.sh/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

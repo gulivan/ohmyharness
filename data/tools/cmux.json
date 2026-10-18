@@ -23,8 +23,50 @@
   ],
   "modelAccess": [],
   "pricing": {
-    "model": "free",
-    "notes": "Free and open source under GPL-3.0."
+    "model": "freemium",
+    "notes": "Free open-source macOS app with local agents; paid plans add cloud VMs (Pro $50/mo, Max $200/mo, Team $60 per user/mo).",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open-source macOS app; local CLI agents with your own keys",
+        "url": "https://cmux.com/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 50,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$40/mo billed yearly",
+        "url": "https://cmux.com/pricing"
+      },
+      {
+        "name": "Team",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; Pro features plus cloud VMs",
+        "url": "https://cmux.com/pricing"
+      },
+      {
+        "name": "Max",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$160/mo billed yearly",
+        "url": "https://cmux.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://cmux.com/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -62,7 +104,8 @@
   "sources": [
     "https://github.com/manaflow-ai/cmux",
     "https://cmux.com",
-    "https://cmux.com/docs/getting-started"
+    "https://cmux.com/docs/getting-started",
+    "https://cmux.com/pricing"
   ],
   "lastVerified": "2026-10-18"
 }

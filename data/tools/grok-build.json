@@ -25,7 +25,49 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Included in Grok plans from the free tier upward; an xAI API key can also be used."
+    "notes": "Included in X Subscription plans from Free to Ultra; an xAI API key can also be used.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited Grok Build usage",
+        "url": "https://x.ai/pricing"
+      },
+      {
+        "name": "Plus",
+        "price": 8,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Shared AI usage pool; Grok Build included",
+        "url": "https://x.ai/pricing"
+      },
+      {
+        "name": "Premium",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "4x the usage of Plus",
+        "url": "https://x.ai/pricing"
+      },
+      {
+        "name": "Super",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "15x the usage of Plus",
+        "url": "https://x.ai/pricing"
+      },
+      {
+        "name": "Ultra",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "50x the usage of Plus",
+        "url": "https://x.ai/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

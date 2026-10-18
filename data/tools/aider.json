@@ -26,7 +26,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source; you pay the model provider or use an existing subscription."
+    "notes": "Open source under Apache-2.0; you pay the model provider or use an existing subscription.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; bring your own model API key"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -89,7 +98,8 @@
     "https://aider.chat/docs/usage/commands.html",
     "https://aider.chat/docs/llms/github.html",
     "https://github.com/Aider-AI/aider",
-    "https://aider.chat/docs/install.html"
+    "https://aider.chat/docs/install.html",
+    "https://aider.chat/docs/faq.html"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -29,7 +29,38 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free tier with your own keys; Pro at $20/month and higher tiers add synced projects, storage and included AI credit."
+    "notes": "Free $0/month (free during the alpha); Pro $20/mo, Team $100/mo, Business $200/mo. Your own API keys always work.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free during the alpha",
+        "url": "https://tryatlas.cc/#pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "url": "https://tryatlas.cc/#pricing"
+      },
+      {
+        "name": "Team",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "url": "https://tryatlas.cc/#pricing"
+      },
+      {
+        "name": "Business",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "url": "https://tryatlas.cc/#pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

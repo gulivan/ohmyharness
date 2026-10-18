@@ -48,8 +48,26 @@
     "byok"
   ],
   "pricing": {
-    "model": "free",
-    "notes": "Paseo is free and open source."
+    "model": "freemium",
+    "notes": "The apps and self-hosted Paseo Hub are free and open source; the hosted Hub has a free plan and Pro.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Hosted Hub free tier",
+        "url": "https://paseo.sh/hub"
+      },
+      {
+        "name": "Pro",
+        "price": 15,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per seat; hosted Hub",
+        "url": "https://paseo.sh/hub"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -94,7 +112,9 @@
     "https://paseo.sh/docs/orchestration",
     "https://paseo.sh/docs/parallel-development",
     "https://github.com/getpaseo/paseo",
-    "https://paseo.sh/docs"
+    "https://paseo.sh/docs",
+    "https://paseo.sh/hub",
+    "https://paseo.sh/docs/hub/hosted"
   ],
   "lastVerified": "2026-10-18"
 }

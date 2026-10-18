@@ -30,7 +30,33 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Hobby tier is free with pay-as-you-go orbs and BYOK; Individual is $20/month with included usage."
+    "notes": "Hobby is free with pay-as-you-go orbs and BYOK; Individual is $20/month with included usage.",
+    "plans": [
+      {
+        "name": "Hobby",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Pay-as-you-go orbs; BYOK",
+        "url": "https://ampcode.com/pricing"
+      },
+      {
+        "name": "Individual",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes 45,000 minutes of orbin' time; BYOK",
+        "url": "https://ampcode.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://ampcode.com/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -80,7 +106,8 @@
     "https://ampcode.com/docs/markdown/orbs",
     "https://ampcode.com/docs/markdown/cli/remote-control",
     "https://ampcode.com/about",
-    "https://ampcode.com/docs/macos-and-ios"
+    "https://ampcode.com/docs/macos-and-ios",
+    "https://ampcode.com/pricing"
   ],
   "lastVerified": "2026-10-18"
 }

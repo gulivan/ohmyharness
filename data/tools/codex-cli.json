@@ -23,8 +23,66 @@
     "byok"
   ],
   "pricing": {
-    "model": "paid",
-    "notes": "Included with ChatGPT Plus, Pro, Business, Edu, and Enterprise plans; API key usage is billed separately."
+    "model": "freemium",
+    "notes": "Included with ChatGPT Free, Go, Plus, Pro, and Business plans; API key usage is billed separately.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited Codex access",
+        "url": "https://learn.chatgpt.com/docs/pricing"
+      },
+      {
+        "name": "Go",
+        "price": 8,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Lightweight coding tasks",
+        "url": "https://learn.chatgpt.com/docs/pricing"
+      },
+      {
+        "name": "Plus",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Codex in the CLI, IDE extension, web, and iOS",
+        "url": "https://learn.chatgpt.com/docs/pricing"
+      },
+      {
+        "name": "Business Standard",
+        "price": 25,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $20/user/mo billed yearly",
+        "url": "https://openai.com/business/pricing/"
+      },
+      {
+        "name": "Pro",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Plans at $100, $200, or $500 per month",
+        "url": "https://learn.chatgpt.com/docs/pricing"
+      },
+      {
+        "name": "Business Premium",
+        "price": 125,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $100/user/mo billed yearly",
+        "url": "https://openai.com/business/pricing/"
+      },
+      {
+        "name": "API Key",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Pay per token at API pricing",
+        "url": "https://learn.chatgpt.com/docs/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -84,7 +142,12 @@
     "https://learn.chatgpt.com/docs/agent-configuration/subagents",
     "https://learn.chatgpt.com/docs/environments/git-worktrees",
     "https://developers.openai.com/codex/codex-manual.md",
-    "https://github.com/openai/codex"
+    "https://github.com/openai/codex",
+    "https://learn.chatgpt.com/docs/pricing",
+    "https://chatgpt.com/pricing/",
+    "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+    "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+    "https://openai.com/business/pricing/"
   ],
   "lastVerified": "2026-10-18"
 }

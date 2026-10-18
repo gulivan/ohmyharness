@@ -40,7 +40,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "bb is free and open source under the MIT license."
+    "notes": "bb is free and open source under the MIT license.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free and open source; bring your own agents"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

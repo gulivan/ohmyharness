@@ -27,7 +27,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under Apache-2.0; it uses your existing Codex access and tracker credentials."
+    "notes": "Open source under Apache-2.0; it uses your existing Codex access and tracker credentials.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source under Apache-2.0; runs with your own Codex access",
+        "url": "https://github.com/openai/symphony"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

@@ -46,7 +46,33 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free forever tier; Sync $16 per user/month billed yearly; Enterprise on request; optional pay-as-you-go inference credits and cloud sandboxes."
+    "notes": "Free forever tier; Sync $20/user/month ($16 billed yearly); optional pay-as-you-go inference credits and cloud sandboxes.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free forever for individuals; bring your own coding agent",
+        "url": "https://traycer.ai/pricing"
+      },
+      {
+        "name": "Sync",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $16/user/month billed yearly; cloud sync and team sharing",
+        "url": "https://traycer.ai/pricing"
+      },
+      {
+        "name": "Inference credits",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Optional pay-as-you-go models; cloud sandboxes cost extra",
+        "url": "https://docs.traycer.ai/account/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -101,7 +127,8 @@
     "https://docs.traycer.ai/install.md",
     "https://docs.traycer.ai/account/mobile-app.md",
     "https://docs.traycer.ai/agents-and-models/coding-agents.md",
-    "https://github.com/traycerai/traycer"
+    "https://github.com/traycerai/traycer",
+    "https://docs.traycer.ai/account/pricing"
   ],
   "lastVerified": "2026-10-18"
 }

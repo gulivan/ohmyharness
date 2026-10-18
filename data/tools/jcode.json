@@ -27,7 +27,73 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "The agent is free; optional monthly plans from $10 add inference credit and cloud sessions."
+    "notes": "The agent is free; optional monthly plans from $10 (a $300 tier also exists) add inference credit and Jcode Cloud access.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Agent is free; pay provider API rates for inference",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$10",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$20 inference credit; 50 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$20",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$40 inference credit; 100 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$50",
+        "price": 50,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$100 inference credit; 250 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$100",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$200 inference credit; 500 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$200",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$400 inference credit; 1,000 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$500",
+        "price": 500,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$1,000 inference credit; 2,500 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      },
+      {
+        "name": "$1,000",
+        "price": 1000,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$2,000 inference credit; 5,000 Jcode Cloud hours",
+        "url": "https://jcode.sh/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

@@ -26,7 +26,57 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Included with Copilot Free, Pro, Pro+, Max, Business, and Enterprise plans; usage draws on the plan's AI Credits."
+    "notes": "Included with Copilot Free, Pro, Pro+, Max, Business, and Enterprise plans; usage draws on the plan's AI Credits.",
+    "plans": [
+      {
+        "name": "Copilot Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited chat and agent usage",
+        "url": "https://github.com/features/copilot/plans"
+      },
+      {
+        "name": "Copilot Pro",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$15/mo of AI credits ($10 base plus $5 flex)",
+        "url": "https://github.com/features/copilot/plans"
+      },
+      {
+        "name": "Copilot Pro+",
+        "price": 39,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$70/mo of AI credits ($39 base plus $31 flex)",
+        "url": "https://github.com/features/copilot/plans"
+      },
+      {
+        "name": "Copilot Max",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$200/mo of AI credits ($100 base plus $100 flex)",
+        "url": "https://github.com/features/copilot/plans"
+      },
+      {
+        "name": "Copilot Business",
+        "price": 19,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user per month",
+        "url": "https://github.com/features/copilot/plans"
+      },
+      {
+        "name": "Copilot Enterprise",
+        "price": 39,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user per month",
+        "url": "https://github.com/features/copilot/plans"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -85,7 +135,8 @@
     "https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli",
     "https://github.com/features/copilot/cli",
     "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features",
-    "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli"
+    "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli",
+    "https://github.com/features/copilot/plans"
   ],
   "lastVerified": "2026-10-18"
 }

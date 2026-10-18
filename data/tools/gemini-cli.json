@@ -26,7 +26,49 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free with a Google account (1,000 requests/day); higher limits on Google AI Pro/Ultra or paid API billing."
+    "notes": "Free with a Google account (1,000 requests/day); higher limits on Google AI Pro/Ultra or paid API billing.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "1,000 requests/day with a Google account",
+        "url": "https://geminicli.com/docs/resources/quota-and-pricing/"
+      },
+      {
+        "name": "Google AI Pro",
+        "price": 19.99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "1,500 requests per user per day",
+        "url": "https://one.google.com/intl/en_us/about/google-ai-plans/"
+      },
+      {
+        "name": "Google AI Ultra (5x)",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "2,000 requests per user per day",
+        "url": "https://one.google.com/intl/en_us/about/google-ai-plans/"
+      },
+      {
+        "name": "Google AI Ultra (20x)",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "2,000 requests per user per day",
+        "url": "https://one.google.com/intl/en_us/about/google-ai-plans/"
+      },
+      {
+        "name": "API key",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Pay per token; unpaid keys get 250 requests/day on Flash",
+        "url": "https://geminicli.com/docs/resources/quota-and-pricing/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -78,7 +120,9 @@
     "https://geminicli.com/docs/cli/plan-mode/",
     "https://geminicli.com/docs/core/subagents/",
     "https://geminicli.com/docs/resources/quota-and-pricing/",
-    "https://github.com/google-gemini/gemini-cli"
+    "https://github.com/google-gemini/gemini-cli",
+    "https://one.google.com/intl/en_us/about/google-ai-plans/",
+    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/"
   ],
   "lastVerified": "2026-10-18"
 }

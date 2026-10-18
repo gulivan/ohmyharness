@@ -28,7 +28,41 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under MIT; provider access is your own, optionally through a Nous Portal subscription."
+    "notes": "Open source under MIT; optional Nous Portal plans add inference credits and hosted tools.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open-source agent; bring your own provider",
+        "url": "https://hermes-agent.nousresearch.com/"
+      },
+      {
+        "name": "Nous Portal Plus",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $22.00 monthly credits",
+        "url": "https://hermes-agent.nousresearch.com/"
+      },
+      {
+        "name": "Nous Portal Super",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $110.00 monthly credits",
+        "url": "https://hermes-agent.nousresearch.com/"
+      },
+      {
+        "name": "Nous Portal Ultra",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $220.00 monthly credits",
+        "url": "https://hermes-agent.nousresearch.com/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

@@ -28,7 +28,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under MIT; model access comes from your own providers."
+    "notes": "Open source under MIT; model access comes from your own providers.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source under MIT; bring your own model providers",
+        "url": "https://ohmyopencodeslim.com/"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

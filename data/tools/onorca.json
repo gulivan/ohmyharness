@@ -38,7 +38,25 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free and open source under MIT; an enterprise offering is listed."
+    "notes": "Free and open source under MIT; an enterprise offering with rollout and security support is available on request.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; agents run locally and use your own subscriptions or API keys",
+        "url": "https://www.onorca.dev/"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://www.onorca.dev/enterprise"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -90,7 +108,8 @@
     "https://www.onorca.dev/docs/cli/orchestration",
     "https://www.onorca.dev/docs/remote-servers",
     "https://github.com/stablyai/orca",
-    "https://www.onorca.dev/download"
+    "https://www.onorca.dev/download",
+    "https://www.onorca.dev/enterprise"
   ],
   "lastVerified": "2026-10-18"
 }

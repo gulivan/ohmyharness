@@ -39,7 +39,16 @@
   "modelAccess": [],
   "pricing": {
     "model": "free",
-    "notes": "Open source under MIT; zero runtime dependencies. Requires Herdr 0.8.0 or newer and Node 18.17 or newer."
+    "notes": "Open source under MIT; zero runtime dependencies. Requires Herdr 0.8.0 or newer and Node 18.17 or newer.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source MIT add-on for Herdr"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

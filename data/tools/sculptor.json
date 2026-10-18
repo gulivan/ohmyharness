@@ -26,7 +26,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free and open source under MIT; model usage is billed by your own provider."
+    "notes": "Free and open source under MIT; model usage is billed by your own provider.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free, local and open source; runs with any model or provider",
+        "url": "https://imbue.com/product/sculptor/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

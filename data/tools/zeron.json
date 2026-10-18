@@ -33,7 +33,18 @@
     "byok"
   ],
   "pricing": {
-    "model": "free"
+    "model": "free",
+    "notes": "Free and open source under MIT; local-first with no account required, plus optional multi-device sync.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source under MIT; local-first, no account required",
+        "url": "https://zeron.sh/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

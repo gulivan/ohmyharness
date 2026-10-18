@@ -38,7 +38,16 @@
   "modelAccess": [],
   "pricing": {
     "model": "free",
-    "notes": "Open source under Apache 2.0. A separate Herdr Cloud service is listed as coming soon."
+    "notes": "Open source under Apache-2.0. A separate Herdr Cloud service is listed as coming soon.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; Herdr Cloud is coming soon"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

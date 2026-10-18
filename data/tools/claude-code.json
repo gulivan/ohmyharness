@@ -31,7 +31,57 @@
   ],
   "pricing": {
     "model": "paid",
-    "notes": "Included with Claude Pro and Max plans; also available through Anthropic Console/API billing."
+    "notes": "Included with Claude Pro and Max plans; also available through Anthropic Console/API billing.",
+    "plans": [
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes Claude Code; $17/mo billed yearly",
+        "url": "https://claude.com/pricing"
+      },
+      {
+        "name": "Team Standard",
+        "price": 25,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per seat; $20/seat/mo billed yearly",
+        "url": "https://claude.com/pricing"
+      },
+      {
+        "name": "Max",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "From $100/mo; 5x or 20x usage",
+        "url": "https://claude.com/pricing"
+      },
+      {
+        "name": "Team Premium",
+        "price": 125,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per seat; $100/seat/mo billed yearly",
+        "url": "https://claude.com/pricing"
+      },
+      {
+        "name": "API",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Pay per token via Anthropic Console",
+        "url": "https://claude.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://claude.com/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

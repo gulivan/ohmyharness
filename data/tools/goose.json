@@ -27,7 +27,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source; model usage is billed by your provider or covered by your subscription."
+    "notes": "Open source under Apache-2.0; model usage is billed by your provider or covered by your subscription.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; use your own provider key or subscription"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

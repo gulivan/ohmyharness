@@ -28,7 +28,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under MIT; Claude access comes from your own subscription or API key."
+    "notes": "Open source under MIT; Claude access comes from your own subscription or API key.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; requires Claude Code with a Claude Pro/Max plan or Anthropic API key",
+        "url": "https://oh-my-claudecode.dev/"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

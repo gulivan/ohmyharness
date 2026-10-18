@@ -32,7 +32,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free and open source under AGPL-3.0."
+    "notes": "Free and open source under AGPL-3.0.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free and open source; bring your own agent subscription"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

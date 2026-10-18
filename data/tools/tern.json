@@ -41,7 +41,18 @@
     "byok"
   ],
   "pricing": {
-    "model": "free"
+    "model": "free",
+    "notes": "Free; the macOS app and CLI run agents with the accounts you already have.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free; agents use your existing CLI accounts",
+        "url": "https://tern.build/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

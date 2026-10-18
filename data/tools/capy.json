@@ -28,7 +28,41 @@
   ],
   "pricing": {
     "model": "paid",
-    "notes": "Lite $20/mo, Pro $100/mo, Max $200-$1,000/mo, Enterprise custom. Credits pay for model tokens, cloud machine time, and images."
+    "notes": "Lite $20/mo, Pro $100/mo, Max $200-$1,000/mo, Enterprise custom. Credits cover model tokens, cloud machine time, and images.",
+    "plans": [
+      {
+        "name": "Capy Lite",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $20 credits; $16/mo billed yearly",
+        "url": "https://capy.ai/pricing"
+      },
+      {
+        "name": "Capy Pro",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $105 credits; $80/mo billed yearly",
+        "url": "https://capy.ai/pricing"
+      },
+      {
+        "name": "Capy Max",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "From $200 to $1,000/mo; $160-$800/mo billed yearly",
+        "url": "https://capy.ai/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://capy.ai/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

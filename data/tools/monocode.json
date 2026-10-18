@@ -35,7 +35,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free and open source under MIT; it does not sell tokens."
+    "notes": "Free and open source under MIT; MonoCode does not sell tokens.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free and open source; models bill through your own agent plans or keys",
+        "url": "https://www.usemono.dev/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

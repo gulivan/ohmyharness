@@ -36,7 +36,25 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "The vendor's terms state the software is free; voluntary sponsorship is the only charge. Teams and enterprise rollout is scoped separately."
+    "notes": "The vendor's terms state the software is free; voluntary sponsorship is the only charge. Teams and enterprise rollout is scoped by email.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "The software is free; sponsorship is optional",
+        "url": "https://super.engineering/terms"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales; scoped by team size and rollout",
+        "url": "https://super.engineering/teams"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -65,7 +83,9 @@
     "https://super.engineering/docs/",
     "https://super.engineering/docs/install/",
     "https://super.engineering/docs/agent-orchestration/",
-    "https://super.engineering/terms/"
+    "https://super.engineering/terms/",
+    "https://super.engineering/terms",
+    "https://super.engineering/teams"
   ],
   "lastVerified": "2026-10-18"
 }

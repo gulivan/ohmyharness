@@ -26,7 +26,49 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free plan; higher limits with Google AI Plus, Pro, and Ultra, and enterprise plans via Google Cloud."
+    "notes": "Free Individual plan; higher limits with Google AI Plus, Pro, and Ultra; enterprise plans via Google Cloud.",
+    "plans": [
+      {
+        "name": "Individual",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Unlimited Tab completions and command requests; weekly limits",
+        "url": "https://antigravity.google/pricing"
+      },
+      {
+        "name": "Google AI Pro",
+        "price": 19.99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Standard Antigravity limits; 5 TB storage",
+        "url": "https://one.google.com/intl/en_us/about/google-ai-plans/"
+      },
+      {
+        "name": "Google AI Ultra (5x)",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "5x AI Pro limits; 20 TB storage",
+        "url": "https://one.google.com/intl/en_us/about/google-ai-plans/"
+      },
+      {
+        "name": "Google AI Ultra (20x)",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "20x AI Pro limits; 30 TB storage",
+        "url": "https://one.google.com/intl/en_us/about/google-ai-plans/"
+      },
+      {
+        "name": "Business (Google Cloud)",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Gemini Enterprise Standard/Plus, starting at $30 per seat/month",
+        "url": "https://antigravity.google/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -72,7 +114,10 @@
   "sources": [
     "https://antigravity.google/docs/overview/",
     "https://antigravity.google/docs/ide/overview/",
-    "https://antigravity.google/download"
+    "https://antigravity.google/download",
+    "https://antigravity.google/pricing",
+    "https://one.google.com/intl/en_us/about/google-ai-plans/",
+    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/"
   ],
   "lastVerified": "2026-10-18"
 }

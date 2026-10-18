@@ -23,8 +23,9 @@
     "local"
   ],
   "pricing": {
-    "model": "free",
-    "notes": "Free and open source."
+    "model": null,
+    "notes": "Discontinued: the extension was shut down in May 2026 and the repository is archived; roocode.com now redirects to roomote.dev, so there is no current pricing.",
+    "plans": []
   },
   "features": {
     "worktrees": null,

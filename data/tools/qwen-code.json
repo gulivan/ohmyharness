@@ -31,7 +31,33 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open-source software; model access is billed by the chosen provider, such as an Alibaba ModelStudio Coding Plan, an API key, or a local server."
+    "notes": "Open-source software; model access is billed separately, for example through an Alibaba Model Studio Coding Plan, pay-as-you-go API, or your own provider.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open-source CLI; bring your own provider or API key",
+        "url": "https://qwenlm.github.io/qwen-code-docs/en/users/overview/"
+      },
+      {
+        "name": "Coding Plan Pro",
+        "price": 50,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Alibaba Model Studio; up to 6,000 requests/5h and 90,000/month",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/coding-plan"
+      },
+      {
+        "name": "API",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Pay-as-you-go token billing through Model Studio",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/coding-plan"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -93,7 +119,9 @@
     "https://qwenlm.github.io/qwen-code-docs/en/users/features/sub-agents/",
     "https://qwenlm.github.io/qwen-code-docs/en/users/features/sandbox/",
     "https://github.com/QwenLM/qwen-code",
-    "https://github.com/QwenLM/qwen-code/blob/main/README.md"
+    "https://github.com/QwenLM/qwen-code/blob/main/README.md",
+    "https://www.alibabacloud.com/help/en/model-studio/coding-plan",
+    "https://www.alibabacloud.com/help/en/model-studio/qwen-code"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -28,7 +28,41 @@
   ],
   "pricing": {
     "model": "paid",
-    "notes": "Included with Kimi membership plans; a Moonshot AI API key can also be used."
+    "notes": "Kimi Code is included in Kimi membership plans (Plus and above internationally); a Moonshot AI API key can also be used.",
+    "plans": [
+      {
+        "name": "Plus",
+        "price": 19,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes Kimi Code; $180/year ($15/month) billed yearly",
+        "url": "https://www.kimi.ai/help/membership/membership-pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 39,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$372/year ($31/month) billed yearly",
+        "url": "https://www.kimi.ai/help/membership/membership-pricing"
+      },
+      {
+        "name": "Max",
+        "price": 99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$948/year ($79/month) billed yearly",
+        "url": "https://www.kimi.ai/help/membership/membership-pricing"
+      },
+      {
+        "name": "Ultra",
+        "price": 199,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$1,908/year ($159/month) billed yearly",
+        "url": "https://www.kimi.ai/help/membership/membership-pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -78,7 +112,9 @@
     "https://github.com/MoonshotAI/kimi-code",
     "https://moonshotai.github.io/kimi-code/en/guides/interaction",
     "https://www.kimi.com/code",
-    "https://moonshotai.github.io/kimi-code/en/guides/getting-started"
+    "https://moonshotai.github.io/kimi-code/en/guides/getting-started",
+    "https://www.kimi.ai/help/membership/membership-pricing",
+    "https://www.kimi.com/code/en"
   ],
   "lastVerified": "2026-10-18"
 }

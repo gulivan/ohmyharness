@@ -33,7 +33,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free and open source; there is no paid tier or hosted service, and model usage is billed by your provider."
+    "notes": "Free and open source; there is no paid tier or hosted service, and model usage is billed by your provider.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "No subscription, hosted tier or token; open source, model usage billed by your provider",
+        "url": "https://openclaw.ai/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

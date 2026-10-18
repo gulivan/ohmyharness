@@ -30,8 +30,42 @@
     "local"
   ],
   "pricing": {
-    "model": "free",
-    "notes": "The tool is free and open source; OpenCode Zen and provider usage are paid separately."
+    "model": "freemium",
+    "notes": "The tool is free and open source; OpenCode Go/Go Plus subscriptions and Zen pay-as-you-go are optional ways to buy model access.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; use your own provider keys or local models",
+        "url": "https://opencode.ai/"
+      },
+      {
+        "name": "OpenCode Go",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Model subscription with usage limits",
+        "url": "https://opencode.ai/go"
+      },
+      {
+        "name": "OpenCode Go Plus",
+        "price": 40,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Higher usage limits than Go",
+        "url": "https://opencode.ai/go"
+      },
+      {
+        "name": "OpenCode Zen",
+        "price": null,
+        "currency": "USD",
+        "period": "usage",
+        "notes": "Prepaid credit, charged per request",
+        "url": "https://opencode.ai/zen"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -92,7 +126,10 @@
     "https://opencode.ai/docs/agents/",
     "https://opencode.ai/docs/mcp-servers/",
     "https://opencode.ai/docs/web/",
-    "https://github.com/anomalyco/opencode"
+    "https://github.com/anomalyco/opencode",
+    "https://opencode.ai/go",
+    "https://opencode.ai/zen",
+    "https://opencode.ai/docs/zen/"
   ],
   "lastVerified": "2026-10-18"
 }

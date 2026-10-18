@@ -27,7 +27,41 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free $0; Pro $50/mo; Teams $60 per user/month; Enterprise custom."
+    "notes": "Free $0; Pro $50/mo; Teams $60 per user/month; Enterprise custom.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Parallel coding agents and Mac-local workspaces",
+        "url": "https://www.conductor.build/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 50,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Adds Conductor Cloud, multiplayer, and the API",
+        "url": "https://www.conductor.build/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; adds admin portal and centralized billing",
+        "url": "https://www.conductor.build/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://www.conductor.build/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

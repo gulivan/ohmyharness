@@ -28,7 +28,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source; model usage is billed by your provider or covered by your subscription."
+    "notes": "Open source; model usage is billed by your provider or covered by your subscription.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "MIT-licensed harness; no plan or seat fee, model usage billed by your provider",
+        "url": "https://pi.dev/"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -72,7 +82,8 @@
     "https://pi.dev/docs/latest/models",
     "https://pi.dev/docs/latest/mcp",
     "https://pi.dev/docs/latest/termux",
-    "https://pi.dev/docs/latest/quickstart"
+    "https://pi.dev/docs/latest/quickstart",
+    "https://pi.dev/"
   ],
   "lastVerified": "2026-10-18"
 }

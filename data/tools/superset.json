@@ -40,7 +40,33 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free $0; Pro $20 per user/month ($15 billed yearly); Enterprise custom. Source-available under the Elastic License 2.0."
+    "notes": "Free for one user; Pro $20/user/month ($15 billed yearly); Enterprise custom. Source-available under the Elastic License 2.0.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "One user, local workspaces, desktop app and CLI",
+        "url": "https://superset.sh/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $15/user/month ($180/year) billed yearly",
+        "url": "https://superset.sh/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales; annual billing only",
+        "url": "https://superset.sh/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

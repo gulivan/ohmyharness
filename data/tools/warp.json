@@ -25,7 +25,49 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free tier; Build $20/mo, Max $200/mo, Business $50/user/mo, and Enterprise."
+    "notes": "Free tier; Build $20/month ($18 billed yearly), Max $200/month ($180 billed yearly), Business $50/user/month ($45 billed yearly), Enterprise custom.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Core terminal, Warp Agent CLI, limited cloud agents",
+        "url": "https://www.warp.dev/pricing"
+      },
+      {
+        "name": "Build",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$18/month billed yearly",
+        "url": "https://www.warp.dev/pricing"
+      },
+      {
+        "name": "Max",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$180/month billed yearly",
+        "url": "https://www.warp.dev/pricing"
+      },
+      {
+        "name": "Business",
+        "price": 50,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $45/user/month billed yearly",
+        "url": "https://www.warp.dev/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://www.warp.dev/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,
@@ -71,7 +113,8 @@
     "https://docs.warp.dev/agents/",
     "https://docs.warp.dev/agents/capabilities/planning/",
     "https://www.warp.dev/pricing",
-    "https://docs.warp.dev/getting-started/quickstart/installation-and-setup/"
+    "https://docs.warp.dev/getting-started/quickstart/installation-and-setup/",
+    "https://www.warp.dev/blog/warp-new-pricing-flexibility-byok"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -30,7 +30,33 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free open-source extension and CLI; optional Cline provider credits and ClinePass subscription."
+    "notes": "Free open-source extension and CLI with at-cost inference or BYOK; optional ClinePass is $9.99/month; Enterprise custom.",
+    "plans": [
+      {
+        "name": "Open Source",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Bring your own API key or pay for inference at cost",
+        "url": "https://cline.bot/pricing"
+      },
+      {
+        "name": "ClinePass",
+        "price": 9.99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Optional flat subscription",
+        "url": "https://cline.bot/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://cline.bot/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -95,7 +121,8 @@
     "https://docs.cline.bot/",
     "https://docs.cline.bot/getting-started/installing-cline",
     "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
-    "https://plugins.jetbrains.com/plugin/28247-cline"
+    "https://plugins.jetbrains.com/plugin/28247-cline",
+    "https://docs.cline.bot/getting-started/clinepass"
   ],
   "lastVerified": "2026-10-18"
 }

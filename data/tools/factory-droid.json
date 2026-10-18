@@ -32,7 +32,57 @@
   ],
   "pricing": {
     "model": "paid",
-    "notes": "Pro $20/mo, Plus $100/mo, Max $200/mo; Teams, Business, and Enterprise tiers. No free tier listed."
+    "notes": "Pro $20/mo, Plus $100/mo, Max $200/mo; Teams $60/mo plus $40 per seat; Business and Enterprise custom. No free tier listed.",
+    "plans": [
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Desktop/CLI/SDK, cloud and local background agents",
+        "url": "https://factory.com/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$60/mo plus $40/mo per seat; up to 10 seats",
+        "url": "https://factory.com/pricing"
+      },
+      {
+        "name": "Plus",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "~5x the usage of Pro; Factory-managed cloud computers",
+        "url": "https://factory.com/pricing"
+      },
+      {
+        "name": "Max",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "~10x the usage of Pro; early access",
+        "url": "https://factory.com/pricing"
+      },
+      {
+        "name": "Business",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://factory.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://factory.com/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

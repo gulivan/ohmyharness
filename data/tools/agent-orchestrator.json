@@ -45,7 +45,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under Apache-2.0; a cloud offering is listed as a waitlist."
+    "notes": "Open source under Apache-2.0; a cloud offering is listed as a waitlist.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source; bring your own model API key or subscription"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

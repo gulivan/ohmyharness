@@ -34,7 +34,49 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free $0 (100 cloud agents per 30 days, 25h compute); Pro $50/mo; Ultra $500/mo; Business on request."
+    "notes": "Free $0 (100 cloud agents, 25 compute hours per month); Pro $50/mo; Super $150/mo; Ultra $500/mo; Business on request.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "100 cloud agents and 25 compute hours per month",
+        "url": "https://www.cloudroom.dev/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 50,
+        "currency": "USD",
+        "period": "month",
+        "notes": "1,000 cloud agents and 300+ agent-work hours per month",
+        "url": "https://www.cloudroom.dev/pricing"
+      },
+      {
+        "name": "Super",
+        "price": 150,
+        "currency": "USD",
+        "period": "month",
+        "notes": "3,000 cloud agents and 900+ agent-work hours per month",
+        "url": "https://www.cloudroom.dev/pricing"
+      },
+      {
+        "name": "Ultra",
+        "price": 500,
+        "currency": "USD",
+        "period": "month",
+        "notes": "10,000 cloud agents and 3,000+ agent-work hours per month",
+        "url": "https://www.cloudroom.dev/pricing"
+      },
+      {
+        "name": "Business",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact the founder",
+        "url": "https://www.cloudroom.dev/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

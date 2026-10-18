@@ -34,7 +34,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free open-source download. Emdash 2.0 is in early access."
+    "notes": "Free, open-source agentic development environment. Emdash 2.0 is in early access.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free and open source"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

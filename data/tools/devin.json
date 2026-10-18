@@ -28,7 +28,49 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free plan; Pro $20/mo, Max $200/mo, Teams, and Enterprise. A ChatGPT plan can be linked for GPT model usage."
+    "notes": "Free $0; Pro $20/mo; Max $200/mo; Teams from $80/mo plus $40 per full seat; Enterprise custom.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited usage and model availability",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Increased quotas and cloud agents",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 80,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$80/mo plus $40/mo per full dev seat",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Max",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Significantly higher quotas",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://devin.ai/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,

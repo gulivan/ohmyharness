@@ -34,7 +34,18 @@
     "byok"
   ],
   "pricing": {
-    "model": "free"
+    "model": "free",
+    "notes": "Free and open source; optional GitHub Sponsors donations support development.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free and open source desktop app; no account or subscription",
+        "url": "https://www.trysynara.com/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -70,7 +81,8 @@
     "https://www.trysynara.com/docs/reference/slash-commands.md",
     "https://www.trysynara.com/docs/features/parallel-agents",
     "https://www.trysynara.com/docs/workflows/agent-gateway",
-    "https://www.trysynara.com/install"
+    "https://www.trysynara.com/install",
+    "https://www.trysynara.com/donors"
   ],
   "lastVerified": "2026-10-18"
 }

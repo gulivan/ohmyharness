@@ -26,7 +26,16 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Source-available under the Functional Source License; model usage is billed by your provider."
+    "notes": "Source-available under the Functional Source License; model usage is billed by your provider.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Source-available; bring your own model API key"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

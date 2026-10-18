@@ -27,7 +27,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Open source under MIT; you pay the model provider directly."
+    "notes": "Open source under MIT; you pay the model provider directly.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open source under MIT; choose any provider and pay it directly",
+        "url": "https://reasonix.io/"
+      }
+    ]
   },
   "features": {
     "worktrees": null,

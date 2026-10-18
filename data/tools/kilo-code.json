@@ -30,7 +30,41 @@
   ],
   "pricing": {
     "model": "freemium",
-    "notes": "Free plan with inference billed separately; Kilo Pass credits from $19/mo and Teams from $15/user/mo."
+    "notes": "Free for individuals with inference billed separately; Teams $15/user/month; optional Kilo Pass credit subscription from $19/month.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Open-source extensions; AI inference billed at provider rates",
+        "url": "https://kilo.ai/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 15,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; no inference credits included",
+        "url": "https://kilo.ai/pricing"
+      },
+      {
+        "name": "Kilo Pass Starter",
+        "price": 19,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Monthly credit subscription with bonus credits",
+        "url": "https://kilo.ai/pricing/kilo-pass"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://kilo.ai/pricing"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
@@ -92,7 +126,8 @@
     "https://kilo.ai/",
     "https://kilo.ai/docs/code-with-ai/platforms/cli",
     "https://kilo.ai/pricing",
-    "https://github.com/Kilo-Org/kilocode"
+    "https://github.com/Kilo-Org/kilocode",
+    "https://kilo.ai/pricing/kilo-pass"
   ],
   "lastVerified": "2026-10-18"
 }

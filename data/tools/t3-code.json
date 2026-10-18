@@ -39,7 +39,17 @@
   ],
   "pricing": {
     "model": "free",
-    "notes": "Free; the site's pricing answer lists no paid tier."
+    "notes": "Free with no paid tier; bring your own Claude, Codex or other agent subscription.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "No paid tier; bring your own agent subscription",
+        "url": "https://t3.codes/"
+      }
+    ]
   },
   "features": {
     "worktrees": true,
