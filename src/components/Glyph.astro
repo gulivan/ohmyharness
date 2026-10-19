@@ -4,12 +4,14 @@ import { featureState, glyph, glyphWord } from "../lib/features";
 interface Props {
   value: boolean | null;
   label: string;
+  /** False renders the “not applicable” dash instead of a yes/no/unknown glyph. */
+  applicable?: boolean;
   large?: boolean;
 }
 
-const { value, label, large = false } = Astro.props;
-const state = featureState(value);
-const word = glyphWord(value);
+const { value, label, applicable = true, large = false } = Astro.props;
+const state = featureState(value, applicable);
+const word = glyphWord(value, applicable);
 ---
 
 <span
@@ -17,4 +19,4 @@ const word = glyphWord(value);
   role="img"
   aria-label={`${label}: ${word}`}
   title={`${label}: ${word}`}
->{glyph(value)}</span>
+>{glyph(value, applicable)}</span>

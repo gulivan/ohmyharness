@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Glyph from "../components/Glyph.astro";
+import {
+  FEATURE_GROUPS,
+  KIND_PLURALS,
+  type FeatureDefinition,
+  type ToolKind,
+} from "../lib/features";
+import { featureDoc } from "../lib/feature-docs";
+
+const description =
+  "How ohmyharness defines every tool feature: the question each flag answers, when it counts as yes or no, boundary cases, and which kinds of tool it applies to.";
+
+function kindList(kinds: readonly ToolKind[]): string {
+  const labels = kinds.map((kind) => KIND_PLURALS[kind]);
+  if (labels.length <= 1) return labels[0] ?? "";
+  return `${labels.slice(0, -1).join(", ")} and ${labels[labels.length - 1]}`;
+}
+
+const groups = FEATURE_GROUPS.map((group) => ({
+  key: group.key,
+  label: group.label,
+  features: group.features.map((feature: FeatureDefinition) => ({
+    feature,
+    doc: featureDoc(feature.key),
+  })),
+}));
+---
+
+<BaseLayout title="Features" description={description} path="/features">
+  <div class="container">
+    <nav class="small" aria-label="Breadcrumb" style="padding-top:20px">
+      <a href="/">Directory</a> / <span>Features</span>
+    </nav>
+
+    <header class="page-head">
+      <p class="eyebrow">Definitions</p>
+      <h1 class="page-title">What each feature means</h1>
+      <p class="lede">
+        Every tool records the same 20 features. A flag is
+        <strong>yes</strong>, <strong>no</strong>, or
+        <strong>not verified yet</strong> — and some questions do not apply to
+        every kind of tool, shown as a dash.
+      </p>
+      <div class="legend feature-defs__legend" aria-label="Feature legend">
+        <span><Glyph value={true} label="Example" /> yes</span>
+        <span><Glyph value={false} label="Example" /> no</span>
+        <span><Glyph value={null} label="Example" /> not verified yet</span>
+        <span class="legend__na">– does not apply</span>
+      </div>
+    </header>
+
+    <div class="prose-block feature-defs">
+      <p>
+        A feature is credited to <strong>the layer that provides or surfaces
+        it</strong>. An orchestrator does not inherit a harness's capability
+        merely because it can run that harness: it earns the flag only when it
+        provides the capability itself, manages it, or makes it work uniformly
+        across the harnesses it drives.
+      </p>
+      <p>
+        Values must be backed by an official source listed on the tool page.
+        Unchecked stays unknown rather than being guessed.
+        <a href="/compare">Compare tools in the matrix</a> or read the
+        <a href="/api/tools.json">full JSON data</a>.
+      </p>
+
+      {groups.map((group) => (
+        <section class="feature-defs__group" aria-labelledby={`features-${group.key}`}>
+          <h2 id={`features-${group.key}`}>{group.label}</h2>
+          {group.features.map(({ feature, doc }) => (
+            <article class="feature-def" id={`feature-${feature.key}`}>
+              <h3 class="feature-def__title">
+                <span>{feature.label}</span>
+                <code class="feature-def__key">{feature.key}</code>
+              </h3>
+              <p class="feature-def__question">{feature.question}</p>
+
+              {doc ? (
+                <dl class="feature-def__rules">
+                  <dt>Yes if</dt>
+                  <dd>{doc.yes}</dd>
+                  <dt>No if</dt>
+                  <dd>{doc.no}</dd>
+                </dl>
+              ) : (
+                <p class="inline-note">
+                  No written rule yet. Values for this feature are recorded
+                  from official sources.
+                </p>
+              )}
+
+              {doc && doc.boundary.length > 0 && (
+                <details class="feature-def__boundary">
+                  <summary>Boundary cases</summary>
+                  <ul>
+                    {doc.boundary.map((item) => <li>{item}</li>)}
+                  </ul>
+                </details>
+              )}
+
+              <p class="feature-def__applies">
+                Applies to: {kindList(feature.appliesTo)}.
+                <a href={`/?f=${feature.key}#directory`}>See tools with this feature</a>
+              </p>
+            </article>
+          ))}
+        </section>
+      ))}
+    </div>
+
+    <div style="height:48px"></div>
+  </div>
+</BaseLayout>

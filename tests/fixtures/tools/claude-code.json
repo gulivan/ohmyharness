@@ -25,7 +25,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": false,
+    "acp": null,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": null,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 35200,

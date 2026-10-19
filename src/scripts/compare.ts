@@ -1,15 +1,21 @@
 import type { Tool } from "../data/schema";
+import type {
+  FeatureDefinition,
+  FeatureGroupDefinition,
+} from "../lib/features";
 import {
-  FEATURES,
+  FEATURE_GROUPS,
   INTERFACE_LABELS,
   KIND_LABELS,
   MODEL_ACCESS_LABELS,
   PLATFORM_LABELS,
   PRICING_LABELS,
   STATUS_LABELS,
+  appliesTo,
   featureState,
   glyph,
   glyphWord,
+  groupStats,
   sourceLabel,
 } from "../lib/features";
 import { createElement, makeMonogram, plural, setStatus } from "./ui";
@@ -64,6 +70,8 @@ function initCompare(): void {
 
   let selected = new Set<string>();
   let matrixKind = "all";
+  let showAllFeatures = false;
+  const collapsedGroups = new Set<string>();
 
   function readState(): void {
     const params = new URLSearchParams(window.location.search);
@@ -152,19 +160,75 @@ function initCompare(): void {
     if (matrixCue) matrixCue.hidden = !overflowing || atEnd;
   }
 
-  function featureCell(value: boolean | null, label: string): HTMLTableCellElement {
+  function featureCell(
+    value: boolean | null,
+    label: string,
+    applicable: boolean,
+  ): HTMLTableCellElement {
     const cell = createElement("td");
-    const state = featureState(value);
+    const state = featureState(value, applicable);
     const node = createElement(
       "span",
       `glyph glyph--${state}`,
-      glyph(value),
+      glyph(value, applicable),
     );
     node.setAttribute("role", "img");
-    node.setAttribute("aria-label", `${label}: ${glyphWord(value)}`);
-    node.title = `${label}: ${glyphWord(value)}`;
+    node.setAttribute(
+      "aria-label",
+      `${label}: ${glyphWord(value, applicable)}`,
+    );
+    node.title = `${label}: ${glyphWord(value, applicable)}`;
     cell.append(node);
     return cell;
+  }
+
+  /** Same row title and glyphs for every selected tool. */
+  function featureGroupRow(
+    body: HTMLTableSectionElement,
+    group: FeatureGroupDefinition,
+    selectedTools: ClientTool[],
+  ): void {
+    const heading = document.createElement("tr");
+    heading.className = "compare-group";
+    const cell = document.createElement("th");
+    cell.scope = "colgroup";
+    cell.colSpan = selectedTools.length + 1;
+    const stats = groupStats(group, selectedTools);
+    cell.append(
+      createElement("span", "compare-group__label", group.label),
+      createElement(
+        "span",
+        "compare-group__count",
+        `${stats.yes}/${stats.applicable} yes`,
+      ),
+    );
+    heading.append(cell);
+    body.append(heading);
+  }
+
+  /**
+   * A feature is identical when every selected tool has the same
+   * applicability and the same value. “Doesn't apply” is its own state, so it
+   * is never treated as a match for a plain no.
+   */
+  function featureSignature(
+    tool: ClientTool,
+    feature: FeatureDefinition,
+  ): string {
+    if (!appliesTo(feature, tool.kind)) return "na";
+    const value = tool.features[feature.key];
+    return value === null ? "unknown" : value ? "yes" : "no";
+  }
+
+  function sameForAll(
+    feature: FeatureDefinition,
+    selectedTools: ClientTool[],
+  ): boolean {
+    if (selectedTools.length < 2) return false;
+    const first = featureSignature(selectedTools[0]!, feature);
+    return selectedTools.every(
+      (tool) => featureSignature(tool, feature) === first,
+    );
   }
 
   function addRow(
@@ -309,21 +373,160 @@ function initCompare(): void {
     );
     addRow(body, "Last verified", (tool) => tool.lastVerified);
 
-    for (const feature of FEATURES) {
-      const row = document.createElement("tr");
-      const heading = document.createElement("th");
-      heading.scope = "row";
-      heading.textContent = feature.label;
-      heading.title = feature.question;
-      row.append(heading);
-      for (const tool of chosen) {
-        row.append(featureCell(tool.features[feature.key], feature.label));
+    const differencesOnly = chosen.length >= 2 && !showAllFeatures;
+    let differenceCount = 0;
+
+    for (const group of FEATURE_GROUPS) {
+      const visibleFeatures = group.features.filter(
+        (feature) => !differencesOnly || !sameForAll(feature, chosen),
+      );
+      if (visibleFeatures.length === 0) continue;
+
+      featureGroupRow(body, group, chosen);
+      for (const feature of visibleFeatures) {
+        const row = document.createElement("tr");
+        const heading = document.createElement("th");
+        heading.scope = "row";
+        heading.textContent = feature.label;
+        heading.title = feature.question;
+        row.append(heading);
+        for (const tool of chosen) {
+          row.append(
+            featureCell(
+              tool.features[feature.key],
+              feature.label,
+              appliesTo(feature, tool.kind),
+            ),
+          );
+        }
+        body.append(row);
+        if (differencesOnly) differenceCount += 1;
       }
+    }
+
+    if (differencesOnly && differenceCount === 0) {
+      const row = document.createElement("tr");
+      row.className = "compare-same";
+      const cell = document.createElement("td");
+      cell.colSpan = chosen.length + 1;
+      cell.textContent = "These tools match on every feature.";
+      row.append(cell);
       body.append(row);
     }
 
     table.append(body);
-    panel.append(table);
+
+    if (chosen.length >= 2) {
+      const bar = createElement("div", "differences-bar");
+      bar.append(createElement("span", "differences-bar__label", "Feature rows"));
+      const count = createElement(
+        "span",
+        "differences-bar__count",
+        differencesOnly
+          ? differenceCount === 0
+            ? "No differences"
+            : `${differenceCount} ${differenceCount === 1 ? "difference" : "differences"}`
+          : `${FEATURE_GROUPS.reduce((total, group) => total + group.features.length, 0)} features`,
+      );
+      count.setAttribute("role", "status");
+      count.setAttribute("aria-live", "polite");
+      const toggle = createElement(
+        "button",
+        "chip differences-toggle",
+        showAllFeatures ? "Differences only" : "Show all 20",
+      );
+      toggle.type = "button";
+      toggle.setAttribute("aria-pressed", String(showAllFeatures));
+      toggle.addEventListener("click", () => {
+        showAllFeatures = !showAllFeatures;
+        renderCompare();
+      });
+      bar.append(count, toggle);
+      panel.append(bar, table);
+    } else {
+      panel.append(table);
+    }
+  }
+
+  const groupToggles = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("[data-matrix-group]"),
+  );
+  const groupHeads = Array.from(
+    document.querySelectorAll<HTMLTableCellElement>("[data-matrix-group-head]"),
+  );
+
+  function setGroupCollapsed(key: string, collapsed: boolean): void {
+    if (collapsed) collapsedGroups.add(key);
+    else collapsedGroups.delete(key);
+
+    const featureCells = Array.from(
+      document.querySelectorAll<HTMLTableCellElement>(
+        `.matrix [data-feature-group="${key}"]`,
+      ),
+    );
+    const affectedRows = new Set<HTMLTableRowElement>();
+    for (const cell of featureCells) {
+      cell.hidden = collapsed;
+      if (cell.parentElement instanceof HTMLTableRowElement) {
+        affectedRows.add(cell.parentElement);
+      }
+    }
+
+    // A hidden cell takes its column out of the table, which would shift every
+    // later group. Keep one empty cell in each affected row so the group's
+    // single collapsed column stays in place for the header and body rows.
+    for (const node of Array.from(
+      document.querySelectorAll(`.matrix [data-placeholder-for="${key}"]`),
+    )) {
+      node.remove();
+    }
+    if (collapsed) {
+      for (const row of affectedRows) {
+        const first = featureCells.find((cell) => cell.parentElement === row);
+        if (!first) continue;
+        const placeholder = document.createElement(
+          first.tagName === "TH" ? "th" : "td",
+        );
+        placeholder.className = "matrix-placeholder";
+        placeholder.dataset.placeholderFor = key;
+        first.before(placeholder);
+      }
+    }
+
+    const head = groupHeads.find(
+      (node) => node.dataset.matrixGroupHead === key,
+    );
+    if (head) {
+      const group = FEATURE_GROUPS.find((item) => item.key === key);
+      head.colSpan = collapsed ? 1 : (group?.features.length ?? 1);
+      head.classList.toggle("is-collapsed", collapsed);
+    }
+
+    const toggle = groupToggles.find(
+      (node) => node.dataset.matrixGroup === key,
+    );
+    toggle?.setAttribute("aria-expanded", String(!collapsed));
+    toggle?.classList.toggle("is-collapsed", collapsed);
+  }
+
+  function syncGroupCounts(): void {
+    const visibleTools: ClientTool[] = [];
+    for (const row of rows) {
+      if (row.hidden) continue;
+      const tool = bySlug.get(row.dataset.slug ?? "");
+      if (tool) visibleTools.push(tool);
+    }
+
+    for (const group of FEATURE_GROUPS) {
+      const head = groupHeads.find(
+        (node) => node.dataset.matrixGroupHead === group.key,
+      );
+      const target = head?.querySelector<HTMLElement>("[data-group-yes]");
+      if (!target) continue;
+      const stats = groupStats(group, visibleTools);
+      target.textContent = `${stats.yes}/${stats.applicable} yes`;
+      target.title = `${group.label}: ${stats.yes} yes of ${stats.applicable} applicable cells`;
+    }
   }
 
   function syncMatrix(): number {
@@ -342,6 +545,7 @@ function initCompare(): void {
       );
     }
     if (matrixCount) matrixCount.textContent = plural(visible, "tool");
+    syncGroupCounts();
     return visible;
   }
 
@@ -420,6 +624,13 @@ function initCompare(): void {
     });
   }
 
+  for (const toggle of groupToggles) {
+    toggle.addEventListener("click", () => {
+      const key = toggle.dataset.matrixGroup ?? "";
+      setGroupCollapsed(key, !collapsedGroups.has(key));
+    });
+  }
+
   matrixWrap?.addEventListener("scroll", syncOverflow, { passive: true });
   window.addEventListener("resize", syncOverflow);
 
@@ -441,6 +652,13 @@ function initCompare(): void {
   readState();
   update(false);
   filterPicker(pickerSearch?.value ?? "");
+
+  // Desktop shows every group; on phones the two long groups start collapsed.
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    setGroupCollapsed("integrations", true);
+    setGroupCollapsed("access", true);
+  }
+
   if (typeof ResizeObserver === "function" && matrixWrap) {
     new ResizeObserver(syncOverflow).observe(matrixWrap);
   }

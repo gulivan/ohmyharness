@@ -6,6 +6,7 @@ import InstallPanel from "../../components/InstallPanel.astro";
 import PricingPanel from "../../components/PricingPanel.astro";
 import type { Tool } from "../../data/schema";
 import {
+  FEATURE_GROUPS,
   FEATURES,
   INTERFACE_LABELS,
   KIND_LABELS,
@@ -14,6 +15,7 @@ import {
   PLATFORM_LABELS,
   PRICING_LABELS,
   STATUS_LABELS,
+  featuresInGroup,
   glyphWord,
   sourceLabel,
   verifiedFeatureCount,
@@ -60,6 +62,20 @@ const issueUrl = `${REPO_URL}/issues/new?template=fix-data.yml&title=${encodeURI
 
 const description = `${tool.tagline} Features, pricing, platforms and sources for ${tool.name}.`;
 const coverage = verifiedFeatureCount(tool);
+
+const featureGroups = FEATURE_GROUPS.map((group) => {
+  const features = featuresInGroup(group.key, tool.kind);
+  return {
+    key: group.key,
+    label: group.label,
+    features,
+    verified: features.filter(
+      (feature) => tool.features[feature.key] !== null,
+    ).length,
+  };
+}).filter((group) => group.features.length > 0);
+
+const hiddenFeatureCount = FEATURES.length - coverage.total;
 const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
 
 /** Show `host/path` instead of a full URL; the full URL stays in the link. */
@@ -172,21 +188,37 @@ const related = allTools
               <span><Glyph value={true} label="Example" /> yes</span>
               <span><Glyph value={false} label="Example" /> no</span>
               <span><Glyph value={null} label="Example" /> not verified</span>
+              <a href="/features">What do these mean?</a>
             </span>
           </div>
           <div class="panel__body">
-            <div class="feature-list">
-              {FEATURES.map((feature) => (
-                <div class="feature-row">
-                  <Glyph value={tool.features[feature.key]} label={feature.label} large />
-                  <div>
-                    <div class="feature-row__label">{feature.label}</div>
-                    <div class="feature-row__q">{feature.question}</div>
+            <div class="feature-groups">
+              {featureGroups.map((group) => (
+                <section class="feature-group" aria-labelledby={`feature-group-${group.key}`}>
+                  <div class="feature-group__head">
+                    <h3 class="feature-group__title" id={`feature-group-${group.key}`}>{group.label}</h3>
+                    <span class="feature-group__count">{group.verified}/{group.features.length} verified</span>
                   </div>
-                  <div class="feature-row__value">{glyphWord(tool.features[feature.key])}</div>
-                </div>
+                  <div class="feature-list">
+                    {group.features.map((feature) => (
+                      <div class="feature-row">
+                        <Glyph value={tool.features[feature.key]} label={feature.label} large />
+                        <div>
+                          <div class="feature-row__label">{feature.label}</div>
+                          <div class="feature-row__q">{feature.question}</div>
+                        </div>
+                        <div class="feature-row__value">{glyphWord(tool.features[feature.key])}</div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
+            {hiddenFeatureCount > 0 && (
+              <p class="inline-note feature-groups__note">
+                {hiddenFeatureCount} {hiddenFeatureCount === 1 ? "feature does" : "features do"} not apply to {KIND_PLURALS[tool.kind].toLowerCase()}, so {hiddenFeatureCount === 1 ? "it is" : "they are"} not listed.
+              </p>
+            )}
           </div>
         </section>
 

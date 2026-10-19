@@ -3,10 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Monogram from "../components/Monogram.astro";
 import Glyph from "../components/Glyph.astro";
 import {
-  FEATURES,
+  FEATURE_GROUPS,
   KIND_LABELS,
   KIND_PLURALS,
   PRICING_LABELS,
+  groupStats,
   sourceLabel,
 } from "../lib/features";
 import { getAllTools, iconFor, REPO_URL } from "../lib/tools";
@@ -15,10 +16,15 @@ import { startingPrice } from "../lib/pricing";
 const tools = getAllTools();
 const clientTools = tools.map((tool) => ({ ...tool, icon: iconFor(tool.slug) }));
 const description =
-  "Compare AI coding harnesses, orchestrators, cloud agents and add-ons side by side: worktrees, parallel agents, subagents, MCP, remote access, diff review, plan mode and pricing.";
+  "Compare AI coding harnesses, orchestrators, cloud agents and add-ons side by side: providers, parallel agents, worktrees, pull requests, automations, MCP, remote access, sandboxing and pricing.";
 
 const pricingLabel = (value: string | null): string =>
   value ? (PRICING_LABELS[value] ?? value) : "?";
+
+const groupCounts = FEATURE_GROUPS.map((group) => ({
+  key: group.key,
+  ...groupStats(group, tools),
+}));
 
 const KIND_ORDER = ["harness", "orchestrator", "cloud-agent", "add-on"] as const;
 const groups = KIND_ORDER.map((kind) => ({
@@ -127,20 +133,56 @@ const groups = KIND_ORDER.map((kind) => ({
                   Feature comparison of all {tools.length} tools
                 </caption>
                 <thead>
-                <tr>
-                  <th scope="col">Tool</th>
-                  <th scope="col">Type</th>
-                  <th scope="col">Pricing</th>
-                  <th scope="col" title="Cheapest listed price">From</th>
-                  <th scope="col">Source</th>
-                  {FEATURES.map((feature) => (
-                    <th scope="col" title={feature.question}>{feature.label}</th>
-                  ))}
+                <tr class="matrix-groups">
+                  <th scope="col" rowspan="2">Tool</th>
+                  <th scope="col" rowspan="2">Type</th>
+                  <th scope="col" rowspan="2">Pricing</th>
+                  <th scope="col" rowspan="2" title="Cheapest listed price">From</th>
+                  <th scope="col" rowspan="2">Source</th>
+                  {FEATURE_GROUPS.map((group, index) => {
+                    const counts = groupCounts[index];
+                    return (
+                      <th
+                        scope="colgroup"
+                        colspan={group.features.length}
+                        class="matrix-group"
+                        data-matrix-group-head={group.key}
+                      >
+                        <button
+                          class="matrix-group__toggle"
+                          type="button"
+                          data-matrix-group={group.key}
+                          aria-expanded="true"
+                          aria-controls={`matrix-group-${group.key}`}
+                        >
+                          <span class="matrix-group__arrow" aria-hidden="true">▾</span>
+                          <span class="matrix-group__label">{group.label}</span>
+                          <span
+                            class="matrix-group__count"
+                            data-group-yes
+                            title={`${group.label}: ${counts.yes} yes of ${counts.applicable} applicable cells`}
+                          >{counts.yes}/{counts.applicable} yes</span>
+                        </button>
+                      </th>
+                    );
+                  })}
+                </tr>
+                <tr class="matrix-features" id="matrix-group-row">
+                  {FEATURE_GROUPS.flatMap((group) =>
+                    group.features.map((feature) => (
+                      <th
+                        scope="col"
+                        title={feature.question}
+                        data-feature-group={group.key}
+                        data-feature-key={feature.key}
+                      >{feature.label}</th>
+                    )),
+                  )}
                 </tr>
               </thead>
               <tbody>
                 {tools.map((tool) => (
-                  <tr data-row-kind={tool.kind}>
+                  <tr data-row-kind={tool.kind} data-slug={tool.slug}>
                     <th scope="row">
                       <span class="m-name">
                         <Monogram slug={tool.slug} name={tool.name} size="sm" />
@@ -151,9 +193,20 @@ const groups = KIND_ORDER.map((kind) => ({
                     <td>{pricingLabel(tool.pricing.model)}</td>
                     <td>{startingPrice(tool)?.label ?? "?"}</td>
                     <td>{sourceLabel(tool)}</td>
-                    {FEATURES.map((feature) => (
-                      <td><Glyph value={tool.features[feature.key]} label={feature.label} /></td>
-                    ))}
+                    {FEATURE_GROUPS.flatMap((group) =>
+                      group.features.map((feature) => (
+                        <td
+                          data-feature-group={group.key}
+                          data-feature-key={feature.key}
+                        >
+                          <Glyph
+                            value={tool.features[feature.key]}
+                            label={feature.label}
+                            applicable={feature.appliesTo.includes(tool.kind)}
+                          />
+                        </td>
+                      )),
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -168,8 +221,12 @@ const groups = KIND_ORDER.map((kind) => ({
               <span><Glyph value={true} label="Example" /> yes</span>
               <span><Glyph value={false} label="Example" /> no</span>
               <span><Glyph value={null} label="Example" /> not verified yet</span>
+              <span class="legend__na">– does not apply</span>
             </div>
-            <a class="small" href="/about#legend">How we check facts</a>
+            <span class="legend-links">
+              <a class="small" href="/features">How features are defined</a>
+              <a class="small" href="/about#legend">How we check facts</a>
+            </span>
           </div>
         </>
       ) : (

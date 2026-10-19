@@ -1,13 +1,14 @@
 ---
 import type { Tool } from "../data/schema";
 import {
-  FEATURES,
   INTERFACE_LABELS,
   KIND_LABELS,
   PLATFORM_LABELS,
   PLATFORM_SHORT_LABELS,
+  applicableFeatures,
   confirmedFeatures,
   featureState,
+  prioritisedFeatures,
   sourceLabel,
   sourceState,
   verifiedFeatureCount,
@@ -54,16 +55,26 @@ const coverage = verifiedFeatureCount(tool);
 const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
 const compareHref = `/compare?tools=${tool.slug}`;
 
-const confirmed = FEATURES.filter((feature) => tool.features[feature.key] === true);
+const applicable = applicableFeatures(tool.kind);
+const byKey = new Map(applicable.map((feature) => [feature.key, feature]));
+const confirmed = prioritisedFeatures(tool)
+  .map((key) => byKey.get(key))
+  .filter((feature) => feature !== undefined);
 const visibleTags = confirmed.slice(0, 4);
 const hiddenTags = confirmed.slice(4);
-const unknown = FEATURES.filter((feature) => tool.features[feature.key] === null);
+const unknown = applicable.filter(
+  (feature) => tool.features[feature.key] === null,
+);
+const meterPercent =
+  coverage.total > 0
+    ? Math.round((coverage.verified / coverage.total) * 100)
+    : 0;
 
 const verifyLabel = [
-  `Feature coverage: ${coverage.verified} of ${coverage.total} verified.`,
+  `Feature coverage: ${coverage.verified} of ${coverage.total} applicable features verified.`,
   unknown.length > 0
     ? `Not verified: ${unknown.map((feature) => feature.label).join(", ")}.`
-    : "Every feature is verified.",
+    : "Every applicable feature is verified.",
 ].join(" ");
 
 const platforms = tool.platforms.map((value) => ({
@@ -126,15 +137,22 @@ const platforms = tool.platforms.map((value) => ({
       aria-label={verifyLabel}
       title={verifyLabel}
     >
-      <span class="tool-card__meter" aria-hidden="true">
-        {FEATURES.map((feature) => (
+      <span class:list={["tool-card__meter", { "tool-card__meter--bar": applicable.length > 10 }]} aria-hidden="true">
+        {applicable.length > 10 ? (
           <span
-            class:list={[
-              "tool-card__meter-seg",
-              `tool-card__meter-seg--${featureState(tool.features[feature.key])}`,
-            ]}
-          />
-        ))}
+            class="tool-card__meter-fill"
+            style={`width:${meterPercent}%`}
+          ></span>
+        ) : (
+          applicable.map((feature) => (
+            <span
+              class:list={[
+                "tool-card__meter-seg",
+                `tool-card__meter-seg--${featureState(tool.features[feature.key])}`,
+              ]}
+            />
+          ))
+        )}
       </span>
       <span class="tool-card__verify-text">
         {coverage.verified}/{coverage.total} verified

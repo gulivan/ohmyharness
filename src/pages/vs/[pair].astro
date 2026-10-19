@@ -4,7 +4,7 @@ import Monogram from "../../components/Monogram.astro";
 import Glyph from "../../components/Glyph.astro";
 import type { Tool } from "../../data/schema";
 import {
-  FEATURES,
+  FEATURE_GROUPS,
   INTERFACE_LABELS,
   KIND_LABELS,
   KIND_PLURALS,
@@ -12,6 +12,7 @@ import {
   PLATFORM_LABELS,
   PRICING_LABELS,
   STATUS_LABELS,
+  groupStats,
   sourceLabel,
 } from "../../lib/features";
 import { formatStars, getSameKindPairs } from "../../lib/tools";
@@ -92,6 +93,34 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
   { label: "GitHub", value: githubText },
   { label: "Last verified", value: (tool) => tool.lastVerified },
 ];
+
+/**
+ * Both tools are the same kind, so applicability is shared. A row counts as a
+ * difference when the two values differ; `null` and `false` are different
+ * states and stay visible.
+ */
+const featureGroups = FEATURE_GROUPS.map((group) => {
+  const features = group.features.map((feature) => {
+    const applicable = feature.appliesTo.includes(a.kind);
+    return {
+      feature,
+      applicable,
+      same: !applicable || a.features[feature.key] === b.features[feature.key],
+    };
+  });
+  return {
+    key: group.key,
+    label: group.label,
+    features,
+    differing: features.filter((item) => !item.same).length,
+    stats: groupStats(group, [a, b]),
+  };
+});
+
+const differenceCount = featureGroups.reduce(
+  (total, group) => total + group.differing,
+  0,
+);
 ---
 
 <BaseLayout
@@ -128,48 +157,104 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
       </div>
     </header>
 
-    <div class="table-scroll">
-      <table class="compare-table">
-        <thead>
-        <tr>
-          <th scope="col">Fact</th>
-          <th scope="col">
-            <div class="compare-head">
-              <div class="row" style="gap:8px">
-                <Monogram slug={a.slug} name={a.name} size="sm" />
-                <a class="compare-head__name" href={`/tools/${a.slug}`}>{a.name}</a>
-              </div>
-              <span class="compare-head__kind">{kindLabel}</span>
-            </div>
-          </th>
-          <th scope="col">
-            <div class="compare-head">
-              <div class="row" style="gap:8px">
-                <Monogram slug={b.slug} name={b.name} size="sm" />
-                <a class="compare-head__name" href={`/tools/${b.slug}`}>{b.name}</a>
-              </div>
-              <span class="compare-head__kind">{kindLabel}</span>
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row) => (
+    <div data-differences-root>
+      <div class="differences-bar">
+        <span class="differences-bar__label">Feature rows</span>
+        <span
+          class="differences-bar__count"
+          data-differences-count
+          role="status"
+          aria-live="polite"
+        >{differenceCount === 0
+          ? "No differences"
+          : `${differenceCount} ${differenceCount === 1 ? "difference" : "differences"}`}</span>
+        <button
+          class="chip differences-toggle"
+          type="button"
+          data-differences-toggle
+          aria-pressed="false"
+        >Show all 20</button>
+      </div>
+      <p class="differences-none" data-differences-none hidden={differenceCount > 0}>
+        These tools match on every feature.
+      </p>
+
+      <div class="table-scroll">
+        <table class="compare-table" data-differences>
+          <thead>
           <tr>
-            <th scope="row">{row.label}</th>
-            <td>{row.value(a)}</td>
-            <td>{row.value(b)}</td>
+            <th scope="col">Fact</th>
+            <th scope="col">
+              <div class="compare-head">
+                <div class="row" style="gap:8px">
+                  <Monogram slug={a.slug} name={a.name} size="sm" />
+                  <a class="compare-head__name" href={`/tools/${a.slug}`}>{a.name}</a>
+                </div>
+                <span class="compare-head__kind">{kindLabel}</span>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="compare-head">
+                <div class="row" style="gap:8px">
+                  <Monogram slug={b.slug} name={b.name} size="sm" />
+                  <a class="compare-head__name" href={`/tools/${b.slug}`}>{b.name}</a>
+                </div>
+                <span class="compare-head__kind">{kindLabel}</span>
+              </div>
+            </th>
           </tr>
-        ))}
-        {FEATURES.map((feature) => (
-          <tr>
-            <th scope="row" title={feature.question}>{feature.label}</th>
-            <td><Glyph value={a.features[feature.key]} label={feature.label} /></td>
-            <td><Glyph value={b.features[feature.key]} label={feature.label} /></td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <th scope="row">{row.label}</th>
+              <td>{row.value(a)}</td>
+              <td>{row.value(b)}</td>
+            </tr>
+          ))}
+          {featureGroups.map((group) => (
+            <>
+              <tr
+                class="compare-group"
+                data-compare-group={group.key}
+                hidden={group.differing === 0}
+              >
+                <th scope="colgroup" colspan="3">
+                  <span class="compare-group__label">{group.label}</span>
+                  <span class="compare-group__count">
+                    {group.stats.yes}/{group.stats.applicable} yes
+                  </span>
+                </th>
+              </tr>
+              {group.features.map((item) => (
+                <tr
+                  data-feature-row
+                  data-feature-group={group.key}
+                  data-same={item.same ? "true" : "false"}
+                  hidden={item.same}
+                >
+                  <th scope="row" title={item.feature.question}>{item.feature.label}</th>
+                  <td>
+                    <Glyph
+                      value={a.features[item.feature.key]}
+                      label={item.feature.label}
+                      applicable={item.applicable}
+                    />
+                  </td>
+                  <td>
+                    <Glyph
+                      value={b.features[item.feature.key]}
+                      label={item.feature.label}
+                      applicable={item.applicable}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </>
+          ))}
+        </tbody>
+      </table>
+      </div>
     </div>
 
     <div class="legend-row" style="margin-bottom:24px">
@@ -177,8 +262,12 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
         <span><Glyph value={true} label="Example" /> yes</span>
         <span><Glyph value={false} label="Example" /> no</span>
         <span><Glyph value={null} label="Example" /> not verified yet</span>
+        <span class="legend__na">– does not apply</span>
       </div>
-      <a class="small" href="/about#legend">How we check facts</a>
+      <span class="legend-links">
+        <a class="small" href="/features">How features are defined</a>
+        <a class="small" href="/about#legend">How we check facts</a>
+      </span>
     </div>
 
     {related.length > 0 && (
@@ -197,3 +286,7 @@ const rows: { label: string; value: (tool: Tool) => string }[] = [
     <div style="height:48px"></div>
   </div>
 </BaseLayout>
+
+<script>
+  import "../../scripts/differences";
+</script>

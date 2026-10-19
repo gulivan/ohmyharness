@@ -3121,3 +3121,365 @@ astro-island {
   color: var(--ink);
   font-weight: 700;
 }
+
+/* ---------- feature taxonomy ---------- */
+
+.glyph--na {
+  color: var(--faint);
+  border-color: transparent;
+  border-style: dashed;
+  font-weight: 400;
+}
+
+.legend__na {
+  color: var(--faint);
+}
+
+.legend-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.legend-links a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legend-links a:hover {
+  color: var(--ink);
+}
+
+.tool-card__meter--bar {
+  width: 64px;
+  gap: 0;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+}
+
+.tool-card__meter-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+/* Tool page: features grouped by category. */
+
+.feature-groups {
+  display: grid;
+  gap: 24px;
+}
+
+.feature-group {
+  display: grid;
+  gap: 2px;
+}
+
+.feature-group__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.feature-group__title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.feature-group__count {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.feature-groups__note {
+  margin-top: 18px;
+}
+
+.feature-row {
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+}
+
+.feature-row__value {
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* Compare matrix: grouped, collapsible feature columns. */
+
+.matrix thead tr.matrix-groups th {
+  height: 40px;
+  padding-block: 0;
+  vertical-align: middle;
+}
+
+.matrix thead tr.matrix-features th {
+  top: 40px;
+}
+
+.matrix thead th.matrix-group {
+  padding: 0;
+}
+
+.matrix-group__toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 39px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.matrix-group__toggle:hover {
+  color: var(--ink);
+  background: var(--bg-soft);
+}
+
+.matrix-group__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.matrix-group__arrow {
+  font-size: 10px;
+  color: var(--accent);
+  transition: transform 140ms ease;
+}
+
+.matrix-group__toggle.is-collapsed .matrix-group__arrow {
+  transform: rotate(-90deg);
+}
+
+.matrix-group__label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.matrix-group__count {
+  margin-left: auto;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* Side-by-side comparison: feature group rows and the differences toggle. */
+
+.compare-table tr.compare-group th {
+  width: auto;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.compare-group__label {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.compare-group__count {
+  margin-left: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.compare-same td {
+  padding: 14px 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.differences-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+
+.differences-bar__label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.differences-bar__count {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.differences-toggle {
+  margin-left: auto;
+}
+
+.differences-none {
+  margin: 10px 0 0;
+  padding: 12px;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Definitions page. */
+
+.feature-defs {
+  max-width: 78ch;
+}
+
+.feature-defs p,
+.feature-defs dt,
+.feature-defs dd {
+  font-family: var(--font-sans);
+}
+
+.feature-defs__legend {
+  margin-top: 4px;
+}
+
+.feature-defs__group {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.feature-defs__group h2 {
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.feature-def {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+
+.feature-def__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.feature-def__key {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.feature-def__question {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.feature-def__rules {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 6px 12px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.feature-def__rules dt {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.feature-def__rules dd {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.feature-def__boundary {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.feature-def__boundary summary {
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.feature-def__boundary ul {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.feature-def__applies {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.feature-def__applies a {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .feature-row {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .feature-row__value {
+    grid-column: 2;
+  }
+
+  .differences-toggle {
+    margin-left: 0;
+  }
+
+  .feature-def__rules {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px 0;
+  }
+
+  .feature-def__rules dd {
+    margin-bottom: 6px;
+  }
+}
+
+.matrix .matrix-placeholder {
+  padding: 0;
+  border-right: 0;
+}

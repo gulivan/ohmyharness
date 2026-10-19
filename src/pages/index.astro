@@ -11,6 +11,8 @@ import {
   KIND_LABELS,
   PLATFORM_LABELS,
   FEATURES,
+  FEATURE_GROUPS,
+  HEADLINE_FEATURE_KEYS,
 } from "../lib/features";
 import { PLATFORMS } from "../data/schema";
 import {
@@ -41,6 +43,15 @@ const logos = tools
 
 const description =
   "An open, sourced directory of AI coding harnesses, orchestrators, cloud agents and add-ons. Compare features, check the facts behind each tool, and make your own tier list.";
+
+const headlineFeatures = HEADLINE_FEATURE_KEYS.map((key) =>
+  FEATURES.find((feature) => feature.key === key),
+).filter((feature) => feature !== undefined);
+const headlineSet: ReadonlySet<string> = new Set(HEADLINE_FEATURE_KEYS);
+const moreFeatureGroups = FEATURE_GROUPS.map((group) => ({
+  ...group,
+  features: group.features.filter((feature) => !headlineSet.has(feature.key)),
+})).filter((group) => group.features.length > 0);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -238,6 +249,18 @@ const jsonLd = {
           <button class="chip" type="button" data-filter-kind="add-on" aria-pressed="false">Add-ons</button>
         </div>
 
+        <div class="filter-group filter-group--headline">
+          <span class="filter-group__label">Must have</span>
+          <div class="filter-group__checks" role="group" aria-label="Must-have features">
+            {headlineFeatures.map((feature) => (
+              <label class="chip">
+                <input type="checkbox" name="feature" value={feature.key} />
+                <span>{feature.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
         <details class="filters__more">
           <summary>More filters</summary>
           <div class="filters__grid">
@@ -274,17 +297,23 @@ const jsonLd = {
                 </select>
               </label>
             </div>
-            <div class="filter-group">
-              <span class="filter-group__label">Has feature</span>
-              <div class="filter-group__checks">
-                {FEATURES.map((feature) => (
-                  <label class="chip">
-                    <input type="checkbox" name="feature" value={feature.key} />
-                    <span>{feature.label}</span>
-                  </label>
-                ))}
+            {moreFeatureGroups.map((group) => (
+              <div class="filter-group">
+                <span class="filter-group__label">{group.label}</span>
+                <div
+                  class="filter-group__checks"
+                  role="group"
+                  aria-label={`Filter by ${group.label} features`}
+                >
+                  {group.features.map((feature) => (
+                    <label class="chip">
+                      <input type="checkbox" name="feature" value={feature.key} />
+                      <span>{feature.label}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </details>
 

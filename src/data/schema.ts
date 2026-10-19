@@ -39,15 +39,36 @@ export const MODEL_ACCESS = [
 export const PRICING_MODELS = ["free", "freemium", "paid"] as const;
 export const STATUSES = ["active", "beta", "deprecated"] as const;
 
+/**
+ * Every feature key in display order:
+ * Agents → Workflow → Integrations → Access & safety.
+ * Keep in sync with `FEATURES` in `src/lib/features.ts`.
+ */
 export const FEATURE_KEYS = [
-  "worktrees",
+  // Agents
+  "multiProvider",
+  "acp",
   "parallelAgents",
   "subagents",
+  "customAgents",
+  // Workflow
+  "planMode",
+  "worktrees",
+  "checkpoints",
+  "diffReview",
+  "prIntegration",
+  "automations",
+  // Integrations
   "mcp",
+  "skills",
+  "hooks",
+  "issueTracker",
+  "browserPreview",
+  // Access & safety
   "remoteAccess",
   "cloudSandbox",
-  "diffReview",
-  "planMode",
+  "sandboxing",
+  "headlessApi",
 ] as const;
 
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

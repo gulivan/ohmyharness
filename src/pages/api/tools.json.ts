@@ -1,11 +1,19 @@
 import type { APIRoute } from "astro";
-import { sourceLabel } from "../../lib/features";
+import { FEATURE_KEYS, sourceLabel } from "../../lib/features";
 import { startingPrice } from "../../lib/pricing";
 import { getAllTools } from "../../lib/tools";
 
 export const GET: APIRoute = () => {
   const tools = getAllTools().map((tool) => ({
     ...tool,
+    /**
+     * Every feature flag in display order (Agents → Workflow → Integrations →
+     * Access & safety). `null` means not verified; applicability is described
+     * on /features.
+     */
+    features: Object.fromEntries(
+      FEATURE_KEYS.map((key) => [key, tool.features[key]]),
+    ),
     /** Derived display value: Open source, Source available, Closed source or ? */
     source: sourceLabel(tool),
     /** Derived: cheapest plan, or a free plan when one exists. */
