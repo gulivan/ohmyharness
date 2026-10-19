@@ -91,7 +91,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": false,
+    "acp": false,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 152242,
@@ -142,7 +154,19 @@
     "https://code.claude.com/docs/en/mcp",
     "https://claude.com/pricing",
     "https://github.com/anthropics/claude-code",
-    "https://code.claude.com/docs/en/setup"
+    "https://code.claude.com/docs/en/setup",
+    "https://code.claude.com/docs/en/routines",
+    "https://code.claude.com/docs/en/desktop-scheduled-tasks",
+    "https://code.claude.com/docs/en/checkpointing",
+    "https://code.claude.com/docs/en/hooks-guide",
+    "https://code.claude.com/docs/en/skills",
+    "https://code.claude.com/docs/en/sub-agents",
+    "https://code.claude.com/docs/en/sandboxing",
+    "https://code.claude.com/docs/en/headless",
+    "https://code.claude.com/docs/en/code-review-pull-requests",
+    "https://code.claude.com/docs/en/chrome",
+    "https://code.claude.com/docs/en/computer-use",
+    "https://code.claude.com/docs/en/sessions"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -47,7 +47,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 35847,
@@ -95,7 +107,16 @@
   "sources": [
     "https://github.com/can1357/oh-my-pi",
     "https://omp.sh/",
-    "https://github.com/can1357/oh-my-pi/blob/main/README.md"
+    "https://github.com/can1357/oh-my-pi/blob/main/README.md",
+    "https://omp.sh/docs/providers",
+    "https://omp.sh/docs/approvals",
+    "https://omp.sh/docs/security",
+    "https://omp.sh/docs/github",
+    "https://omp.sh/docs/skills",
+    "https://omp.sh/docs/hooks",
+    "https://omp.sh/docs/agents-and-roles",
+    "https://omp.sh/docs/subagent-authoring",
+    "https://omp.sh/docs/sessions"
   ],
   "lastVerified": "2026-10-18"
 }

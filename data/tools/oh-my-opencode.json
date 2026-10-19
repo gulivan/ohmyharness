@@ -49,7 +49,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": false,
+    "acp": false,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 70162,
@@ -100,7 +112,8 @@
     "https://omo.dev/",
     "https://github.com/code-yeongyu/oh-my-openagent/blob/main/LICENSE.md",
     "https://www.npmjs.com/package/oh-my-opencode",
-    "https://omo.dev/docs/install"
+    "https://omo.dev/docs/install",
+    "https://omo.dev/docs"
   ],
   "lastVerified": "2026-10-18"
 }

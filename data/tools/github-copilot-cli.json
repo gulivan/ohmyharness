@@ -83,10 +83,22 @@
     "parallelAgents": true,
     "subagents": true,
     "mcp": true,
-    "remoteAccess": null,
+    "remoteAccess": true,
     "cloudSandbox": false,
     "diffReview": null,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 11271,
@@ -136,7 +148,21 @@
     "https://github.com/features/copilot/cli",
     "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features",
     "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli",
-    "https://github.com/features/copilot/plans"
+    "https://github.com/features/copilot/plans",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-copilot-cli/schedule-prompts",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-hooks",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/roll-back-changes",
+    "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely",
+    "https://docs.github.com/en/copilot/reference/copilot-cli-reference/acp-server",
+    "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-programmatic-reference",
+    "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing"
   ],
   "lastVerified": "2026-10-18"
 }

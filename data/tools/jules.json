@@ -59,7 +59,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": false,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -91,7 +103,14 @@
     "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
     "https://jules.google/docs/cli/reference",
     "https://one.google.com/about/google-ai-plans/",
-    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/"
+    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/",
+    "https://jules.google/docs/scheduled-tasks",
+    "https://jules.google/docs/running-tasks",
+    "https://jules.google/docs/api/reference",
+    "https://jules.google/docs/changelog/2026-02-02",
+    "https://jules.google/docs/changelog/2025-08-04",
+    "https://jules.google/docs/changelog/2025-06-26",
+    "https://jules.google/docs/changelog/2025-08-07"
   ],
   "lastVerified": "2026-10-18"
 }

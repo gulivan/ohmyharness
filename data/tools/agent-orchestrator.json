@@ -62,9 +62,21 @@
     "subagents": null,
     "mcp": null,
     "remoteAccess": true,
-    "cloudSandbox": null,
+    "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 13327,
@@ -93,7 +105,15 @@
   ],
   "sources": [
     "https://github.com/OrchestratorInc/agent-orchestrator",
-    "https://orchestrator.inc/"
+    "https://orchestrator.inc/",
+    "https://docs.orchestrator.inc/architecture",
+    "https://docs.orchestrator.inc/cli",
+    "https://docs.orchestrator.inc/configuration",
+    "https://docs.orchestrator.inc/guides/cloud",
+    "https://docs.orchestrator.inc/parallel-issues",
+    "https://docs.orchestrator.inc/per-role-agents",
+    "https://docs.orchestrator.inc/plugins/agents",
+    "https://docs.orchestrator.inc/review-loop"
   ],
   "lastVerified": "2026-10-18"
 }

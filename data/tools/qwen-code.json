@@ -60,14 +60,26 @@
     ]
   },
   "features": {
-    "worktrees": null,
+    "worktrees": true,
     "parallelAgents": true,
     "subagents": true,
     "mcp": true,
     "remoteAccess": true,
     "cloudSandbox": false,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": false,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 28564,
@@ -121,7 +133,16 @@
     "https://github.com/QwenLM/qwen-code",
     "https://github.com/QwenLM/qwen-code/blob/main/README.md",
     "https://www.alibabacloud.com/help/en/model-studio/coding-plan",
-    "https://www.alibabacloud.com/help/en/model-studio/qwen-code"
+    "https://www.alibabacloud.com/help/en/model-studio/qwen-code",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/channels/overview/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/checkpointing/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/hooks/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/browser-use/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/headless/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/code-review/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/features/worktree/",
+    "https://qwenlm.github.io/qwen-code-docs/en/developers/daemon/03-acp-bridge"
   ],
   "lastVerified": "2026-10-18"
 }

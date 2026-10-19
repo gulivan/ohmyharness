@@ -48,7 +48,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": false
+    "planMode": false,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 116125,
@@ -83,7 +95,14 @@
     "https://pi.dev/docs/latest/mcp",
     "https://pi.dev/docs/latest/termux",
     "https://pi.dev/docs/latest/quickstart",
-    "https://pi.dev/"
+    "https://pi.dev/",
+    "https://pi.dev/docs/latest/providers",
+    "https://pi.dev/docs/latest/extensions",
+    "https://pi.dev/docs/latest/skills",
+    "https://pi.dev/docs/latest/cli",
+    "https://pi.dev/docs/latest/sessions",
+    "https://pi.dev/docs/latest/containerization",
+    "https://pi.dev/docs/latest/security"
   ],
   "lastVerified": "2026-10-18"
 }

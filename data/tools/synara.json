@@ -55,7 +55,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": null,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": true,
+    "skills": false,
+    "hooks": null,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 2120,
@@ -82,7 +94,15 @@
     "https://www.trysynara.com/docs/features/parallel-agents",
     "https://www.trysynara.com/docs/workflows/agent-gateway",
     "https://www.trysynara.com/install",
-    "https://www.trysynara.com/donors"
+    "https://www.trysynara.com/donors",
+    "https://www.trysynara.com/docs/features/overview.md",
+    "https://www.trysynara.com/docs/features/composer.md",
+    "https://www.trysynara.com/docs/features/conversation-history.md",
+    "https://www.trysynara.com/docs/features/automations.md",
+    "https://www.trysynara.com/docs/features/tasks-and-inbox.md",
+    "https://www.trysynara.com/docs/workflows/pull-requests.md",
+    "https://www.trysynara.com/docs/workflows/browser-verification.md",
+    "https://www.trysynara.com/docs/workflows/headless-server.md"
   ],
   "lastVerified": "2026-10-18"
 }

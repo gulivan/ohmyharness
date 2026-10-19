@@ -66,7 +66,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": true,
+    "checkpoints": null,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -107,7 +119,20 @@
     "https://ampcode.com/docs/markdown/cli/remote-control",
     "https://ampcode.com/about",
     "https://ampcode.com/docs/macos-and-ios",
-    "https://ampcode.com/pricing"
+    "https://ampcode.com/pricing",
+    "https://ampcode.com/docs/markdown/orbs/automations",
+    "https://ampcode.com/docs/markdown/orbs/event-driven",
+    "https://ampcode.com/docs/markdown/orbs/desktop",
+    "https://ampcode.com/docs/markdown/github",
+    "https://ampcode.com/docs/markdown/customize/plugins",
+    "https://ampcode.com/docs/markdown/plugin-api",
+    "https://ampcode.com/docs/markdown/customize/skills",
+    "https://ampcode.com/docs/markdown/the-dial",
+    "https://ampcode.com/docs/markdown/models-and-subagents",
+    "https://ampcode.com/docs/markdown/cli/execute-mode",
+    "https://ampcode.com/docs/markdown/sdk",
+    "https://ampcode.com/docs/markdown/customize/model-routing",
+    "https://ampcode.com/docs/markdown/cli/settings"
   ],
   "lastVerified": "2026-10-18"
 }

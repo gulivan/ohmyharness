@@ -1,0 +1,398 @@
+/* Global search — terminal field in the header, results, mobile sheet. */
+
+.site-header__inner {
+  justify-content: flex-start;
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+.omh-search {
+  position: relative;
+  flex: 0 1 300px;
+  min-width: 170px;
+  max-width: 320px;
+}
+
+/* ---------- bar ---------- */
+
+.omh-search__sheet {
+  position: relative;
+  width: 100%;
+}
+
+.omh-search__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding-inline: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.omh-search__bar:focus-within {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.omh-search__prompt {
+  flex: none;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--faint-decorative);
+  user-select: none;
+}
+
+.omh-search__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  outline: 0;
+  appearance: none;
+}
+
+.omh-search__input::placeholder {
+  color: var(--faint);
+  opacity: 1;
+}
+
+.omh-search__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.omh-search__kbd {
+  flex: none;
+  padding: 1px 5px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+  user-select: none;
+}
+
+.omh-search__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  transition:
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.omh-search__toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.omh-search__close {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1;
+}
+
+.omh-search__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- results ---------- */
+
+.omh-search__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 60;
+  width: min(420px, calc(100vw - 24px));
+  border: 1px solid var(--line-strong);
+  border-top: 2px solid var(--accent);
+  background: var(--panel);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.6);
+}
+
+.omh-search__hint {
+  margin: 0;
+  padding: 14px 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.omh-search__list {
+  max-height: min(60vh, 380px);
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.omh-result {
+  border-bottom: 1px solid var(--line);
+}
+
+.omh-result:last-child {
+  border-bottom: 0;
+}
+
+.omh-result:hover {
+  background: var(--panel-2);
+}
+
+.omh-result[aria-selected="true"] {
+  background: var(--accent-soft);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.omh-result__link {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+}
+
+.omh-result__link:hover {
+  color: inherit;
+}
+
+.omh-result__body {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.omh-result__name {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.omh-result__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 7px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.omh-result__meta > * + *::before {
+  content: "·";
+  margin-right: 7px;
+  color: var(--faint-decorative);
+}
+
+.omh-result__price {
+  color: var(--ink);
+}
+
+.omh-search__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+  padding: 9px 12px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.omh-search__count {
+  color: var(--muted);
+}
+
+.omh-search__all {
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.omh-search__all:hover {
+  color: var(--ink);
+}
+
+.omh-search__empty {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  padding: 14px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.omh-search__empty p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.omh-search__empty a {
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+}
+
+.omh-search__empty a:hover {
+  color: var(--ink);
+}
+
+/* ---------- narrow desktop: reclaim space ---------- */
+
+@media (max-width: 899px) {
+  .omh-search__kbd {
+    display: none;
+  }
+}
+
+/* Below 1024 the GitHub link yields its place to the search field. */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .site-nav__repo {
+    display: none;
+  }
+}
+
+/* ---------- mobile: icon button + full-width sheet ---------- */
+
+@media (max-width: 767px) {
+  .brand {
+    order: 1;
+  }
+
+  .omh-search {
+    /* Static so the open sheet anchors to the sticky header, not to the 34px
+       button, and can span the full viewport width. */
+    position: static;
+    order: 2;
+    flex: none;
+    min-width: 0;
+    margin-left: auto;
+  }
+
+  .site-nav {
+    order: 3;
+    margin-left: 0;
+  }
+
+  .omh-search__toggle {
+    display: inline-flex;
+  }
+
+  .omh-search__sheet {
+    display: none;
+  }
+
+  .omh-search.is-open .omh-search__sheet {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 60;
+    /* search.ts tightens this to the real header height when it opens. */
+    max-height: calc(100dvh - 84px);
+    padding: 12px var(--gutter) 14px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-bottom: 1px solid var(--line-strong);
+    background: var(--bg);
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.55);
+  }
+
+  .omh-search__bar {
+    height: 44px;
+  }
+
+  .omh-search__input {
+    /* Keep inputs at 16px so mobile browsers do not zoom on focus. */
+    font-size: 16px;
+  }
+
+  .omh-search__kbd {
+    display: none;
+  }
+
+  .omh-search__close {
+    display: inline-flex;
+  }
+
+  .omh-search__panel {
+    position: static;
+    width: auto;
+    margin-top: 10px;
+    border: 0;
+    border-top: 1px solid var(--line);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .omh-search__list {
+    max-height: min(52vh, 360px);
+  }
+
+  html.omh-search-open,
+  html.omh-search-open body {
+    overflow: hidden;
+  }
+}
+
+/*
+ * 461–560px is too tight for brand + nav + a search button in one row, while
+ * the global stylesheet only wraps at 460px. Wrap a little earlier.
+ */
+@media (max-width: 560px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+    padding-block: 9px;
+    row-gap: 2px;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 7px;
+  }
+
+  .site-nav a {
+    padding-block: 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  .omh-search__close {
+    display: none;
+  }
+}

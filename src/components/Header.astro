@@ -1,6 +1,8 @@
 ---
 import { REPO_URL } from "../lib/tools";
+import "../styles/search.css";
 
+const addToolUrl = `${REPO_URL}/issues/new?template=add-tool.yml`;
 const pathname = Astro.url.pathname;
 const directoryActive =
   pathname === "/" || pathname.startsWith("/tools") || pathname.startsWith("/vs");
@@ -28,5 +30,98 @@ const items = [
         GitHub ↗
       </a>
     </nav>
+    <div class="omh-search" data-search>
+      <button
+        type="button"
+        class="omh-search__toggle"
+        data-search-toggle
+        aria-label="Search tools"
+        aria-expanded="false"
+        aria-controls="omh-search-sheet"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"
+          ></circle>
+          <path
+            d="M10.5 10.5 14 14"
+            stroke="currentColor"
+            stroke-width="1.5"></path>
+        </svg>
+      </button>
+
+      <div class="omh-search__sheet" id="omh-search-sheet">
+        <div class="omh-search__bar">
+          <span class="omh-search__prompt" aria-hidden="true">/</span>
+          <input
+            id="omh-search-input"
+            class="omh-search__input"
+            data-search-input
+            type="search"
+            placeholder="Search tools…"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            role="combobox"
+            aria-label="Search tools"
+            aria-expanded="false"
+            aria-controls="omh-search-results"
+            aria-autocomplete="list"
+          />
+          <kbd class="omh-search__kbd" data-search-kbd aria-hidden="true"
+            >Ctrl K</kbd
+          >
+          <button
+            type="button"
+            class="omh-search__close"
+            data-search-close
+            aria-label="Close search"
+          >
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+
+        <div class="omh-search__panel" data-search-panel hidden>
+          <p class="omh-search__hint" data-search-hint hidden>Searching…</p>
+          <ul
+            class="omh-search__list"
+            id="omh-search-results"
+            role="listbox"
+            aria-label="Search results"
+            data-search-list
+          >
+          </ul>
+          <div class="omh-search__foot" data-search-foot hidden>
+            <span class="omh-search__count" data-search-count></span>
+            <a class="omh-search__all" data-search-all href="/"
+              >See all results</a
+            >
+          </div>
+          <div class="omh-search__empty" data-search-empty hidden>
+            <p>No tools match “<span data-search-term></span>”.</p>
+            <a href={addToolUrl} rel="noopener">Suggest one →</a>
+          </div>
+        </div>
+      </div>
+
+      <p
+        class="visually-hidden"
+        role="status"
+        aria-live="polite"
+        data-search-status
+      >
+      </p>
+    </div>
   </div>
 </header>
+
+<script>
+  import "../scripts/search";
+</script>
+

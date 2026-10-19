@@ -51,7 +51,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": false
   },
   "github": {
     "stars": 8621,
@@ -80,7 +92,8 @@
   ],
   "sources": [
     "https://github.com/smtg-ai/claude-squad",
-    "https://github.com/smtg-ai/claude-squad/blob/main/README.md"
+    "https://github.com/smtg-ai/claude-squad/blob/main/README.md",
+    "https://smtg-ai.github.io/claude-squad/"
   ],
   "lastVerified": "2026-10-18"
 }

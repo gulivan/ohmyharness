@@ -69,9 +69,21 @@
     "subagents": null,
     "mcp": true,
     "remoteAccess": null,
-    "cloudSandbox": null,
+    "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": true,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": true,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -90,7 +102,8 @@
     "https://www.conductor.build/docs",
     "https://www.conductor.build/docs/installation",
     "https://www.conductor.build/pricing",
-    "https://www.conductor.build/llms-full.txt"
+    "https://www.conductor.build/llms-full.txt",
+    "https://www.conductor.build/llms.txt"
   ],
   "lastVerified": "2026-10-18"
 }

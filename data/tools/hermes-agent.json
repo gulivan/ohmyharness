@@ -72,7 +72,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 254917,
@@ -102,7 +114,19 @@
   "sources": [
     "https://github.com/NousResearch/hermes-agent",
     "https://hermes-agent.nousresearch.com/",
-    "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/acp",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/browser",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/checkpoints-and-rollback",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/hooks",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/profiles",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/security",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks",
+    "https://hermes-agent.nousresearch.com/docs/guides/github-pr-review-agent"
   ],
   "lastVerified": "2026-10-18"
 }

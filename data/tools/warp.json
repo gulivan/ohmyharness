@@ -70,14 +70,26 @@
     ]
   },
   "features": {
-    "worktrees": null,
+    "worktrees": true,
     "parallelAgents": true,
     "subagents": true,
     "mcp": true,
-    "remoteAccess": null,
+    "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -114,7 +126,20 @@
     "https://docs.warp.dev/agents/capabilities/planning/",
     "https://www.warp.dev/pricing",
     "https://docs.warp.dev/getting-started/quickstart/installation-and-setup/",
-    "https://www.warp.dev/blog/warp-new-pricing-flexibility-byok"
+    "https://www.warp.dev/blog/warp-new-pricing-flexibility-byok",
+    "https://docs.warp.dev/agents/inference/model-choice/",
+    "https://docs.warp.dev/agents/capabilities/agent-profiles-permissions/",
+    "https://docs.warp.dev/factories/automations/",
+    "https://docs.warp.dev/platform/triggers/scheduled-agents/",
+    "https://docs.warp.dev/platform/integrations/github/",
+    "https://docs.warp.dev/platform/integrations/linear/",
+    "https://docs.warp.dev/platform/integrations/jira/",
+    "https://docs.warp.dev/agents/capabilities/computer-use/",
+    "https://docs.warp.dev/platform/skills-as-agents/",
+    "https://docs.warp.dev/factories/api-and-sdk/",
+    "https://docs.warp.dev/agents/cli/reference/",
+    "https://docs.warp.dev/code/git-worktrees/",
+    "https://docs.warp.dev/platform/handoff/snapshots/"
   ],
   "lastVerified": "2026-10-18"
 }

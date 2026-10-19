@@ -86,7 +86,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 867,
@@ -120,7 +132,10 @@
     "https://www.cloudroom.dev/docs/cloud-threads",
     "https://www.cloudroom.dev/docs/harnesses",
     "https://www.cloudroom.dev/docs/faq.md",
-    "https://www.cloudroom.dev/docs/get-started.md"
+    "https://www.cloudroom.dev/docs/get-started.md",
+    "https://www.cloudroom.dev/docs/automations",
+    "https://www.cloudroom.dev/docs/local-threads",
+    "https://www.cloudroom.dev/security"
   ],
   "lastVerified": "2026-10-18"
 }

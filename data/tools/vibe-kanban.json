@@ -71,7 +71,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": true,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 28385,
@@ -97,7 +109,17 @@
     "https://vibekanban.com/docs/getting-started",
     "https://github.com/BloopAI/vibe-kanban/blob/main/docs/remote-access.mdx",
     "https://www.vibekanban.com/pricing",
-    "https://vibekanban.com/blog/shutdown"
+    "https://vibekanban.com/blog/shutdown",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/supported-coding-agents.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/configuration-customisation/agent-configurations.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/browser-testing.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/integrations/github-integration.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/issue-management.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/workspaces/git-operations.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/workspaces/sessions.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/workspaces/slash-commands.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/docs/integrations/vibe-kanban-mcp-server.mdx",
+    "https://github.com/BloopAI/vibe-kanban/blob/main/npx-cli/README.md"
   ],
   "lastVerified": "2026-10-18"
 }

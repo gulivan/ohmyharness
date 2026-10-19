@@ -62,7 +62,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -106,7 +118,9 @@
     "https://tern.build/",
     "https://tern.build/docs",
     "https://tern.build/docs/cli",
-    "https://tern.build/download"
+    "https://tern.build/download",
+    "https://tern.build/docs/desktop",
+    "https://tern.build/changelog"
   ],
   "lastVerified": "2026-10-18"
 }

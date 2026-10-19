@@ -47,7 +47,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": false,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": true,
+    "skills": false,
+    "hooks": true,
+    "issueTracker": true,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 27734,
@@ -68,7 +80,9 @@
   "sources": [
     "https://github.com/openai/symphony",
     "https://github.com/openai/symphony/blob/main/elixir/README.md",
-    "https://openai.com/index/open-source-codex-orchestration-symphony/"
+    "https://openai.com/index/open-source-codex-orchestration-symphony/",
+    "https://github.com/openai/symphony/blob/main/SPEC.md",
+    "https://github.com/openai/symphony/blob/main/elixir/WORKFLOW.md"
   ],
   "lastVerified": "2026-10-18"
 }

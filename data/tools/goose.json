@@ -43,10 +43,22 @@
     "parallelAgents": true,
     "subagents": true,
     "mcp": true,
-    "remoteAccess": null,
+    "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 55415,
@@ -97,7 +109,19 @@
     "https://goose-docs.ai/llms.txt",
     "https://github.com/aaif-goose/goose/releases/tag/v1.35.0",
     "https://github.com/aaif-goose/goose",
-    "https://goose-docs.ai/docs/getting-started/installation"
+    "https://goose-docs.ai/docs/getting-started/installation",
+    "https://goose-docs.ai/docs/getting-started/providers",
+    "https://goose-docs.ai/docs/guides/goose-cli-commands",
+    "https://goose-docs.ai/docs/guides/context-engineering/custom-agents",
+    "https://goose-docs.ai/docs/guides/context-engineering/hooks",
+    "https://goose-docs.ai/docs/guides/context-engineering/using-skills",
+    "https://goose-docs.ai/docs/guides/managing-tools/tool-permissions",
+    "https://goose-docs.ai/docs/guides/acp-providers",
+    "https://goose-docs.ai/docs/gdk/acp",
+    "https://goose-docs.ai/docs/mcp/computer-controller-mcp",
+    "https://goose-docs.ai/docs/tutorials/headless-goose",
+    "https://goose-docs.ai/docs/guides/remote-goose-server",
+    "https://goose-docs.ai/docs/guides/sessions/in-session-actions"
   ],
   "lastVerified": "2026-10-18"
 }

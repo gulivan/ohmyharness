@@ -55,7 +55,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": true,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 3473,
@@ -77,7 +89,12 @@
   "sources": [
     "https://github.com/RunMaestro/Maestro",
     "https://RunMaestro.ai/",
-    "https://docs.runmaestro.ai/installation"
+    "https://docs.runmaestro.ai/installation",
+    "https://docs.runmaestro.ai/features",
+    "https://docs.runmaestro.ai/coworking",
+    "https://docs.runmaestro.ai/multi-provider",
+    "https://docs.runmaestro.ai/maestro-cue",
+    "https://docs.runmaestro.ai/cli"
   ],
   "lastVerified": "2026-10-18"
 }

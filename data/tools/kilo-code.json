@@ -74,7 +74,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 27650,
@@ -127,7 +139,17 @@
     "https://kilo.ai/docs/code-with-ai/platforms/cli",
     "https://kilo.ai/pricing",
     "https://github.com/Kilo-Org/kilocode",
-    "https://kilo.ai/pricing/kilo-pass"
+    "https://kilo.ai/pricing/kilo-pass",
+    "https://kilo.ai/docs/code-with-ai/features/checkpoints",
+    "https://kilo.ai/docs/automate/code-reviews/overview",
+    "https://kilo.ai/docs/code-with-ai/platforms/cli-reference",
+    "https://kilo.ai/docs/code-with-ai/features/browser-use",
+    "https://kilo.ai/docs/getting-started/settings/sandboxing",
+    "https://kilo.ai/docs/customize/custom-subagents",
+    "https://kilo.ai/docs/customize/skills",
+    "https://kilo.ai/docs/automate/extending/plugins",
+    "https://kilo.ai/docs/code-with-ai/platforms/github",
+    "https://kilo.ai/docs/code-with-ai/platforms/linear"
   ],
   "lastVerified": "2026-10-18"
 }

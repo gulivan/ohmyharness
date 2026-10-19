@@ -106,7 +106,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 4143,
@@ -160,7 +172,16 @@
     "https://commandcode.ai/docs/ide",
     "https://commandcode.ai/docs/windows",
     "https://commandcode.ai/docs/byok",
-    "https://github.com/CommandCodeAI/command-code"
+    "https://github.com/CommandCodeAI/command-code",
+    "https://commandcode.ai/docs/provider",
+    "https://commandcode.ai/docs/acp",
+    "https://commandcode.ai/docs/sessions",
+    "https://commandcode.ai/docs/hooks",
+    "https://commandcode.ai/docs/skills",
+    "https://commandcode.ai/docs/permissions",
+    "https://commandcode.ai/docs/headless",
+    "https://commandcode.ai/docs/background-tasks",
+    "https://commandcode.ai/docs/loop"
   ],
   "lastVerified": "2026-10-19"
 }

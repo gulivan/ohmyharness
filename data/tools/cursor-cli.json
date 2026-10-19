@@ -92,7 +92,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -123,7 +135,19 @@
     "https://cursor.com/docs/cli/mcp",
     "https://cursor.com/docs/subagents",
     "https://cursor.com/pricing",
-    "https://cursor.com/docs/cli/installation"
+    "https://cursor.com/docs/cli/installation",
+    "https://cursor.com/docs/agent/overview",
+    "https://cursor.com/docs/cloud-agent/automations",
+    "https://cursor.com/docs/integrations/linear",
+    "https://cursor.com/docs/integrations/jira",
+    "https://cursor.com/docs/cli/acp",
+    "https://cursor.com/docs/cli/headless",
+    "https://cursor.com/docs/cli/reference/permissions",
+    "https://cursor.com/docs/hooks",
+    "https://cursor.com/docs/skills",
+    "https://cursor.com/docs/agent/tools/browser",
+    "https://cursor.com/docs/models-and-pricing",
+    "https://cursor.com/docs/integrations/github"
   ],
   "lastVerified": "2026-10-18"
 }

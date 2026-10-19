@@ -82,7 +82,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": false
   },
   "github": {
     "stars": 1623,
@@ -128,7 +140,16 @@
     "https://docs.traycer.ai/account/mobile-app.md",
     "https://docs.traycer.ai/agents-and-models/coding-agents.md",
     "https://github.com/traycerai/traycer",
-    "https://docs.traycer.ai/account/pricing"
+    "https://docs.traycer.ai/account/pricing",
+    "https://docs.traycer.ai/settings/permissions.md",
+    "https://docs.traycer.ai/panels/browsers.md",
+    "https://docs.traycer.ai/panels/pull-requests.md",
+    "https://docs.traycer.ai/panels/agents/undo-a-turn.md",
+    "https://docs.traycer.ai/settings/providers/skills.md",
+    "https://docs.traycer.ai/settings/providers.md",
+    "https://docs.traycer.ai/cli/commands.md",
+    "https://docs.traycer.ai/settings/notifications.md",
+    "https://docs.traycer.ai/settings/browser.md"
   ],
   "lastVerified": "2026-10-18"
 }

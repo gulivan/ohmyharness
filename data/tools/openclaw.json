@@ -53,7 +53,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 392390,
@@ -107,7 +119,15 @@
     "https://docs.openclaw.ai/concepts/session-attachment",
     "https://docs.openclaw.ai/concepts/architecture",
     "https://docs.openclaw.ai/gateway/cloud-workers",
-    "https://docs.openclaw.ai/install"
+    "https://docs.openclaw.ai/install",
+    "https://docs.openclaw.ai/cli/acp",
+    "https://docs.openclaw.ai/automation/cron-jobs",
+    "https://docs.openclaw.ai/cli/browser",
+    "https://docs.openclaw.ai/automation/hooks",
+    "https://docs.openclaw.ai/cli/skills",
+    "https://docs.openclaw.ai/gateway/config-agents/entries-and-multi-agent",
+    "https://docs.openclaw.ai/gateway/sandboxing",
+    "https://docs.openclaw.ai/gateway/openai-http-api"
   ],
   "lastVerified": "2026-10-18"
 }

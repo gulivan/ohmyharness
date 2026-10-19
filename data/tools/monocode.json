@@ -55,7 +55,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 3123,
@@ -78,7 +90,13 @@
     "https://www.usemono.dev/",
     "https://github.com/hardbeat920/monocode",
     "https://www.everydev.ai/tools/monocode",
-    "https://github.com/hardbeat920/monocode/blob/main/docs/install.md"
+    "https://github.com/hardbeat920/monocode/blob/main/docs/install.md",
+    "https://github.com/hardbeat920/monocode/blob/main/CHANGELOG.md",
+    "https://github.com/hardbeat920/monocode/blob/main/README.md",
+    "https://github.com/hardbeat920/monocode/blob/main/docs/providers.md",
+    "https://github.com/hardbeat920/monocode/blob/main/docs/remote-access.md",
+    "https://github.com/hardbeat920/monocode/blob/main/docs/jira.md",
+    "https://github.com/hardbeat920/monocode/blob/main/docs/agent-access.md"
   ],
   "lastVerified": "2026-10-18"
 }

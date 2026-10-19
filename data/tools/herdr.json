@@ -57,7 +57,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": false,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 44634,
@@ -97,7 +109,17 @@
     "https://github.com/herdrdev/herdr",
     "https://herdr.dev/docs/agents/",
     "https://herdr.dev/docs/agent-automation/",
-    "https://herdr.dev/docs/install/"
+    "https://herdr.dev/docs/install/",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/agents.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/plugins.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/agent-automation.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/agent-skill.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/session-state.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/cli-reference.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/socket-api.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/integrations.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/content/docs/marketplace.mdx",
+    "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.5/docs/next/website/src/data/config-reference.json"
   ],
   "lastVerified": "2026-10-18"
 }

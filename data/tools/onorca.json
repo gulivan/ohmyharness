@@ -66,7 +66,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 96443,
@@ -109,7 +121,19 @@
     "https://www.onorca.dev/docs/remote-servers",
     "https://github.com/stablyai/orca",
     "https://www.onorca.dev/download",
-    "https://www.onorca.dev/enterprise"
+    "https://www.onorca.dev/enterprise",
+    "https://www.onorca.dev/docs/agents/hooks-memory",
+    "https://www.onorca.dev/docs/cli/worktree-checkpoints",
+    "https://www.onorca.dev/docs/cli/skills",
+    "https://www.onorca.dev/docs/cli/automations",
+    "https://www.onorca.dev/docs/browser/overview",
+    "https://www.onorca.dev/docs/review/github",
+    "https://www.onorca.dev/docs/review/linear",
+    "https://www.onorca.dev/docs/review/jira",
+    "https://www.onorca.dev/docs/cli/overview",
+    "https://www.onorca.dev/docs/cli/reference",
+    "https://www.onorca.dev/docs/ways-to-run",
+    "https://www.onorca.dev/docs/settings"
   ],
   "lastVerified": "2026-10-18"
 }

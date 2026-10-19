@@ -103,7 +103,19 @@
     "remoteAccess": null,
     "cloudSandbox": true,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": null,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": null,
+    "browserPreview": null,
+    "sandboxing": null,
+    "headlessApi": true
   },
   "github": {
     "stars": 21009,
@@ -141,7 +153,10 @@
     "https://github.com/1jehuang/jcode",
     "https://jcode.sh/",
     "https://jcode.sh/pricing",
-    "https://jcode.sh/docs"
+    "https://jcode.sh/docs",
+    "https://jcode.sh/sdk",
+    "https://jcode.sh/swarm",
+    "https://jcode.sh/discovery-tools"
   ],
   "lastVerified": "2026-10-18"
 }

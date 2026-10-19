@@ -78,7 +78,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": false,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 107439,
@@ -122,7 +134,16 @@
     "https://geminicli.com/docs/resources/quota-and-pricing/",
     "https://github.com/google-gemini/gemini-cli",
     "https://one.google.com/intl/en_us/about/google-ai-plans/",
-    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/"
+    "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/",
+    "https://geminicli.com/docs/cli/acp-mode/",
+    "https://geminicli.com/docs/cli/checkpointing/",
+    "https://geminicli.com/docs/cli/rewind/",
+    "https://geminicli.com/docs/cli/skills/",
+    "https://geminicli.com/docs/cli/sandbox/",
+    "https://geminicli.com/docs/cli/headless/",
+    "https://geminicli.com/docs/hooks/",
+    "https://geminicli.com/docs/reference/policy-engine/",
+    "https://geminicli.com/docs/core/remote-agents/"
   ],
   "lastVerified": "2026-10-18"
 }

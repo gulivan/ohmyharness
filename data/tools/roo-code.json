@@ -35,7 +35,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": null,
+    "sandboxing": true,
+    "headlessApi": false
   },
   "github": {
     "stars": 24272,
@@ -57,7 +69,14 @@
   "sources": [
     "https://github.com/RooCodeInc/Roo-Code",
     "https://roocodeinc.github.io/Roo-Code/basic-usage/using-modes",
-    "https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline"
+    "https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline",
+    "https://roocodeinc.github.io/Roo-Code/features/checkpoints",
+    "https://roocodeinc.github.io/Roo-Code/features/auto-approving-actions",
+    "https://roocodeinc.github.io/Roo-Code/features/skills",
+    "https://roocodeinc.github.io/Roo-Code/features/custom-modes",
+    "https://roocodeinc.github.io/Roo-Code/providers/",
+    "https://roocodeinc.github.io/Roo-Code/features/worktrees",
+    "https://roocodeinc.github.io/Roo-Code/advanced-usage/available-tools/skill"
   ],
   "lastVerified": "2026-10-18"
 }

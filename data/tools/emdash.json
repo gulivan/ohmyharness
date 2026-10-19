@@ -53,7 +53,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": null,
+    "checkpoints": null,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": null
   },
   "github": {
     "stars": 6026,
@@ -84,7 +96,18 @@
     "https://emdash.com/",
     "https://github.com/generalaction/emdash",
     "https://www.ycombinator.com/launches/PRP-emdash-open-source-agentic-development-environment-ade",
-    "https://emdash.com/download"
+    "https://emdash.com/download",
+    "https://emdash.com/docs/automations",
+    "https://emdash.com/docs/ci-checks",
+    "https://emdash.com/docs/in-app-browser",
+    "https://emdash.com/docs/issues",
+    "https://emdash.com/docs/library",
+    "https://emdash.com/docs/library/skills",
+    "https://emdash.com/docs/providers",
+    "https://emdash.com/docs/tasks",
+    "https://emdash.com/docs/github-accounts",
+    "https://emdash.com/docs/project-config",
+    "https://emdash.com/docs/remote-development"
   ],
   "lastVerified": "2026-10-18"
 }

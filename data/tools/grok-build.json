@@ -70,14 +70,26 @@
     ]
   },
   "features": {
-    "worktrees": null,
+    "worktrees": true,
     "parallelAgents": true,
     "subagents": true,
     "mcp": true,
     "remoteAccess": null,
     "cloudSandbox": false,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": false,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 27446,
@@ -108,7 +120,15 @@
     "https://x.ai/build",
     "https://docs.x.ai/build/overview",
     "https://x.ai/pricing",
-    "https://github.com/xAI-org/grok-build"
+    "https://github.com/xAI-org/grok-build",
+    "https://docs.x.ai/build/cli/headless-scripting",
+    "https://docs.x.ai/build/features/background-tasks",
+    "https://docs.x.ai/build/features/sessions",
+    "https://docs.x.ai/build/features/hooks",
+    "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+    "https://docs.x.ai/build/features/subagents",
+    "https://docs.x.ai/build/features/sandbox",
+    "https://docs.x.ai/build/features/worktrees"
   ],
   "lastVerified": "2026-10-18"
 }

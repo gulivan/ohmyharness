@@ -59,7 +59,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": null,
+    "headlessApi": true
   },
   "github": {
     "stars": 4436,
@@ -94,7 +106,20 @@
     "https://getbb.app/guides/remote-dev-servers",
     "https://github.com/get-bb/bb",
     "https://github.com/get-bb/bb/blob/main/docs/worktrees.md",
-    "https://github.com/get-bb/bb/blob/main/docs/configuration.md"
+    "https://github.com/get-bb/bb/blob/main/docs/configuration.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-plugins.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-browser.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-environments.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-providers.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-customization.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-threads.md",
+    "https://github.com/get-bb/bb/blob/main/packages/templates/src/templates/bb-guide-thread-lifecycle.md",
+    "https://github.com/get-bb/bb/blob/main/docs/cli-guide-and-skill.md",
+    "https://github.com/get-bb/bb/blob/main/plugins/github/PLUGIN_OVERVIEW.md",
+    "https://github.com/get-bb/bb/blob/main/plugins/tasks/PLUGIN_OVERVIEW.md",
+    "https://github.com/get-bb/bb/blob/main/plugins/automations/PLUGIN_OVERVIEW.md",
+    "https://github.com/get-bb/bb/blob/main/plugins/browser-automation/PLUGIN_OVERVIEW.md",
+    "https://github.com/get-bb/bb/blob/main/plugins/browser-automation/skills/browser-automation/SKILL.md"
   ],
   "lastVerified": "2026-10-18"
 }

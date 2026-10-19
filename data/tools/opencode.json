@@ -75,7 +75,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 216418,
@@ -129,7 +141,16 @@
     "https://github.com/anomalyco/opencode",
     "https://opencode.ai/go",
     "https://opencode.ai/zen",
-    "https://opencode.ai/docs/zen/"
+    "https://opencode.ai/docs/zen/",
+    "https://opencode.ai/docs/acp",
+    "https://opencode.ai/docs/agents",
+    "https://opencode.ai/docs/permissions",
+    "https://opencode.ai/docs/plugins",
+    "https://opencode.ai/docs/skills",
+    "https://opencode.ai/docs/tui",
+    "https://opencode.ai/docs/server",
+    "https://opencode.ai/docs/cli",
+    "https://opencode.ai/docs/github"
   ],
   "lastVerified": "2026-10-18"
 }

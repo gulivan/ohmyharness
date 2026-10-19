@@ -46,7 +46,19 @@
     "remoteAccess": null,
     "cloudSandbox": false,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 240,
@@ -75,7 +87,15 @@
     "https://imbue.com/product/sculptor/",
     "https://github.com/imbue-ai/sculptor",
     "https://imbue.com/blog/containers",
-    "https://github.com/imbue-ai/sculptor/blob/main/README.md"
+    "https://github.com/imbue-ai/sculptor/blob/main/README.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/skills.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/pull_requests.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/integrated_harnesses.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/container_backend.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/workspaces.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/cli.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/agents.md",
+    "https://github.com/imbue-ai/sculptor/blob/main/docs/help/ci_babysitter.md"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -48,7 +48,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": false,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 40043,
@@ -90,7 +102,8 @@
   "sources": [
     "https://github.com/Yeachan-Heo/oh-my-claudecode",
     "https://oh-my-claudecode.dev/",
-    "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/README.md"
+    "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/main/README.md",
+    "https://yeachan-heo.github.io/oh-my-claudecode-website/docs/"
   ],
   "lastVerified": "2026-10-18"
 }

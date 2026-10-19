@@ -62,7 +62,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": null,
+    "prIntegration": false,
+    "automations": true,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 450,
@@ -95,7 +107,15 @@
     "https://diri.sh/docs/mcp/",
     "https://diri.sh/docs/agents/",
     "https://diri.sh/docs/install.md",
-    "https://github.com/cristicretu/diri"
+    "https://github.com/cristicretu/diri",
+    "https://diri.sh/docs/scheduled-tasks.md",
+    "https://diri.sh/docs/sessions.md",
+    "https://diri.sh/docs/worktrees.md",
+    "https://diri.sh/docs/accounts.md",
+    "https://diri.sh/docs/security.md",
+    "https://diri.sh/docs/cli.md",
+    "https://diri.sh/docs/agents.md",
+    "https://diri.sh/docs/mcp-tools.md"
   ],
   "lastVerified": "2026-10-18"
 }

@@ -72,7 +72,19 @@
     "remoteAccess": true,
     "cloudSandbox": false,
     "diffReview": null,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 7925,
@@ -114,7 +126,16 @@
     "https://www.kimi.com/code",
     "https://moonshotai.github.io/kimi-code/en/guides/getting-started",
     "https://www.kimi.ai/help/membership/membership-pricing",
-    "https://www.kimi.com/code/en"
+    "https://www.kimi.com/code/en",
+    "https://kimi-cli.com/en/reference/kimi-acp.md",
+    "https://kimi-cli.com/en/customization/print-mode.md",
+    "https://kimi-cli.com/en/configuration/providers.md",
+    "https://kimi-cli.com/en/guides/ides.md",
+    "https://kimi-cli.com/en/customization/hooks.md",
+    "https://kimi-cli.com/en/customization/skills.md",
+    "https://kimi-cli.com/en/customization/agents.md",
+    "https://kimi-cli.com/en/reference/kimi-web.md",
+    "https://kimi-cli.com/en/reference/slash-commands.md"
   ],
   "lastVerified": "2026-10-18"
 }

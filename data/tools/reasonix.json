@@ -40,14 +40,26 @@
     ]
   },
   "features": {
-    "worktrees": null,
-    "parallelAgents": null,
-    "subagents": null,
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
     "mcp": true,
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": true,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 35845,
@@ -79,7 +91,18 @@
   "sources": [
     "https://github.com/esengine/DeepSeek-Reasonix",
     "https://reasonix.io/",
-    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/README.md"
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/README.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/ACP.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/CHECKPOINTS.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/CONFIG.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/EXTENSIONS.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/SKILLS.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/SUBAGENT_PROFILES.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/CLI.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/TOOL_APPROVAL_MODES.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/REASONING_PROVIDERS.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/SESSION_WORKTREES.md",
+    "https://github.com/esengine/DeepSeek-Reasonix/blob/main/docs/SPEC.md"
   ],
   "lastVerified": "2026-10-18"
 }

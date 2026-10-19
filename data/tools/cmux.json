@@ -76,7 +76,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 28244,
@@ -105,7 +117,10 @@
     "https://github.com/manaflow-ai/cmux",
     "https://cmux.com",
     "https://cmux.com/docs/getting-started",
-    "https://cmux.com/pricing"
+    "https://cmux.com/pricing",
+    "https://cmux.com/docs/skills",
+    "https://cmux.com/docs/browser-automation",
+    "https://cmux.com/docs/api"
   ],
   "lastVerified": "2026-10-18"
 }

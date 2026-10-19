@@ -72,7 +72,19 @@
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": false,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -102,7 +114,15 @@
     "https://docs.capy.ai/captains",
     "https://capy.ai/pricing",
     "https://docs.capy.ai/models-and-pricing",
-    "https://docs.capy.ai/desktop"
+    "https://docs.capy.ai/desktop",
+    "https://docs.capy.ai/automations.md",
+    "https://docs.capy.ai/pull-requests.md",
+    "https://docs.capy.ai/skills.md",
+    "https://docs.capy.ai/threads.md",
+    "https://docs.capy.ai/captains.md",
+    "https://docs.capy.ai/api-reference/overview.md",
+    "https://docs.capy.ai/integrations/linear.md",
+    "https://docs.capy.ai/llms-full.txt"
   ],
   "lastVerified": "2026-10-18"
 }

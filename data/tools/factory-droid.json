@@ -85,14 +85,26 @@
     ]
   },
   "features": {
-    "worktrees": null,
+    "worktrees": true,
     "parallelAgents": true,
     "subagents": true,
     "mcp": true,
     "remoteAccess": true,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": true,
+    "checkpoints": null,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": true,
+    "browserPreview": null,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -138,7 +150,23 @@
     "https://factory.com/pricing",
     "https://docs.factory.com/model-independence/byok",
     "https://github.com/Factory-AI/factory",
-    "https://docs.factory.com/droid-cli/quickstart"
+    "https://docs.factory.com/droid-cli/quickstart",
+    "https://docs.factory.com/factory-app/worktrees",
+    "https://docs.factory.com/software-factory/automations",
+    "https://docs.factory.com/software-factory/code-review",
+    "https://docs.factory.com/software-factory/droid-control",
+    "https://docs.factory.com/delegations/jira",
+    "https://docs.factory.com/delegations/linear",
+    "https://docs.factory.com/harness/subagents",
+    "https://docs.factory.com/harness/skills",
+    "https://docs.factory.com/harness/hooks",
+    "https://docs.factory.com/autonomy-and-safety/sandbox",
+    "https://docs.factory.com/autonomy-and-safety/permission-rules",
+    "https://docs.factory.com/droid-exec/overview",
+    "https://docs.factory.com/sdk/python",
+    "https://docs.factory.com/sdk/typescript",
+    "https://docs.factory.com/models",
+    "https://docs.factory.com/remote-control"
   ],
   "lastVerified": "2026-10-18"
 }

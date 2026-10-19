@@ -64,7 +64,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": null,
   "status": "beta",
@@ -85,7 +97,17 @@
     "https://super.engineering/docs/agent-orchestration/",
     "https://super.engineering/terms/",
     "https://super.engineering/terms",
-    "https://super.engineering/teams"
+    "https://super.engineering/teams",
+    "https://super.engineering/docs/providers-and-models/",
+    "https://super.engineering/docs/agents-overview/",
+    "https://super.engineering/docs/browser-control/",
+    "https://super.engineering/docs/custom-commands-and-routing/",
+    "https://super.engineering/docs/automation-recipes/",
+    "https://super.engineering/docs/pull-requests-and-review/",
+    "https://super.engineering/docs/supported-forges/",
+    "https://super.engineering/docs/session-history-and-restore/",
+    "https://super.engineering/docs/cli-local-api/",
+    "https://super.engineering/docs/project-config-and-scripts/"
   ],
   "lastVerified": "2026-10-18"
 }

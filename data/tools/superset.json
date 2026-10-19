@@ -76,7 +76,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": true,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 15342,
@@ -115,7 +127,19 @@
     "https://docs.superset.sh/agent-integration",
     "https://superset.sh/pricing",
     "https://github.com/superset-sh/superset",
-    "https://superset.sh/download"
+    "https://superset.sh/download",
+    "https://docs.superset.sh/supported-agents",
+    "https://docs.superset.sh/automations",
+    "https://docs.superset.sh/browser",
+    "https://docs.superset.sh/pull-requests",
+    "https://docs.superset.sh/tasks",
+    "https://docs.superset.sh/use-with-linear",
+    "https://docs.superset.sh/cli/cli-reference",
+    "https://docs.superset.sh/mcp-server",
+    "https://docs.superset.sh/skills",
+    "https://docs.superset.sh/providers",
+    "https://docs.superset.sh/computer",
+    "https://docs.superset.sh/agent-sessions"
   ],
   "lastVerified": "2026-10-18"
 }

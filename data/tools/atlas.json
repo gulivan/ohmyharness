@@ -70,7 +70,19 @@
     "remoteAccess": null,
     "cloudSandbox": true,
     "diffReview": true,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": null,
+    "headlessApi": false
   },
   "github": {
     "stars": 9618,
@@ -90,7 +102,13 @@
   ],
   "sources": [
     "https://github.com/pacifio/atlas",
-    "https://tryatlas.cc/"
+    "https://tryatlas.cc/",
+    "https://docs.tryatlas.cc/docs/agents",
+    "https://docs.tryatlas.cc/docs/agents/registry",
+    "https://docs.tryatlas.cc/docs/context/skills",
+    "https://docs.tryatlas.cc/docs/source-control/issues",
+    "https://docs.tryatlas.cc/docs/source-control/git",
+    "https://docs.tryatlas.cc/docs/cli"
   ],
   "lastVerified": "2026-10-18"
 }

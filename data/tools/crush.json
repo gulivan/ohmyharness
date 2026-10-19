@@ -45,7 +45,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": false,
+    "customAgents": false,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": {
     "stars": 28692,
@@ -84,7 +96,10 @@
   "sources": [
     "https://github.com/charmbracelet/crush",
     "https://github.com/charmbracelet/crush/blob/main/LICENSE.md",
-    "https://github.com/charmbracelet/crush/releases/latest"
+    "https://github.com/charmbracelet/crush/releases/latest",
+    "https://github.com/charmbracelet/crush/blob/main/docs/hooks/README.md",
+    "https://github.com/charmbracelet/crush/blob/main/docs/config/README.md",
+    "https://github.com/charmbracelet/crush/blob/main/internal/cmd/run.go"
   ],
   "lastVerified": "2026-10-18"
 }

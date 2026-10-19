@@ -59,7 +59,19 @@
     "remoteAccess": true,
     "cloudSandbox": null,
     "diffReview": true,
-    "planMode": true
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "customAgents": false,
+    "checkpoints": true,
+    "prIntegration": true,
+    "automations": true,
+    "skills": false,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": true,
+    "sandboxing": false,
+    "headlessApi": true
   },
   "github": {
     "stars": 28315,
@@ -109,7 +121,15 @@
     "https://github.com/pingdotgg/t3code/blob/main/docs/user/thread-sidebar.md",
     "https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md",
     "https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md",
-    "https://github.com/pingdotgg/t3code/blob/main/README.md"
+    "https://github.com/pingdotgg/t3code/blob/main/README.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/project-settings.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/source-control.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/html-renders.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/devices.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/composer.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/providers-acp.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/user/providers-claude.md",
+    "https://github.com/pingdotgg/t3code/blob/main/docs/orchestration-v2/orchestrator-mcp-server.md"
   ],
   "lastVerified": "2026-10-18"
 }

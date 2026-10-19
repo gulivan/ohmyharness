@@ -48,7 +48,19 @@
     "remoteAccess": null,
     "cloudSandbox": null,
     "diffReview": null,
-    "planMode": null
+    "planMode": null,
+    "multiProvider": false,
+    "acp": true,
+    "customAgents": true,
+    "checkpoints": false,
+    "prIntegration": false,
+    "automations": false,
+    "skills": true,
+    "hooks": false,
+    "issueTracker": false,
+    "browserPreview": false,
+    "sandboxing": false,
+    "headlessApi": false
   },
   "github": {
     "stars": 9615,
@@ -80,7 +92,9 @@
   "sources": [
     "https://github.com/alvinunreal/oh-my-opencode-slim",
     "https://ohmyopencodeslim.com/",
-    "https://github.com/alvinunreal/oh-my-opencode-slim/blob/main/README.md"
+    "https://github.com/alvinunreal/oh-my-opencode-slim/blob/main/README.md",
+    "https://github.com/alvinunreal/oh-my-opencode-slim/blob/main/docs/acp-agents.md",
+    "https://github.com/alvinunreal/oh-my-opencode-slim/blob/main/docs/configuration.md"
   ],
   "lastVerified": "2026-10-18"
 }
