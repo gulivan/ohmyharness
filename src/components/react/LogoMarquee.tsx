@@ -65,13 +65,12 @@ export default function LogoMarquee({ logos }: Props) {
   return (
     <LogoLoop
       logos={items}
-      speed={46}
-      logoHeight={22}
-      gap={14}
+      speed={30}
+      logoHeight={20}
+      gap={0}
       pauseOnHover
       scaleOnHover
-      fadeOut
-      fadeOutWidth={0.08}
+      fadeOut={false}
       intro={false}
       draggable={false}
       ariaLabel="Tools in the directory"

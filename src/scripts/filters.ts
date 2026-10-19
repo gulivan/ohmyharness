@@ -17,6 +17,14 @@ interface FilterState {
   sort: SortOrder;
 }
 
+const KIND_NAMES: Record<Kind, string> = {
+  all: "All kinds",
+  harness: "Harnesses",
+  orchestrator: "Orchestrators",
+  "cloud-agent": "Cloud agents",
+  "add-on": "Add-ons",
+};
+
 const root = document.querySelector<HTMLElement>("[data-filters]");
 
 if (root) {
@@ -27,12 +35,16 @@ function initFilters(container: HTMLElement): void {
   const cards = Array.from(
     document.querySelectorAll<HTMLElement>("[data-tool]"),
   );
-  const search = document.querySelector<HTMLInputElement>("#filter-search");
+  // The hero and the sticky toolbar both drive the same query.
+  const searchInputs = Array.from(
+    document.querySelectorAll<HTMLInputElement>("[data-filter-search]"),
+  );
   const osSelect = document.querySelector<HTMLSelectElement>("#filter-os");
   const platformSelect =
     document.querySelector<HTMLSelectElement>("#filter-platform");
   const interfaceSelect =
     document.querySelector<HTMLSelectElement>("#filter-interface");
+  const priceSelect = document.querySelector<HTMLSelectElement>("#filter-price");
   const kindButtons = Array.from(
     container.querySelectorAll<HTMLButtonElement>("[data-filter-kind]"),
   );
@@ -43,11 +55,34 @@ function initFilters(container: HTMLElement): void {
     container.querySelectorAll<HTMLButtonElement>("[data-filter-price]"),
   );
   const sortSelect = document.querySelector<HTMLSelectElement>("#filter-sort");
-  const grid = document.querySelector<HTMLElement>(".tool-grid");
+  const grids = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-tool-grid]"),
+  );
   const results = document.querySelector<HTMLElement>("#results-count");
   const reset = document.querySelector<HTMLButtonElement>("#filter-reset");
   const empty = document.querySelector<HTMLElement>("#filter-empty");
+  const chips = document.querySelector<HTMLElement>("[data-active-filters]");
+  const activeRow = document.querySelector<HTMLElement>("[data-active-row]");
+  const clearAll = document.querySelector<HTMLButtonElement>(
+    "[data-clear-filters]",
+  );
+  const badge = document.querySelector<HTMLElement>(
+    "[data-hidden-filter-count]",
+  );
+  const moreButton = document.querySelector<HTMLElement>(
+    "[data-more-filters-toggle]",
+  );
   const total = cards.length;
+
+  const featureLabels = new Map<string, string>();
+  for (const input of featureInputs) {
+    const label =
+      input
+        .closest("label")
+        ?.querySelector<HTMLElement>(".chip__text")
+        ?.textContent?.trim() ?? input.value;
+    featureLabels.set(input.value, label);
+  }
 
   let state = readState();
 
@@ -83,10 +118,13 @@ function initFilters(container: HTMLElement): void {
   }
 
   function applyControls(): void {
-    if (search) search.value = state.q;
+    for (const input of searchInputs) {
+      if (input.value !== state.q) input.value = state.q;
+    }
     if (osSelect) osSelect.value = state.os;
     if (platformSelect) platformSelect.value = state.platform;
     if (interfaceSelect) interfaceSelect.value = state.iface;
+    if (priceSelect) priceSelect.value = state.price;
     if (sortSelect) sortSelect.value = state.sort;
     for (const button of kindButtons) {
       button.setAttribute(
@@ -103,6 +141,89 @@ function initFilters(container: HTMLElement): void {
     for (const input of featureInputs) {
       input.checked = state.features.includes(input.value);
     }
+    renderChips();
+    updateBadge();
+  }
+
+  function selectedText(
+    select: HTMLSelectElement | null,
+    fallback: string,
+  ): string {
+    return select?.selectedOptions[0]?.textContent?.trim() || fallback;
+  }
+
+  function renderChips(): void {
+    if (!chips) return;
+
+    const items: Array<{ key: string; label: string }> = [];
+    if (state.q.trim()) {
+      items.push({ key: "q", label: `“${state.q.trim()}”` });
+    }
+    if (state.kind !== "all") {
+      items.push({ key: "kind", label: KIND_NAMES[state.kind] });
+    }
+    if (state.price !== "any") {
+      items.push({
+        key: "price",
+        label: selectedText(priceSelect, "Price"),
+      });
+    }
+    if (state.os !== "any") {
+      items.push({ key: "os", label: selectedText(osSelect, "Source") });
+    }
+    if (state.platform) {
+      items.push({
+        key: "platform",
+        label: selectedText(platformSelect, "Platform"),
+      });
+    }
+    if (state.iface) {
+      items.push({
+        key: "iface",
+        label: selectedText(interfaceSelect, "Interface"),
+      });
+    }
+    for (const feature of state.features) {
+      items.push({
+        key: `f:${feature}`,
+        label: featureLabels.get(feature) ?? feature,
+      });
+    }
+
+    chips.replaceChildren();
+    chips.hidden = items.length === 0;
+    if (activeRow) activeRow.hidden = items.length === 0;
+    if (clearAll) clearAll.hidden = items.length === 0;
+
+    for (const item of items) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "active-chip";
+      button.dataset.removeFilter = item.key;
+      button.setAttribute("aria-label", `Remove filter: ${item.label}`);
+
+      const text = document.createElement("span");
+      text.textContent = item.label;
+      const close = document.createElement("span");
+      close.className = "active-chip__x";
+      close.setAttribute("aria-hidden", "true");
+      close.textContent = "×";
+
+      button.append(text, close);
+      chips.append(button);
+    }
+  }
+
+  function updateBadge(): void {
+    const hidden =
+      (state.os !== "any" ? 1 : 0) +
+      (state.iface ? 1 : 0) +
+      state.features.length;
+    if (badge) {
+      badge.textContent = String(hidden);
+      badge.hidden = hidden === 0;
+    }
+    moreButton?.classList.toggle("has-active", hidden > 0);
   }
 
   function writeUrl(): void {
@@ -167,13 +288,11 @@ function initFilters(container: HTMLElement): void {
     return tokens.every((token) => haystack.includes(token));
   }
 
-  function sortCards(): void {
-    if (!grid) return;
-
+  function sortedCards(): HTMLElement[] {
     const byName = (a: HTMLElement, b: HTMLElement): number =>
       (a.dataset.name ?? "").localeCompare(b.dataset.name ?? "", "en");
 
-    const sorted = [...cards].sort((a, b) => {
+    return [...cards].sort((a, b) => {
       if (state.sort === "stars") {
         const starsA = Number(a.dataset.stars ?? "") || -1;
         const starsB = Number(b.dataset.stars ?? "") || -1;
@@ -190,47 +309,104 @@ function initFilters(container: HTMLElement): void {
       }
       return byName(a, b);
     });
+  }
 
-    for (const card of sorted) grid.append(card);
+  function place(
+    sorted: HTMLElement[],
+    visible: Map<HTMLElement, boolean>,
+  ): void {
+    const [first, rest] = grids;
+    if (!first) return;
+
+    const shown: HTMLElement[] = [];
+    const hidden: HTMLElement[] = [];
+    for (const card of sorted) {
+      (visible.get(card) ? shown : hidden).push(card);
+    }
+
+    // The tier-list band sits between the first six results and the rest.
+    shown.slice(0, 6).forEach((card) => first.append(card));
+    if (rest) {
+      shown.slice(6).forEach((card) => rest.append(card));
+      hidden.forEach((card) => rest.append(card));
+    } else {
+      shown.slice(6).forEach((card) => first.append(card));
+      hidden.forEach((card) => first.append(card));
+    }
   }
 
   function update(shouldWriteUrl = true): void {
-    sortCards();
+    const sorted = sortedCards();
+    const visible = new Map<HTMLElement, boolean>();
+    for (const card of cards) visible.set(card, matches(card));
 
-    let visible = 0;
+    place(sorted, visible);
+
+    let count = 0;
     for (const card of cards) {
-      const show = matches(card);
+      const show = visible.get(card) === true;
       card.hidden = !show;
-      if (show) visible += 1;
+      if (show) count += 1;
     }
 
     if (results) {
       results.textContent =
-        visible === total
-          ? plural(total, "tool")
-          : `${visible} of ${plural(total, "tool")}`;
+        count === total ? plural(total, "tool") : `${count} of ${plural(total, "tool")}`;
     }
-    if (empty) empty.hidden = visible > 0 || total === 0;
+    if (empty) empty.hidden = count > 0 || total === 0;
     if (shouldWriteUrl) writeUrl();
   }
 
-  search?.addEventListener("input", () => {
-    state.q = search.value;
+  function clearFilters(): void {
+    state = {
+      q: "",
+      kind: "all",
+      os: "any",
+      price: "any",
+      platform: "",
+      iface: "",
+      features: [],
+      sort: "name",
+    };
+    applyControls();
     update();
-  });
+  }
+
+  for (const input of searchInputs) {
+    input.addEventListener("input", () => {
+      state.q = input.value;
+      for (const other of searchInputs) {
+        if (other !== input && other.value !== state.q) other.value = state.q;
+      }
+      update();
+    });
+  }
 
   osSelect?.addEventListener("change", () => {
     state.os = (osSelect.value as SourceFilter) || "any";
+    applyControls();
     update();
   });
 
   platformSelect?.addEventListener("change", () => {
     state.platform = platformSelect.value;
+    applyControls();
     update();
   });
 
   interfaceSelect?.addEventListener("change", () => {
     state.iface = interfaceSelect.value;
+    applyControls();
+    update();
+  });
+
+  priceSelect?.addEventListener("change", () => {
+    const value = priceSelect.value;
+    state.price =
+      value === "free" || value === "under20" || value === "under50"
+        ? (value as PriceFilter)
+        : "any";
+    applyControls();
     update();
   });
 
@@ -262,24 +438,35 @@ function initFilters(container: HTMLElement): void {
       state.features = featureInputs
         .filter((item) => item.checked)
         .map((item) => item.value);
+      applyControls();
       update();
     });
   }
 
-  reset?.addEventListener("click", () => {
-    state = {
-      q: "",
-      kind: "all",
-      os: "any",
-      price: "any",
-      platform: "",
-      iface: "",
-      features: [],
-      sort: "name",
-    };
+  chips?.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    const button = target?.closest<HTMLButtonElement>("[data-remove-filter]");
+    if (!button) return;
+
+    const key = button.dataset.removeFilter ?? "";
+    if (key === "q") state.q = "";
+    else if (key === "kind") state.kind = "all";
+    else if (key === "price") state.price = "any";
+    else if (key === "os") state.os = "any";
+    else if (key === "platform") state.platform = "";
+    else if (key === "iface") state.iface = "";
+    else if (key.startsWith("f:")) {
+      state.features = state.features.filter(
+        (feature) => feature !== key.slice(2),
+      );
+    }
+
     applyControls();
     update();
   });
+
+  clearAll?.addEventListener("click", clearFilters);
+  reset?.addEventListener("click", clearFilters);
 
   window.addEventListener("popstate", () => {
     state = readState();
