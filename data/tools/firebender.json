@@ -85,16 +85,16 @@
     "cloudSandbox": null,
     "diffReview": null,
     "planMode": true,
-    "multiProvider": null,
+    "multiProvider": true,
     "acp": null,
-    "automations": null,
+    "customAgents": true,
+    "checkpoints": true,
     "prIntegration": null,
+    "automations": null,
+    "skills": true,
+    "hooks": true,
     "issueTracker": null,
     "browserPreview": null,
-    "checkpoints": true,
-    "hooks": true,
-    "skills": true,
-    "customAgents": true,
     "sandboxing": null,
     "headlessApi": null
   },
@@ -117,7 +117,11 @@
     "https://docs.firebender.com/get-started/pricing",
     "https://docs.firebender.com/multi-agent/worktrees",
     "https://docs.firebender.com/input/checkpointing",
-    "https://docs.firebender.com/llms.txt"
+    "https://docs.firebender.com/llms.txt",
+    "https://docs.firebender.com/get-started/models",
+    "https://docs.firebender.com/multi-agent/subagents",
+    "https://docs.firebender.com/multi-agent/hooks",
+    "https://docs.firebender.com/multi-agent/skills"
   ],
   "lastVerified": "2026-10-19"
 }

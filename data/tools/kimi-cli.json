@@ -13,7 +13,8 @@
     "cli",
     "tui",
     "web",
-    "ide-extension"
+    "ide-extension",
+    "desktop"
   ],
   "platforms": [
     "macos",
@@ -135,7 +136,8 @@
     "https://kimi-cli.com/en/customization/skills.md",
     "https://kimi-cli.com/en/customization/agents.md",
     "https://kimi-cli.com/en/reference/kimi-web.md",
-    "https://kimi-cli.com/en/reference/slash-commands.md"
+    "https://kimi-cli.com/en/reference/slash-commands.md",
+    "https://www.kimi.com/coding"
   ],
   "lastVerified": "2026-10-18"
 }

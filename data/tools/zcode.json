@@ -73,17 +73,17 @@
     "cloudSandbox": null,
     "diffReview": null,
     "planMode": true,
-    "multiProvider": null,
+    "multiProvider": true,
     "acp": null,
-    "automations": true,
+    "customAgents": true,
+    "checkpoints": true,
     "prIntegration": null,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
     "issueTracker": null,
     "browserPreview": true,
-    "checkpoints": null,
-    "hooks": true,
-    "skills": true,
-    "customAgents": true,
-    "sandboxing": null,
+    "sandboxing": true,
     "headlessApi": null
   },
   "github": {
@@ -117,7 +117,8 @@
     "https://zcode.z.ai/en/docs/browser-use",
     "https://z.ai/subscribe",
     "https://docs.z.ai/guides/overview/pricing",
-    "https://github.com/zai-org/ZCode"
+    "https://github.com/zai-org/ZCode",
+    "https://zcode.z.ai/en/docs/edit-history"
   ],
   "lastVerified": "2026-10-19"
 }

@@ -66,24 +66,24 @@
     ]
   },
   "features": {
-    "worktrees": null,
+    "worktrees": true,
     "parallelAgents": true,
     "subagents": true,
     "mcp": null,
     "remoteAccess": true,
-    "cloudSandbox": true,
+    "cloudSandbox": false,
     "diffReview": null,
     "planMode": null,
     "multiProvider": true,
     "acp": null,
+    "customAgents": null,
+    "checkpoints": null,
+    "prIntegration": false,
     "automations": null,
-    "prIntegration": null,
+    "skills": null,
+    "hooks": null,
     "issueTracker": null,
     "browserPreview": true,
-    "checkpoints": null,
-    "hooks": null,
-    "skills": null,
-    "customAgents": null,
     "sandboxing": null,
     "headlessApi": null
   },
@@ -119,7 +119,8 @@
     "https://freebuff.com/cli",
     "https://freebuff.com/plans",
     "https://freebuff.com/llms.txt",
-    "https://github.com/CodebuffAI/freebuff"
+    "https://github.com/CodebuffAI/freebuff",
+    "https://freebuff.com/llms-full.txt"
   ],
   "lastVerified": "2026-10-19"
 }

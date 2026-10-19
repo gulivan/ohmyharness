@@ -40,19 +40,19 @@
     "mcp": true,
     "remoteAccess": null,
     "cloudSandbox": true,
-    "diffReview": null,
+    "diffReview": true,
     "planMode": null,
-    "multiProvider": null,
+    "multiProvider": false,
     "acp": null,
-    "automations": null,
+    "customAgents": null,
+    "checkpoints": null,
     "prIntegration": null,
+    "automations": null,
+    "skills": false,
+    "hooks": null,
     "issueTracker": null,
     "browserPreview": true,
-    "checkpoints": null,
-    "hooks": null,
-    "skills": null,
-    "customAgents": null,
-    "sandboxing": null,
+    "sandboxing": false,
     "headlessApi": null
   },
   "github": null,
@@ -68,7 +68,12 @@
     }
   ],
   "sources": [
-    "https://firebase.studio/"
+    "https://firebase.studio/",
+    "https://firebase.google.com/docs/studio/llms.txt",
+    "https://firebase.google.com/docs/studio/try-gemini",
+    "https://firebase.google.com/docs/studio/preview-apps",
+    "https://firebase.google.com/docs/studio/set-up-gemini",
+    "https://firebase.google.com/docs/studio"
   ],
   "lastVerified": "2026-10-19"
 }

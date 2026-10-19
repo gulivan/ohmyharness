@@ -54,7 +54,7 @@
     ]
   },
   "features": {
-    "worktrees": null,
+    "worktrees": true,
     "parallelAgents": true,
     "subagents": null,
     "mcp": true,
@@ -64,15 +64,15 @@
     "planMode": null,
     "multiProvider": true,
     "acp": true,
-    "automations": null,
+    "customAgents": true,
+    "checkpoints": false,
     "prIntegration": null,
+    "automations": null,
+    "skills": true,
+    "hooks": false,
     "issueTracker": null,
     "browserPreview": null,
-    "checkpoints": true,
-    "hooks": null,
-    "skills": true,
-    "customAgents": null,
-    "sandboxing": null,
+    "sandboxing": true,
     "headlessApi": null
   },
   "github": {
@@ -98,7 +98,12 @@
     "https://zed.dev/docs/ai/parallel-agents",
     "https://zed.dev/docs/ai/external-agents",
     "https://zed.dev/docs/ai/skills",
-    "https://github.com/zed-industries/zed"
+    "https://github.com/zed-industries/zed",
+    "https://zed.dev/docs/ai/agent-panel",
+    "https://zed.dev/docs/ai/sandboxing",
+    "https://zed.dev/docs/ai/agent-profiles",
+    "https://zed.dev/docs/ai/tool-permissions",
+    "https://zed.dev/docs/tasks"
   ],
   "lastVerified": "2026-10-19"
 }

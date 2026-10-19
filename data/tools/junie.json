@@ -55,9 +55,9 @@
     ]
   },
   "features": {
-    "worktrees": null,
-    "parallelAgents": null,
-    "subagents": null,
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
     "mcp": true,
     "remoteAccess": true,
     "cloudSandbox": null,
@@ -65,16 +65,16 @@
     "planMode": true,
     "multiProvider": true,
     "acp": true,
-    "automations": null,
+    "customAgents": true,
+    "checkpoints": null,
     "prIntegration": true,
+    "automations": false,
+    "skills": true,
+    "hooks": true,
     "issueTracker": true,
     "browserPreview": null,
-    "checkpoints": null,
-    "hooks": null,
-    "skills": true,
-    "customAgents": null,
-    "sandboxing": null,
-    "headlessApi": null
+    "sandboxing": true,
+    "headlessApi": true
   },
   "github": null,
   "status": "active",
@@ -101,7 +101,21 @@
   ],
   "sources": [
     "https://junie.jetbrains.com/",
-    "https://www.jetbrains.com/ai-ides/buy/"
+    "https://www.jetbrains.com/ai-ides/buy/",
+    "https://junie.jetbrains.com/docs/junie-cli-worktrees.html",
+    "https://junie.jetbrains.com/docs/junie-cli-subagents.html",
+    "https://junie.jetbrains.com/docs/junie-cli-hooks.html",
+    "https://junie.jetbrains.com/docs/junie-headless.html",
+    "https://junie.jetbrains.com/docs/junie-cli-remote-mode.html",
+    "https://junie.jetbrains.com/docs/junie-cli-acp.html",
+    "https://junie.jetbrains.com/docs/junie-cli-plan-mode.html",
+    "https://junie.jetbrains.com/docs/agent-skills.html",
+    "https://junie.jetbrains.com/docs/action-allowlist-junie-cli.html",
+    "https://junie.jetbrains.com/docs/junie-on-github.html",
+    "https://junie.jetbrains.com/docs/automated-code-reviews.html",
+    "https://junie.jetbrains.com/docs/junie-jira-integration.html",
+    "https://junie.jetbrains.com/docs/youtrack-integration.html",
+    "https://junie.jetbrains.com/docs/junie-cli.html"
   ],
   "lastVerified": "2026-10-19"
 }

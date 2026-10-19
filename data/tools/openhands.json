@@ -67,14 +67,14 @@
     "planMode": null,
     "multiProvider": true,
     "acp": true,
-    "automations": true,
+    "customAgents": true,
+    "checkpoints": null,
     "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
     "issueTracker": true,
     "browserPreview": true,
-    "checkpoints": null,
-    "hooks": true,
-    "skills": true,
-    "customAgents": null,
     "sandboxing": true,
     "headlessApi": true
   },
@@ -110,7 +110,15 @@
     "https://docs.openhands.dev/openhands/usage/agent-canvas/setup",
     "https://docs.openhands.dev/openhands/usage/agent-canvas/overview",
     "https://docs.openhands.dev/llms.txt",
-    "https://github.com/OpenHands/OpenHands"
+    "https://github.com/OpenHands/OpenHands",
+    "https://docs.openhands.dev/sdk/guides/agent-custom",
+    "https://docs.openhands.dev/openhands/usage/customization/hooks",
+    "https://docs.openhands.dev/openhands/usage/automations/creating-automations",
+    "https://docs.openhands.dev/openhands/usage/automations/event-automations",
+    "https://docs.openhands.dev/overview/skills",
+    "https://docs.openhands.dev/sdk/guides/agent-acp",
+    "https://docs.openhands.dev/openhands/usage/cloud/project-management/jira-integration",
+    "https://docs.openhands.dev/openhands/usage/cli/headless"
   ],
   "lastVerified": "2026-10-19"
 }

@@ -97,15 +97,15 @@
     "planMode": true,
     "multiProvider": true,
     "acp": true,
-    "automations": true,
+    "customAgents": true,
+    "checkpoints": false,
     "prIntegration": true,
+    "automations": true,
+    "skills": true,
+    "hooks": true,
     "issueTracker": true,
     "browserPreview": true,
-    "checkpoints": false,
-    "hooks": true,
-    "skills": true,
-    "customAgents": true,
-    "sandboxing": null,
+    "sandboxing": true,
     "headlessApi": true
   },
   "github": null,
@@ -131,7 +131,9 @@
     "https://cursor.com/docs/hooks",
     "https://cursor.com/docs/skills",
     "https://cursor.com/docs/configuration/worktrees",
-    "https://cursor.com/docs/cli/acp"
+    "https://cursor.com/docs/cli/acp",
+    "https://cursor.com/docs/agent/security/run-modes",
+    "https://cursor.com/docs/agent/tools/terminal"
   ],
   "lastVerified": "2026-10-19"
 }

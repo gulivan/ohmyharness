@@ -71,16 +71,16 @@
     "cloudSandbox": null,
     "diffReview": null,
     "planMode": true,
-    "multiProvider": null,
+    "multiProvider": true,
     "acp": null,
-    "automations": null,
+    "customAgents": true,
+    "checkpoints": null,
     "prIntegration": null,
+    "automations": null,
+    "skills": true,
+    "hooks": null,
     "issueTracker": null,
     "browserPreview": null,
-    "checkpoints": null,
-    "hooks": null,
-    "skills": true,
-    "customAgents": true,
     "sandboxing": null,
     "headlessApi": true
   },
@@ -107,7 +107,8 @@
     "https://www.codebuff.com/docs/tips/modes",
     "https://www.codebuff.com/docs/tips/mcp-servers",
     "https://www.codebuff.com/pricing",
-    "https://github.com/CodebuffAI/codebuff"
+    "https://github.com/CodebuffAI/codebuff",
+    "https://www.codebuff.com/docs/advanced/what-models"
   ],
   "lastVerified": "2026-10-19"
 }

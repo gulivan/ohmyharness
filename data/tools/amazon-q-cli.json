@@ -51,17 +51,17 @@
     "cloudSandbox": null,
     "diffReview": null,
     "planMode": null,
-    "multiProvider": null,
+    "multiProvider": false,
     "acp": null,
-    "automations": null,
+    "customAgents": true,
+    "checkpoints": true,
     "prIntegration": null,
-    "issueTracker": null,
-    "browserPreview": null,
-    "checkpoints": null,
-    "hooks": null,
+    "automations": null,
     "skills": null,
-    "customAgents": null,
-    "sandboxing": null,
+    "hooks": true,
+    "issueTracker": null,
+    "browserPreview": false,
+    "sandboxing": true,
     "headlessApi": null
   },
   "github": {
@@ -91,7 +91,12 @@
   "sources": [
     "https://github.com/aws/amazon-q-developer-cli",
     "https://aws.amazon.com/q/developer/pricing/",
-    "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html"
+    "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html",
+    "https://github.com/aws/amazon-q-developer-cli/blob/main/docs/hooks.md",
+    "https://github.com/aws/amazon-q-developer-cli/blob/main/docs/agent-format.md",
+    "https://github.com/aws/amazon-q-developer-cli/blob/main/docs/experiments.md",
+    "https://github.com/aws/amazon-q-developer-cli/blob/main/docs/built-in-tools.md",
+    "https://github.com/aws/amazon-q-developer-cli/blob/main/docs/README.md"
   ],
   "lastVerified": "2026-10-19"
 }
