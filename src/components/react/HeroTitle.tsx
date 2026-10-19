@@ -6,13 +6,23 @@ interface Props {
 }
 
 /**
- * The hero headline. Both words are server-rendered; only the accent line
- * decrypts, once, when it scrolls into view. One moving element is enough.
+ * The hero headline. The real words are server-rendered, then each line
+ * decrypts once when it scrolls into view.
  */
 export default function HeroTitle({ first, second }: Props) {
   return (
     <>
-      <span className="display__line">{first}</span>
+      <span className="display__line">
+        <DecryptedText
+          text={first}
+          animateOn="view"
+          preserveInitialText
+          sequential
+          revealDirection="start"
+          speed={38}
+          maxIterations={7}
+        />
+      </span>
       <br />
       <span className="display__line display__accent">
         <DecryptedText
@@ -20,9 +30,9 @@ export default function HeroTitle({ first, second }: Props) {
           animateOn="view"
           preserveInitialText
           sequential
-          revealDirection="start"
+          revealDirection="end"
           speed={34}
-          maxIterations={8}
+          maxIterations={9}
         />
       </span>
     </>

@@ -1,6 +1,7 @@
 ---
 import type { Tool } from "../data/schema";
 import {
+  INTERFACE_LABELS,
   KIND_LABELS,
   PLATFORM_LABELS,
   PLATFORM_SHORT_LABELS,
@@ -12,7 +13,11 @@ import {
   sourceState,
   verifiedFeatureCount,
 } from "../lib/features";
-import { cheapestMonthly, hasFreePlan, priceLabel } from "../lib/pricing";
+import {
+  cheapestMonthly,
+  hasFreePlan,
+  priceLabel,
+} from "../lib/pricing";
 import { formatStars } from "../lib/tools";
 import Monogram from "./Monogram.astro";
 
@@ -36,20 +41,27 @@ const searchText = [
   .join(" ")
   .toLowerCase();
 
+const interfaces =
+  tool.interfaces.length > 0
+    ? tool.interfaces.map((value) => INTERFACE_LABELS[value] ?? value).join(" / ")
+    : "Interfaces ?";
+
 const pricing = priceLabel(tool);
 const monthly = cheapestMonthly(tool);
+
 const source = sourceLabel(tool);
 const install = tool.install[0] ?? null;
 const coverage = verifiedFeatureCount(tool);
 const tierHref = `/tier-list?add=${tool.slug}#v1|S~A~B~C~D|`;
+const compareHref = `/compare?tools=${tool.slug}`;
 
 const applicable = applicableFeatures(tool.kind);
 const byKey = new Map(applicable.map((feature) => [feature.key, feature]));
 const confirmed = prioritisedFeatures(tool)
   .map((key) => byKey.get(key))
   .filter((feature) => feature !== undefined);
-const visibleTags = confirmed.slice(0, 3);
-const hiddenTags = confirmed.slice(3);
+const visibleTags = confirmed.slice(0, 4);
+const hiddenTags = confirmed.slice(4);
 const unknown = applicable.filter(
   (feature) => tool.features[feature.key] === null,
 );
@@ -69,19 +81,10 @@ const platforms = tool.platforms.map((value) => ({
   short: PLATFORM_SHORT_LABELS[value] ?? value,
   label: PLATFORM_LABELS[value] ?? value,
 }));
-
-const metaTitle = [
-  pricing,
-  source,
-  tool.github ? `${formatStars(tool.github.stars)} stars` : null,
-  platforms.map((platform) => platform.label).join(", "),
-]
-  .filter(Boolean)
-  .join(" · ");
 ---
 
 <article
-  class="tcard"
+  class="tool-card"
   data-tool
   data-slug={tool.slug}
   data-kind={tool.kind}
@@ -96,124 +99,120 @@ const metaTitle = [
   data-price-monthly={monthly ?? ""}
   data-stars={tool.github ? String(tool.github.stars) : ""}
 >
-  <div class="tcard__head">
-    <Monogram slug={tool.slug} name={tool.name} size="sm" />
-    <div class="tcard__id">
-      <h3 class="tcard__name">
-        <a href={`/tools/${tool.slug}`}>{tool.name}</a>
-      </h3>
-      <p class="tcard__kind">
-        {KIND_LABELS[tool.kind]}{tool.status !== "active" && (
-          <span class="tcard__status"> · {tool.status}</span>
-        )}
-      </p>
-    </div>
-    <button
-      class="tcard__compare"
-      type="button"
-      data-compare-toggle
-      data-slug={tool.slug}
-      data-name={tool.name}
-      aria-pressed="false"
-      aria-label={`Add ${tool.name} to comparison`}
-    >
-      <span class="tcard__check" aria-hidden="true"></span>
-      <span class="tcard__compare-label" aria-hidden="true">Compare</span>
-    </button>
+  <div class="tool-card__top">
+    <Monogram slug={tool.slug} name={tool.name} />
+    <span class="tool-card__kind">
+      {KIND_LABELS[tool.kind]}{tool.status !== "active" && (
+        <span class="tool-card__status">{tool.status}</span>
+      )}
+    </span>
   </div>
 
-  <p class="tcard__tagline">{tool.tagline}</p>
+  <h3 class="tool-card__name">
+    <a href={`/tools/${tool.slug}`}>{tool.name}</a>
+  </h3>
 
-  <div class="tcard__mid">
-    <ul class="tcard__tags" aria-label="Confirmed features">
-      {visibleTags.map((feature) => (
-        <li class="tcard__tag">{feature.label}</li>
-      ))}
-      {hiddenTags.length > 0 && (
-        <li
-          class="tcard__tag tcard__tag--more"
-          title={hiddenTags.map((feature) => feature.label).join(", ")}
-        >
-          +{hiddenTags.length}
-        </li>
-      )}
-    </ul>
+  <p class="tool-card__tagline">{tool.tagline}</p>
+
+  <div class="tool-card__bottom">
+    {visibleTags.length > 0 && (
+      <ul class="tool-card__tags" aria-label="Confirmed features">
+        {visibleTags.map((feature) => (
+          <li class="tool-card__tag">{feature.label}</li>
+        ))}
+        {hiddenTags.length > 0 && (
+          <li
+            class="tool-card__tag tool-card__tag--more"
+            title={hiddenTags.map((feature) => feature.label).join(", ")}
+          >
+            +{hiddenTags.length}
+          </li>
+        )}
+      </ul>
+    )}
 
     <div
-      class="tcard__verify"
+      class="tool-card__verify"
       role="img"
       aria-label={verifyLabel}
       title={verifyLabel}
     >
-      <span
-        class:list={[
-          "tcard__meter",
-          { "tcard__meter--bar": applicable.length > 10 },
-        ]}
-        aria-hidden="true"
-      >
+      <span class:list={["tool-card__meter", { "tool-card__meter--bar": applicable.length > 10 }]} aria-hidden="true">
         {applicable.length > 10 ? (
-          <span class="tcard__meter-fill" style={`width:${meterPercent}%`}></span>
+          <span
+            class="tool-card__meter-fill"
+            style={`width:${meterPercent}%`}
+          ></span>
         ) : (
           applicable.map((feature) => (
             <span
               class:list={[
-                "tcard__meter-seg",
-                `tcard__meter-seg--${featureState(tool.features[feature.key])}`,
+                "tool-card__meter-seg",
+                `tool-card__meter-seg--${featureState(tool.features[feature.key])}`,
               ]}
             />
           ))
         )}
       </span>
-      <span class="tcard__verify-text">
+      <span class="tool-card__verify-text">
         {coverage.verified}/{coverage.total} verified
       </span>
     </div>
-  </div>
 
-  <p class="tcard__meta" title={metaTitle}>
-    <span class="tcard__price">{pricing}</span>
-    <span>{source}</span>
-    {tool.github && (
-      <span class="tcard__stars">★ {formatStars(tool.github.stars)}</span>
-    )}
-    {platforms.length > 0 && (
-      <span class="tcard__platforms">
-        {platforms.map((platform) => (
-          <abbr title={platform.label}>{platform.short}</abbr>
-        ))}
-      </span>
-    )}
-  </p>
+    <div class="tool-card__meta">
+      <p class="tool-card__price">{pricing}</p>
+      <p class="tool-card__detail">
+        <span>{source}</span>
+        {tool.github && (
+          <span class="tool-card__stars">★ {formatStars(tool.github.stars)}</span>
+        )}
+      </p>
+      {platforms.length > 0 && (
+        <p class="tool-card__detail tool-card__platforms">
+          {platforms.map((platform) => (
+            <abbr title={platform.label}>{platform.short}</abbr>
+          ))}
+        </p>
+      )}
+    </div>
 
-  <div class="tcard__foot">
-    {install &&
-      (install.type === "command" ? (
-        <div class="tcard__install">
-          <span class="tcard__install-prompt" aria-hidden="true">$</span>
-          <code class="tcard__install-text">{install.value}</code>
-          <button
-            class="tcard__copy"
-            type="button"
-            data-copy-text={install.value}
-            data-copied-label="✓"
-            data-copy-message={`${tool.name} install command copied`}
-            aria-label={`Copy the install command for ${tool.name}`}
-          >
-            <span aria-hidden="true" data-copy-feedback>⧉</span>
-          </button>
+    <div class="tool-card__footer">
+      {install && (
+        <div class="tool-card__install">
+          {install.type === "command" ? (
+            <>
+              <span class="tool-card__install-prompt" aria-hidden="true">$</span>
+              <code class="tool-card__install-text">{install.value}</code>
+              <button
+                class="tool-card__copy"
+                type="button"
+                data-copy-text={install.value}
+                data-copied-label="✓"
+                data-copy-message={`${tool.name} install command copied`}
+                aria-label={`Copy the install command for ${tool.name}`}
+              >
+                <span aria-hidden="true" data-copy-feedback>⧉</span>
+              </button>
+            </>
+          ) : (
+            <a
+              class="tool-card__get"
+              href={install.value}
+              target="_blank"
+              rel="noopener"
+            >
+              Get {tool.name} ↗
+            </a>
+          )}
         </div>
-      ) : (
-        <a
-          class="tcard__get"
-          href={install.value}
-          target="_blank"
-          rel="noopener"
-        >
-          Get {tool.name} ↗
-        </a>
-      ))}
+      )}
 
-    <a class="tcard__tier" href={tierHref}>Tier list +</a>
+      <div class="tool-card__actions">
+        <a class="tool-card__action" href={tierHref}>Add to tier list</a>
+        <a class="tool-card__action" href={compareHref}>Compare</a>
+      </div>
+    </div>
   </div>
+
+  <span class="visually-hidden">{interfaces}</span>
 </article>

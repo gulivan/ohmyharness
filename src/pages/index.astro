@@ -1,39 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CornerMarks from "../components/CornerMarks.astro";
 import ToolCard from "../components/ToolCard.astro";
+import Glyph from "../components/Glyph.astro";
 import HeroTitle from "../components/react/HeroTitle";
-import HeroTicker from "../components/react/HeroTicker";
+import HeroGlitch from "../components/react/HeroGlitch";
+import HeroStats from "../components/react/HeroStats";
 import LogoMarquee from "../components/react/LogoMarquee";
 import {
-  FEATURES,
-  FEATURE_GROUPS,
   INTERFACE_LABELS,
   KIND_LABELS,
-  KIND_PLURALS,
   PLATFORM_LABELS,
+  FEATURES,
+  FEATURE_GROUPS,
+  HEADLINE_FEATURE_KEYS,
 } from "../lib/features";
-import { PLATFORMS, type ToolKind } from "../data/schema";
+import { PLATFORMS } from "../data/schema";
 import {
   countByKind,
   formatDate,
   getAllTools,
-  iconFor,
+  getRecentlyVerified,
+  iconFile,
   latestVerified,
+  REPO_URL,
 } from "../lib/tools";
-import "../styles/home.css";
 
 const tools = getAllTools();
 const counts = countByKind();
 const verified = latestVerified();
+const recent = getRecentlyVerified(4);
 const total = tools.length;
-const verifiedLabel = verified ? formatDate(verified) : null;
+const year = new Date().getFullYear();
 
 const logos = tools
   .flatMap((tool) => {
-    const icon = iconFor(tool.slug);
+    const icon = iconFile(tool.slug);
     return icon
-      ? [{ name: tool.name, src: icon, href: `/tools/${tool.slug}` }]
+      ? [{ name: tool.name, src: icon.url, href: `/tools/${tool.slug}` }]
       : [];
   })
   .sort((a, b) => a.name.localeCompare(b.name, "en"));
@@ -41,84 +44,14 @@ const logos = tools
 const description =
   "An open, sourced directory of AI coding harnesses, orchestrators, cloud agents and add-ons. Compare features, check the facts behind each tool, and make your own tier list.";
 
-const featureCounts = new Map(
-  FEATURES.map((feature) => [
-    feature.key,
-    tools.filter((tool) => tool.features[feature.key] === true).length,
-  ]),
-);
-
-const KIND_ORDER: readonly ToolKind[] = [
-  "harness",
-  "orchestrator",
-  "cloud-agent",
-  "add-on",
-];
-
-const kindCards: Array<{
-  kind: ToolKind;
-  label: string;
-  count: number;
-  blurb: string;
-}> = [
-  {
-    kind: "harness",
-    label: KIND_LABELS.harness,
-    count: counts.harness,
-    blurb: "Runs the agent: reads files, edits code, calls tools.",
-  },
-  {
-    kind: "orchestrator",
-    label: KIND_LABELS.orchestrator,
-    count: counts.orchestrator,
-    blurb: "Runs many sessions at once, with worktrees and review.",
-  },
-  {
-    kind: "cloud-agent",
-    label: KIND_LABELS["cloud-agent"],
-    count: counts["cloud-agent"],
-    blurb: "Works in a hosted sandbox and returns a pull request.",
-  },
-  {
-    kind: "add-on",
-    label: KIND_LABELS["add-on"],
-    count: counts["add-on"],
-    blurb: "Extends one harness or orchestrator with new commands.",
-  },
-];
-
-const GRADES = ["S", "A", "B", "C", "D", "F"] as const;
-const TIER_POOL_SIZE = GRADES.length * 4;
-
-// A balanced sample board: four logos per grade, drawn round-robin from the
-// kinds so the preview reads as a mixture rather than a ranking.
-const buckets = KIND_ORDER.map((kind) =>
-  tools
-    .filter((tool) => tool.kind === kind && iconFor(tool.slug) !== null)
-    .sort((a, b) => a.name.localeCompare(b.name, "en")),
-);
-
-const tierPool: Array<{ slug: string; name: string; src: string }> = [];
-for (let index = 0; tierPool.length < TIER_POOL_SIZE; index += 1) {
-  let added = false;
-  for (const bucket of buckets) {
-    const tool = bucket[index];
-    if (tool && tierPool.length < TIER_POOL_SIZE) {
-      tierPool.push({
-        slug: tool.slug,
-        name: tool.name,
-        src: iconFor(tool.slug) ?? "",
-      });
-      added = true;
-    }
-  }
-  if (!added) break;
-}
-
-const tierRows = GRADES.map((grade, index) => ({
-  grade,
-  items: tierPool.slice(index * 4, index * 4 + 4),
-}));
+const headlineFeatures = HEADLINE_FEATURE_KEYS.map((key) =>
+  FEATURES.find((feature) => feature.key === key),
+).filter((feature) => feature !== undefined);
+const headlineSet: ReadonlySet<string> = new Set(HEADLINE_FEATURE_KEYS);
+const moreFeatureGroups = FEATURE_GROUPS.map((group) => ({
+  ...group,
+  features: group.features.filter((feature) => !headlineSet.has(feature.key)),
+})).filter((group) => group.features.length > 0);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -135,498 +68,299 @@ const jsonLd = {
 ---
 
 <BaseLayout title="ohmyharness" description={description} jsonLd={jsonLd}>
-  <div class="home">
-    <section class="home-hero">
-      <div class="container home-hero__inner">
-        <CornerMarks />
-
-        <p class="home-hero__kicker">
-          <span>Community-maintained</span>
-          <span>{total} entries</span>
-          {verifiedLabel && <span>Verified {verifiedLabel}</span>}
-        </p>
-
-        <h1 class="home-display">
+  <section class="hero">
+    <HeroGlitch client:visible />
+    <div class="container hero__inner">
+      <div>
+        <div class="hero__kicker">
+          <span>Open directory</span>
+          <span>{year}</span>
+          <span>Community maintained</span>
+        </div>
+        <h1 class="display">
           <HeroTitle client:visible first="Pick your" second="harness" />
-          <span class="home-display__cursor" aria-hidden="true"></span>
+          <span class="display__cursor" aria-hidden="true"></span>
         </h1>
-
-        <p class="home-hero__lede">
-          An open, sourced index of the harnesses, orchestrators, cloud agents
-          and add-ons that write code with you.
+        <p class="lede hero__lede">
+          The runtimes that run coding agents, and the apps that orchestrate
+          them. Every fact has a source; anything unconfirmed is marked
+          <span class="mono">?</span>.
         </p>
-
-        <form class="hero-search" role="search" data-hero-search>
-          <label class="visually-hidden" for="hero-search"
-            >Search the directory</label
-          >
-          <span class="hero-search__prompt" aria-hidden="true">/</span>
-          <input
-            id="hero-search"
-            class="hero-search__input"
-            type="search"
-            name="q"
-            placeholder={`Search ${total} tools — name, maker, feature…`}
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-            enterkeyhint="search"
-            data-filter-search
-          />
-          <kbd class="hero-search__kbd" aria-hidden="true">/</kbd>
-          <button class="hero-search__submit" type="submit">
-            <span class="hero-search__submit-label">Search</span>
-            <span aria-hidden="true">→</span>
-          </button>
-        </form>
-
-        <div class="home-hero__actions">
+        <p class="hero__tags">
+          <span>Harnesses</span>
+          <span>Orchestrators</span>
+          <span>Cloud agents</span>
+          <span>Add-ons</span>
+        </p>
+        <div class="hero__actions">
           <a class="btn btn--primary" href="#directory">Browse the directory ↓</a>
           <a class="btn" href="/tier-list">Make your tier list</a>
           <a class="btn btn--ghost" href="/compare">Compare features</a>
         </div>
+      </div>
 
-        <HeroTicker
+      <aside class="hero__panel" aria-label="Directory index">
+        <div class="hero__panel-head">
+          <span>Index</span>
+          <span>{total} {total === 1 ? "entry" : "entries"}</span>
+        </div>
+        <HeroStats
           client:visible
           harnesses={counts.harness}
           orchestrators={counts.orchestrator}
           cloudAgents={counts["cloud-agent"]}
           addOns={counts["add-on"]}
-          verified={verifiedLabel}
         />
+        {recent.length > 0 && (
+          <div class="hero__recent">
+            <div class="hero__recent-title">Recently verified</div>
+            <ul>
+              {recent.map((item) => (
+                <li>
+                  <a href={`/tools/${item.slug}`}>
+                    <span>{item.name}</span>
+                    <span class="hero__recent-kind">{KIND_LABELS[item.kind]}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <div class="hero__panel-foot">
+          {verified ? `Last verified ${formatDate(verified)}` : "Awaiting the first entry"} ·
+          <a href="/about#legend">How we check facts</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {logos.length > 3 && (
+    <section class="logos-band" aria-label="Tools in the directory">
+      <div class="container logos-band__inner">
+        <p class="logos-band__label">In the directory</p>
+        <div class="logos-band__loop">
+          <LogoMarquee client:visible logos={logos} />
+        </div>
       </div>
     </section>
+  )}
 
-    {logos.length > 3 && (
-      <section class="logo-strip" aria-label="Tools in the directory">
-        <div class="container logo-strip__inner">
-          <CornerMarks />
-          <p class="logo-strip__label">In the directory</p>
-          <div class="logo-strip__loop">
-            <LogoMarquee client:visible logos={logos} />
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Four kinds of tool</p>
+      <div class="spread">
+        <h2>Know what you are looking at.</h2>
+        <p class="small">Harness · Orchestrator · Cloud agent · Add-on</p>
+      </div>
+      <div class="defs">
+        <div class="def">
+          <div class="def__term">
+            <span>Harness</span>
+            <span class="def__count">{counts.harness} listed</span>
           </div>
-          <a class="logo-strip__more" href="#directory">
-            {logos.length} tools <span aria-hidden="true">↓</span>
-          </a>
+          <p>
+            The runtime that talks to a model and runs tools: it reads files,
+            edits code, executes commands and connects to MCP servers. Claude
+            Code, Codex CLI and Aider live here.
+          </p>
         </div>
-      </section>
-    )}
+        <div class="def">
+          <div class="def__term">
+            <span>Orchestrator</span>
+            <span class="def__count">{counts.orchestrator} listed</span>
+          </div>
+          <p>
+            An app that runs and manages one or more harnesses: parallel
+            sessions, git worktrees and a review screen for each change. T3
+            Code and Conductor live here.
+          </p>
+        </div>
+        <div class="def">
+          <div class="def__term">
+            <span>Cloud agent</span>
+            <span class="def__count">{counts["cloud-agent"]} listed</span>
+          </div>
+          <p>
+            A hosted agent that works in a remote sandbox and hands back a pull
+            request. You give it a task and review the result rather than
+            watching it type.
+          </p>
+        </div>
+        <div class="def">
+          <div class="def__term">
+            <span>Add-on</span>
+            <span class="def__count">{counts["add-on"]} listed</span>
+          </div>
+          <p>
+            A plugin or distribution that extends one harness or orchestrator:
+            extra commands, task dispatch or a different workflow around a tool
+            you already run. It is listed next to the tool it extends.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="directory" id="directory" data-filters>
-      <div class="container directory__intro">
+  <section class="section" id="directory">
+    <div class="container">
+      <div class="spread">
         <div>
           <p class="eyebrow">The directory</p>
-          <h2 class="directory__title">Every tool, one index.</h2>
+          <h2>Every tool, one grid.</h2>
         </div>
-        <p class="directory__note">
-          Every entry is checked against its sources. Unverified facts are
-          marked <span class="mono">?</span>.
-        </p>
+        <div class="legend" aria-label="Feature legend">
+          <span><Glyph value={true} label="Example" /> yes</span>
+          <span><Glyph value={false} label="Example" /> no</span>
+          <span><Glyph value={null} label="Example" /> not verified yet</span>
+          <a class="small" href="/about#legend">What this means</a>
+        </div>
       </div>
 
-      <div data-toolbar-sentinel aria-hidden="true"></div>
+      <div class="filters" data-filters>
+        <div class="filters__top">
+          <label class="field">
+            <span class="field__prefix" aria-hidden="true">/</span>
+            <span class="visually-hidden">Search tools</span>
+            <input
+              id="filter-search"
+              type="search"
+              placeholder="Search name, maker, platform…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </label>
+          <label class="field">
+            <span class="field__prefix" aria-hidden="true">▾</span>
+            <span class="visually-hidden">Source availability</span>
+            <select id="filter-os">
+              <option value="any">Any source</option>
+              <option value="open">Open source</option>
+              <option value="available">Source available</option>
+              <option value="closed">Closed source</option>
+            </select>
+          </label>
+        </div>
 
-      <div class="mobile-search">
-        <label class="tb-search" for="mobile-search">
-          <span class="tb-search__prompt" aria-hidden="true">/</span>
-          <span class="visually-hidden">Search tools</span>
-          <input
-            id="mobile-search"
-            type="search"
-            placeholder={`Search ${total} tools`}
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-            enterkeyhint="search"
-            data-filter-search
-          />
-        </label>
-      </div>
+        <div class="chip-row" role="group" aria-label="Filter by kind">
+          <button class="chip" type="button" data-filter-kind="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter-kind="harness" aria-pressed="false">Harnesses</button>
+          <button class="chip" type="button" data-filter-kind="orchestrator" aria-pressed="false">Orchestrators</button>
+          <button class="chip" type="button" data-filter-kind="cloud-agent" aria-pressed="false">Cloud agents</button>
+          <button class="chip" type="button" data-filter-kind="add-on" aria-pressed="false">Add-ons</button>
+        </div>
 
-      <div class="dir-toolbar" data-toolbar>
-        <div class="container dir-toolbar__inner">
-          <div class="dir-toolbar__row">
-            <div class="kind-tabs" role="group" aria-label="Filter by kind">
-              <button
-                class="kind-tab"
-                type="button"
-                data-filter-kind="all"
-                aria-pressed="true"
-              >
-                <span class="kind-tab__label">All</span>
-                <span class="kind-tab__count">{total}</span>
-              </button>
-              {KIND_ORDER.map((kind) => (
-                <button
-                  class="kind-tab"
-                  type="button"
-                  data-filter-kind={kind}
-                  aria-pressed="false"
-                >
-                  <span class="kind-tab__label">{KIND_PLURALS[kind]}</span>
-                  <span class="kind-tab__count">{counts[kind]}</span>
-                </button>
-              ))}
-            </div>
-
-            <div class="tb-controls">
-              <label class="tb-field">
-                <span class="tb-field__label">Price</span>
-                <select id="filter-price">
-                  <option value="any">Any</option>
-                  <option value="free">Free plan</option>
-                  <option value="under20">Under $20/mo</option>
-                  <option value="under50">Under $50/mo</option>
-                </select>
+        <div class="filter-group filter-group--headline">
+          <span class="filter-group__label">Must have</span>
+          <div class="filter-group__checks" role="group" aria-label="Must-have features">
+            {headlineFeatures.map((feature) => (
+              <label class="chip">
+                <input type="checkbox" name="feature" value={feature.key} />
+                <span>{feature.label}</span>
               </label>
+            ))}
+          </div>
+        </div>
 
-              <label class="tb-field">
-                <span class="tb-field__label">Platform</span>
+        <details class="filters__more">
+          <summary>More filters</summary>
+          <div class="filters__grid">
+            <div class="filter-group">
+              <span class="filter-group__label">Price</span>
+              <div class="chip-row" role="group" aria-label="Filter by price">
+                <button class="chip" type="button" data-filter-price="any" aria-pressed="true">Any</button>
+                <button class="chip" type="button" data-filter-price="free" aria-pressed="false">Free plan</button>
+                <button class="chip" type="button" data-filter-price="under20" aria-pressed="false">Under $20/mo</button>
+                <button class="chip" type="button" data-filter-price="under50" aria-pressed="false">Under $50/mo</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <span class="filter-group__label">Platform</span>
+              <label class="field">
+                <span class="visually-hidden">Platform</span>
                 <select id="filter-platform">
-                  <option value="">Any</option>
+                  <option value="">Any platform</option>
                   {PLATFORMS.map((platform) => (
-                    <option value={platform}>
-                      {PLATFORM_LABELS[platform]}
-                    </option>
+                    <option value={platform}>{PLATFORM_LABELS[platform]}</option>
                   ))}
                 </select>
               </label>
-
-              <button
-                class="tb-more"
-                type="button"
-                data-more-filters-toggle
-                aria-expanded="false"
-                aria-controls="more-filters"
-              >
-                More filters
-                <span class="tb-more__badge" data-hidden-filter-count hidden
-                  >0</span
-                >
-              </button>
-
-              <label class="tb-field tb-field--sort">
-                <span class="tb-field__label">Sort</span>
-                <select id="filter-sort">
-                  <option value="name">Name</option>
-                  <option value="stars">Stars</option>
-                  <option value="price">Lowest price</option>
+            </div>
+            <div class="filter-group">
+              <span class="filter-group__label">Interface</span>
+              <label class="field">
+                <span class="visually-hidden">Interface</span>
+                <select id="filter-interface">
+                  <option value="">Any interface</option>
+                  {Object.entries(INTERFACE_LABELS).map(([value, label]) => (
+                    <option value={value}>{label}</option>
+                  ))}
                 </select>
               </label>
-
-              <span
-                class="tb-count"
-                id="results-count"
-                role="status"
-                aria-live="polite"
-                >{total} tools</span
-              >
             </div>
-          </div>
-
-          <div class="active-row" data-active-row hidden>
-            <div class="active-filters" data-active-filters></div>
-            <button
-              class="active-row__clear"
-              type="button"
-              data-clear-filters
-            >
-              Clear all
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="filters-backdrop" data-filters-backdrop hidden></div>
-
-      <div
-        class="more-panel"
-        id="more-filters"
-        data-more-filters-panel
-        role="dialog"
-        aria-modal="false"
-        aria-labelledby="more-filters-title"
-        hidden
-      >
-        <div class="more-panel__head">
-          <p class="more-panel__title" id="more-filters-title">More filters</p>
-          <button
-            class="more-panel__close"
-            type="button"
-            data-more-filters-close
-            aria-label="Close filters"
-          >
-            ✕
-          </button>
-        </div>
-
-        <div class="more-panel__body">
-          <div class="more-panel__selects">
-            <label class="tb-field tb-field--block">
-              <span class="tb-field__label">Source</span>
-              <select id="filter-os">
-                <option value="any">Any source</option>
-                <option value="open">Open source</option>
-                <option value="available">Source available</option>
-                <option value="closed">Closed source</option>
-              </select>
-            </label>
-
-            <label class="tb-field tb-field--block">
-              <span class="tb-field__label">Interface</span>
-              <select id="filter-interface">
-                <option value="">Any interface</option>
-                {Object.entries(INTERFACE_LABELS).map(([value, label]) => (
-                  <option value={value}>{label}</option>
-                ))}
-              </select>
-            </label>
-          </div>
-
-          {FEATURE_GROUPS.map((group) => (
-            <fieldset class="filter-group">
-              <legend class="filter-group__label">{group.label}</legend>
-              <div class="check-grid">
-                {group.features.map((feature) => (
-                  <label class="chip">
-                    <input
-                      type="checkbox"
-                      name="feature"
-                      value={feature.key}
-                    />
-                    <span class="chip__text">{feature.label}</span>
-                    <span class="chip__count">
-                      {featureCounts.get(feature.key) ?? 0}
-                    </span>
-                  </label>
-                ))}
+            {moreFeatureGroups.map((group) => (
+              <div class="filter-group">
+                <span class="filter-group__label">{group.label}</span>
+                <div
+                  class="filter-group__checks"
+                  role="group"
+                  aria-label={`Filter by ${group.label} features`}
+                >
+                  {group.features.map((feature) => (
+                    <label class="chip">
+                      <input type="checkbox" name="feature" value={feature.key} />
+                      <span>{feature.label}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </fieldset>
-          ))}
-        </div>
+            ))}
+          </div>
+        </details>
 
-        <div class="more-panel__foot">
-          <button
-            class="btn btn--small btn--ghost"
-            type="button"
-            id="filter-reset"
-          >
-            Reset filters
-          </button>
-          <button
-            class="btn btn--small"
-            type="button"
-            data-more-filters-close
-          >
-            Done
-          </button>
+        <div class="results-line">
+          <span id="results-count" role="status" aria-live="polite">{total} {total === 1 ? "tool" : "tools"}</span>
+          <div class="results-line__actions">
+            <label class="sort-control">
+              <span>Sort</span>
+              <select id="filter-sort">
+                <option value="name">Name</option>
+                <option value="stars">Stars</option>
+                <option value="price">Lowest price</option>
+              </select>
+            </label>
+            <button class="btn btn--small btn--ghost" type="button" id="filter-reset">Reset filters</button>
+          </div>
         </div>
       </div>
 
       <noscript>
-        <div class="container">
-          <p class="inline-note">
-            Filters need JavaScript. Every tool is listed below.
-          </p>
-        </div>
+        <p class="inline-note" style="margin-top:12px">
+          Filters need JavaScript. Every tool is listed below.
+        </p>
       </noscript>
 
-      <div class="container directory__body">
-        {total > 0 ? (
-          <>
-            <div class="dir-grid" data-tool-grid="first">
-              {tools.slice(0, 6).map((tool) => <ToolCard tool={tool} />)}
-            </div>
-
-            <aside class="rank-band" aria-labelledby="rank-band-title">
-              <CornerMarks />
-              <div class="rank-band__head">
-                <div>
-                  <p class="eyebrow">Tier list</p>
-                  <h2 class="rank-band__title" id="rank-band-title">
-                    Not sure? Rank them.
-                  </h2>
-                </div>
-                <div class="rank-band__aside">
-                  <p>
-                    Put any tool from S to F and share the board you end up
-                    with.
-                  </p>
-                  <a class="btn btn--small" href="/tier-list">
-                    Open the tier list <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="rank-preview">
-                <div class="rank-preview__inner">
-                  {tierRows.map((row) => (
-                    <div class="rank-row">
-                      <span
-                        class:list={[
-                          "rank-row__grade",
-                          `rank-row__grade--${row.grade.toLowerCase()}`,
-                        ]}
-                      >
-                        {row.grade}
-                      </span>
-                      <div class="rank-row__tiles">
-                        {row.items.map((item) => (
-                          <a
-                            class="rank-tile"
-                            href={`/tools/${item.slug}`}
-                            title={item.name}
-                          >
-                            <img
-                              src={item.src}
-                              alt=""
-                              width="22"
-                              height="22"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <p class="rank-band__note">
-                A sample board. Nothing is ranked until you rank it.
-              </p>
-            </aside>
-
-            <div class="dir-grid" data-tool-grid="rest">
-              {tools.slice(6).map((tool) => <ToolCard tool={tool} />)}
-            </div>
-          </>
-        ) : (
-          <div class="empty-state">
-            <p class="eyebrow">Empty directory</p>
-            <h2>No tools listed yet.</h2>
-            <p class="lede">
-              The first entry can be yours. Add a JSON file and open a pull
-              request.
-            </p>
-            <a
-              class="btn btn--primary"
-              href="https://github.com/ohmyharness/ohmyharness/issues/new?template=add-tool.yml"
-            >
-              Suggest a tool ↗
-            </a>
-          </div>
-        )}
-
-        <div class="empty-state" id="filter-empty" hidden>
-          <h2>No tools match these filters.</h2>
-          <p class="muted">Try a different search, or clear the filters.</p>
+      {total > 0 ? (
+        <div class="tool-grid">
+          {tools.map((tool) => <ToolCard tool={tool} />)}
         </div>
-      </div>
-    </section>
-
-    <section class="kinds">
-      <div class="container kinds__inner">
-        <div class="kinds__head">
-          <div>
-            <p class="eyebrow">Four kinds of tool</p>
-            <h2 class="kinds__title">Know what you are looking at.</h2>
-          </div>
-          <p class="kinds__legend">
-            <span><span class="glyph glyph--yes">✓</span> verified</span>
-            <span><span class="glyph glyph--no">✗</span> not verified</span>
-            <span><span class="glyph glyph--unknown">?</span> not checked yet</span>
-            <a href="/about#legend">What this means</a>
-          </p>
+      ) : (
+        <div class="empty-state">
+          <p class="eyebrow">Empty directory</p>
+          <h2>No tools listed yet.</h2>
+          <p class="lede">The first entry can be yours. Add a JSON file and open a pull request.</p>
+          <a class="btn btn--primary" href={`${REPO_URL}/issues/new?template=add-tool.yml`}>Suggest a tool ↗</a>
         </div>
+      )}
 
-        <div class="kinds__grid">
-          {kindCards.map((card) => (
-            <a
-              class="kind-card"
-              href={`/?kind=${card.kind}#directory`}
-              data-kind-link={card.kind}
-            >
-              <span class="kind-card__count">{card.count}</span>
-              <span class="kind-card__name">{card.label}</span>
-              <span class="kind-card__blurb">{card.blurb}</span>
-              <span class="kind-card__go" aria-hidden="true">Browse →</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <aside
-    class="compare-tray"
-    data-compare-tray
-    aria-label="Comparison tray"
-    hidden
-  >
-    <div class="compare-tray__inner">
-      <div class="compare-tray__top">
-        <p class="compare-tray__title">
-          Compare <span data-compare-count>0</span
-          ><span class="compare-tray__of">/4</span>
-        </p>
-        <p class="compare-tray__hint" data-compare-hint>Pick 2–4 tools</p>
-      </div>
-      <ul class="compare-tray__items" data-compare-items></ul>
-      <div class="compare-tray__actions">
-        <button class="compare-tray__clear" type="button" data-compare-clear>
-          Clear
-        </button>
-        <a
-          class="compare-tray__cta"
-          data-compare-link
-          data-compare-cta
-          href="/compare"
-          aria-disabled="true"
-        >
-          Compare <span aria-hidden="true">→</span>
-        </a>
+      <div class="empty-state" id="filter-empty" hidden>
+        <h2>No tools match these filters.</h2>
+        <p class="muted">Try a different search, or reset the filters.</p>
       </div>
     </div>
-  </aside>
-
-  <p
-    class="visually-hidden"
-    role="status"
-    aria-live="polite"
-    data-compare-status
-  ></p>
-
-  <nav class="mobile-bar" aria-label="Directory actions">
-    <button class="mobile-bar__item" type="button" data-mobile-search>
-      <span class="mobile-bar__icon" aria-hidden="true">⌕</span>
-      Search
-    </button>
-    <button
-      class="mobile-bar__item"
-      type="button"
-      data-mobile-filters
-      aria-expanded="false"
-      aria-controls="more-filters"
-    >
-      <span class="mobile-bar__icon" aria-hidden="true">≡</span>
-      Filters
-    </button>
-    <a
-      class="mobile-bar__item"
-      data-compare-link
-      data-mobile-compare
-      href="/compare"
-    >
-      <span class="mobile-bar__icon" aria-hidden="true">⇄</span>
-      Compare <span data-compare-count>0</span>
-    </a>
-  </nav>
+  </section>
 </BaseLayout>
 
 <script>
   import "../scripts/filters";
-  import "../scripts/home";
   import "../scripts/install";
 </script>
