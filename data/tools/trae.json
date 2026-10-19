@@ -1,0 +1,103 @@
+{
+  "slug": "trae",
+  "name": "Trae",
+  "kind": "harness",
+  "tagline": "AI IDE with an agent, plan mode, browser preview, and cloud task execution.",
+  "description": "Trae is an AI code editor built around an autonomous agent that can plan tasks, inspect a browser preview, and run work in the cloud. It supports MCP servers, subagents, custom agents, and Agent Skills.",
+  "website": "https://www.trae.ai/",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": null,
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free plan with basic usage; paid plans include $20, $60, or $200 of monthly usage.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Basic monthly usage",
+        "url": "https://www.trae.ai/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $20 usage per month",
+        "url": "https://www.trae.ai/pricing"
+      },
+      {
+        "name": "Pro+",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $60 usage per month",
+        "url": "https://www.trae.ai/pricing"
+      },
+      {
+        "name": "Ultra",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes $200 usage per month",
+        "url": "https://www.trae.ai/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": null,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": true,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.trae.ai/download",
+      "platforms": [
+        "macos",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.trae.ai/pricing",
+    "https://docs.trae.ai/ide/skills",
+    "https://www.trae.ai/blog/trae_tutorial_0115"
+  ],
+  "lastVerified": "2026-10-19"
+}

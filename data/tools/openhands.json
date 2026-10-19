@@ -1,0 +1,116 @@
+{
+  "slug": "openhands",
+  "name": "OpenHands",
+  "kind": "harness",
+  "tagline": "Open-source coding agent that runs locally, in Docker, or on hosted cloud sandboxes.",
+  "description": "OpenHands provides an agent runtime, a browser-based Agent Canvas, a CLI, and a cloud service. Agents can use terminal, browser, and file tools, delegate work through subagents, and run in Docker or remote sandbox backends.",
+  "website": "https://openhands.dev",
+  "repo": "https://github.com/OpenHands/OpenHands",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "All Hands AI",
+  "interfaces": [
+    "cli",
+    "desktop",
+    "web",
+    "api"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Local OpenHands is free; OpenHands Cloud has a free Individual tier and an Enterprise plan.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Local OpenHands, bring your own model",
+        "url": "https://openhands.dev/pricing"
+      },
+      {
+        "name": "Individual",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Cloud free tier; BYO LLM key or pay-as-you-go",
+        "url": "https://openhands.dev/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Self-hosted, SSO, team billing; contact sales",
+        "url": "https://openhands.dev/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "automations": true,
+    "prIntegration": true,
+    "issueTracker": true,
+    "browserPreview": true,
+    "checkpoints": null,
+    "hooks": true,
+    "skills": true,
+    "customAgents": null,
+    "sandboxing": true,
+    "headlessApi": true
+  },
+  "github": {
+    "stars": 91211,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @openhands/agent-canvas",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "Docker",
+      "type": "url",
+      "value": "https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/docker",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://openhands.dev/pricing",
+    "https://docs.openhands.dev/openhands/usage/agent-canvas/setup",
+    "https://docs.openhands.dev/openhands/usage/agent-canvas/overview",
+    "https://docs.openhands.dev/llms.txt",
+    "https://github.com/OpenHands/OpenHands"
+  ],
+  "lastVerified": "2026-10-19"
+}

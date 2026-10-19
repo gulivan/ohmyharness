@@ -1,0 +1,74 @@
+{
+  "slug": "firebase-studio",
+  "name": "Firebase Studio",
+  "kind": "harness",
+  "tagline": "Google's browser-based AI workspace for full-stack apps, scheduled to shut down in March 2027.",
+  "description": "Firebase Studio is a cloud IDE where Gemini agents build backends, front ends, and mobile apps from prompts, mockups, or imported repositories. Google stopped new workspace creation and is sunsetting the product on March 22, 2027, pointing users to AI Studio and Antigravity.",
+  "website": "https://firebase.studio/",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Google",
+  "interfaces": [
+    "web"
+  ],
+  "platforms": [
+    "web"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled"
+  ],
+  "pricing": {
+    "model": "free",
+    "notes": "Preview includes 3 workspaces at no cost; Google Developer Program members get up to 30.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "3 workspaces during preview",
+        "url": "https://firebase.studio/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": null,
+    "multiProvider": null,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": true,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": null,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "deprecated",
+  "install": [
+    {
+      "label": "Open",
+      "type": "url",
+      "value": "https://firebase.studio/",
+      "platforms": [
+        "web"
+      ]
+    }
+  ],
+  "sources": [
+    "https://firebase.studio/"
+  ],
+  "lastVerified": "2026-10-19"
+}

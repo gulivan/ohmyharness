@@ -1,0 +1,104 @@
+{
+  "slug": "zed",
+  "name": "Zed",
+  "kind": "harness",
+  "tagline": "Fast code editor with a built-in agent, parallel agent threads, and support for external ACP agents.",
+  "description": "Zed is a collaborative code editor written in Rust with an integrated AI agent panel. It runs multiple agent threads in parallel, supports MCP servers and Agent Skills, and can host external agents over ACP.",
+  "website": "https://zed.dev",
+  "repo": "https://github.com/zed-industries/zed",
+  "openSource": true,
+  "license": null,
+  "maker": "Zed Industries",
+  "interfaces": [
+    "desktop",
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "The editor is free; Pro adds hosted models and unlimited edit predictions, Business adds admin controls.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Editor free forever; bring your own API keys",
+        "url": "https://zed.dev/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$5 of hosted model usage included",
+        "url": "https://zed.dev/pricing"
+      },
+      {
+        "name": "Business",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per seat; admin controls, no bundled credits",
+        "url": "https://zed.dev/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": true,
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": true,
+    "hooks": null,
+    "skills": true,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": {
+    "stars": 91892,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://zed.dev/download",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://zed.dev/pricing",
+    "https://zed.dev/docs/ai/agents",
+    "https://zed.dev/docs/ai/parallel-agents",
+    "https://zed.dev/docs/ai/external-agents",
+    "https://zed.dev/docs/ai/skills",
+    "https://github.com/zed-industries/zed"
+  ],
+  "lastVerified": "2026-10-19"
+}

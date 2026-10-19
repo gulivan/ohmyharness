@@ -1,0 +1,107 @@
+{
+  "slug": "junie",
+  "name": "Junie",
+  "kind": "harness",
+  "tagline": "JetBrains coding agent for the terminal and JetBrains IDEs, with plan-first task execution.",
+  "description": "Junie is JetBrains' coding agent, available as a CLI and as an IDE integration. It writes a structured plan before editing, follows project guidelines and Agent Skills, and can pick up tasks from GitHub or GitLab issues and pull requests.",
+  "website": "https://junie.jetbrains.com/",
+  "repo": null,
+  "openSource": null,
+  "license": null,
+  "maker": "JetBrains",
+  "interfaces": [
+    "cli",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled",
+    "byok",
+    "local"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Junie Lite is free in every JetBrains account; agent usage is billed through JetBrains AI plans.",
+    "plans": [
+      {
+        "name": "Junie Lite",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Free model in every JetBrains account",
+        "url": "https://junie.jetbrains.com/"
+      },
+      {
+        "name": "AI Pro",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $8.33/mo billed yearly",
+        "url": "https://www.jetbrains.com/ai-ides/buy/"
+      },
+      {
+        "name": "AI Ultimate",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; $25/mo billed yearly",
+        "url": "https://www.jetbrains.com/ai-ides/buy/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "automations": null,
+    "prIntegration": true,
+    "issueTracker": true,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": true,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://junie.jetbrains.com/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://junie.jetbrains.com/",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://junie.jetbrains.com/",
+    "https://www.jetbrains.com/ai-ides/buy/"
+  ],
+  "lastVerified": "2026-10-19"
+}

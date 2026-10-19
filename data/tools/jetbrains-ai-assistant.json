@@ -1,0 +1,105 @@
+{
+  "slug": "jetbrains-ai-assistant",
+  "name": "JetBrains AI Assistant",
+  "kind": "harness",
+  "tagline": "AI assistant built into JetBrains IDEs for chat, completion, and Junie agent tasks.",
+  "description": "JetBrains AI Assistant brings chat, code completion, and agent tasks into JetBrains IDEs, with credits shared across AI features. It supports multiple model providers, local models, and MCP servers.",
+  "website": "https://www.jetbrains.com/ai-ides/",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "JetBrains",
+  "interfaces": [
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled",
+    "byok",
+    "local"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "AI Free includes a small monthly credit allowance; paid tiers add credits for AI features and agents.",
+    "plans": [
+      {
+        "name": "AI Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited monthly AI credits",
+        "url": "https://www.jetbrains.com/ai-ides/buy/"
+      },
+      {
+        "name": "AI Pro",
+        "price": 10,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; includes AI credits",
+        "url": "https://www.jetbrains.com/ai-ides/buy/"
+      },
+      {
+        "name": "AI Ultimate",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; more credits than AI Pro",
+        "url": "https://www.jetbrains.com/ai-ides/buy/"
+      },
+      {
+        "name": "AI Enterprise",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; organization plan",
+        "url": "https://www.jetbrains.com/ai-ides/buy/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null,
+    "multiProvider": true,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": null,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "JetBrains IDEs",
+      "type": "url",
+      "value": "https://www.jetbrains.com/ai-ides/",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.jetbrains.com/ai-ides/buy/",
+    "https://www.jetbrains.com/ai-ides/"
+  ],
+  "lastVerified": "2026-10-19"
+}

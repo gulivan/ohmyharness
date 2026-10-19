@@ -1,0 +1,97 @@
+{
+  "slug": "amazon-q-cli",
+  "name": "Amazon Q Developer CLI",
+  "kind": "harness",
+  "tagline": "AWS command-line coding agent, now unmaintained and succeeded by Kiro CLI.",
+  "description": "Amazon Q Developer CLI brought AWS's coding agent to the terminal with chat, agentic edits, and MCP support. The open-source repository no longer receives feature updates; AWS now ships Kiro CLI instead.",
+  "website": "https://aws.amazon.com/q/developer/",
+  "repo": "https://github.com/aws/amazon-q-developer-cli",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Amazon Web Services",
+  "interfaces": [
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "linux"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free tier includes 50 agentic requests per month; Pro is $19/user/month.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "50 agentic requests per month",
+        "url": "https://aws.amazon.com/q/developer/pricing/"
+      },
+      {
+        "name": "Pro",
+        "price": 19,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; higher agentic request limits",
+        "url": "https://aws.amazon.com/q/developer/pricing/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null,
+    "multiProvider": null,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": null,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": {
+    "stars": 1983,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "deprecated",
+  "install": [
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install --cask amazon-q",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    }
+  ],
+  "sources": [
+    "https://github.com/aws/amazon-q-developer-cli",
+    "https://aws.amazon.com/q/developer/pricing/",
+    "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html"
+  ],
+  "lastVerified": "2026-10-19"
+}

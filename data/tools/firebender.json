@@ -1,0 +1,123 @@
+{
+  "slug": "firebender",
+  "name": "Firebender",
+  "kind": "harness",
+  "tagline": "Android-focused coding agent plugin for Android Studio and JetBrains IDEs.",
+  "description": "Firebender adds an agent to Android Studio and other JetBrains IDEs, with planning, multi-agent worktree mode, checkpoints, hooks, skills, and MCP support. It targets Android and Kotlin development and can run agents in isolated git worktrees.",
+  "website": "https://firebender.com",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Firebender",
+  "interfaces": [
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled",
+    "byok"
+  ],
+  "pricing": {
+    "model": "paid",
+    "notes": "All plans are paid; Flex is autocomplete-only, higher tiers add included API usage.",
+    "plans": [
+      {
+        "name": "Flex",
+        "price": 9,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Autocomplete only; no included API usage",
+        "url": "https://docs.firebender.com/get-started/pricing"
+      },
+      {
+        "name": "Developer",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$30 of usage plus bonus pool",
+        "url": "https://docs.firebender.com/get-started/pricing"
+      },
+      {
+        "name": "Developer+",
+        "price": 75,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$75 of usage plus bonus pool",
+        "url": "https://docs.firebender.com/get-started/pricing"
+      },
+      {
+        "name": "Ultra",
+        "price": 150,
+        "currency": "USD",
+        "period": "month",
+        "notes": "$150 of usage plus bonus pool",
+        "url": "https://docs.firebender.com/get-started/pricing"
+      },
+      {
+        "name": "Business",
+        "price": 60,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; team plan",
+        "url": "https://docs.firebender.com/get-started/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom limits and support; contact sales",
+        "url": "https://docs.firebender.com/get-started/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": null,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": true,
+    "hooks": true,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "JetBrains plugin",
+      "type": "url",
+      "value": "https://plugins.jetbrains.com/plugin/25224-firebender",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://firebender.com",
+    "https://docs.firebender.com/get-started/pricing",
+    "https://docs.firebender.com/multi-agent/worktrees",
+    "https://docs.firebender.com/input/checkpointing",
+    "https://docs.firebender.com/llms.txt"
+  ],
+  "lastVerified": "2026-10-19"
+}

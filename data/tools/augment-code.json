@@ -1,0 +1,111 @@
+{
+  "slug": "augment-code",
+  "name": "Augment Code",
+  "kind": "harness",
+  "tagline": "Coding platform with an IDE extension, the Auggie CLI, and Cosmos cloud agents.",
+  "description": "Augment Code combines a codebase context engine with an IDE extension, the Auggie terminal agent, and Cosmos, a cloud environment for running and automating agents. Auggie supports custom agents, skills, hooks, and non-interactive runs for CI.",
+  "website": "https://www.augmentcode.com/",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Augment Code",
+  "interfaces": [
+    "ide-extension",
+    "cli",
+    "web"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled"
+  ],
+  "pricing": {
+    "model": "paid",
+    "notes": "Standard and Business are flat team prices up to 50 seats with included monthly usage.",
+    "plans": [
+      {
+        "name": "Standard",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Team plan up to 50 seats; $20/mo usage included",
+        "url": "https://www.augmentcode.com/pricing"
+      },
+      {
+        "name": "Business",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Team plan up to 50 seats; $100/mo usage included",
+        "url": "https://www.augmentcode.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://www.augmentcode.com/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": null,
+    "multiProvider": null,
+    "acp": null,
+    "automations": true,
+    "prIntegration": true,
+    "issueTracker": true,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": true,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": null,
+    "headlessApi": true
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "npm",
+      "type": "command",
+      "value": "npm install -g @augmentcode/auggie",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "IDE extension",
+      "type": "url",
+      "value": "https://www.augmentcode.com/",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.augmentcode.com/pricing",
+    "https://docs.augmentcode.com/llms.txt",
+    "https://docs.augmentcode.com/cli/setup-auggie/install-auggie-cli",
+    "https://docs.augmentcode.com/cli/overview",
+    "https://docs.augmentcode.com/cosmos/getting-started"
+  ],
+  "lastVerified": "2026-10-19"
+}

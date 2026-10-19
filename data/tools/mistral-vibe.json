@@ -1,0 +1,130 @@
+{
+  "slug": "mistral-vibe",
+  "name": "Mistral Vibe",
+  "kind": "harness",
+  "tagline": "Mistral's open-source terminal coding assistant, also available in VS Code and the web.",
+  "description": "Mistral Vibe is an open-source CLI and TUI coding agent powered by Mistral models. It supports plan and code modes, subagents, skills, hooks, MCP, ACP, git worktrees, and non-interactive runs for scripting.",
+  "website": "https://mistral.ai/",
+  "repo": "https://github.com/mistralai/mistral-vibe",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "Mistral AI",
+  "interfaces": [
+    "cli",
+    "tui",
+    "ide-extension",
+    "web"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "subscription",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free plan has limited Vibe access; Pro and Team unlock full coding use.",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited access to Vibe",
+        "url": "https://mistral.ai/pricing/"
+      },
+      {
+        "name": "Pro",
+        "price": 14.99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Full Vibe coding access",
+        "url": "https://mistral.ai/pricing/"
+      },
+      {
+        "name": "Team",
+        "price": 24.99,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; shared workspace",
+        "url": "https://mistral.ai/pricing/"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://mistral.ai/pricing/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": null,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": true,
+    "diffReview": null,
+    "planMode": true,
+    "multiProvider": true,
+    "acp": null,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": true,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": true,
+    "headlessApi": true
+  },
+  "github": {
+    "stars": 5148,
+    "checkedAt": "2026-10-19"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -LsSf https://mistral.ai/vibe/install.sh | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "uv",
+      "type": "command",
+      "value": "uv tool install mistral-vibe",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    },
+    {
+      "label": "pip",
+      "type": "command",
+      "value": "pip install mistral-vibe",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://mistral.ai/pricing/",
+    "https://github.com/mistralai/mistral-vibe",
+    "https://docs.mistral.ai/vibe/code/cli/install-setup"
+  ],
+  "lastVerified": "2026-10-19"
+}

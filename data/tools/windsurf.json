@@ -1,0 +1,116 @@
+{
+  "slug": "windsurf",
+  "name": "Windsurf",
+  "kind": "harness",
+  "tagline": "Agentic IDE from Cognition, renamed Devin Desktop in 2026 while keeping the same editor and plans.",
+  "description": "Windsurf is an AI code editor built around the Cascade agent, with inline edits, tab completion, and MCP support. Cognition renamed the product Devin Desktop in June 2026; existing accounts and pricing carried over.",
+  "website": "https://windsurf.com",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Cognition",
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "subscription",
+    "bundled",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free tier with limited agent quota; paid plans from $20/mo (Pro) to $200/mo (Max).",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited agent quota and model access",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Includes free use of SWE-2",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Max",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Higher usage quotas than Pro",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 80,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Team plan; plus $40/mo per full dev seat",
+        "url": "https://devin.ai/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Contact sales",
+        "url": "https://devin.ai/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": null,
+    "subagents": null,
+    "mcp": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "diffReview": null,
+    "planMode": null,
+    "multiProvider": true,
+    "acp": true,
+    "automations": null,
+    "prIntegration": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "checkpoints": null,
+    "hooks": null,
+    "skills": true,
+    "customAgents": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "deprecated",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://devin.ai/desktop",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://windsurf.com",
+    "https://devin.ai/pricing",
+    "https://devin.ai/desktop",
+    "https://cognition.com/blog/introducing-devin-desktop",
+    "https://docs.devin.ai/desktop/devin-desktop-faq"
+  ],
+  "lastVerified": "2026-10-19"
+}

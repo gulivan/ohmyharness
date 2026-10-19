@@ -1,0 +1,153 @@
+{
+  "slug": "kiro",
+  "name": "Kiro",
+  "kind": "harness",
+  "tagline": "AWS agentic IDE, CLI, and web app built around spec-driven development and agent hooks.",
+  "description": "Kiro turns prompts into specifications and task lists before it writes code. The same agent harness runs in the IDE, CLI, web app, and mobile clients, with hooks, steering files, subagents, and a choice of Anthropic, OpenAI, and open-weight models.",
+  "website": "https://kiro.dev",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Amazon Web Services",
+  "interfaces": [
+    "desktop",
+    "cli",
+    "web",
+    "mobile",
+    "ide-extension"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows",
+    "web",
+    "ios"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "bundled"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free tier includes 50 credits per month; paid tiers add monthly credits, extra credits cost $0.04.",
+    "plans": [
+      {
+        "name": "Kiro Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "50 credits per month",
+        "url": "https://kiro.dev/pricing/"
+      },
+      {
+        "name": "Kiro Pro",
+        "price": 20,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; monthly credit allocation",
+        "url": "https://kiro.dev/pricing/"
+      },
+      {
+        "name": "Kiro Pro+",
+        "price": 40,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; more credits than Pro",
+        "url": "https://kiro.dev/pricing/"
+      },
+      {
+        "name": "Kiro Pro Max",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; more credits than Pro+",
+        "url": "https://kiro.dev/pricing/"
+      },
+      {
+        "name": "Kiro Power",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; highest individual tier",
+        "url": "https://kiro.dev/pricing/"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "SSO, billing, and usage analytics; contact sales",
+        "url": "https://kiro.dev/pricing/"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "automations": true,
+    "prIntegration": true,
+    "issueTracker": null,
+    "browserPreview": true,
+    "checkpoints": true,
+    "hooks": true,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": true,
+    "headlessApi": true
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "Install script",
+      "type": "command",
+      "value": "curl -fsSL https://cli.kiro.dev/install | bash",
+      "platforms": [
+        "macos",
+        "linux"
+      ]
+    },
+    {
+      "label": "Homebrew",
+      "type": "command",
+      "value": "brew install kiro-cli",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "type": "command",
+      "value": "irm 'https://cli.kiro.dev/install.ps1' | iex",
+      "platforms": [
+        "windows"
+      ]
+    },
+    {
+      "label": "IDE download",
+      "type": "url",
+      "value": "https://kiro.dev/downloads/",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://kiro.dev/pricing/",
+    "https://kiro.dev/docs/getting-started/installation",
+    "https://kiro.dev/docs/acp/",
+    "https://kiro.dev/docs/models/",
+    "https://kiro.dev/llms.txt"
+  ],
+  "lastVerified": "2026-10-19"
+}

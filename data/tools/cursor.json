@@ -1,0 +1,137 @@
+{
+  "slug": "cursor",
+  "name": "Cursor",
+  "kind": "harness",
+  "tagline": "AI code editor whose agent plans, edits, and reviews changes across the codebase and in the cloud.",
+  "description": "Cursor is an AI-native code editor that runs agent sessions against local or cloud workspaces. It includes tab completion, an agent with browser and terminal tools, subagents, hooks, skills, and a web dashboard for remote agents.",
+  "website": "https://cursor.com",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Anysphere",
+  "interfaces": [
+    "desktop",
+    "web"
+  ],
+  "platforms": [
+    "macos",
+    "linux",
+    "windows"
+  ],
+  "drives": [],
+  "modelAccess": [
+    "subscription",
+    "bundled",
+    "byok"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Free plan includes limited agent usage; paid plans from $8/mo (Plus) to $200/mo (Ultra).",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Limited AI usage",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "name": "Plus",
+        "price": 8,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Shared usage pool; Grok models only",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "name": "Premium",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "4x more usage than Plus",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "name": "Teams",
+        "price": 30,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Per user; 4-50x Plus usage, pooled",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "name": "Super",
+        "price": 100,
+        "currency": "USD",
+        "period": "month",
+        "notes": "15x more usage than Plus",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "name": "Ultra",
+        "price": 200,
+        "currency": "USD",
+        "period": "month",
+        "notes": "50x more usage than Plus",
+        "url": "https://cursor.com/pricing"
+      },
+      {
+        "name": "Enterprise",
+        "price": null,
+        "currency": "USD",
+        "period": "month",
+        "notes": "Custom pricing; contact sales",
+        "url": "https://cursor.com/pricing"
+      }
+    ]
+  },
+  "features": {
+    "worktrees": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "mcp": true,
+    "remoteAccess": true,
+    "cloudSandbox": true,
+    "diffReview": true,
+    "planMode": true,
+    "multiProvider": true,
+    "acp": true,
+    "automations": true,
+    "prIntegration": true,
+    "issueTracker": true,
+    "browserPreview": true,
+    "checkpoints": false,
+    "hooks": true,
+    "skills": true,
+    "customAgents": true,
+    "sandboxing": null,
+    "headlessApi": true
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://cursor.com/download",
+      "platforms": [
+        "macos",
+        "linux",
+        "windows"
+      ]
+    }
+  ],
+  "sources": [
+    "https://cursor.com/pricing",
+    "https://cursor.com/docs/agent/overview",
+    "https://cursor.com/docs/agent/plan-mode",
+    "https://cursor.com/docs/agent/tools/browser",
+    "https://cursor.com/docs/subagents",
+    "https://cursor.com/docs/hooks",
+    "https://cursor.com/docs/skills",
+    "https://cursor.com/docs/configuration/worktrees",
+    "https://cursor.com/docs/cli/acp"
+  ],
+  "lastVerified": "2026-10-19"
+}
