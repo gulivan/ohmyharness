@@ -1,0 +1,62 @@
+{
+  "slug": "orkas",
+  "name": "Orkas",
+  "kind": "orchestrator",
+  "tagline": "Desktop AI team coordinating specialist agents and local coding-agent sessions",
+  "description": "Open-source, local-first desktop AI team for turning project context into code, research reports and content. Commander coordinates specialist agents and runs installed Claude Code, Codex and OpenCode as local sessions. The packaged macOS/Windows app offers managed models with 500 starter credits; users can also connect their own supported provider/API keys or compatible local endpoints. Model usage and optional official services may cost extra.",
+  "website": "https://orkas.ai/?source=gh_ohmyharness",
+  "repo": "https://github.com/Orkas-AI/Orkas",
+  "openSource": true,
+  "license": "MIT",
+  "maker": "Orkas-AI",
+  "interfaces": [
+    "desktop"
+  ],
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "drives": [
+    "claude-code",
+    "codex",
+    "opencode"
+  ],
+  "modelAccess": [
+    "byok",
+    "bundled",
+    "local"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "The core desktop app is free. The packaged app includes 500 starter credits for managed models; own-provider usage and optional official services may cost extra."
+  },
+  "features": {
+    "multiProvider": true,
+    "acp": null,
+    "parallelAgents": true,
+    "subagents": true,
+    "customAgents": true,
+    "planMode": null,
+    "worktrees": null,
+    "checkpoints": null,
+    "diffReview": null,
+    "prIntegration": null,
+    "automations": true,
+    "mcp": null,
+    "skills": true,
+    "hooks": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "active",
+  "sources": [
+    "https://github.com/Orkas-AI/Orkas",
+    "https://orkas.ai/"
+  ],
+  "lastVerified": "2026-11-11"
+}
