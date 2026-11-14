@@ -1,0 +1,82 @@
+{
+  "slug": "althar",
+  "name": "Althar",
+  "kind": "orchestrator",
+  "tagline": "Desktop ADE that assigns coding tasks to agents and sends changes to a separate model for review.",
+  "description": "A local-first desktop agent development environment (ADE) for coordinating coding agents such as Claude Code, Codex, and OpenCode. A project coordinator turns requests into tasks and assigns agents to implement them in parallel. A separate model reviews the changes before you decide what to merge. Althar uses your existing provider sign-ins and runs on macOS, Windows, and Linux, with most testing on macOS.",
+  "website": "https://althar.ai/",
+  "repo": "https://github.com/AltharIDE/althar",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "maker": "AltharIDE",
+  "interfaces": [
+    "desktop",
+    "cli"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli",
+    "opencode"
+  ],
+  "modelAccess": [
+    "subscription"
+  ],
+  "pricing": {
+    "model": "free",
+    "notes": "Free, open-source app. Connected providers may have separate subscription or usage charges."
+  },
+  "features": {
+    "multiProvider": true,
+    "acp": true,
+    "parallelAgents": true,
+    "subagents": true,
+    "customAgents": null,
+    "planMode": true,
+    "worktrees": true,
+    "checkpoints": null,
+    "diffReview": true,
+    "prIntegration": true,
+    "automations": true,
+    "mcp": true,
+    "skills": true,
+    "hooks": null,
+    "issueTracker": true,
+    "browserPreview": true,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": {
+    "stars": 14,
+    "checkedAt": "2026-11-14"
+  },
+  "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://github.com/AltharIDE/althar/releases/latest",
+      "platforms": [
+        "macos",
+        "windows",
+        "linux"
+      ]
+    }
+  ],
+  "sources": [
+    "https://github.com/AltharIDE/althar#get-started",
+    "https://github.com/AltharIDE/althar/releases/latest",
+    "https://github.com/AltharIDE/althar/blob/main/apps/cli/README.md",
+    "https://github.com/AltharIDE/althar/blob/main/docs/decisions/agents.md",
+    "https://github.com/AltharIDE/althar/blob/main/docs/decisions/reviews.md",
+    "https://github.com/AltharIDE/althar/blob/main/docs/architecture/04-coordinator.md",
+    "https://github.com/AltharIDE/althar/blob/main/docs/architecture/06-integrations-and-skills.md"
+  ],
+  "lastVerified": "2026-11-14"
+}
