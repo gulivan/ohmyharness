@@ -1,0 +1,80 @@
+{
+  "slug": "octuo",
+  "name": "Octuo",
+  "kind": "orchestrator",
+  "extends": null,
+  "tagline": "Run Claude Code, Codex, and MCP tools from one native Mac app, with an iPhone companion.",
+  "description": "Octuo is a native macOS app (with an iPhone companion) that coordinates the coding agents you already use: you state the goal, it prepares the work, hands each part to the right agent — Claude Code, Codex, MCP tools, browser and files — and follows up until it is done. Especially good at long tasks. Canvas views, a visible and editable memory graph, and an encrypted Secrets Vault the model never sees.",
+  "website": "https://www.tutuo.ai/en/octuo",
+  "repo": null,
+  "openSource": false,
+  "license": "proprietary",
+  "maker": "Tutuo, Inc.",
+  "interfaces": [
+    "desktop",
+    "mobile"
+  ],
+  "platforms": [
+    "macos",
+    "ios"
+  ],
+  "drives": [
+    "claude-code",
+    "codex-cli"
+  ],
+  "modelAccess": [
+    "subscription"
+  ],
+  "pricing": {
+    "model": "freemium",
+    "notes": "Plans from $20/month; 1,000 OC trial credits, no card required.",
+    "plans": []
+  },
+  "features": {
+    "multiProvider": true,
+    "acp": null,
+    "parallelAgents": null,
+    "subagents": null,
+    "customAgents": null,
+    "planMode": null,
+    "worktrees": null,
+    "checkpoints": null,
+    "diffReview": null,
+    "prIntegration": null,
+    "automations": null,
+    "mcp": true,
+    "skills": null,
+    "hooks": null,
+    "issueTracker": null,
+    "browserPreview": null,
+    "remoteAccess": null,
+    "cloudSandbox": null,
+    "sandboxing": null,
+    "headlessApi": null
+  },
+  "github": null,
+  "status": "active",
+  "install": [
+    {
+      "label": "Download",
+      "type": "url",
+      "value": "https://www.tutuo.ai/en/octuo",
+      "platforms": [
+        "macos"
+      ]
+    },
+    {
+      "label": "App Store",
+      "type": "url",
+      "value": "https://apps.apple.com/us/app/octuo-your-agent-ai-teams/id6767445826",
+      "platforms": [
+        "ios"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.tutuo.ai/en/octuo",
+    "https://apps.apple.com/us/app/octuo-your-agent-ai-teams/id6767445826"
+  ],
+  "lastVerified": "2026-11-27"
+}
